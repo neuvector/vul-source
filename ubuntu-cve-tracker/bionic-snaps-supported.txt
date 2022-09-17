@@ -1,0 +1,5 @@
+# In Bionic, snaps will be seeded and begin going through the MIR process.
+# The final step of the MIR process includes defining who is responsible for
+# the security support for the snap.
+# This file lists the snaps for which the Security Team has agreed to provide
+# security support.

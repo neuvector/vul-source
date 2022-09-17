@@ -1,0 +1,5 @@
+- Security/Soyuz bug list
+- Security/Malone bug list
+- per-binary tracking based on component (i.e. CVE is "not-affected" if the
+  issue is part of a binary package in universe)
+- per-release patch differentation

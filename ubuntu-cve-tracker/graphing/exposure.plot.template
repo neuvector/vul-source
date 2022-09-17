@@ -1,0 +1,19 @@
+set term png small size 640,480
+set output "exposure.png"
+
+#set key noenhanced
+
+#set auto x
+set key top center
+set xtics out
+set xlabel "Days"
+set ylabel "CVEs"
+set xrange [0:]
+set style fill solid
+
+# title is templatized
+set title "Exposure to Open CVEs"
+
+plot "exposure.data" using ($2+$3+$4):xtic(1) with boxes lc rgb 'black' title 'Critical', \
+     "exposure.data" using ($3+$4):xtic(1) with boxes lc rgb 'red' title 'High', \
+     "exposure.data" using ($4):xtic(1) with boxes lc rgb 'orange' title 'Medium'

@@ -1,0 +1,57 @@
+Candidate: CVE-2020-9999
+PublicDate: 2012-05-18
+PublicDateAtUSN: 2012-05-25
+CRD: 2012-05-25
+References:
+ http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9999
+ http://www.openwall.com/lists/oss-security/foo
+Description:
+ Test description.
+ To use, with cve.vim, do:
+ :set syntax=cve
+Ubuntu-Description:
+ Test Ubuntu description
+Notes:
+ ircnick> test note
+Bugs:
+ http://launchpad.net/bugs/123456
+Priority: high
+Discovered-by: Real Name
+Assigned-to: ircnick
+
+Tags_foo: symlink-restriction
+Tags_foo_precise: pie
+Priority_foo_precise: low
+Priority_foo: medium
+Patches_foo:
+ upstream: http://www.example.com/commit
+ vendor: http://www.example.com/url
+ patch: http://www.example.com/patch
+ debdiff: http://www.example.com/debdiff
+upstream_foo: released (1.0, 1.1)
+hardy_foo: ignored (reached end-of-life)
+intrepid_foo: DNE
+lucid_foo: needs-triage
+natty_foo: pending
+oneiric_foo: not-affected (code-not-compiled)
+precise_foo: deferred
+devel_foo: released (1.0)
+
+Tags_malformed: symlin-restriction
+Tags_malformed_prcise: pie
+Tags_malformed_lucid: fortify-soure
+Priority_malformed_precse: low
+Priority_malformed_lucid: lw
+Priority_malformed: medim
+Patches_malfor"med:
+ upstream: http://www.example.com/commit
+ vendor: http://www.example.com/url
+ patch: http://www.example.com/patch
+ debdiff: http://www.example.com/debdiff
+upstream_malformed: relased (1.0, 1.1)
+hardy_malformed: ignored reached end-of-life)
+lucid_malfor'med: needs-triage
+natty_malformed: non-existant
+oneiric_malformed: not-affected (code-not-compiled
+precisemalformed: deferred
+deel_foo: released (1.0)

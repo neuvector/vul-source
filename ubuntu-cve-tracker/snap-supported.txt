@@ -1,0 +1,9 @@
+core
+core18
+core20
+docker
+pc-kernel
+microk8s
+snapcraft
+snapd
+subiquity

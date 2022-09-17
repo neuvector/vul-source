@@ -1,0 +1,23 @@
+Canonical Supported Snaps
+-------------------------
+The Ubuntu Security Team track CVEs for Canonical supported snaps - these
+are usually derived from sources outside the Ubuntu archive and so are
+tracked separately.
+
+Similar to product kernels, the usual '<release>_<source package>'
+nomencalture is not applicable, so instead these are listed as
+snap_<snap-name>.
+
+-- Adding new supported snaps
+
+If the snap name is 'foo':
+1. update 'supported_snaps' in scripts/cve_lib.py to include 'foo' along
+   with its git tree and LP/Github project or to file bugs against. Eg:
+   supported_snaps = {...,
+                      'foo': ('http://git.url/...',
+                              'https://launchpad.net/project...'),
+                      }
+
+With the above:
+ * check-syntax will verify supported snaps
+ * html_export.py will export html relevant for a supported snap

@@ -1,0 +1,54 @@
+{
+  "tags": {},
+  "patches": {},
+  "PublicDateAtUSN": "2020-08-04 17:00:00 UTC",
+  "Candidate": "CVE-2020-0001",
+  "CRD": "2020-08-04 17:00:00 UTC",
+  "PublicDate": "2020-08-04 17:00:00 UTC",
+  "References": "\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0001",
+  "Description": "\ntest when patches entry is missing",
+  "Ubuntu-Description": "",
+  "Notes": [],
+  "Mitigation": "",
+  "Bugs": "",
+  "Priority": "medium",
+  "Discovered-by": "",
+  "Assigned-to": "",
+  "CVSS": [],
+  "pkgs": {
+    "ppp": {
+      "upstream": [
+        "needs-triage",
+        ""
+      ],
+      "precise/esm": [
+        "needed",
+        ""
+      ],
+      "trusty": [
+        "ignored",
+        "out of standard support"
+      ],
+      "trusty/esm": [
+        "needed",
+        ""
+      ],
+      "xenial": [
+        "released",
+        "2.4.7-1+2ubuntu1.16.04.3"
+      ],
+      "bionic": [
+        "released",
+        "2.4.7-2+2ubuntu1.3"
+      ],
+      "focal": [
+        "released",
+        "2.4.7-2+4.1ubuntu5.1"
+      ],
+      "devel": [
+        "released",
+        "2.4.7-2+4.1ubuntu6"
+      ]
+    }
+  }
+}

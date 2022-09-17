@@ -1,0 +1,13 @@
+
+        <constant_variable id="oval:com.ubuntu.bionic:var:438810000000" version="1" datatype="string" comment="?">
+            <value>linux-image-gke-5.0</value>
+        </constant_variable>
+        <constant_variable id="oval:com.ubuntu.bionic:var:438810000010" version="1" datatype="string" comment="?">
+            <value>linux-image-5.0.0-1059-oem-osp1</value>
+        </constant_variable>
+        <constant_variable id="oval:com.ubuntu.bionic:var:438810000020" version="1" datatype="string" comment="?">
+            <value>linux-image-oem-osp1</value>
+        </constant_variable>
+        <constant_variable id="oval:com.ubuntu.bionic:var:438810000030" version="1" datatype="string" comment="?">
+            <value>linux-image-5.0.0-1042-gke</value>
+        </constant_variable>

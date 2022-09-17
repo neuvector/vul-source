@@ -1,0 +1,36 @@
+(require 'ert)
+(require 'cvss-mode)
+
+;; from https://www.first.org/cvss/v3.1/examples
+(defvar cvss-mode-test-vectors '(("CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N" . 6.4)
+                                 ("CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N" . 3.1)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H" . 9.9)
+                                 ("CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L" . 4.2)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H" . 7.2)
+                                 ("CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H" . 7.8)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N" . 7.5)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H" . 9.8)
+                                 ("CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N" . 6.8)
+                                 ("CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H" . 6.8)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N" . 5.8)
+                                 ("CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:H" . 9.3)
+                                 ("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H" . 10.0)))
+
+(ert-deftest cvss-mode-test-parse-vector ()
+  "Test that parsing a vector string gives the correct result"
+  (let ((cvss (cvss-mode-parse-vector "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H")))
+    (should (equal (cvss-attack-vector cvss) 'network))
+    (should (equal (cvss-attack-complexity cvss) 'low))
+    (should (equal (cvss-privileges-required cvss) 'none))
+    (should (equal (cvss-user-interaction cvss) 'none))
+    (should (equal (cvss-scope cvss) 'changed))
+    (should (equal (cvss-confidentiality-impact cvss) 'high))
+    (should (equal (cvss-integrity-impact cvss) 'high))
+    (should (equal (cvss-availability-impact cvss) 'high))))
+
+(ert-deftest cvss-mode-test-calculate-scores ()
+  "Test that parsing a vector string gives the correct result"
+  (dolist (test-vector cvss-mode-test-vectors)
+    (let* ((cvss (cvss-mode-parse-vector (car test-vector)))
+           (scores (cvss-calculate-scores cvss)))
+      (should (equal (car scores) (cdr test-vector))))))
