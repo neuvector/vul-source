@@ -1,0 +1,12 @@
+ROS ESM
+-------------------------
+The Robotics team maintains the ROS (Robot Operating System) ESM as a separate service from regular ESM. For more details on ROS ESM, you can visit its wiki page: https://wiki.canonical.com/UbuntuEngineering/Security/ROS-ESM/ 
+
+Currently, ROS ESM supports two distros: ROS Kinetic, for Ubuntu Xenial, and ROS Melodic, for Ubuntu Bionic.
+
+To determine the package you’re working on is a ROS ESM package, please refer to the list of supported packages for ROS Kinetic ('ros-esm-xenial-kinetic-supported.txt') and ROS Melodic ('ros-esm-bionic-melodic-supported.txt').
+
+How to proceed?
+
+If a CVE affects a ROS ESM package, just notify the Robotics team via Mattermost (https://chat.canonical.com/canonical/channels/robotics), and leave its status as 'needs-triage'. 
+

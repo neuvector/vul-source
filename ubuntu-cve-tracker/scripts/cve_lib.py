@@ -184,7 +184,7 @@ subprojects = {
         "description": "Available with UA ... https://ubuntu.com/advantage",
     },
     "ros-esm/kinetic": {
-        "eol": True,
+        "eol": False,
         "packages": ["ros-esm-xenial-kinetic-supported.txt"],
         "name": "Ubuntu 16.04 ROS ESM",
         "codename": "Xenial Xerus",
