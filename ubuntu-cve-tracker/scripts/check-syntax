@@ -39,6 +39,7 @@ dev_proposed = source_map.load(pockets=["-proposed"], releases=[cve_lib.devel_re
 unpublished_kernels = [
     "linux-fips",  # XXX silencing warnings about xenial fips kernel, but
                    # the code need to be updated to handle esm releases
+    "linux-bluefield/jammy",  # linux-bluefield/jammy is coming, apparently
 ]
 
 required_fields = [
