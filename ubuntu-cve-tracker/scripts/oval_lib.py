@@ -53,6 +53,12 @@ def _open(fn, mode, encoding='utf-8'):
     return fd
 
 def prepare_instructions(instruction, cve, product_description, package):
+    if "LSN" in cve:
+        instruction = """\n
+To check your kernel type and Livepatch version, enter this command:
+
+canonical-livepatch status"""
+
     if not instruction:
         instruction = """\n
 Update Instructions:
@@ -64,7 +70,9 @@ by updating your system to the following package versions:""".format(cve)
     for binary in package["binaries"]:
         instruction += """{0} - {1}\n""".format(binary, package["fix-version"])
 
-    if "Long Term" in product_description or "Interim" in product_description:
+    if "LSN" in cve:
+        instruction += "Livepatch subscription required"
+    elif "Long Term" in product_description or "Interim" in product_description:
         instruction += "No subscription required"
     else:
         instruction += product_description
@@ -737,7 +745,7 @@ class OvalGeneratorUSN():
                                'variable')
     cve_base_url = 'https://ubuntu.com/security/{}'
     mitre_base_url = 'https://cve.mitre.org/cgi-bin/cvename.cgi?name={}'
-    usn_base_url = 'https://ubuntu.com/security/notices/USN-{}'
+    usn_base_url = 'https://ubuntu.com/security/notices/{}'
     lookup_cve_path = ['./active', './retired']
     generator_version = '1'
     oval_schema_version = '5.11.1'
@@ -746,6 +754,7 @@ class OvalGeneratorUSN():
     def __init__(self, release_codename, release_name, outdir='./', cve_dir=None, prefix='', oval_format='dpkg'):
         self.release_codename = release_codename.replace('/', '_')
         self.release_name = release_name
+        self.pocket = "security"
         self.product_description = None
         self.current_oval = None
         self.tmpdir = tempfile.mkdtemp(prefix='oval_lib-')
@@ -940,7 +949,7 @@ class OvalGeneratorUSN():
             'usn_id': usn_object['id'],
             'ns': self.ns,
             'title': "{} -- {}".format(usn_object['id'], usn_object['title']),
-            'plataform': "{}".format(self.release_name),
+            'platform': "{}".format(self.release_name),
             'usn_url': self.usn_base_url.format(usn_object['id']),
             'description': escape(' '.join((usn_object['description'].strip() + instructions).split('\n'))),
             'cves_references': cve_references,
@@ -954,7 +963,12 @@ class OvalGeneratorUSN():
         criteria = []
         kernel = False
         for test_ref in test_refs:
-            if 'kernel' in test_ref and self.oval_format == 'dpkg':
+            if self.pocket == 'livepatch' and self.oval_format == 'dpkg':
+                criteria.append('<criteria operator="AND">')
+                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, str(int(test_ref['testref_id']) + 1), self.product_description))
+                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('</criteria>')
+            elif 'kernel' in test_ref and self.oval_format == 'dpkg':
                 kernel = True
                 criteria.append('<criteria operator="AND">')
                 criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
@@ -972,9 +986,9 @@ class OvalGeneratorUSN():
            <metadata>
               <title>{title}</title>
               <affected family="unix">
-                 <platform>{plataform}</platform>
+                 <platform>{platform}</platform>
               </affected>
-              <reference source="USN" ref_url="{usn_url}" ref_id="USN-{usn_id}"/>
+              <reference source="USN" ref_url="{usn_url}" ref_id="{usn_id}"/>
               {cves_references}
               <description>{description}</description>
               <advisory from="security@ubuntu.com">
@@ -1015,6 +1029,19 @@ class OvalGeneratorUSN():
            <ind:state state_ref="{ns}:ste:{id}"/>
         </ind:variable_test>""".format(**mapping)
 
+            elif self.pocket == 'livepatch':
+                mapping['liv-id'] = str(int(test_ref['testref_id']) + 1)
+                test = \
+        """
+        <unix:file_test id="{ns}:tst:{liv-id}" version="1" check="all" check_existence="all_exist" comment="canonical-livepatch installed">
+           <unix:object object_ref="{ns}:obj:{liv-id}" />
+           <unix:state state_ref="{ns}:ste:{liv-id}" />
+        </unix:file_test>
+        <ind:textfilecontent54_test id="{ns}:tst:{id}" version="1" check="all" check_existence="all_exist" comment="livepatch testing">
+           <ind:object object_ref="{ns}:obj:{id}"/>
+           <ind:state state_ref="{ns}:ste:{id}"/>
+        </ind:textfilecontent54_test>""".format(**mapping)
+
             else:
                 test = \
         """
@@ -1052,6 +1079,21 @@ class OvalGeneratorUSN():
         <ind:variable_object id="{ns}:obj:{id}" version="1">
             <ind:var_ref>{ns}:var:{id}</ind:var_ref>
         </ind:variable_object>""".format(**mapping)
+
+            elif self.pocket == "livepatch":
+                mapping['liv-id'] = str(int(test_ref['testref_id']) + 1)
+                mapping['module'] = test_ref['pkgs']
+                _object =  \
+        """
+        <unix:file_object id="{ns}:obj:{liv-id}" version="1" comment="{product}">
+             <unix:filepath>/snap/bin/canonical-livepatch</unix:filepath>
+        </unix:file_object>
+        <ind:textfilecontent54_object id="{ns}:obj:{id}" version="1" comment="{product}">
+             <ind:filepath datatype="string">/proc/modules</ind:filepath>
+             <!-- <ind:pattern operation="pattern match">^{module}\s.*$</ind:pattern> -->
+             <ind:pattern operation="pattern match" var_ref="{ns}:var:{id}" var_check="at least one" />
+             <ind:instance datatype="int">1</ind:instance>
+        </ind:textfilecontent54_object>""".format(**mapping)
 
             else:
                 _object = \
@@ -1099,6 +1141,18 @@ class OvalGeneratorUSN():
         <ind:variable_state id="{ns}:ste:{id}" version="1">
             <ind:value operation="greater than" datatype="debian_evr_string" var_ref="{ns}:var:{varid}" var_check="at least one" />
         </ind:variable_state>""".format(**mapping)
+
+            elif self.pocket == "livepatch":
+                mapping['liv-id'] = str(int(test_ref['testref_id']) + 1)
+                mapping['bversion'] = binary_version
+                state = \
+        """
+        <unix:file_state id="{ns}:ste:{liv-id}" version="1">
+            <unix:size datatype="int" operation="greater than">0</unix:size>
+        </unix:file_state>
+        <ind:textfilecontent54_state id="{ns}:ste:{id}" version="1">
+            <ind:subexpression datatype="int" operation="less than">{bversion}</ind:subexpression>
+        </ind:textfilecontent54_state>""".format(**mapping)
 
             else:
                 if binary_version.find(':') != -1:
@@ -1250,7 +1304,12 @@ class OvalGeneratorUSN():
     def get_version_from_binaries(self, usn_allbinaries):
         version_map = collections.defaultdict(list)
         for k, v in usn_allbinaries.items():
-            version_map[v['version']].append(k)
+            if 'module' in v:
+                self.pocket = 'livepatch'
+                version_map[v['version']].append(v['module'])
+            else:
+                self.pocket = 'security'
+                version_map[v['version']].append(k)
 
         return version_map
 
@@ -1289,20 +1348,19 @@ class OvalGeneratorUSN():
         return usn_allbinaries
 
     def update_release_name_from_pocket_or_stamp(self, binaries, stamp):
-        pocket = "security"
         for b in binaries:
             try:
-                pocket = binaries[b]['pocket']
+                self.pocket = binaries[b]['pocket']
                 break
             except KeyError:
                 # trusty usns don't have pocket, so try to check on timestamp
                 if self.release_codename == 'trusty' and stamp >= release_stamp('esm/trusty'):
-                    pocket = 'esm'
+                    self.pocket = 'esm'
                 else:
-                    pocket = 'security'
+                    self.pocket = 'security'
                 break
 
-        if pocket in ['security', 'updates']:
+        if self.pocket in ['security', 'updates', 'livepatch']:
             self.release_name = release_name(self.release_codename)
             self.product_description = get_subproject_description(self.release_codename)
         else:
@@ -1311,8 +1369,8 @@ class OvalGeneratorUSN():
                 self.release_name = release_name('esm/' + self.release_codename)
                 self.product_description = get_subproject_description('esm/' + self.release_codename)
             else:
-                self.release_name = release_name(pocket + '/' + self.release_codename)
-                self.product_description = get_subproject_description(pocket + '/' + self.release_codename)
+                self.release_name = release_name(self.pocket + '/' + self.release_codename)
+                self.product_description = get_subproject_description(self.pocket + '/' + self.release_codename)
 
     def generate_usn_oval(self, usn_object, usn_number, cve_dir):
         if self.release_codename not in usn_object['releases'].keys():
@@ -1326,6 +1384,11 @@ class OvalGeneratorUSN():
         self.update_release_name_from_pocket_or_stamp(usn_allbinaries, usn_object['timestamp'])
 
         binary_versions = self.get_version_from_binaries(usn_allbinaries)
+
+        # OCI OVAL does not check running system, therefore it can
+        # skip LSNs
+        if self.oval_format == "oci" and self.pocket == 'livepatch':
+            return
 
         # group binaries with same version (most likely from same source)
         # and create a test_ref for the group to be used when creating
@@ -1343,12 +1406,11 @@ class OvalGeneratorUSN():
             # prepare update instructions
             pkg['binaries'] = binary_versions[key]
             pkg['fix-version'] = key
-            instructions = prepare_instructions(instructions, "USN-" + usn_number, self.product_description, pkg)
+            instructions = prepare_instructions(instructions, usn_object['id'], self.product_description, pkg)
 
         # Create the oval objects
         # Only need one definition, but if multiple versions of binary pkgs,
         # then may need several test, object, state and var
-
         usn_def = self.create_usn_definition(usn_object, usn_number, id_base, test_refs, cve_dir, instructions)
         self.oval_structure['definition'].write(usn_def)
 

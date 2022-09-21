@@ -52,6 +52,8 @@ class TestOvalLibUnit:
     usn_mock = "4388-1"
     id_base_mock = 43881000000
     test_cve_file = "CVE-TEST"
+    usn_object_mock['id'] = "USN-" + usn_mock
+
 
     bin_dict_mock = collections.defaultdict(list)
     bin_dict_mock = {'5.0.0.1042.27': ['linux-image-gke-5.0'], '5.0.0-1059.64':
@@ -83,7 +85,7 @@ class TestOvalLibUnit:
     definition_mock = """
         <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
            <metadata>
-              <title>4388-1 -- Linux kernel vulnerabilities</title>
+              <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
               <affected family="unix">
                  <platform>Ubuntu 18.04 LTS</platform>
               </affected>
@@ -276,7 +278,7 @@ class TestOvalLibUnit:
     invalid_priority_ret = """
         <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
            <metadata>
-              <title>4388-1 -- Linux kernel vulnerabilities</title>
+              <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
               <affected family="unix">
                  <platform>Ubuntu 18.04 LTS</platform>
               </affected>
@@ -497,6 +499,7 @@ No subscription required"""
         create_bug_ref_mock.return_value = self.url_ref_mock
         get_usn_severity_mock.return_value = self.avg_severity_mock
 
+        print(self.usn_object_mock)
         definition_ret = oval_lib.OvalGeneratorUSN.create_usn_definition(
             self.oval_gen_mock, self.usn_object_mock, self.usn_mock,
             self.id_base_mock, self.test_refs_mock, rel_test_path,

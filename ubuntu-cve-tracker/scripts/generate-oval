@@ -466,7 +466,6 @@ def debug(message):
     if debug_level > 0:
         sys.stdout.write('\rDEBUG: {0}\n'.format(message))
 
-
 def progress_bar(current, total, size=20):
     """ show a simple progress bar on the CLI """
     current_percent = float(current) / total
@@ -477,6 +476,10 @@ def progress_bar(current, total, size=20):
         sys.stdout.write('\n')
 
     sys.stdout.flush()
+
+def prepend_usn_to_id(usn_database, usn_id):
+    if re.search(r'^[0-9]+-[0-9]$', usn_id):
+        usn_database[usn_id]['id'] = 'USN-' + usn_id
 
 
 # Class to contain the binary package cache
@@ -634,15 +637,12 @@ class PackageCache():
 # loads usn database.json based given a path to it.
 # To get the database proceed as: $UCT/scripts/fetch-db database.json.bz2
 def get_usn_database(usn_db_dir):
-    data = None
-    default_usn_database = os.path.join(usn_db_dir, 'database.json')
-    if not os.path.exists(default_usn_database):
-        error('{} must exists'.format(default_usn_database))
+    data = {}
+    for filename in glob.glob(os.path.join(usn_db_dir, 'database*.json')):
+        with open(filename, 'r') as f:
+            data.update(json.load(f))
 
-    with open(default_usn_database, 'r') as database:
-        data = json.load(database)
-        return data
-    return None
+    return data
 
 # Usage:
 # for a given release only:
@@ -693,18 +693,20 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
 
     # Generate OVAL USN data
     if usn:
+        prepend_usn_to_id(usn_database, usn)
         for oval in ovals:
-            oval.generate_usn_oval(usn_database[usn], usn, cve_dir)
+            oval.generate_usn_oval(usn_database[usn], usn_database[usn]['id'], cve_dir)
     else:
         for usn in usn_database.keys():
+            prepend_usn_to_id(usn_database, usn)
             for oval in ovals:
-                oval.generate_usn_oval(usn_database[usn], usn, cve_dir)
+                oval.generate_usn_oval(usn_database[usn], usn_database[usn]['id'], cve_dir)
 
     for oval in ovals:
         oval.write_oval_elements()
 
-
     return True
+
 
 if __name__ == '__main__':
     main()
