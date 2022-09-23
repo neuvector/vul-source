@@ -1,0 +1,37 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles python-msgpack binaries
+ mdeslaur> when built. After updating python-msgpack, a no-change
+ mdeslaur> rebuild of python-pip is required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_python-msgpack:
+upstream_python-msgpack: 
+trusty_python-msgpack: DNE
+trusty/esm_python-msgpack: DNE
+xenial_python-msgpack: DNE
+bionic_python-msgpack: needs-triage
+focal_python-msgpack: needs-triage
+jammy_python-msgpack: needs-triage
+devel_python-msgpack: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

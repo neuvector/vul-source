@@ -1,0 +1,35 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ jdstrand> snapd contains an embedded copy of golang-ar
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_golang-ar:
+upstream_golang-ar: needs-triage
+trusty_golang-ar: DNE
+trusty/esm_golang-ar: DNE
+xenial_golang-ar: ignored (end of standard support)
+bionic_golang-ar: needs-triage
+focal_golang-ar: needs-triage
+jammy_golang-ar: needs-triage
+devel_golang-ar: needs-triage
+
+Patches_snapd:
+upstream_snapd: needs-triage
+trusty_snapd: DNE
+trusty/esm_snapd: DNE
+xenial_snapd: ignored (end of standard support)
+esm-infra/xenial_snapd: needs-triage
+bionic_snapd: needs-triage
+focal_snapd: needs-triage
+snap_snapd: needs-triage
+jammy_snapd: needs-triage
+devel_snapd: needs-triage

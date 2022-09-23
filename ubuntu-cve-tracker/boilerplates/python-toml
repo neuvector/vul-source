@@ -1,0 +1,37 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles python-toml binaries
+ mdeslaur> when built. After updating python-toml, a no-change
+ mdeslaur> rebuild of python-pip is required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_python-toml:
+upstream_python-toml: 
+trusty_python-toml: DNE
+trusty/esm_python-toml: DNE
+xenial_python-toml: ignored (end of standard support)
+bionic_python-toml: needs-triage
+focal_python-toml: needs-triage
+jammy_python-toml: needs-triage
+devel_python-toml: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

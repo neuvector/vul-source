@@ -1,0 +1,48 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles python-setuptools binaries
+ mdeslaur> when built. After updating python-setuptools, a no-change
+ mdeslaur> rebuild of python-pip is required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_python-setuptools:
+upstream_python-setuptools: 
+trusty_python-setuptools: ignored (reached end-of-life)
+trusty/esm_python-setuptools: needs-triage
+xenial_python-setuptools: ignored (end of standard support)
+esm-infra/xenial_python-setuptools: needs-triage
+bionic_python-setuptools: needs-triage
+focal_python-setuptools: needs-triage
+jammy_python-setuptools: needs-triage
+devel_python-setuptools: needs-triage
+
+Patches_setuptools:
+upstream_setuptools: 
+trusty_setuptools: DNE
+trusty/esm_setuptools: DNE
+xenial_setuptools: DNE
+bionic_setuptools: DNE
+focal_setuptools: needs-triage
+jammy_setuptools: needs-triage
+devel_setuptools: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

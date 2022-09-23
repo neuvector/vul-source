@@ -1,0 +1,37 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles pep517 binaries when built.
+ mdeslaur> After updating pep517, a no-change rebuild of python-pip is
+ mdeslaur> required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_pep517:
+upstream_pep517: 
+trusty_pep517: DNE
+trusty/esm_pep517: DNE
+xenial_pep517: DNE
+bionic_pep517: DNE
+focal_pep517: needs-triage
+jammy_pep517: needs-triage
+devel_pep517: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

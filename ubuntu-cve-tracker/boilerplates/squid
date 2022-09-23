@@ -1,0 +1,33 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_squid3:
+upstream_squid3: needs-triage
+trusty_squid3: ignored (out of standard support)
+trusty/esm_squid3: DNE
+xenial_squid3: ignored (end of standard support)
+esm-infra/xenial_squid3: needs-triage
+bionic_squid3: needs-triage
+focal_squid3: DNE
+jammy_squid3: DNE
+devel_squid3: DNE
+
+Patches_squid:
+upstream_squid: needs-triage
+trusty_squid: ignored (out of standard support)
+trusty/esm_squid: DNE
+xenial_squid: DNE
+bionic_squid: DNE
+focal_squid: needs-triage
+jammy_squid: needs-triage
+devel_squid: needs-triage

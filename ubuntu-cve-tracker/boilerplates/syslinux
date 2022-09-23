@@ -1,0 +1,35 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_syslinux:
+upstream_syslinux: needs-triage
+trusty_syslinux: ignored (out of standard support)
+trusty/esm_syslinux: needs-triage
+xenial_syslinux: ignored (end of standard support)
+esm-infra/xenial_syslinux: needs-triage
+bionic_syslinux: needs-triage
+focal_syslinux: needs-triage
+jammy_syslinux: needs-triage
+devel_syslinux: needs-triage
+
+Patches_syslinux-legacy:
+upstream_syslinux-legacy: needs-triage
+trusty_syslinux-legacy: ignored (out of standard support)
+trusty/esm_syslinux-legacy: DNE
+xenial_syslinux-legacy: ignored (end of standard support)
+esm-infra/xenial_syslinux-legacy: needs-triage
+bionic_syslinux-legacy: needs-triage
+focal_syslinux-legacy: needs-triage
+jammy_syslinux-legacy: DNE
+devel_syslinux-legacy: DNE
+

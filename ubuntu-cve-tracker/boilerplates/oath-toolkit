@@ -1,0 +1,24 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes:
+ jdstrand> oath-toolkit source and liboath0 binary is in main in cosmic-updates
+  but universe at release. See https://launchpad.net/bugs/1783706
+Mitigation: 
+Bugs: 
+Priority: medium
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_oath-toolkit:
+upstream_oath-toolkit: needs-triage
+trusty_oath-toolkit: ignored (out of standard support)
+trusty/esm_oath-toolkit: DNE
+xenial_oath-toolkit: ignored (end of standard support)
+bionic_oath-toolkit: needs-triage
+focal_oath-toolkit: needs-triage
+jammy_oath-toolkit: needs-triage
+devel_oath-toolkit: needs-triage

@@ -1,0 +1,26 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ seth-arnold> binutils isn't safe for untrusted inputs.
+Mitigation: 
+Bugs: 
+Priority: negligible
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+#Patches_binutils:
+#upstream_binutils: 
+#trusty_binutils:
+#trusty/esm_binutils:
+#xenial_binutils:
+#esm-infra/xenial_binutils:
+#bionic_binutils:
+#focal_binutils:
+#hirsute_binutils:
+#impish_binutils:
+#jammy_binutils:
+#devel_binutils:

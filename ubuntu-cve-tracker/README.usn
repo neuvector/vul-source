@@ -30,7 +30,7 @@ versions.
 Make sure the source package description was properly set for every affected
 release (i.e. the value for the usn.py --source-description argument in the
 generated usn shell script is set). If it was not automatically populated, make
-sure the source package is present in $UCT/meta_list/package-db.json
+sure the source package is present in $UCT/meta_lists/package_info_overrides.json
 and add it if it is not.
 
 ** CVEs references

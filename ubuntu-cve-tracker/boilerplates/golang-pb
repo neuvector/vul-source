@@ -1,0 +1,56 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ jdstrand> snapd contains an embedded copy of golang-pb
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_golang-gopkg-cheggaaa-pb.v1:
+upstream_golang-gopkg-cheggaaa-pb.v1: needs-triage
+trusty_golang-gopkg-cheggaaa-pb.v1: ignored (out of standard support)
+trusty/esm_golang-gopkg-cheggaaa-pb.v1: DNE
+xenial_golang-gopkg-cheggaaa-pb.v1: DNE
+bionic_golang-gopkg-cheggaaa-pb.v1: needs-triage
+focal_golang-gopkg-cheggaaa-pb.v1: needs-triage
+jammy_golang-gopkg-cheggaaa-pb.v1: needs-triage
+devel_golang-gopkg-cheggaaa-pb.v1: needs-triage
+
+Patches_golang-gopkg-cheggaaa-pb.v2:
+upstream_golang-gopkg-cheggaaa-pb.v2: needs-triage
+trusty_golang-gopkg-cheggaaa-pb.v2: ignored (out of standard support)
+trusty/esm_golang-gopkg-cheggaaa-pb.v2: DNE
+xenial_golang-gopkg-cheggaaa-pb.v2: DNE
+bionic_golang-gopkg-cheggaaa-pb.v2: DNE
+focal_golang-gopkg-cheggaaa-pb.v2: needs-triage
+jammy_golang-gopkg-cheggaaa-pb.v2: needs-triage
+devel_golang-gopkg-cheggaaa-pb.v2: needs-triage
+
+Patches_golang-pb:
+upstream_golang-pb: needs-triage
+trusty_golang-pb: ignored (out of standard support)
+trusty/esm_golang-pb: DNE
+xenial_golang-pb: ignored (end of standard support)
+esm-infra/xenial_golang-pb: needs-triage
+bionic_golang-pb: needs-triage
+focal_golang-pb: DNE
+jammy_golang-pb: DNE
+devel_golang-pb: DNE
+
+Patches_snapd:
+upstream_snapd: needs-triage
+trusty_snapd: DNE
+trusty/esm_snapd: DNE
+xenial_snapd: ignored (end of standard support)
+esm-infra/xenial_snapd: needs-triage
+bionic_snapd: needs-triage
+focal_snapd: needs-triage
+snap_snapd: needs-triage
+jammy_snapd: needs-triage
+devel_snapd: needs-triage

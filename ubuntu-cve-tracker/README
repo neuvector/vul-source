@@ -677,11 +677,11 @@ New Backport Kernel
 When a new backport kernel is added, update scripts/cve_lib.py's
 kernel_srcs and description_overrides.
 
-Then update the meta_lists/package-db.json with its entry, add that entry to each
-CVE with an entry for the LTS the kernel was added to, and update all the
-statuses for the newly added kernel, based off the version it will be
-branched from. For example, to add a new kernel backported from Vivid to
-the Trusty LTS release, run the following command:
+Then update the meta_lists/package_info_overrides.json with its entry, add that
+entry to each CVE with an entry for the LTS the kernel was added to, and update
+all the statuses for the newly added kernel, based off the version it will be
+branched from. For example, to add a new kernel backported from Vivid to the
+Trusty LTS release, run the following command:
 
 ./scripts/add-backport-kernel -l trusty -b vivid
 

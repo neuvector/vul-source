@@ -53,6 +53,7 @@ if 'UCT' in os.environ:
     embargoed_dir = os.environ['UCT'] + "/embargoed"
     meta_dir = os.path.join(os.environ['UCT'], 'meta_lists')
     subprojects_dir = os.environ['UCT'] + "/subprojects"
+    boilerplates_dir = os.environ['UCT'] + "/boilerplates"
 else:
     active_dir = set_cve_dir("active")
     retired_dir = set_cve_dir("retired")
@@ -60,6 +61,7 @@ else:
     embargoed_dir = "embargoed"     # Intentionally not using set_cve_dir()
     meta_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'meta_lists')
     subprojects_dir = "subprojects"
+    boilerplates_dir = "boilerplates"
 
 PRODUCT_UBUNTU = "ubuntu"
 
@@ -913,31 +915,6 @@ kernel_srcs = set(['linux',
                    'linux-5.9'])
 kernel_topic_branches = kernel_srcs.difference(['linux'])
 
-# for sanity, try to keep these in alphabetical order in the json file
-def load_package_db(dir=meta_dir):
-    pkg_db = {}
-    pkg_db_json = os.path.join(dir, "package-db.json")
-    with codecs.open(pkg_db_json, 'r', encoding='utf-8') as fp:
-        pkg_db = json.load(fp)
-        # add lookups based on aliases - we can't iterate over pkg_db and
-        # modify it so collect aliases then add them manually
-        alias_info = {}
-        for p in pkg_db:
-            # set a name field for each package entry as the preferred name
-            # - this is then used when looking up by alias later
-            pkg_db[p]["name"] = p
-            try:
-                aliases = pkg_db[p]["aliases"]
-                if len(aliases) > 0:
-                    alias_info[p] = aliases
-            except KeyError:
-                pass
-        for p in alias_info.keys():
-            for a in alias_info[p]:
-                if a not in pkg_db:
-                    # use original info if already in pkg_db
-                    pkg_db[a] = pkg_db[p]
-    return pkg_db
 
 
 # "arch_list" is all the physical architectures buildable
@@ -1246,24 +1223,6 @@ def release_is_older_than(release_a, release_b):
     return all_releases.index(release_a) < all_releases.index(release_b)
 
 
-
-package_db = load_package_db()
-
-def lookup_package_override_title(source):
-    global package_db
-    res = package_db.get(source)
-    if isinstance(res, dict):
-        return(res.get("title"))
-
-    return None
-
-def lookup_package_override_description(source):
-    global package_db
-    res = package_db.get(source)
-    if isinstance(res, dict):
-        return(res.get("description"))
-
-    return None
 
 cve_dirs = [active_dir, retired_dir, ignored_dir]
 if os.path.islink(embargoed_dir):
@@ -1759,14 +1718,14 @@ class NotesParser(object):
         if self.user and self.separator and self.note:
             # if is different user, start a new note
             if new_user != self.user:
-                self.notes.append((self.user, self.note))
+                self.notes.append([self.user, self.note])
                 self.user = new_user
                 self.note = new_note
                 self.separator = new_sep
             elif new_sep != self.separator:
                 # finish this note and start a new one since this has new
                 # semantics
-                self.notes.append((self.user, self.note))
+                self.notes.append([self.user, self.note])
                 self.separator = new_sep
                 self.note = new_note
             else:
@@ -1785,7 +1744,7 @@ class NotesParser(object):
     def finalize(self):
         if self.user is not None and self.note is not None:
             # add last Note
-            self.notes.append((self.user, self.note))
+            self.notes.append([self.user, self.note])
             self.user = None
             self.note = None
         notes = self.notes
@@ -1795,6 +1754,46 @@ class NotesParser(object):
         return notes
 
 
+
+def amend_external_subproject_pkg(cve, data, srcmap, amendments, code, msg):
+    linenum = 0
+    for line in amendments.splitlines():
+        linenum += 1
+        if len(line) == 0 or line.startswith('#') or line.startswith(' '):
+            continue
+        try:
+            field, value = line.split(':', 1)
+            field = field.strip()
+            value = value.strip()
+        except ValueError as e:
+            msg += "%s: bad line '%s' (%s)\n" % (cve, line, e)
+            code = EXIT_FAIL
+            return code, msg
+
+        if '_' in field:
+            success, pkg, release, state, details, code, msg = parse_cve_release_package_field(cve, field, data, value, code, msg, linenum)
+            if not success:
+                return code, msg
+
+            data.setdefault("pkgs", dict())
+            data["pkgs"].setdefault(pkg, dict())
+            srcmap["pkgs"].setdefault(pkg, dict())
+            # override existing release info if it exists
+            data["pkgs"][pkg][release] = [state, details]
+            srcmap["pkgs"][pkg][release] = (cve, linenum)
+
+    return code, msg
+
+
+def load_external_subproject_cve_data(cve, data, srcmap, code, msg):
+    cve_id = os.path.basename(cve)
+    for f in find_external_subproject_cves(cve_id):
+        with codecs.open(f, 'r', encoding="utf-8") as fp:
+            amendments = fp.read()
+            fp.close()
+        code, msg = amend_external_subproject_pkg(f, data, srcmap, amendments, code, msg)
+
+    return code, msg
 
 def load_cve(cve, strict=False, srcmap=None):
     '''Loads a given CVE into:
@@ -1982,7 +1981,8 @@ def load_cve(cve, strict=False, srcmap=None):
 
     # Check for required fields
     for field in required_fields:
-        nonempty = ['Candidate']
+        # boilerplate files are special and can (should?) be empty
+        nonempty = [] if "boilerplate" in cve else ['Candidate']
         if strict:
             nonempty += ['PublicDate']
 
@@ -2122,6 +2122,93 @@ def load_table(cves, uems, opt=None, rcves=[], icves=[]):
     updated_cves = listcves
     return (table, priority, updated_cves, namemap, cveinfo)
 
+def parse_boilerplate(filepath):
+    cve_data = load_cve(filepath)
+    # capture tags, Notes, and package relationships
+    data = dict()
+    data.setdefault("aliases", list())
+    # tags are a set but json can't serialise a set so convert to a list first
+    data.setdefault("tags", list(cve_data.get("tags", list())))
+    data.setdefault("notes", cve_data.get("Notes", list()))
+    data.setdefault("pkgs", cve_data.get("pkgs", dict()))
+    return data
+
+
+def load_boilerplates():
+    data = dict()
+    aliases = dict()
+    for filepath in glob.glob(os.path.join(boilerplates_dir, "*")):
+        name = os.path.basename(filepath)
+        # check if is a symlink and if so don't bother loading the file
+        # directly but add an entry as this is an alias
+        if os.path.islink(filepath):
+            orig_name = os.readlink(filepath)
+            aliases.setdefault(orig_name, set())
+            aliases[orig_name].add(name)
+            continue
+        bpdata = parse_boilerplate(filepath)
+        # having a package reference itself as we have in the boilerplates
+        # is redundant - although this is not always the case as we may
+        # have a boilerplate filename like openjdk yet there is no openjdk
+        # package (just openjdk-8 etc) - so ignore any failures here
+        try:
+            del bpdata["pkgs"][name]
+        except KeyError:
+            pass
+        data.setdefault(name, bpdata)
+    for alias in aliases:
+        data[alias]["aliases"] = sorted(list(aliases[alias]))
+    return data
+
+# for sanity, try to keep these in alphabetical order in the json file
+def load_package_info_overrides():
+    with open(os.path.join(meta_dir, "package_info_overrides.json"), "r") as fp:
+        data = json.load(fp)
+        return data
+
+package_info_overrides = load_package_info_overrides()
+
+def load_package_db():
+    pkg_db = load_boilerplates()
+
+    # add lookups based on aliases - we can't iterate over pkg_db and
+    # modify it so collect aliases then add them manually
+    alias_info = {}
+    for p in pkg_db:
+        # set a name field for each package entry as the preferred name
+        # - this is then used when looking up by alias later
+        pkg_db[p]["name"] = p
+        try:
+            aliases = pkg_db[p]["aliases"]
+            if len(aliases) > 0:
+                alias_info[p] = aliases
+        except KeyError:
+            pass
+    for p in alias_info.keys():
+        for a in alias_info[p]:
+            if a not in pkg_db:
+                # use original info if already in pkg_db
+                pkg_db[a] = pkg_db[p]
+
+    return pkg_db
+
+package_db = load_package_db()
+
+def lookup_package_override_title(source):
+    global package_info_overrides
+    res = package_info_overrides.get(source)
+    if isinstance(res, dict):
+        return(res.get("title"))
+
+    return None
+
+def lookup_package_override_description(source):
+    global package_info_overrides
+    res = package_info_overrides.get(source)
+    if isinstance(res, dict):
+        return(res.get("description"))
+
+    return None
 
 def is_overlay_ppa(rel):
     return '/' in rel
@@ -2701,46 +2788,6 @@ def cve_sort(a, b):
         return -1
     else:
         return 0
-
-def amend_external_subproject_pkg(cve, data, srcmap, amendments, code, msg):
-    linenum = 0
-    for line in amendments.splitlines():
-        linenum += 1
-        if len(line) == 0 or line.startswith('#') or line.startswith(' '):
-            continue
-        try:
-            field, value = line.split(':', 1)
-            field = field.strip()
-            value = value.strip()
-        except ValueError as e:
-            msg += "%s: bad line '%s' (%s)\n" % (cve, line, e)
-            code = EXIT_FAIL
-            return code, msg
-
-        if '_' in field:
-            success, pkg, release, state, details, code, msg = parse_cve_release_package_field(cve, field, data, value, code, msg, linenum)
-            if not success:
-                return code, msg
-
-            data.setdefault("pkgs", dict())
-            data["pkgs"].setdefault(pkg, dict())
-            srcmap["pkgs"].setdefault(pkg, dict())
-            # override existing release info if it exists
-            data["pkgs"][pkg][release] = [state, details]
-            srcmap["pkgs"][pkg][release] = (cve, linenum)
-
-    return code, msg
-
-
-def load_external_subproject_cve_data(cve, data, srcmap, code, msg):
-    cve_id = os.path.basename(cve)
-    for f in find_external_subproject_cves(cve_id):
-        with codecs.open(f, 'r', encoding="utf-8") as fp:
-            amendments = fp.read()
-            fp.close()
-        code, msg = amend_external_subproject_pkg(f, data, srcmap, amendments, code, msg)
-
-    return code, msg
 
 def is_retired(cve):
     return os.path.exists(os.path.join(retired_dir, cve))

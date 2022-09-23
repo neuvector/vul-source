@@ -10,7 +10,7 @@ if len(sys.argv) != 4:
 package = sys.argv[1]
 title = sys.argv[2]
 description = sys.argv[3]
-json_file = os.environ['UCT'] + "/meta_lists/package-db.json"
+json_file = os.environ['UCT'] + "/meta_lists/package_info_overrides.json"
 
 with open(json_file, 'r') as handle:
     parsed = json.load(handle)

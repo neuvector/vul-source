@@ -1,0 +1,38 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles html5lib binaries when built.
+ mdeslaur> After updating html5lib, a no-change rebuild of python-pip is
+ mdeslaur> required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_html5lib:
+upstream_html5lib: 
+trusty_html5lib: ignored (reached end of life)
+trusty/esm_html5lib: DNE
+xenial_html5lib: ignored (end of standard support)
+esm-infra/xenial_html5lib: needs-triage
+bionic_html5lib: needs-triage
+focal_html5lib: needs-triage
+jammy_html5lib: needs-triage
+devel_html5lib: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

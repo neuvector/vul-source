@@ -43,11 +43,11 @@ Thunderbird will be transitioning from 3.0 to 3.1 on Ubuntu 10.04 LTS.
 
 CVE Triage
 ----------
-CVEs in Firefox are tracked in the xulrunner source packages for builds that
-use the system xulrunner, and firefox source packages for those that use a
-static build. meta_lists/package-db.json is used to capture the source
-package relationships when triaging CVEs for firefox (ie, you only need to
-specify 'firefox' as the source package).
+CVEs in Firefox are tracked in the xulrunner source packages for builds that use
+the system xulrunner, and firefox source packages for those that use a static
+build. boilerplates/firefox is used to capture the source package relationships
+when triaging CVEs for firefox (ie, you only need to specify 'firefox' as the
+source package).
 
 The following sources are currently ignored:
 firefox: (ignored EOL) Ubuntu 6.06 LTS (static build)
@@ -66,6 +66,6 @@ firefox: Ubuntu 8.04 LTS and higher (static build of 3.6.x or higher)
 
 Additionally, the following share a common codebase and are affected by the
 same CVE often enough that they warrant being part of the firefox pkgs set in
-meta_lists/package-db.json:
+boilerplates/firefox:
 seamonkey
 thunkerbird

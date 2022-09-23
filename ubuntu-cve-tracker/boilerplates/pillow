@@ -1,0 +1,33 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_pillow:
+upstream_pillow: needs-triage
+trusty_pillow: ignored (out of standard support)
+trusty/esm_pillow: needs-triage
+xenial_pillow: ignored (end of standard support)
+esm-infra/xenial_pillow: needs-triage
+bionic_pillow: needs-triage
+focal_pillow: needs-triage
+jammy_pillow: needs-triage
+devel_pillow: needs-triage
+
+Patches_pillow-python2:
+upstream_pillow-python2: needs-triage
+trusty_pillow-python2: DNE
+trusty/esm_pillow-python2: DNE
+xenial_pillow-python2: DNE
+bionic_pillow-python2: DNE
+focal_pillow-python2: needs-triage
+jammy_pillow-python2: DNE
+devel_pillow-python2: DNE

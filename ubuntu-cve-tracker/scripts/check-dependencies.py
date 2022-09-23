@@ -60,7 +60,8 @@ def gather_files(release, base_path, arch='', ppa_type=''):
     target_folders = list(filter(lambda folder_path: 'debian-installer' not in folder_path, all_folders))
     source_folders = list(filter(lambda folder_path: 'source' in folder_path and ppa_type in folder_path and release in folder_path, target_folders))
     binary_folders = list(filter(lambda folder_path: 'binary-' in folder_path and arch in folder_path and ppa_type in folder_path and release in folder_path, target_folders))
-    
+    binary_folders = list(filter(lambda folder_path: 'proposed' not in folder_path, binary_folders))
+
     for folder in source_folders:
             sources.append(folder + '/Sources.gz')
     for folder in binary_folders:
@@ -134,12 +135,15 @@ def get_data_sources(files, arch=''):
     return packages, dependencies, binaries, versions
 
 def get_alternative_provides(files, packages, binaries):
+    cargo_deps = [[] for _ in range(len(binaries))]
     for filename in files:
         print(f'Processing {filename:<150}', end= '\r')
         with gzip.open(filename, 'rt') as file:
             current_package = ''
             is_providing = False
+            is_cargo_built_using = False
             provides = []
+            current_cargo_deps = []
             for line in file:
                 if 'Package: ' in line:
                     current_package = line[9:-1]
@@ -154,10 +158,21 @@ def get_alternative_provides(files, packages, binaries):
                         if current_package in packages:
                             provides = list(map(lambda item: item.split(' ')[0],provides)) 
                             binaries[packages.index(current_package)] += provides
-                        provides = ', '
                     else:
                         provides += [item.strip() for item in line.split(', ')]
+                elif 'X-Cargo-Built-Using:' in line:
+                    is_cargo_built_using = True
+                    current_cargo_deps = [item.strip() for item in line[20:].split(', ')]
+                elif is_cargo_built_using:
+                    if ':' in line:
+                        is_cargo_built_using = False
+                        current_cargo_deps = list(map(lambda item: item.split(' ')[0],current_cargo_deps)) 
+                        cargo_deps[packages.index(current_package)] = current_cargo_deps
+                    else:
+                        current_cargo_deps += [item.strip() for item in line.split(', ')]
+
     print()
+    return cargo_deps
 
 def version_compare(version1, version2, specifier):
     relation = ''
@@ -199,6 +214,11 @@ def check_dependency(names, dependencies, version, ignore_version=False):
 
     return indexes
 
+def get_cargo_affected_packages(indexes, cargo_dependencies, packages, dependencies):
+    for i in indexes:
+        if len(cargo_dependencies[i]) > 0 and 'dh-cargo'  in ''.join(dependencies[i]):
+            print(f'{packages[i]} needs rebuild')
+
 def print_dependencies(dependencies):
     print('------------------------------')
     for dependency in dependencies:
@@ -211,7 +231,8 @@ if __name__ == '__main__':
     print('Loading sources...')
     packages, dependencies, binaries, versions = get_data_sources(sources, args.arch if args.arch else '')
     print('Loading alternative binaries provided...')
-    get_alternative_provides(packages_files, packages, binaries)
+    cargo_deps = get_alternative_provides(packages_files, packages, binaries)
+    cargo_deps_indexes = []
     target_package_index = packages.index(args.dependency)
     pending = [target_package_index]
     if args.version:
@@ -237,6 +258,7 @@ if __name__ == '__main__':
             if packages[index] not in affected_packages:
                 pending.append(index)
                 affected_packages[packages[index]] = []
+                cargo_deps_indexes.append(index)
             if (packages[fathers[i]] + ' ' + versions[fathers[i]]) not in affected_packages[packages[index]]:
                 affected_packages[packages[index]].append(packages[fathers[i]] + ' ' + versions[fathers[i]])
 
@@ -246,3 +268,6 @@ if __name__ == '__main__':
 
         if len(pending) == 0 or depth == max_depth:
             finished = True
+
+    if 'rust-' in args.dependency:
+        get_cargo_affected_packages(cargo_deps_indexes, cargo_deps, packages, dependencies)

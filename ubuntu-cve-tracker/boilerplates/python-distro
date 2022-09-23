@@ -1,0 +1,37 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles python-distro binaries
+ mdeslaur> when built. After updating python-distro, a no-change
+ mdeslaur> rebuild of python-pip is required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_python-distro:
+upstream_python-distro: 
+trusty_python-distro: DNE
+trusty/esm_python-distro: DNE
+xenial_python-distro: DNE
+bionic_python-distro: needs-triage
+focal_python-distro: needs-triage
+jammy_python-distro: needs-triage
+devel_python-distro: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

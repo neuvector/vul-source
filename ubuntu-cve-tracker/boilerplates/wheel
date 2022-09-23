@@ -1,0 +1,37 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles wheel binaries when built.
+ mdeslaur> After updating wheel, a no-change rebuild of python-pip is
+ mdeslaur> required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_wheel:
+upstream_wheel: 
+trusty_wheel: ignored (reached end of life)
+trusty/esm_wheel: needs-triage
+xenial_wheel: ignored (end of standard support)
+bionic_wheel: needs-triage
+focal_wheel: needs-triage
+jammy_wheel: needs-triage
+devel_wheel: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

@@ -1,0 +1,33 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_eglibc:
+upstream_eglibc: needs-triage
+trusty_eglibc: ignored (out of standard support)
+trusty/esm_eglibc: needs-triage
+xenial_eglibc: DNE
+bionic_eglibc: DNE
+focal_eglibc: DNE
+jammy_eglibc: DNE
+devel_eglibc: DNE
+
+Patches_glibc:
+upstream_glibc: needs-triage
+trusty_glibc: DNE
+trusty/esm_glibc: DNE
+xenial_glibc: ignored (end of standard support)
+esm-infra/xenial_glibc: needs-triage
+bionic_glibc: needs-triage
+focal_glibc: needs-triage
+jammy_glibc: needs-triage
+devel_glibc: needs-triage

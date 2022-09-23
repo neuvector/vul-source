@@ -1,0 +1,244 @@
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+ amurray| grub2 has a vendored copy of minilzo which is part of lzo2 so
+  likely any vulnerabilities that affect lzo2 may also affect minilzo in
+  grub2 and hence grub2-signed - although this is being changed for F/G/H in
+  LP #1911440 to use the distro minilzo but in this case grub2 vendors the
+  distro's minilzo via Built-Using so it will still require a rebuild when
+  updates for minilzo are published for these releases
+Mitigation:
+Bugs:
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS:
+
+Patches_lzo2:
+upstream_lzo2:
+trusty_lzo2:
+trusty/esm_lzo2:
+xenial_lzo2:
+esm-infra/xenial_lzo2:
+bionic_lzo2:
+focal_lzo2:
+groovy_lzo2:
+hirsute_lzo2:
+impish_lzo2:
+jammy_lzo2:
+devel_lzo2:
+
+Patches_samhain:
+upstream_samhain:
+trusty_samhain:
+trusty/esm_samhain: DNE
+xenial_samhain:
+bionic_samhain:
+focal_samhain:
+groovy_samhain:
+hirsute_samhain:
+impish_samhain:
+jammy_samhain:
+devel_samhain:
+
+Patches_valgrind:
+upstream_valgrind:
+trusty_valgrind:
+trusty/esm_valgrind: DNE
+xenial_valgrind:
+esm-infra/xenial_valgrind:
+bionic_valgrind:
+focal_valgrind:
+groovy_valgrind:
+hirsute_valgrind:
+impish_valgrind:
+jammy_valgrind:
+devel_valgrind:
+
+Patches_syslinux:
+upstream_syslinux:
+trusty_syslinux:
+trusty/esm_syslinux:
+xenial_syslinux:
+esm-infra/xenial_syslinux:
+bionic_syslinux:
+focal_syslinux:
+groovy_syslinux:
+hirsute_syslinux:
+impish_syslinux:
+jammy_syslinux:
+devel_syslinux:
+
+Patches_distcc:
+upstream_distcc:
+trusty_distcc:
+trusty/esm_distcc:
+xenial_distcc:
+bionic_distcc:
+focal_distcc:
+groovy_distcc:
+hirsute_distcc:
+impish_distcc:
+jammy_distcc:
+devel_distcc:
+
+Patches_bb:
+upstream_bb:
+trusty_bb:
+trusty/esm_bb: DNE
+xenial_bb:
+bionic_bb:
+focal_bb:
+groovy_bb:
+hirsute_bb:
+impish_bb:
+jammy_bb:
+devel_bb:
+
+Patches_u-boot:
+upstream_u-boot:
+trusty_u-boot:
+trusty/esm_u-boot: DNE
+xenial_u-boot:
+esm-infra/xenial_u-boot:
+bionic_u-boot:
+focal_u-boot:
+groovy_u-boot:
+hirsute_u-boot:
+impish_u-boot:
+jammy_u-boot:
+devel_u-boot:
+
+Patches_refind:
+upstream_refind:
+trusty_refind:
+trusty/esm_refind: DNE
+xenial_refind: DNE
+bionic_refind:
+focal_refind:
+groovy_refind:
+hirsute_refind:
+impish_refind:
+jammy_refind:
+devel_refind:
+
+Patches_blender:
+upstream_blender:
+trusty_blender:
+trusty/esm_blender: DNE
+xenial_blender:
+bionic_blender:
+focal_blender:
+groovy_blender:
+hirsute_blender:
+impish_blender:
+jammy_blender:
+devel_blender:
+
+Patches_n2n:
+upstream_n2n:
+trusty_n2n:
+trusty/esm_n2n: DNE
+xenial_n2n:
+bionic_n2n:
+focal_n2n:
+groovy_n2n:
+hirsute_n2n:
+impish_n2n:
+jammy_n2n:
+devel_n2n:
+
+Patches_nfdump:
+upstream_nfdump:
+trusty_nfdump:
+trusty/esm_nfdump: DNE
+xenial_nfdump:
+bionic_nfdump:
+focal_nfdump:
+groovy_nfdump:
+hirsute_nfdump:
+impish_nfdump:
+jammy_nfdump:
+devel_nfdump:
+
+Patches_libvncserver:
+upstream_libvncserver:
+trusty_libvncserver:
+trusty/esm_libvncserver: DNE
+xenial_libvncserver:
+esm-infra/xenial_libvncserver:
+bionic_libvncserver:
+focal_libvncserver:
+groovy_libvncserver:
+hirsute_libvncserver:
+impish_libvncserver:
+jammy_libvncserver:
+devel_libvncserver:
+
+Patches_ht:
+upstream_ht:
+trusty_ht:
+trusty/esm_ht: DNE
+xenial_ht:
+bionic_ht:
+focal_ht:
+groovy_ht:
+hirsute_ht:
+impish_ht:
+jammy_ht:
+devel_ht:
+
+Patches_medafen:
+upstream_medafen:
+trusty_medafen:
+trusty/esm_medafen: DNE
+xenial_medafen: DNE
+bionic_medafen: DNE
+focal_medafen: DNE
+jammy_medafen: DNE
+devel_medafen: DNE
+
+Patches_qemu:
+upstream_qemu:
+trusty_qemu:
+trusty/esm_qemu:
+xenial_qemu:
+esm-infra/xenial_qemu:
+bionic_qemu:
+focal_qemu:
+groovy_qemu:
+hirsute_qemu:
+impish_qemu:
+jammy_qemu:
+devel_qemu:
+
+Patches_grub2:
+upstream_grub2:
+trusty_grub2:
+trusty/esm_grub2:
+xenial_grub2:
+esm-infra/xenial_grub2:
+bionic_grub2:
+focal_grub2:
+groovy_grub2:
+hirsute_grub2:
+impish_grub2:
+jammy_grub2:
+devel_grub2:
+
+Patches_grub2-signed:
+upstream_grub2-signed:
+trusty_grub2-signed:
+trusty/esm_grub2-signed:
+xenial_grub2-signed:
+esm-infra/xenial_grub2-signed:
+bionic_grub2-signed:
+focal_grub2-signed:
+groovy_grub2-signed:
+hirsute_grub2-signed:
+impish_grub2-signed:
+jammy_grub2-signed:
+devel_grub2-signed:

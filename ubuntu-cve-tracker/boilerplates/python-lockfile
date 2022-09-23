@@ -1,0 +1,38 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles python-lockfile binaries
+ mdeslaur> when built. After updating python-lockfile, a no-change
+ mdeslaur> rebuild of python-pip is required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_python-lockfile:
+upstream_python-lockfile: 
+trusty_python-lockfile: ignored (reached end-of-life)
+trusty/esm_python-lockfile: needs-triage
+xenial_python-lockfile: ignored (end of standard support)
+esm-infra/xenial_python-lockfile: needs-triage
+bionic_python-lockfile: needs-triage
+focal_python-lockfile: needs-triage
+jammy_python-lockfile: needs-triage
+devel_python-lockfile: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

@@ -1,0 +1,54 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ sbeattie> embedded copies of ckeditor are in ldap-account-manager,
+   rt4, and rt5
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_ckeditor:
+upstream_ckeditor: needs-triage
+trusty_ckeditor: ignored (out of standard support)
+trusty/esm_ckeditor: DNE
+xenial_ckeditor: ignored (out of standard support)
+bionic_ckeditor: needs-triage
+focal_ckeditor: needs-triage
+jammy_ckeditor: needs-triage
+devel_ckeditor: needs-triage
+
+Patches_ckeditor3:
+upstream_ckeditor3: needs-triage
+trusty_ckeditor3: ignored (out of standard support)
+trusty/esm_ckeditor3: DNE
+xenial_ckeditor3: ignored (out of standard support)
+bionic_ckeditor3: needs-triage
+focal_ckeditor3: needs-triage
+jammy_ckeditor3: needs-triage
+devel_ckeditor3: needs-triage
+
+Patches_ldap-account-manager:
+upstream_ldap-account-manager: needs-triage
+trusty_ldap-account-manager: ignored (out of standard support)
+trusty/esm_ldap-account-manager: DNE
+xenial_ldap-account-manager: ignored (out of standard support)
+bionic_ldap-account-manager: needs-triage
+focal_ldap-account-manager: needs-triage
+jammy_ldap-account-manager: needs-triage
+devel_ldap-account-manager: needs-triage
+
+Patches_request-tracker4:
+upstream_request-tracker4: needs-triage
+trusty_request-tracker4: ignored (out of standard support)
+trusty/esm_request-tracker4: DNE
+xenial_request-tracker4: ignored (out of standard support)
+bionic_request-tracker4: needs-triage
+focal_request-tracker4: needs-triage
+jammy_request-tracker4: needs-triage
+devel_request-tracker4: needs-triage

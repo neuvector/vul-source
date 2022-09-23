@@ -74,8 +74,9 @@ chromium-browser
 ----------------
 
 This package contains a fork of the WebKit code base (aka 'Blink'). It is
-maintained separately by Google and is tracked in the 'chromium-browser'
-entry in meta_lists/package-db.json.
+maintained separately by Google and is tracked in the 'chromium-browser' file in
+boilerplates.
+
 
 oxide
 -----
@@ -83,13 +84,13 @@ oxide
 Oxide is bindings for the chromium content api and therefore contains a fork
 of the webkit code base (aka, 'Blink'). The chromium content api is maintained
 separately by Google and Oxide is maintained by Canonical. Oxide is tracked in
-the 'chromium-browser' entry in meta_lists/package-db.json.
+the 'chromium-browser' boilerplate.
 
 CVE Triage
 ----------
-meta_lists/package-db.json is used to capture the source package relationships
-when triaging CVEs for webkit (ie, you only need to specify 'webkit' as the
-source package).
+boilerplates/webkit is used to capture the source package relationships when
+triaging CVEs for webkit (ie, you only need to specify 'webkit' as the source
+package).
 
 When a CVE comes out MITRE generally assigns a CVE to chromium and webkit
 separately, unless the chromium stable release text explicitly states there was

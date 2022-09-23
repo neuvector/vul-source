@@ -1,0 +1,33 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> pidgin in precise+ uses embedded libgadu
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_libgadu:
+upstream_libgadu: needs-triage
+trusty_libgadu: ignored (out of standard support)
+trusty/esm_libgadu: DNE
+xenial_libgadu: ignored (end of standard support)
+bionic_libgadu: needs-triage
+focal_libgadu: needs-triage
+jammy_libgadu: needs-triage
+devel_libgadu: needs-triage
+
+Patches_pidgin:
+upstream_pidgin: needs-triage
+trusty_pidgin: ignored (out of standard support)
+trusty/esm_pidgin: needs-triage
+xenial_pidgin: ignored (end of standard support)
+bionic_pidgin: needs-triage
+focal_pidgin: needs-triage
+jammy_pidgin: needs-triage
+devel_pidgin: needs-triage

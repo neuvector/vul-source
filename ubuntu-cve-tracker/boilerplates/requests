@@ -1,0 +1,38 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles requests binaries when built.
+ mdeslaur> After updating requests, a no-change rebuild of python-pip is
+ mdeslaur> required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_requests:
+upstream_requests: 
+trusty_requests: ignored (reached end of life)
+trusty/esm_requests: needs-triage
+xenial_requests: ignored (end of standard support)
+esm-infra/xenial_requests: needs-triage
+bionic_requests: needs-triage
+focal_requests: needs-triage
+jammy_requests: needs-triage
+devel_requests: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

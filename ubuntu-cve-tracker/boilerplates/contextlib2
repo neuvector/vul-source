@@ -1,0 +1,38 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ mdeslaur> the python-pip package bundles contextlib2 binaries when built.
+ mdeslaur> After updating contextlib2, a no-change rebuild of python-pip is
+ mdeslaur> required.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_contextlib2:
+upstream_contextlib2: 
+trusty_contextlib2: ignored (reached end of life)
+trusty/esm_contextlib2: DNE
+xenial_contextlib2: ignored (end of standard support)
+esm-infra/xenial_contextlib2: needs-triage
+bionic_contextlib2: needs-triage
+focal_contextlib2: needs-triage
+jammy_contextlib2: needs-triage
+devel_contextlib2: needs-triage
+
+Patches_python-pip:
+upstream_python-pip: 
+trusty_python-pip: ignored (reached end of life)
+trusty/esm_python-pip: needs-triage
+xenial_python-pip: ignored (end of standard support)
+bionic_python-pip: needs-triage
+focal_python-pip: needs-triage
+jammy_python-pip: needs-triage
+devel_python-pip: needs-triage
+
+

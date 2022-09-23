@@ -1,0 +1,49 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+ jdstrand> snapd contains an embedded copy of golang-go.crypto
+ jdstrand> lxd in 18.04 LTS and earlier contains an embedded copy of
+  golang-go.crypto
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_golang-go.crypto:
+upstream_golang-go.crypto: needs-triage
+trusty_golang-go.crypto: DNE
+trusty/esm_golang-go.crypto: DNE
+xenial_golang-go.crypto: ignored (end of standard support)
+esm-infra/xenial_golang-go.crypto: needs-triage
+bionic_golang-go.crypto: needs-triage
+focal_golang-go.crypto: needs-triage
+jammy_golang-go.crypto: needs-triage
+devel_golang-go.crypto: needs-triage
+
+Patches_snapd:
+upstream_snapd: needs-triage
+trusty_snapd: ignored (out of standard support)
+trusty/esm_snapd: DNE
+xenial_snapd: ignored (end of standard support)
+esm-infra/xenial_snapd: needs-triage
+bionic_snapd: needs-triage
+focal_snapd: needs-triage
+snap_snapd: needs-triage
+jammy_snapd: needs-triage
+devel_snapd: needs-triage
+
+Patches_lxd:
+upstream_lxd: needs-triage
+trusty_lxd: DNE
+trusty/esm_lxd: DNE
+xenial_lxd: ignored (end of standard support)
+esm-infra/xenial_lxd: needs-triage
+bionic_lxd: needs-triage
+focal_lxd: not-affected (code-not-present)
+jammy_lxd: DNE
+devel_lxd: DNE
