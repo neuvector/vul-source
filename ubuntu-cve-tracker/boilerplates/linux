@@ -305,7 +305,7 @@ xenial_linux-azure-fde: DNE
 esm-infra/xenial_linux-azure-fde: DNE
 bionic_linux-azure-fde: DNE
 focal_linux-azure-fde: needs-triage
-jammy_linux-azure-fde: DNE
+jammy_linux-azure-fde: needs-triage
 devel_linux-azure-fde: DNE
 
 Patches_linux-bluefield:
