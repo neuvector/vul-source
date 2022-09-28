@@ -745,3 +745,6 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 :title('UBUNTU: SAUCE: netfilter: nf_tables: do not allow SET_ID to refer to another table', ['local-CVE-2022-2586-1-fix'])
 :title('UBUNTU: SAUCE: netfilter: nf_tables: do not allow CHAIN_ID to refer to another table', ['local-CVE-2022-2586-2-fix'])
 :title('UBUNTU: SAUCE: netfilter: nf_tables: do not allow RULE_ID to refer to another chain', ['local-CVE-2022-2586-3-fix'])
+
+# CVE-2022-2585
+:title('UBUNTU: SAUCE: posix-cpu-timers: Cleanup CPU timers before freeing them during exec', ['local-CVE-2022-2585-fix'])

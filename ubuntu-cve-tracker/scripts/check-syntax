@@ -263,7 +263,7 @@ if opt.usndb:
             else:
                 cves[cve].append(usn)
 
-check_dirs = [cve_lib.active_dir, cve_lib.retired_dir, cve_lib.ignored_dir, cve_lib.boilerplates_dir]
+check_dirs = [cve_lib.active_dir, cve_lib.retired_dir, cve_lib.ignored_dir]
 if os.path.islink(cve_lib.embargoed_dir):
     check_dirs.append(cve_lib.embargoed_dir)
 
@@ -298,10 +298,17 @@ if len(args) == 0:
             for dir in check_dirs:
                 if filename.startswith("%s/CVE-" % dir):
                     args += [filename]
+                    continue
+            if cve_lib.boilerplates_dir in filename:
+                args += [filename]
+
     else:
+        for bp in sorted(glob.glob("%s/*" % cve_lib.boilerplates_dir)):
+                args += [bp]
         for dir in check_dirs:
             for cve in sorted(glob.glob("%s/CVE-*" % dir)):
                 args += [cve]
+
 else:
     all_files = False
 
@@ -400,8 +407,8 @@ for cve in args:
             print("%s: missing required field '%s'" % (cvepath, field), file=sys.stderr)
             cve_okay = False
 
-    # verify candidate field matches the CVE file name
-    if "stdin" not in cve and not data["Candidate"] == cve:
+    # verify candidate field matches the CVE file name but ignore if we don't have one
+    if "stdin" not in cve and cve_lib.boilerplates_dir not in cvepath and not data["Candidate"] == cve:
         filename = srcmap["Candidate"][0]
         linenum = srcmap["Candidate"][1]
         print(
@@ -771,7 +778,7 @@ for cve in args:
                     cve_okay = False
 
     # Either PublicDate or CRD must be set to something
-    if (
+    if (cve_lib.boilerplates_dir not in cvepath and
             ("PublicDate" not in data or data["PublicDate"] == "") and
             ("CRD" not in data or data["CRD"] == "")
     ):
@@ -788,6 +795,8 @@ for cve in args:
         )
 
     for d in ["PublicDate", "PublicDateAtUSN", "CRD"]:
+        if cve_lib.boilerplates_dir in cvepath:
+            continue
         passes = []
         if d == ["PublicDateAtUSN"]:
             # PublicDateAtUSN can be empty

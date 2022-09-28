@@ -2123,7 +2123,11 @@ def load_table(cves, uems, opt=None, rcves=[], icves=[]):
     return (table, priority, updated_cves, namemap, cveinfo)
 
 def parse_boilerplate(filepath):
-    cve_data = load_cve(filepath)
+    cve_data = {}
+    try:
+        cve_data = load_cve(filepath)
+    except ValueError as e:
+        print(e, file=sys.stderr)
     # capture tags, Notes, and package relationships
     data = dict()
     data.setdefault("aliases", list())
