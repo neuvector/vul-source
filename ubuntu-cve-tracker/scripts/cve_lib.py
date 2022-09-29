@@ -1261,7 +1261,9 @@ def read_config_file(config_file):
         # Dapper lacks this class, so reimplement it quickly
         class ConfigObj(dict):
             def __init__(self, filepath):
-                for line in open(filepath).readlines():
+                with open(filepath) as inF:
+                    lines = inF.readlines()
+                for line in lines:
                     line = line.strip()
                     if line.startswith('#') or len(line) == 0:
                         continue
@@ -1294,7 +1296,9 @@ def read_config():
 def drop_dup_release(cve, rel):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
     saw = set()
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if line.startswith('%s_' % (rel)):
             pkg = line.split('_')[1].split(':')[0]
             if pkg not in saw:
@@ -1308,7 +1312,9 @@ def drop_dup_release(cve, rel):
 
 def clone_release(cve, pkg, oldrel, newrel):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if line.startswith('%s_%s:' % (oldrel, pkg)):
             newline = line.replace('%s_%s:' % (oldrel, pkg), '%s_%s:' % (newrel, pkg), 1)
             output.write(newline)
@@ -1319,7 +1325,9 @@ def clone_release(cve, pkg, oldrel, newrel):
 
 def update_state(cve, pkg, rel, state, details):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if line.startswith('%s_%s:' % (rel, pkg)):
             line = '%s_%s: %s' % (rel, pkg, state)
             if details:
@@ -1332,7 +1340,9 @@ def update_state(cve, pkg, rel, state, details):
 
 def add_state(cve, pkg, rel, state, details, after_rel):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if line.startswith('%s_%s:' % (after_rel, pkg)):
             output.write(line)
             line = '%s_%s: %s' % (rel, pkg, state)
@@ -1355,7 +1365,9 @@ def prepend_field(cve, field, value):
 def update_field(cve, field, value=None):
     found = False
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if line.startswith('%s:' % (field)):
             found = True
             if value is None:
@@ -1378,7 +1390,9 @@ def drop_field(cve, field):
 def add_reference(cve, url):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
     in_references = False
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if in_references and not line.startswith(' '):
             output.write(' ' + url + '\n')
             in_references = False
@@ -1411,7 +1425,8 @@ def add_cvss(cve, source, cvss):
     in_cvss = False
     found_cvss = False
     updated = False
-    lines = codecs.open(cve, encoding="utf-8").readlines()
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
     for line in lines:
         if not line.startswith('CVSS:') and not in_cvss:
             output.write(line)
@@ -1490,7 +1505,9 @@ def add_patch(cve, pkg, url, type="patch"):
     in_patch = False
 
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if in_patch and not line.startswith(' '):
             output.write(' ' + type + ': ' + url + '\n')
             in_patch = False
@@ -1517,7 +1534,9 @@ def update_multiline_field(cve, field, text):
         text = '\n' + text
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
     skip = 0
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         if skip and line.startswith(' '):
             continue
         skip = 0
@@ -1827,8 +1846,9 @@ def load_cve(cve, strict=False, srcmap=None):
     linenum = 0
     notes_parser = NotesParser()
     cvss_entries = []
-
-    for line in codecs.open(cve, encoding="utf-8").readlines():
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
         line = line.rstrip()
         linenum += 1
 
@@ -2434,6 +2454,8 @@ def load_debian_cves(filename, verbose=True):
         except:
             print("Error parsing line %d: '%s'" % (count, line), file=sys.stderr)
             raise
+
+    cvelist.close()
     return debian
 
 
@@ -2442,7 +2464,10 @@ def load_ignored_reasons(filename):
 
     ignored = dict()
 
-    for line in open(filename):
+    with open(filename) as inF:
+        lines = inF.readlines()
+
+    for line in lines:
         line = line.strip()
         if len(line) == 0 or line.startswith('#'):
             continue
