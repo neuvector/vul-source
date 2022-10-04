@@ -30,7 +30,7 @@ parser.add_option("-r", "--reference-url", dest="ref_urls", help="URL references
 parser.add_option("-c", "--cve", dest="cve", help="CVE entry", metavar="CVE-YYYY-NNNN")
 parser.add_option("-e", "--embargoed", dest="embargoed", help="This is an embargoed entry", action="store_true")
 parser.add_option("-y", "--yes", dest="autoconfirm", help="Do not ask for confirmation", action="store_true")
-parser.add_option("-P", "--public", dest="public_date", help="Record date the CVE went public (default to today in UTC)", metavar="YYYY-MM-DD", default=datetime.datetime.utcnow().strftime("%Y-%m-%d"))
+parser.add_option("-P", "--public", dest="public_date", help="Record date the CVE went public (default to today in UTC)", metavar="YYYY-MM-DD")
 parser.add_option("--priority", help="Record a priority for the CVE", default=None)
 parser.add_option("-C", "--cvss", help="CVSS3.1 rating", metavar="CVSS:3.1/AV:_/AC:_/PR:_/UI:_/S:_/C:_/I:_/A:_")
 parser.add_option("-d", "--description", help="Description", default=None)
@@ -181,6 +181,11 @@ def create_or_update_cve(cve, packages, priority=None, bug_urls=None, ref_urls=N
 
     # normalise the list of packages
     pkgs = sorted(list(set(names)))
+
+    # Set a default public date only when the CVE isn't being added to the
+    # embargoed tree
+    if not embargoed and not public_date:
+        public_date = datetime.datetime.utcnow().strftime("%Y-%m-%d")
 
     if update:
         mode = "a"
