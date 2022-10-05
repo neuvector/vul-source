@@ -7142,3 +7142,5 @@
 2022-09-29 11:21:00 UTC - 1 added, 0 ignored, 15 skipped, 1 total - files: ['debian-import_f9zn83og.json']
 2022-09-30 11:23:24 UTC - 14 added, 27 ignored, 1 skipped, 41 total - files: ['nvdcve-1.1-recent.json']
 2022-09-30 11:28:55 UTC - 3 added, 0 ignored, 32 skipped, 3 total - files: ['debian-import_hlk691ok.json']
+2022-10-04 19:30:49 UTC - 13 added, 88 ignored, 0 skipped, 101 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-recent.json']
+2022-10-04 19:58:16 UTC - 40 added, 1 ignored, 0 skipped, 41 total - files: ['debian-import_uvoi12l4.json']

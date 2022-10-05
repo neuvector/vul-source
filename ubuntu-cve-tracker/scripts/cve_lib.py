@@ -117,7 +117,7 @@ subprojects = {
         "alias": "trusty/esm",
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/trusty",
-        "description": "Available with UA Infra or UA Desktop: https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
         "stamp": 1556593200,
     },
     "esm-infra/xenial": {
@@ -128,7 +128,7 @@ subprojects = {
         "codename": "Xenial Xerus",
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/xenial",
-        "description": "Available with UA Infra or UA Desktop: https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
         "stamp": 1618963200,
     },
     "fips/xenial": {
@@ -138,7 +138,7 @@ subprojects = {
         "codename": "Xenial Xerus",
         "ppa": "ubuntu-advantage/fips/ubuntu",
         "parent": "ubuntu/xenial",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "fips/bionic": {
         "eol": False,
@@ -147,7 +147,7 @@ subprojects = {
         "codename": "Bionic Beaver",
         "ppa": "ubuntu-advantage/fips/ubuntu",
         "parent": "ubuntu/bionic",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "fips/focal": {
         "eol": False,
@@ -156,7 +156,7 @@ subprojects = {
         "codename": "Focal Fossa",
         "ppa": "ubuntu-advantage/fips/ubuntu",
         "parent": "ubuntu/bionic",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "fips-updates/xenial": {
         "eol": False,
@@ -165,7 +165,7 @@ subprojects = {
         "codename": "Xenial Xerus",
         "ppa": "ubuntu-advantage/fips-updates/ubuntu",
         "parent": "ubuntu/xenial",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "fips-updates/bionic": {
         "eol": False,
@@ -174,7 +174,7 @@ subprojects = {
         "codename": "Bionic Beaver",
         "ppa": "ubuntu-advantage/fips-updates/ubuntu",
         "parent": "ubuntu/bionic",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "fips-updates/focal": {
         "eol": False,
@@ -183,7 +183,7 @@ subprojects = {
         "codename": "Focal Fossa",
         "ppa": "ubuntu-advantage/fips-updates/ubuntu",
         "parent": "ubuntu/bionic",
-        "description": "Available with UA ... https://ubuntu.com/advantage",
+        "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
     },
     "ros-esm/kinetic": {
         "eol": False,

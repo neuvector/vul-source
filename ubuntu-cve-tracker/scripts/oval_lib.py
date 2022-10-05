@@ -63,7 +63,7 @@ canonical-livepatch status"""
         instruction = """\n
 Update Instructions:
 
-Run `sudo ua fix {0}` to fix the vulnerability. The problem can be corrected
+Run `sudo pro fix {0}` to fix the vulnerability. The problem can be corrected
 by updating your system to the following package versions:""".format(cve)
 
     instruction += '\n\n'
