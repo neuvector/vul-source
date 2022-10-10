@@ -7154,3 +7154,6 @@
 2022-10-06 17:54:48 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['debian-import_e6y9bk5r.json']
 2022-10-06 21:05:07 UTC - 4 added, 45 ignored, 11 skipped, 49 total - files: ['nvdcve-1.1-recent.json']
 2022-10-06 21:11:25 UTC - 1 added, 4 ignored, 7 skipped, 5 total - files: ['debian-import_j75k9l_z.json']
+2022-10-10 17:08:31 UTC - 15 added, 120 ignored, 1 skipped, 135 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-recent.json']
+2022-10-10 17:20:37 UTC - 3 added, 1 ignored, 1 skipped, 4 total - files: ['debian-import_ugwd2dpp.json']
+2022-10-10 17:43:33 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['mbox-import_bll9h1a5.out.json']
