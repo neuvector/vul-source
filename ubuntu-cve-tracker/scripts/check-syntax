@@ -798,10 +798,13 @@ for cve in args:
         if cve_lib.boilerplates_dir in cvepath:
             continue
         passes = []
-        if d == ["PublicDateAtUSN"]:
+        # Embargoed CVEs can have an empty or unknown PublicDate
+        if d == "PublicDate" and is_embargoed(cve):
+            passes = ["", "unknown"]
+        if d == "PublicDateAtUSN":
             # PublicDateAtUSN can be empty
             passes = [""]
-        if d in ["CRD"]:
+        if d == "CRD":
             # CRD can empty or unknown
             passes = ["", "unknown"]
         if d in data and data[d] not in passes:
