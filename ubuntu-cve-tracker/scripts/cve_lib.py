@@ -802,6 +802,8 @@ esm_apps_releases = [x.split('esm-apps/')[1] for x in all_releases if x.startswi
 
 esm_infra_releases = [x.split('esm-infra/')[1] for x in all_releases if x.startswith('esm-infra/')]
 
+ros_esm_releases = [x.split('ros-esm/')[1] for x in all_releases if x.startswith('ros-esm/')]
+
 valid_tags = {
     'universe-binary': 'Binaries built from this source package are in universe and so are supported by the community. For more details see https://wiki.ubuntu.com/SecurityTeam/FAQ#Official_Support',
     'not-ue': 'This package is not directly supported by the Ubuntu Security Team',
@@ -2266,6 +2268,8 @@ def get_esm_name(rel, component=None):
         return 'esm-apps/' + rel
     elif rel in esm_infra_releases:
         return 'esm-infra/' + rel
+    elif rel in ros_esm_releases:
+        return 'ros-esm/' + rel
     return None
 
 
