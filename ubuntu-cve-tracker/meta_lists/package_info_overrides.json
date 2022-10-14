@@ -1369,11 +1369,11 @@
     },
     "linux-ibm": {
         "description": "Linux kernel for IBM cloud systems",
-        "title": "Linux kernel (KVM)"
+        "title": "Linux kernel (IBM)"
     },
     "linux-ibm-5.4": {
         "description": "Linux kernel for IBM cloud systems",
-        "title": "Linux kernel (KVM)"
+        "title": "Linux kernel (IBM)"
     },
     "linux-intel-5.13": {
         "description": "Linux kernel for Intel IOTG",
