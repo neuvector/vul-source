@@ -415,6 +415,10 @@
         "description": "",
         "title": "FreeXL"
     },
+    "frr": {
+        "description": "FRRouting suite of internet protocols",
+        "title": "FRR"
+    },
     "game-music-emu": {
         "description": "Playback library for video game music files",
         "title": "game-music-emu"
