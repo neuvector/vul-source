@@ -748,3 +748,21 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2022-2585
 :title('UBUNTU: SAUCE: posix-cpu-timers: Cleanup CPU timers before freeing them during exec', ['local-CVE-2022-2585-fix'])
+
+# CVE-2022-2602
+:title('UBUNTU: SAUCE: io_uring/af_unix: fix memleak during unix GC', ['local-CVE-2022-2602-fix'])
+
+# CVE-2022-41674
+:title('UBUNTU: SAUCE: wifi: cfg80211: fix u8 overflow in cfg80211_update_notlisted_nontrans()', ['local-CVE-2022-41674-fix'])
+
+# CVE-2022-42719
+:title('UBUNTU: SAUCE: wifi: mac80211: fix MBSSID parsing use-after-free', ['local-CVE-2022-42719-fix'])
+
+# CVE-2022-42720
+:title('UBUNTU: SAUCE: wifi: cfg80211: fix BSS refcounting bugs', ['local-CVE-2022-42720-fix'])
+
+# CVE-2022-42721
+:title('UBUNTU: SAUCE: wifi: cfg80211: avoid nontransmitted BSS list corruption', ['local-CVE-2022-42721-fix'])
+
+# CVE-2022-42722
+:title('UBUNTU: SAUCE: wifi: mac80211: fix crash in beacon protection for P2P-device', ['local-CVE-2022-42722-fix'])
