@@ -1503,6 +1503,10 @@
         "description": "Linux kernel for Oracle Cloud systems",
         "title": "Linux kernel (Oracle)"
     },
+    "linux-oracle-5.15": {
+        "description": "Linux kernel for Oracle Cloud systems",
+        "title": "Linux kernel (Oracle)"
+    },
     "linux-oracle-5.3": {
         "description": "Linux kernel for Oracle Cloud systems",
         "title": "Linux kernel (Oracle)"

@@ -673,6 +673,17 @@ focal_linux-oracle-5.13: needs-triage
 jammy_linux-oracle-5.13: DNE
 devel_linux-oracle-5.13: DNE
 
+Patches_linux-oracle-5.15:
+upstream_linux-oracle-5.15: needs-triage
+trusty_linux-oracle-5.15: DNE
+trusty/esm_linux-oracle-5.15: DNE
+xenial_linux-oracle-5.15: DNE
+esm-infra/xenial_linux-oracle-5.15: DNE
+bionic_linux-oracle-5.15: DNE
+focal_linux-oracle-5.15: needs-triage
+jammy_linux-oracle-5.15: DNE
+devel_linux-oracle-5.15: DNE
+
 Patches_linux-oem:
 upstream_linux-oem: needs-triage
 trusty_linux-oem: DNE

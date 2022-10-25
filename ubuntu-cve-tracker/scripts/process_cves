@@ -387,6 +387,7 @@ case "$action" in
         update_embargoed
         update_subprojects
         update_debian
+        update_files
         echo "check-cves --cve ${action}"
         # add all NVD details as well so we can get date etc for it
         ./scripts/check-cves --cve ${action} nvdcve-*.json

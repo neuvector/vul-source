@@ -226,6 +226,7 @@ meta_kernels.add_new_kernel('focal', ['linux-oracle'], '-5.4')
 meta_kernels.add_new_kernel('focal', ['linux-oracle-5.8'], '-5.8')
 meta_kernels.add_new_kernel('focal', ['linux-oracle-5.11'], '-5.11')
 meta_kernels.add_new_kernel('focal', ['linux-oracle-5.13'], '-5.13')
+meta_kernels.add_new_kernel('focal', ['linux-oracle-5.15'], '-5.15')
 meta_kernels.add_new_kernel('focal', ['linux-riscv'], '-5.4', signed=False)
 meta_kernels.add_new_kernel('focal', ['linux-riscv-5.8'], '-5.8', signed=False)
 meta_kernels.add_new_kernel('focal', ['linux-riscv-5.11'], '-5.8', signed=False)
@@ -738,6 +739,11 @@ kernel_glitches = {
             '~': '5.13.0-1016.20~20.04.1',  # initial publication
             '5.13.0-1027.32~20.04.1': '5.13.0-1028.33~20.04.1',  # initial publication
             '5.13.0-1033.39~20.04.1': '5.13.0-1034.40~20.04.1',  # LP: #1973620 fix
+        },
+    },
+    'linux-oracle-5.15': {
+        'focal': {
+            '~': '5.15.0-1021.27~20.04.1',  # initial publication
         },
     },
 
