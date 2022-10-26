@@ -19,6 +19,7 @@ xenial_llvm-toolchain-snapshot: DNE
 bionic_llvm-toolchain-snapshot: DNE
 focal_llvm-toolchain-snapshot: DNE
 jammy_llvm-toolchain-snapshot: DNE
+kinetic_llvm-toolchain-snapshot: DNE
 devel_llvm-toolchain-snapshot: DNE
 
 Patches_llvm-toolchain-3.3:
@@ -29,6 +30,7 @@ xenial_llvm-toolchain-3.3: DNE
 bionic_llvm-toolchain-3.3: DNE
 focal_llvm-toolchain-3.3: DNE
 jammy_llvm-toolchain-3.3: DNE
+kinetic_llvm-toolchain-3.3: DNE
 devel_llvm-toolchain-3.3: DNE
 
 Patches_llvm-toolchain-3.4:
@@ -39,6 +41,7 @@ xenial_llvm-toolchain-3.4: DNE
 bionic_llvm-toolchain-3.4: DNE
 focal_llvm-toolchain-3.4: DNE
 jammy_llvm-toolchain-3.4: DNE
+kinetic_llvm-toolchain-3.4: DNE
 devel_llvm-toolchain-3.4: DNE
 
 Patches_llvm-toolchain-3.5:
@@ -49,6 +52,7 @@ xenial_llvm-toolchain-3.5: ignored (end of standard support)
 bionic_llvm-toolchain-3.5: DNE
 focal_llvm-toolchain-3.5: DNE
 jammy_llvm-toolchain-3.5: DNE
+kinetic_llvm-toolchain-3.5: DNE
 devel_llvm-toolchain-3.5: DNE
 
 Patches_llvm-toolchain-3.6:
@@ -60,6 +64,7 @@ esm-infra/xenial_llvm-toolchain-3.6: needs-triage
 bionic_llvm-toolchain-3.6: DNE
 focal_llvm-toolchain-3.6: DNE
 jammy_llvm-toolchain-3.6: DNE
+kinetic_llvm-toolchain-3.6: DNE
 devel_llvm-toolchain-3.6: DNE
 
 Patches_llvm-toolchain-3.7:
@@ -70,6 +75,7 @@ xenial_llvm-toolchain-3.7: ignored (end of standard support)
 bionic_llvm-toolchain-3.7: needs-triage
 focal_llvm-toolchain-3.7: DNE
 jammy_llvm-toolchain-3.7: DNE
+kinetic_llvm-toolchain-3.7: DNE
 devel_llvm-toolchain-3.7: DNE
 
 Patches_llvm-toolchain-3.8:
@@ -81,6 +87,7 @@ esm-infra/xenial_llvm-toolchain-3.8: needs-triage
 bionic_llvm-toolchain-3.8: DNE
 focal_llvm-toolchain-3.8: DNE
 jammy_llvm-toolchain-3.8: DNE
+kinetic_llvm-toolchain-3.8: DNE
 devel_llvm-toolchain-3.8: DNE
 
 Patches_llvm-toolchain-3.9:
@@ -91,6 +98,7 @@ xenial_llvm-toolchain-3.9: ignored (end of standard support)
 bionic_llvm-toolchain-3.9: needs-triage
 focal_llvm-toolchain-3.9: DNE
 jammy_llvm-toolchain-3.9: DNE
+kinetic_llvm-toolchain-3.9: DNE
 devel_llvm-toolchain-3.9: DNE
 
 Patches_llvm-toolchain-4.0:
@@ -102,6 +110,7 @@ esm-infra/xenial_llvm-toolchain-4.0: needs-triage
 bionic_llvm-toolchain-4.0: needs-triage
 focal_llvm-toolchain-4.0: DNE
 jammy_llvm-toolchain-4.0: DNE
+kinetic_llvm-toolchain-4.0: DNE
 devel_llvm-toolchain-4.0: DNE
 
 Patches_llvm-toolchain-5.0:
@@ -113,6 +122,7 @@ esm-infra/xenial_llvm-toolchain-5.0: needs-triage
 bionic_llvm-toolchain-5.0: needs-triage
 focal_llvm-toolchain-5.0: DNE
 jammy_llvm-toolchain-5.0: DNE
+kinetic_llvm-toolchain-5.0: DNE
 devel_llvm-toolchain-5.0: DNE
 
 Patches_llvm-toolchain-6.0:
@@ -124,6 +134,7 @@ esm-infra/xenial_llvm-toolchain-6.0: needs-triage
 bionic_llvm-toolchain-6.0: needs-triage
 focal_llvm-toolchain-6.0: needs-triage
 jammy_llvm-toolchain-6.0: DNE
+kinetic_llvm-toolchain-6.0: DNE
 devel_llvm-toolchain-6.0: DNE
 
 Patches_llvm-toolchain-7:
@@ -134,6 +145,7 @@ xenial_llvm-toolchain-7: DNE
 bionic_llvm-toolchain-7: needs-triage
 focal_llvm-toolchain-7: needs-triage
 jammy_llvm-toolchain-7: DNE
+kinetic_llvm-toolchain-7: DNE
 devel_llvm-toolchain-7: DNE
 
 Patches_llvm-toolchain-8:
@@ -144,6 +156,7 @@ xenial_llvm-toolchain-8: ignored (end of standard support)
 bionic_llvm-toolchain-8: needs-triage
 focal_llvm-toolchain-8: needs-triage
 jammy_llvm-toolchain-8: DNE
+kinetic_llvm-toolchain-8: DNE
 devel_llvm-toolchain-8: DNE
 
 Patches_llvm-toolchain-9:
@@ -154,6 +167,7 @@ xenial_llvm-toolchain-9: DNE
 bionic_llvm-toolchain-9: needs-triage
 focal_llvm-toolchain-9: needs-triage
 jammy_llvm-toolchain-9: DNE
+kinetic_llvm-toolchain-9: DNE
 devel_llvm-toolchain-9: DNE
 
 Patches_llvm-toolchain-10:
@@ -164,6 +178,7 @@ xenial_llvm-toolchain-10: DNE
 bionic_llvm-toolchain-10: needs-triage
 focal_llvm-toolchain-10: needs-triage
 jammy_llvm-toolchain-10: DNE
+kinetic_llvm-toolchain-10: DNE
 devel_llvm-toolchain-10: DNE
 
 Patches_llvm-toolchain-11:
@@ -174,6 +189,7 @@ xenial_llvm-toolchain-11: DNE
 bionic_llvm-toolchain-11: DNE
 focal_llvm-toolchain-11: needs-triage
 jammy_llvm-toolchain-11: needs-triage
+kinetic_llvm-toolchain-11: needs-triage
 devel_llvm-toolchain-11: needs-triage
 
 Patches_llvm-toolchain-12:
@@ -184,4 +200,5 @@ xenial_llvm-toolchain-12: DNE
 bionic_llvm-toolchain-12: DNE
 focal_llvm-toolchain-12: needs-triage
 jammy_llvm-toolchain-12: needs-triage
+kinetic_llvm-toolchain-12: DNE
 devel_llvm-toolchain-12: DNE

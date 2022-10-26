@@ -19,6 +19,7 @@ xenial_xserver-xorg-video-openchrome: ignored (end of standard support)
 bionic_xserver-xorg-video-openchrome: needs-triage
 focal_xserver-xorg-video-openchrome: needs-triage
 jammy_xserver-xorg-video-openchrome: needs-triage
+kinetic_xserver-xorg-video-openchrome: needs-triage
 devel_xserver-xorg-video-openchrome: needs-triage
 
 Patches_xserver-xorg-video-openchrome-lts-utopic:
@@ -29,6 +30,7 @@ xenial_xserver-xorg-video-openchrome-lts-utopic: DNE
 bionic_xserver-xorg-video-openchrome-lts-utopic: DNE
 focal_xserver-xorg-video-openchrome-lts-utopic: DNE
 jammy_xserver-xorg-video-openchrome-lts-utopic: DNE
+kinetic_xserver-xorg-video-openchrome-lts-utopic: DNE
 devel_xserver-xorg-video-openchrome-lts-utopic: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-vivid:
@@ -39,6 +41,7 @@ xenial_xserver-xorg-video-openchrome-lts-vivid: DNE
 bionic_xserver-xorg-video-openchrome-lts-vivid: DNE
 focal_xserver-xorg-video-openchrome-lts-vivid: DNE
 jammy_xserver-xorg-video-openchrome-lts-vivid: DNE
+kinetic_xserver-xorg-video-openchrome-lts-vivid: DNE
 devel_xserver-xorg-video-openchrome-lts-vivid: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-wily:
@@ -49,6 +52,7 @@ xenial_xserver-xorg-video-openchrome-lts-wily: DNE
 bionic_xserver-xorg-video-openchrome-lts-wily: DNE
 focal_xserver-xorg-video-openchrome-lts-wily: DNE
 jammy_xserver-xorg-video-openchrome-lts-wily: DNE
+kinetic_xserver-xorg-video-openchrome-lts-wily: DNE
 devel_xserver-xorg-video-openchrome-lts-wily: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-xenial:
@@ -59,6 +63,7 @@ xenial_xserver-xorg-video-openchrome-lts-xenial: DNE
 bionic_xserver-xorg-video-openchrome-lts-xenial: DNE
 focal_xserver-xorg-video-openchrome-lts-xenial: DNE
 jammy_xserver-xorg-video-openchrome-lts-xenial: DNE
+kinetic_xserver-xorg-video-openchrome-lts-xenial: DNE
 devel_xserver-xorg-video-openchrome-lts-xenial: DNE
 
 Patches_xserver-xorg-video-openchrome-hwe-16.04:
@@ -69,5 +74,6 @@ xenial_xserver-xorg-video-openchrome-hwe-16.04: ignored (end of standard support
 bionic_xserver-xorg-video-openchrome-hwe-16.04: DNE
 focal_xserver-xorg-video-openchrome-hwe-16.04: DNE
 jammy_xserver-xorg-video-openchrome-hwe-16.04: DNE
+kinetic_xserver-xorg-video-openchrome-hwe-16.04: DNE
 devel_xserver-xorg-video-openchrome-hwe-16.04: DNE
 

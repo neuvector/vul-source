@@ -22,7 +22,7 @@ if ! [ -d active/ ]; then
     exit 2
 fi
 
-for f in active/CVE-*; do
+for f in boilerplates/* active/CVE-*; do
   # ignore symlinks so we don't replace twice in the same underlying file
   if [ ! -L "$f" ]; then
     perl -pi -e 's/^((#?)devel_(.*))/${2}'"$REL"'_$3\n$1/g' "$f"

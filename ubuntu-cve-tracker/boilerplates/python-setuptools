@@ -23,6 +23,7 @@ esm-infra/xenial_python-setuptools: needs-triage
 bionic_python-setuptools: needs-triage
 focal_python-setuptools: needs-triage
 jammy_python-setuptools: needs-triage
+kinetic_python-setuptools: needs-triage
 devel_python-setuptools: needs-triage
 
 Patches_setuptools:
@@ -33,6 +34,7 @@ xenial_setuptools: DNE
 bionic_setuptools: DNE
 focal_setuptools: needs-triage
 jammy_setuptools: needs-triage
+kinetic_setuptools: needs-triage
 devel_setuptools: needs-triage
 
 Patches_python-pip:
@@ -43,6 +45,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: needs-triage
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
+kinetic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

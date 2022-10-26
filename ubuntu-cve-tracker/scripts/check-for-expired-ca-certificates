@@ -8,7 +8,7 @@ set -euo pipefail
 
 # shellcheck source=/dev/null
 source ~/.ubuntu-security-tools.conf
-release_list=${release_list:-trusty xenial bionic focal impish jammy}
+release_list=${release_list:-trusty xenial bionic focal jammy kinetic}
 dir=$(mktemp -d)
 cd "$dir" || exit
 git clone --quiet https://git.launchpad.net/ubuntu/+source/ca-certificates

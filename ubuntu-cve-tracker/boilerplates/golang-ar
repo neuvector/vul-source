@@ -20,6 +20,7 @@ xenial_golang-ar: ignored (end of standard support)
 bionic_golang-ar: needs-triage
 focal_golang-ar: needs-triage
 jammy_golang-ar: needs-triage
+kinetic_golang-ar: needs-triage
 devel_golang-ar: needs-triage
 
 Patches_snapd:
@@ -32,4 +33,5 @@ bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
+kinetic_snapd: needs-triage
 devel_snapd: needs-triage

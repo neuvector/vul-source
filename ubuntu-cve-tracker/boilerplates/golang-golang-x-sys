@@ -20,6 +20,7 @@ xenial_golang-golang-x-sys: ignored (end of standard support)
 bionic_golang-golang-x-sys: needs-triage
 focal_golang-golang-x-sys: needs-triage
 jammy_golang-golang-x-sys: needs-triage
+kinetic_golang-golang-x-sys: needs-triage
 devel_golang-golang-x-sys: needs-triage
 
 Patches_google-guest-agent:
@@ -30,4 +31,5 @@ xenial_google-guest-agent: ignored (end of standard support)
 bionic_google-guest-agent: needs-triage
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
+kinetic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

@@ -22,4 +22,5 @@ xenial_rpm: ignored (end of standard support)
 bionic_rpm: needs-triage
 focal_rpm: needs-triage
 jammy_rpm: needs-triage
+kinetic_rpm: needs-triage
 devel_rpm: needs-triage

@@ -20,6 +20,7 @@ esm-infra/xenial_syslinux: needs-triage
 bionic_syslinux: needs-triage
 focal_syslinux: needs-triage
 jammy_syslinux: needs-triage
+kinetic_syslinux: needs-triage
 devel_syslinux: needs-triage
 
 Patches_syslinux-legacy:
@@ -31,5 +32,6 @@ esm-infra/xenial_syslinux-legacy: needs-triage
 bionic_syslinux-legacy: needs-triage
 focal_syslinux-legacy: needs-triage
 jammy_syslinux-legacy: DNE
+kinetic_syslinux-legacy: DNE
 devel_syslinux-legacy: DNE
 

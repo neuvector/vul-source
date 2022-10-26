@@ -19,6 +19,7 @@ xenial_libmodplug: ignored (end of standard support)
 bionic_libmodplug: needs-triage
 focal_libmodplug: needs-triage
 jammy_libmodplug: needs-triage
+kinetic_libmodplug: needs-triage
 devel_libmodplug: needs-triage
 
 Patches_gst-plugins-bad0.10:
@@ -29,4 +30,5 @@ xenial_gst-plugins-bad0.10: DNE
 bionic_gst-plugins-bad0.10: DNE
 focal_gst-plugins-bad0.10: DNE
 jammy_gst-plugins-bad0.10: DNE
+kinetic_gst-plugins-bad0.10: DNE
 devel_gst-plugins-bad0.10: DNE

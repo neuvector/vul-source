@@ -21,6 +21,7 @@ esm-infra/xenial_libcroco: needs-triage
 bionic_libcroco: needs-triage
 focal_libcroco: needs-triage
 jammy_libcroco: DNE
+kinetic_libcroco: DNE
 devel_libcroco: DNE
 
 Patches_gnome-shell:
@@ -31,4 +32,5 @@ xenial_gnome-shell: ignored (end of standard support)
 bionic_gnome-shell: needs-triage
 focal_gnome-shell: needs-triage
 jammy_gnome-shell: needs-triage
+kinetic_gnome-shell: needs-triage
 devel_gnome-shell: needs-triage

@@ -23,4 +23,5 @@ CVSS:
 #hirsute_binutils:
 #impish_binutils:
 #jammy_binutils:
+#kinetic_binutils:
 #devel_binutils:

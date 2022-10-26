@@ -19,6 +19,7 @@ xenial_eglibc: DNE
 bionic_eglibc: DNE
 focal_eglibc: DNE
 jammy_eglibc: DNE
+kinetic_eglibc: DNE
 devel_eglibc: DNE
 
 Patches_glibc:
@@ -30,4 +31,5 @@ esm-infra/xenial_glibc: needs-triage
 bionic_glibc: needs-triage
 focal_glibc: needs-triage
 jammy_glibc: needs-triage
+kinetic_glibc: needs-triage
 devel_glibc: needs-triage

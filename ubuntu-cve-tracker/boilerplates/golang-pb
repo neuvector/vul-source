@@ -20,6 +20,7 @@ xenial_golang-gopkg-cheggaaa-pb.v1: DNE
 bionic_golang-gopkg-cheggaaa-pb.v1: needs-triage
 focal_golang-gopkg-cheggaaa-pb.v1: needs-triage
 jammy_golang-gopkg-cheggaaa-pb.v1: needs-triage
+kinetic_golang-gopkg-cheggaaa-pb.v1: needs-triage
 devel_golang-gopkg-cheggaaa-pb.v1: needs-triage
 
 Patches_golang-gopkg-cheggaaa-pb.v2:
@@ -30,6 +31,7 @@ xenial_golang-gopkg-cheggaaa-pb.v2: DNE
 bionic_golang-gopkg-cheggaaa-pb.v2: DNE
 focal_golang-gopkg-cheggaaa-pb.v2: needs-triage
 jammy_golang-gopkg-cheggaaa-pb.v2: needs-triage
+kinetic_golang-gopkg-cheggaaa-pb.v2: needs-triage
 devel_golang-gopkg-cheggaaa-pb.v2: needs-triage
 
 Patches_golang-pb:
@@ -41,6 +43,7 @@ esm-infra/xenial_golang-pb: needs-triage
 bionic_golang-pb: needs-triage
 focal_golang-pb: DNE
 jammy_golang-pb: DNE
+kinetic_golang-pb: DNE
 devel_golang-pb: DNE
 
 Patches_snapd:
@@ -53,4 +56,5 @@ bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
+kinetic_snapd: needs-triage
 devel_snapd: needs-triage

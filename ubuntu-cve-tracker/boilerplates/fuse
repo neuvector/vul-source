@@ -20,6 +20,7 @@ esm-infra/xenial_fuse: needs-triage
 bionic_fuse: needs-triage
 focal_fuse: needs-triage
 jammy_fuse: needs-triage
+kinetic_fuse: needs-triage
 devel_fuse: needs-triage
 
 Patches_fuse3:
@@ -30,4 +31,5 @@ xenial_fuse3: DNE
 bionic_fuse3: DNE
 focal_fuse3: needs-triage
 jammy_fuse3: needs-triage
+kinetic_fuse3: needs-triage
 devel_fuse3: needs-triage

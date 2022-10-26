@@ -20,6 +20,7 @@ esm-infra/xenial_nagios3: needs-triage
 bionic_nagios3: needs-triage
 focal_nagios3: DNE
 jammy_nagios3: DNE
+kinetic_nagios3: DNE
 devel_nagios3: DNE
 
 Patches_nagios4:
@@ -31,6 +32,7 @@ esm-infra/xenial_nagios4: DNE
 bionic_nagios4: DNE
 focal_nagios4: needs-triage
 jammy_nagios4: needs-triage
+kinetic_nagios4: needs-triage
 devel_nagios4: needs-triage
 
 Patches_icinga:
@@ -41,4 +43,5 @@ xenial_icinga: ignored (end of standard support)
 bionic_icinga: needs-triage
 focal_icinga: DNE
 jammy_icinga: DNE
+kinetic_icinga: DNE
 devel_icinga: DNE

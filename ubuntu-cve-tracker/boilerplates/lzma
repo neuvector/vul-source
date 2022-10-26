@@ -20,6 +20,7 @@ esm-infra/xenial_lzma: needs-triage
 bionic_lzma: needs-triage
 focal_lzma: needs-triage
 jammy_lzma: needs-triage
+kinetic_lzma: needs-triage
 devel_lzma: needs-triage
 
 Patches_uefitool:
@@ -30,6 +31,7 @@ xenial_uefitool: DNE
 bionic_uefitool: DNE
 focal_uefitool: needs-triage
 jammy_uefitool: needs-triage
+kinetic_uefitool: needs-triage
 devel_uefitool: needs-triage
 
 Patches_edk2:
@@ -40,6 +42,7 @@ xenial_edk2: ignored (end of standard support)
 bionic_edk2: needs-triage
 focal_edk2: needs-triage
 jammy_edk2: needs-triage
+kinetic_edk2: needs-triage
 devel_edk2: needs-triage
 
 Patches_virtualbox:
@@ -50,6 +53,7 @@ xenial_virtualbox: ignored (end of standard support)
 bionic_virtualbox: needs-triage
 focal_virtualbox: needs-triage
 jammy_virtualbox: needs-triage
+kinetic_virtualbox: needs-triage
 devel_virtualbox: needs-triage
 
 Patches_virtualbox-hwe:
@@ -60,6 +64,7 @@ xenial_virtualbox-hwe: ignored (end of standard support)
 bionic_virtualbox-hwe: needs-triage
 focal_virtualbox-hwe: needs-triage
 jammy_virtualbox-hwe: needs-triage
+kinetic_virtualbox-hwe: needs-triage
 devel_virtualbox-hwe: needs-triage
 
 Patches_virtualbox-lts-vivid:
@@ -70,6 +75,7 @@ xenial_virtualbox-lts-vivid: DNE
 bionic_virtualbox-lts-vivid: DNE
 focal_virtualbox-lts-vivid: DNE
 jammy_virtualbox-lts-vivid: DNE
+kinetic_virtualbox-lts-vivid: DNE
 devel_virtualbox-lts-vivid: DNE
 
 Patches_virtualbox-lts-wily:
@@ -80,6 +86,7 @@ xenial_virtualbox-lts-wily: DNE
 bionic_virtualbox-lts-wily: DNE
 focal_virtualbox-lts-wily: DNE
 jammy_virtualbox-lts-wily: DNE
+kinetic_virtualbox-lts-wily: DNE
 devel_virtualbox-lts-wily: DNE
 
 Patches_virtualbox-lts-xenial:
@@ -90,5 +97,6 @@ xenial_virtualbox-lts-xenial: DNE
 bionic_virtualbox-lts-xenial: DNE
 focal_virtualbox-lts-xenial: DNE
 jammy_virtualbox-lts-xenial: DNE
+kinetic_virtualbox-lts-xenial: DNE
 devel_virtualbox-lts-xenial: DNE
 

@@ -1259,6 +1259,10 @@
         "description": "Linux kernel for Microsoft Azure CVM cloud systems",
         "title": "Linux kernel (Azure CVM)"
     },
+    "linux-azure-fde-5.15": {
+        "description": "Linux kernel for Microsoft Azure CVM cloud systems",
+        "title": "Linux kernel (Azure CVM)"
+    },
     "linux-bluefield": {
         "description": "Linux kernel for NVIDIA BlueField platforms",
         "title": "Linux kernel (BlueField)"

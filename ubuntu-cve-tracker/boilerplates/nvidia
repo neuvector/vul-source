@@ -22,6 +22,7 @@ esm-infra/xenial_nvidia-graphics-drivers-304: ignored
 bionic_nvidia-graphics-drivers-304: DNE
 focal_nvidia-graphics-drivers-304: DNE
 jammy_nvidia-graphics-drivers-304: DNE
+kinetic_nvidia-graphics-drivers-304: DNE
 devel_nvidia-graphics-drivers-304: DNE
 
 Patches_nvidia-graphics-drivers-304-updates:
@@ -33,6 +34,7 @@ esm-infra/xenial_nvidia-graphics-drivers-304-updates: not-affected (superseded)
 bionic_nvidia-graphics-drivers-304-updates: DNE
 focal_nvidia-graphics-drivers-304-updates: DNE
 jammy_nvidia-graphics-drivers-304-updates: DNE
+kinetic_nvidia-graphics-drivers-304-updates: DNE
 devel_nvidia-graphics-drivers-304-updates: DNE
 
 Patches_nvidia-graphics-drivers-340:
@@ -44,6 +46,7 @@ esm-infra/xenial_nvidia-graphics-drivers-340: ignored
 bionic_nvidia-graphics-drivers-340: ignored
 focal_nvidia-graphics-drivers-340: ignored
 jammy_nvidia-graphics-drivers-340: not-affected (superseded)
+kinetic_nvidia-graphics-drivers-340: not-affected (superseded)
 devel_nvidia-graphics-drivers-340: not-affected (superseded)
 
 Patches_nvidia-graphics-drivers-340-updates:
@@ -55,6 +58,7 @@ esm-infra/xenial_nvidia-graphics-drivers-340-updates: not-affected (superseded)
 bionic_nvidia-graphics-drivers-340-updates: not-affected (superseded)
 focal_nvidia-graphics-drivers-340-updates: DNE
 jammy_nvidia-graphics-drivers-340-updates: DNE
+kinetic_nvidia-graphics-drivers-340-updates: DNE
 devel_nvidia-graphics-drivers-340-updates: DNE
 
 Patches_nvidia-graphics-drivers-352:
@@ -66,6 +70,7 @@ esm-infra/xenial_nvidia-graphics-drivers-352: not-affected (superseded)
 bionic_nvidia-graphics-drivers-352: not-affected (superseded)
 focal_nvidia-graphics-drivers-352: DNE
 jammy_nvidia-graphics-drivers-352: DNE
+kinetic_nvidia-graphics-drivers-352: DNE
 devel_nvidia-graphics-drivers-352: DNE
 
 Patches_nvidia-graphics-drivers-352-updates:
@@ -77,6 +82,7 @@ esm-infra/xenial_nvidia-graphics-drivers-352-updates: not-affected (superseded)
 bionic_nvidia-graphics-drivers-352-updates: not-affected (superseded)
 focal_nvidia-graphics-drivers-352-updates: DNE
 jammy_nvidia-graphics-drivers-352-updates: DNE
+kinetic_nvidia-graphics-drivers-352-updates: DNE
 devel_nvidia-graphics-drivers-352-updates: DNE
 
 Patches_nvidia-graphics-drivers-361:
@@ -88,6 +94,7 @@ esm-infra/xenial_nvidia-graphics-drivers-361: not-affected (superseded)
 bionic_nvidia-graphics-drivers-361: not-affected (superseded)
 focal_nvidia-graphics-drivers-361: DNE
 jammy_nvidia-graphics-drivers-361: DNE
+kinetic_nvidia-graphics-drivers-361: DNE
 devel_nvidia-graphics-drivers-361: DNE
 
 Patches_nvidia-graphics-drivers-367:
@@ -99,6 +106,7 @@ esm-infra/xenial_nvidia-graphics-drivers-367: not-affected (superseded)
 bionic_nvidia-graphics-drivers-367: not-affected (superseded)
 focal_nvidia-graphics-drivers-367: DNE
 jammy_nvidia-graphics-drivers-367: DNE
+kinetic_nvidia-graphics-drivers-367: DNE
 devel_nvidia-graphics-drivers-367: DNE
 
 Patches_nvidia-graphics-drivers-375:
@@ -110,6 +118,7 @@ esm-infra/xenial_nvidia-graphics-drivers-375: not-affected (superseded)
 bionic_nvidia-graphics-drivers-375: not-affected (superseded)
 focal_nvidia-graphics-drivers-375: DNE
 jammy_nvidia-graphics-drivers-375: DNE
+kinetic_nvidia-graphics-drivers-375: DNE
 devel_nvidia-graphics-drivers-375: DNE
 
 Patches_nvidia-graphics-drivers-384:
@@ -120,6 +129,7 @@ xenial_nvidia-graphics-drivers-384: ignored (end of standard support)
 bionic_nvidia-graphics-drivers-384: not-affected (superseded)
 focal_nvidia-graphics-drivers-384: DNE
 jammy_nvidia-graphics-drivers-384: DNE
+kinetic_nvidia-graphics-drivers-384: DNE
 devel_nvidia-graphics-drivers-384: DNE
 
 Patches_nvidia-graphics-drivers-390:
@@ -130,6 +140,7 @@ xenial_nvidia-graphics-drivers-390: DNE
 bionic_nvidia-graphics-drivers-390: needs-triage
 focal_nvidia-graphics-drivers-390: needs-triage
 jammy_nvidia-graphics-drivers-390: needs-triage
+kinetic_nvidia-graphics-drivers-390: needs-triage
 devel_nvidia-graphics-drivers-390: needs-triage
 
 Patches_nvidia-graphics-drivers-418-server:
@@ -140,7 +151,8 @@ xenial_nvidia-graphics-drivers-418-server: DNE
 bionic_nvidia-graphics-drivers-418-server: ignored
 focal_nvidia-graphics-drivers-418-server: ignored
 jammy_nvidia-graphics-drivers-418-server: ignored
-devel_nvidia-graphics-drivers-418-server: ignored
+kinetic_nvidia-graphics-drivers-418-server: DNE
+devel_nvidia-graphics-drivers-418-server: DNE
 
 Patches_nvidia-graphics-drivers-430:
 upstream_nvidia-graphics-drivers-430: needs-triage
@@ -150,6 +162,7 @@ xenial_nvidia-graphics-drivers-430: DNE
 bionic_nvidia-graphics-drivers-430: ignored
 focal_nvidia-graphics-drivers-430: ignored
 jammy_nvidia-graphics-drivers-430: ignored
+kinetic_nvidia-graphics-drivers-430: ignored
 devel_nvidia-graphics-drivers-430: ignored
 
 Patches_nvidia-graphics-drivers-435:
@@ -160,6 +173,7 @@ xenial_nvidia-graphics-drivers-435: DNE
 bionic_nvidia-graphics-drivers-435: ignored
 focal_nvidia-graphics-drivers-435: ignored
 jammy_nvidia-graphics-drivers-435: ignored
+kinetic_nvidia-graphics-drivers-435: ignored
 devel_nvidia-graphics-drivers-435: ignored
 
 Patches_nvidia-graphics-drivers-440:
@@ -170,6 +184,7 @@ xenial_nvidia-graphics-drivers-440: DNE
 bionic_nvidia-graphics-drivers-440: ignored
 focal_nvidia-graphics-drivers-440: ignored
 jammy_nvidia-graphics-drivers-440: ignored
+kinetic_nvidia-graphics-drivers-440: ignored
 devel_nvidia-graphics-drivers-440: ignored
 
 Patches_nvidia-graphics-drivers-440-server:
@@ -180,6 +195,7 @@ xenial_nvidia-graphics-drivers-440-server: DNE
 bionic_nvidia-graphics-drivers-440-server: ignored
 focal_nvidia-graphics-drivers-440-server: ignored
 jammy_nvidia-graphics-drivers-440-server: ignored
+kinetic_nvidia-graphics-drivers-440-server: ignored
 devel_nvidia-graphics-drivers-440-server: ignored
 
 Patches_nvidia-graphics-drivers-450:
@@ -190,6 +206,7 @@ xenial_nvidia-graphics-drivers-450: DNE
 bionic_nvidia-graphics-drivers-450: ignored
 focal_nvidia-graphics-drivers-450: ignored
 jammy_nvidia-graphics-drivers-450: ignored
+kinetic_nvidia-graphics-drivers-450: ignored
 devel_nvidia-graphics-drivers-450: ignored
 
 Patches_nvidia-graphics-drivers-450-server:
@@ -200,6 +217,7 @@ xenial_nvidia-graphics-drivers-450-server: DNE
 bionic_nvidia-graphics-drivers-450-server: needs-triage
 focal_nvidia-graphics-drivers-450-server: needs-triage
 jammy_nvidia-graphics-drivers-450-server: needs-triage
+kinetic_nvidia-graphics-drivers-450-server: needs-triage
 devel_nvidia-graphics-drivers-450-server: needs-triage
 
 Patches_nvidia-graphics-drivers-455:
@@ -210,6 +228,7 @@ xenial_nvidia-graphics-drivers-455: DNE
 bionic_nvidia-graphics-drivers-455: ignored
 focal_nvidia-graphics-drivers-455: ignored
 jammy_nvidia-graphics-drivers-455: ignored
+kinetic_nvidia-graphics-drivers-455: ignored
 devel_nvidia-graphics-drivers-455: ignored
 
 Patches_nvidia-graphics-drivers-460:
@@ -220,6 +239,7 @@ xenial_nvidia-graphics-drivers-460: DNE
 bionic_nvidia-graphics-drivers-460: ignored
 focal_nvidia-graphics-drivers-460: ignored
 jammy_nvidia-graphics-drivers-460: ignored
+kinetic_nvidia-graphics-drivers-460: ignored
 devel_nvidia-graphics-drivers-460: ignored
 
 Patches_nvidia-graphics-drivers-460-server:
@@ -230,6 +250,7 @@ xenial_nvidia-graphics-drivers-460-server: DNE
 bionic_nvidia-graphics-drivers-460-server: ignored
 focal_nvidia-graphics-drivers-460-server: ignored
 jammy_nvidia-graphics-drivers-460-server: DNE
+kinetic_nvidia-graphics-drivers-460-server: DNE
 devel_nvidia-graphics-drivers-460-server: DNE
 
 Patches_nvidia-graphics-drivers-470:
@@ -240,6 +261,7 @@ xenial_nvidia-graphics-drivers-470: DNE
 bionic_nvidia-graphics-drivers-470: needs-triage
 focal_nvidia-graphics-drivers-470: needs-triage
 jammy_nvidia-graphics-drivers-470: needs-triage
+kinetic_nvidia-graphics-drivers-470: needs-triage
 devel_nvidia-graphics-drivers-470: needs-triage
 
 Patches_nvidia-graphics-drivers-470-server:
@@ -250,6 +272,7 @@ xenial_nvidia-graphics-drivers-470-server: DNE
 bionic_nvidia-graphics-drivers-470-server: needs-triage
 focal_nvidia-graphics-drivers-470-server: needs-triage
 jammy_nvidia-graphics-drivers-470-server: needs-triage
+kinetic_nvidia-graphics-drivers-470-server: needs-triage
 devel_nvidia-graphics-drivers-470-server: needs-triage
 
 Patches_nvidia-graphics-drivers-495:
@@ -260,6 +283,7 @@ xenial_nvidia-graphics-drivers-495: DNE
 bionic_nvidia-graphics-drivers-495: not-affected (superseded)
 focal_nvidia-graphics-drivers-495: not-affected (superseded)
 jammy_nvidia-graphics-drivers-495: DNE
+kinetic_nvidia-graphics-drivers-495: DNE
 devel_nvidia-graphics-drivers-495: DNE
 
 Patches_nvidia-graphics-drivers-510:
@@ -270,6 +294,7 @@ xenial_nvidia-graphics-drivers-510: DNE
 bionic_nvidia-graphics-drivers-510: needs-triage
 focal_nvidia-graphics-drivers-510: needs-triage
 jammy_nvidia-graphics-drivers-510: needs-triage
+kinetic_nvidia-graphics-drivers-510: needs-triage
 devel_nvidia-graphics-drivers-510: needs-triage
 
 Patches_nvidia-graphics-drivers-510-server:
@@ -280,6 +305,7 @@ xenial_nvidia-graphics-drivers-510-server: DNE
 bionic_nvidia-graphics-drivers-510-server: needs-triage
 focal_nvidia-graphics-drivers-510-server: needs-triage
 jammy_nvidia-graphics-drivers-510-server: needs-triage
+kinetic_nvidia-graphics-drivers-510-server: needs-triage
 devel_nvidia-graphics-drivers-510-server: needs-triage
 
 Patches_nvidia-graphics-drivers-515:
@@ -290,6 +316,7 @@ xenial_nvidia-graphics-drivers-515: DNE
 bionic_nvidia-graphics-drivers-515: needs-triage
 focal_nvidia-graphics-drivers-515: needs-triage
 jammy_nvidia-graphics-drivers-515: needs-triage
+kinetic_nvidia-graphics-drivers-515: needs-triage
 devel_nvidia-graphics-drivers-515: needs-triage
 
 Patches_nvidia-graphics-drivers-515-server:
@@ -300,4 +327,5 @@ xenial_nvidia-graphics-drivers-515-server: DNE
 bionic_nvidia-graphics-drivers-515-server: needs-triage
 focal_nvidia-graphics-drivers-515-server: needs-triage
 jammy_nvidia-graphics-drivers-515-server: needs-triage
+kinetic_nvidia-graphics-drivers-515-server: needs-triage
 devel_nvidia-graphics-drivers-515-server: needs-triage

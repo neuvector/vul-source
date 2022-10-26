@@ -24,6 +24,7 @@ groovy_device-tree-compiler:
 hirsute_device-tree-compiler:
 impish_device-tree-compiler:
 jammy_device-tree-compiler:
+kinetic_device-tree-compiler:
 devel_device-tree-compiler:
 
 Patches_opensbi:
@@ -37,4 +38,5 @@ groovy_opensbi:
 hirsute_opensbi:
 impish_opensbi:
 jammy_opensbi:
+kinetic_opensbi:
 devel_opensbi:

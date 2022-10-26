@@ -20,6 +20,7 @@ xenial_golang-github-googleapis-gax-go: DNE
 bionic_golang-github-googleapis-gax-go: needs-triage
 focal_golang-github-googleapis-gax-go: needs-triage
 jammy_golang-github-googleapis-gax-go: needs-triage
+kinetic_golang-github-googleapis-gax-go: needs-triage
 devel_golang-github-googleapis-gax-go: needs-triage
 
 Patches_google-guest-agent:
@@ -30,4 +31,5 @@ xenial_google-guest-agent: ignored (end of standard support)
 bionic_google-guest-agent: needs-triage
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
+kinetic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

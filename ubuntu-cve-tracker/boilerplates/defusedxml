@@ -22,4 +22,5 @@ esm-infra/xenial_defusedxml: needs-triage
 bionic_defusedxml: needs-triage
 focal_defusedxml: needs-triage
 jammy_defusedxml: needs-triage
+kinetic_defusedxml: needs-triage
 devel_defusedxml: needs-triage

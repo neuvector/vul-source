@@ -20,6 +20,7 @@ esm-infra/xenial_gnupg: needs-triage
 bionic_gnupg: DNE
 focal_gnupg: DNE
 jammy_gnupg: DNE
+kinetic_gnupg: DNE
 devel_gnupg: DNE
 
 Patches_gnupg2:
@@ -31,4 +32,5 @@ esm-infra/xenial_gnupg2: needs-triage
 bionic_gnupg2: needs-triage
 focal_gnupg2: needs-triage
 jammy_gnupg2: needs-triage
+kinetic_gnupg2: needs-triage
 devel_gnupg2: needs-triage

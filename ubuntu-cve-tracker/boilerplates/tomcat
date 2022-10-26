@@ -19,6 +19,7 @@ xenial_tomcat6: ignored (end of standard support)
 bionic_tomcat6: DNE
 focal_tomcat6: DNE
 jammy_tomcat6: DNE
+kinetic_tomcat6: DNE
 devel_tomcat6: DNE
 
 Patches_tomcat7:
@@ -29,6 +30,7 @@ xenial_tomcat7: ignored (end of standard support)
 bionic_tomcat7: needs-triage
 focal_tomcat7: DNE
 jammy_tomcat7: DNE
+kinetic_tomcat7: DNE
 devel_tomcat7: DNE
 
 Patches_tomcat8:
@@ -40,6 +42,7 @@ esm-infra/xenial_tomcat8: needs-triage
 bionic_tomcat8: needs-triage
 focal_tomcat8: DNE
 jammy_tomcat8: DNE
+kinetic_tomcat8: DNE
 devel_tomcat8: DNE
 
 Patches_tomcat9:
@@ -50,4 +53,5 @@ xenial_tomcat9: DNE
 bionic_tomcat9: needs-triage
 focal_tomcat9: needs-triage
 jammy_tomcat9: needs-triage
+kinetic_tomcat9: needs-triage
 devel_tomcat9: needs-triage
