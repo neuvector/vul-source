@@ -537,19 +537,19 @@ subprojects = {
         "name": "Ubuntu 22.10",
         "codename": "Kinetic Kudu",
         "alias": "kinetic",
-        "devel": False,  # there can be only one ⚔
+        "devel": False,
         "description": "Interim Release",
         "stamp": 1666461600,
     },
-    #"ubuntu/lucky": {
-    #    "eol": False,
-    #    "components": ["main", "restricted", "universe", "multiverse"],
-    #    "name": "Ubuntu 23.04",
-    #    "codename": "L L",
-    #    "alias": "lucky",
-    #    "devel": True,  # there can be only one ⚔
-    #    "description": "Interim Release",
-    #},
+    "ubuntu/lunar": {
+       "eol": False,
+       "components": ["main", "restricted", "universe", "multiverse"],
+       "name": "Ubuntu 23.04",
+       "codename": "Lunar Lobster",
+       "alias": "lunar",
+       "devel": True,  # there can be only one ⚔
+       "description": "Interim Release",
+    },
     "snap": {
         "eol": False,
         "packages": ["snap-supported.txt"],
@@ -802,7 +802,7 @@ for release in subprojects:
 flavor_releases = [
     'lucid', 'precise', 'trusty', 'utopic', 'vivid', 'wily', 'xenial',
     'yakkety', 'zesty', 'artful', 'bionic', 'cosmic', 'disco', 'eoan',
-    'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic',
+    'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic', "lunar",
 ]
 
 # primary name of extended support maintenance (esm) releases
@@ -1145,12 +1145,12 @@ release_expectations = {
         'bonus': [],
         'arch_all': 'amd64',
     },
-    #'lucky': {
-    #    'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
-    #    'expected': ['riscv64'],
-    #    'bonus': [],
-    #    'arch_all': 'amd64',
-    #},
+    'lunar': {
+       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
+       'expected': ['riscv64'],
+       'bonus': [],
+       'arch_all': 'amd64',
+    },
 }
 
 # components in the archive

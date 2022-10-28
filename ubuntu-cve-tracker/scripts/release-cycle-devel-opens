@@ -18,7 +18,7 @@ if ! [ -d embargoed/ ]; then
     echo "Unable to find embargoed directory, is it set up?" >&2
 fi
 
-for f in active/CVE-* embargoed/CVE-* ; do
+for f in active/CVE-* embargoed/CVE-* boilerplates/*; do
     if egrep -q "^(#?)devel_" "$f" ; then
         echo "DEBUG: skipping $f"
         continue

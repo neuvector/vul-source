@@ -577,6 +577,8 @@ add_status('apparmor', 'focal', '2.13.3', DEFAULT)
 add_status('apparmor', 'groovy', '3.0.0', DEFAULT)
 add_status('apparmor', 'hirsute', '3.0.0', DEFAULT)
 add_status('apparmor', 'impish', '3.0.3', DEFAULT)
+add_status('apparmor', 'jammy', '3.0.4', DEFAULT)
+add_status('apparmor', 'kinetic', '3.0.7', DEFAULT)
 
 add_status('selinux', 'hardy', 'universe', AVAILABLE)
 
