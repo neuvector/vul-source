@@ -37,7 +37,6 @@
     <div id="cve-tracker-navbar" class="collapse navbar-collapse">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="active nav-link" href=".">OVAL</a></li>
-        <li class="nav-item"><a class="active nav-link" href="https://snapcraft.io/cvescan">cvescan</a></li>
       </ul>
     </div><!--/.nav-collapse -->
 </nav>
@@ -50,14 +49,8 @@
 
 Canonical produces data using the Open Vulnerability and Assessment Language (<a href=https://oval.mitre.org/about/>OVAL</a>) . This data can be used to scan an Ubuntu system or an official Ubuntu  OCI image for known vulnerabilities caused from missing patches. The Ubuntu Security Team provides OVAL for all <a href=https://wiki.ubuntu.com/Releases> supported Ubuntu releases</a>. <br>
 <br>
-There are two primary methods for consuming this data for your system, the cvescan snap or using OpenSCAP. 
+The primary method for consuming this data for your system is OpenSCAP. 
 <br><br>
-<b><u> Using cvescan </b></u> <br>
-The cvescan tool is a standalone snap that outputs filtered text formatted vulnerability results to facilitate automation, it also includes additional functionality such as nagios compatible output. To begin using cvescan install the snap:  <br>
-<font face=courier>sudo snap install cvescan </font> <br>
-Next  run a scan by executing the command <font face=courier>cvescan</font> 
-
-<br> <br>
 <b><u> Using OpenSCAP </b></u><br>
 First you will need to download the compressed XML .  <br>
 <font face=courier>wget https://security-metadata.canonical.com/oval/com.ubuntu.$(lsb_release -cs).usn.oval.xml.bz2 <br></font>
