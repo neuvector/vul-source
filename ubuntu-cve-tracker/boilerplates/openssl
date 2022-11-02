@@ -46,10 +46,10 @@ trusty_nodejs: ignored (out of standard support)
 trusty/esm_nodejs: not-affected (uses system openssl)
 xenial_nodejs: not-affected (uses system openssl)
 bionic_nodejs: not-affected (uses system openssl1.0)
-focal_nodejs: not-affected (uses system openssl1.1)
-jammy_nodejs: not-affected (uses system openssl1.1)
-kinetic_nodejs: not-affected (uses system openssl1.1)
-devel_nodejs: not-affected (uses system openssl1.1)
+focal_nodejs: not-affected (uses system openssl)
+jammy_nodejs: needed
+kinetic_nodejs: not-affected (uses system openssl)
+devel_nodejs: not-affected (uses system openssl)
 
 Patches_edk2:
 upstream_edk2: needs-triage

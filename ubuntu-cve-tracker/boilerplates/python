@@ -100,3 +100,14 @@ focal_python3.10: DNE
 jammy_python3.10: needs-triage
 kinetic_python3.10: needs-triage
 devel_python3.10: needs-triage
+
+Patches_python3.11:
+upstream_python3.11: needs-triage
+trusty_python3.11: DNE
+trusty/esm_python3.11: DNE
+xenial_python3.11: DNE
+bionic_python3.11: DNE
+focal_python3.11: DNE
+jammy_python3.11: needs-triage
+kinetic_python3.11: needs-triage
+devel_python3.11: needs-triage
