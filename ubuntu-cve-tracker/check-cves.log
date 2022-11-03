@@ -7187,3 +7187,5 @@
 2022-11-02 17:25:35 UTC - 0 added, 2 ignored, 0 skipped, 2 total - files: ['redhat.mbox.json']
 2022-11-02 17:26:55 UTC - 2 added, 0 ignored, 0 skipped, 2 total - files: ['rhel8oval-import_jrurq8l7.json']
 2022-11-02 17:27:03 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
+2022-11-03 15:04:17 UTC - 4 added, 20 ignored, 0 skipped, 24 total - files: ['nvdcve-1.1-recent.json']
+2022-11-03 15:18:34 UTC - 13 added, 0 ignored, 0 skipped, 13 total - files: ['debian-import_ah5imha6.json']

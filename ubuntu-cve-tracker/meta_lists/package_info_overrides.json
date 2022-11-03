@@ -2307,6 +2307,18 @@
         "description": "An interactive high-level object-oriented language",
         "title": "Python"
     },
+    "python3.9": {
+        "description": "An interactive high-level object-oriented language",
+        "title": "Python"
+    },
+    "python3.10": {
+        "description": "An interactive high-level object-oriented language",
+        "title": "Python"
+    },
+    "python3.11": {
+        "description": "An interactive high-level object-oriented language",
+        "title": "Python"
+    },
     "pyxdg": {
         "description": "python library to access freedesktop.org standards",
         "title": "PyXDG"
