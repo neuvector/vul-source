@@ -122,3 +122,13 @@ jammy_openjdk-18: needs-triage
 kinetic_openjdk-18: needs-triage
 devel_openjdk-18: needs-triage
 
+Patches_openjdk-19:
+upstream_openjdk-19: needs-triage
+trusty_openjdk-19: DNE
+trusty/esm_openjdk-19: DNE
+xenial_openjdk-19: DNE
+bionic_openjdk-19: DNE
+focal_openjdk-19: DNE
+jammy_openjdk-19: DNE
+kinetic_openjdk-19: needs-triage
+devel_openjdk-19: needs-triage
