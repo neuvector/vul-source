@@ -7205,3 +7205,7 @@
 2022-11-09 16:45:26 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['redhat.mbox.json']
 2022-11-09 16:50:28 UTC - 0 added, 0 ignored, 5 skipped, 0 total - files: ['rhel8oval-import_pji5u5v3.json']
 2022-11-09 16:50:38 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
+2022-11-10 16:29:46 UTC - 7 added, 144 ignored, 38 skipped, 151 total - files: ['nvdcve-1.1-recent.json']
+2022-11-10 16:36:43 UTC - 0 added, 0 ignored, 47 skipped, 0 total - files: ['debian-import_btu3okie.json']
+2022-11-10 16:53:11 UTC - 0 added, 1 ignored, 37 skipped, 1 total - files: ['nvdcve-1.1-recent.json']
+2022-11-10 17:14:15 UTC - 1 added, 4 ignored, 41 skipped, 5 total - files: ['debian-import_o68d_a0u.json']
