@@ -7231,3 +7231,5 @@
 2022-11-16 22:29:59 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2022-11-17 18:58:53 UTC - 8 added, 26 ignored, 3 skipped, 34 total - files: ['nvdcve-1.1-recent.json']
 2022-11-17 19:24:23 UTC - 2 added, 2 ignored, 3 skipped, 4 total - files: ['debian-import_l_roq7xn.json']
+2022-11-18 18:28:22 UTC - 1 added, 78 ignored, 1 skipped, 79 total - files: ['nvdcve-1.1-recent.json']
+2022-11-18 18:51:02 UTC - 2 added, 0 ignored, 2 skipped, 2 total - files: ['debian-import_ix0j7zn9.json']
