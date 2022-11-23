@@ -1639,6 +1639,10 @@
         "description": "MariaDB database",
         "title": "MariaDB"
     },
+    "mariadb-10.6": {
+        "description": "MariaDB database",
+        "title": "MariaDB"
+    },
     "mariadb-5.5": {
         "description": "MariaDB database",
         "title": "MariaDB"

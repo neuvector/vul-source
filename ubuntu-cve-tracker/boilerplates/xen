@@ -16,7 +16,7 @@ Assigned-to:
 CVSS: 
 
 Patches_xen:
--- Tags_xen: universe-binary
+Tags_xen: universe-binary
 upstream_xen: needs-triage
 trusty_xen: ignored (out of standard support)
 trusty/esm_xen: DNE

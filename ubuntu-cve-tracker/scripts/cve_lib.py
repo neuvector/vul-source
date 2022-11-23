@@ -2171,8 +2171,7 @@ def parse_boilerplate(filepath):
     # capture tags, Notes, and package relationships
     data = dict()
     data.setdefault("aliases", list())
-    # tags are a set but json can't serialise a set so convert to a list first
-    data.setdefault("tags", list(cve_data.get("tags", list())))
+    data.setdefault("tags", cve_data.get("tags", dict()))
     data.setdefault("notes", cve_data.get("Notes", list()))
     data.setdefault("pkgs", cve_data.get("pkgs", dict()))
     return data
