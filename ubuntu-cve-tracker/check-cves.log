@@ -7248,3 +7248,5 @@
 2022-11-25 11:54:20 UTC - 6 added, 17 ignored, 0 skipped, 23 total - files: ['nvdcve-1.1-recent.json']
 2022-11-25 12:13:30 UTC - 0 added, 0 ignored, 4 skipped, 0 total - files: ['debian-import_553ux0ob.json']
 2022-11-25 12:19:24 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['mbox-import_o8hervbn.out.json']
+2022-11-28 14:19:32 UTC - 9 added, 55 ignored, 1 skipped, 64 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-recent.json']
+2022-11-28 14:29:48 UTC - 6 added, 0 ignored, 2 skipped, 6 total - files: ['debian-import_cednm8vy.json']
