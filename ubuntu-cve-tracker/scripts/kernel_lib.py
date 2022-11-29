@@ -705,6 +705,7 @@ kernel_glitches = {
     'linux-oem-5.17': {
         'jammy': {
             '5.17.0-1011.12': '5.17.0-1012.13',
+            '5.17.0-1020.21': '5.17.0-1021.22', # no security fixes, LP: #1992020
         },
     },
     'linux-oracle': {

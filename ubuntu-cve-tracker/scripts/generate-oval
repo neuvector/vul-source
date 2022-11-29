@@ -36,7 +36,7 @@ import tempfile
 #from launchpadlib.launchpad import Launchpad
 
 import apt_pkg
-from cve_lib import (kernel_srcs, get_orig_rel_name, load_cve, get_subproject_details, PRODUCT_UBUNTU, all_releases, eol_releases, devel_release, release_parent, release_name, release_ppa, release_progenitor)
+from cve_lib import (kernel_srcs, product_series, load_cve, PRODUCT_UBUNTU, all_releases, eol_releases, devel_release, release_parent, release_name, release_ppa, release_progenitor, needs_oval)
 from kernel_lib import (meta_kernels, kernel_package_abi, kernel_package_version)
 import oval_lib
 import lpl_common
@@ -47,16 +47,13 @@ if 'init_system' in dir(apt_pkg):
 else:
     apt_pkg.InitSystem()
 
-supported_products = [PRODUCT_UBUNTU, 'esm', 'esm-infra', 'esm-apps', 'fips', 'fips-updates']
 supported_releases = []
 for r in set(all_releases).difference(set(eol_releases)).difference(set([devel_release])):
-    _, product, _, _ = get_subproject_details(r)
-    if product in supported_products:
-        if r not in supported_releases:
-            supported_releases.append(r)
-        parent = release_parent(r)
-        if parent and parent not in supported_releases:
-            supported_releases.append(parent)
+    if needs_oval(r):
+        supported_releases.append(r)
+    parent = release_parent(r)
+    if parent and parent not in supported_releases:
+        supported_releases.append(parent)
 
 default_cves_to_process = ['active/CVE-*', 'retired/CVE-*']
 
@@ -71,12 +68,12 @@ def main():
     global debug_level
 
     # parse command line options
-    parser = argparse.ArgumentParser(description='Generate CVE OVAL from ' +
+    parser = argparse.ArgumentParser(description='Generate CVE OVAL from '
                                      'CVE metadata files.')
     parser.add_argument('pathname', nargs='*',
-                        help='pathname patterns (globs) specifying CVE ' +
-                             'metadata files to be converted into OVAL ' +
-                             '(default: "./active/CVE-*" "./retired/CVE-*")')
+                        help='pathname patterns (globs) specifying CVE '
+                        'metadata files to be converted into OVAL '
+                        '(default: "./active/CVE-*" "./retired/CVE-*")')
     parser.add_argument('--oci', action='store_true',
                         help='Also generate OVAL files for scanning Official Cloud Image manifests')
     parser.add_argument('--output-dir', nargs='?', default='./',
@@ -86,7 +83,7 @@ def main():
     parser.add_argument('--oci-prefix', nargs='?', default='oci.',
                         help='Prefix to use for OCI manifest OVAL files names (required if oci-output-dir is the same as output-dir)')
     parser.add_argument('--cve-prefix-dir', nargs='?', default='./',
-                        help='location of CVE metadata files to process ' +
+                        help='location of CVE metadata files to process '
                         '(default is ./)')
     parser.add_argument('--no-progress', action='store_true',
                         help='do not show progress meter')
@@ -99,15 +96,15 @@ def main():
     parser.add_argument('--usn-oval', action='store_true',
                         help='generates oval from the USN database')
     parser.add_argument('--usn-db-dir', default='./', type=str,
-                        help='location of USN database.json to process ' +
+                        help='location of USN database.json to process '
                         '(default is ./)')
     parser.add_argument('--usn-number', default=None, type=str,
                         help='if passed specifics a USN for the oval_usn generator')
     parser.add_argument('--usn-oval-release', default=None, type=str,
                         help='specifies a release to generate the oval usn')
     parser.add_argument('--packages', nargs='+', action='store', default=None,
-                        help='generates oval for specific packages. Only for'+
-                        ' CVE OVAL')
+                        help='generates oval for specific packages. Only for '
+                        'CVE OVAL')
 
     args = parser.parse_args()
     pathnames = args.pathname or default_cves_to_process
@@ -356,12 +353,6 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
                 continue
             if rel not in supported_releases:
                 continue
-            try:
-                _, product, _, _ = get_subproject_details(rel)
-                if product not in supported_products:
-                    continue
-            except KeyError:
-                continue
             state, details = data['pkgs'][pkg][rel]
             status_line = state
             if len(details) > 0:
@@ -556,7 +547,7 @@ class PackageCache():
             if parent:
                 self.releases[release] = self.ubuntu.getSeries(name_or_version=parent)
             else:
-                self.releases[release] = self.ubuntu.getSeries(name_or_version=get_orig_rel_name(release))
+                self.releases[release] = self.ubuntu.getSeries(name_or_version=product_series(release)[1])
 
         ppa = release_ppa(release)
         if ppa:
@@ -690,7 +681,7 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
     else:
         for release in supported_releases:
             # for now we don't differentiate products (e.g. esm) in the USN DB
-            _, product, _, _ = get_subproject_details(release)
+            product, series = product_series(release)
             if product != PRODUCT_UBUNTU:
                 continue
 
