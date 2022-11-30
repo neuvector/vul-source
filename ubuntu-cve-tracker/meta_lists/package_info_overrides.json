@@ -2131,6 +2131,10 @@
         "description": "Python Imaging Library",
         "title": "Pillow"
     },
+    "pixman": {
+        "description": "pixel-manipulation library for X and cairo",
+        "title": "Pixman"
+    },
     "plexus-archiver": {
         "description": "A collection of Plexus components for handling archives",
         "title": "Plexus Archiver"

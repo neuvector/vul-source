@@ -5,6 +5,7 @@ Description:
 Ubuntu-Description: 
 Notes: 
  jdstrand> libjpeg-turbo is a fork of libjpeg8
+ mdeslaur> the libjpeg package is an unrelated codebase
 Mitigation: 
 Bugs: 
 Priority: untriaged
