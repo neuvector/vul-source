@@ -408,7 +408,7 @@ def load_pkg_details_from_lp(archive, pkgs, binaries, pkg, item):
         for arch in cve_lib.official_architectures:
             if not cve_lib.arch_is_valid_for_release(arch, rel) or arch not in pkgs[pkg][rel]:
                 continue
-            if binary.binary_package_name in pkgs[pkg][rel][arch]['binaries']:
+            if 'binaries' in pkgs[pkg][rel][arch] and binary.binary_package_name in pkgs[pkg][rel][arch]['binaries']:
                 url = pkgs[pkg][rel][arch]['binaries'][binary.binary_package_name]
                 break
         pocket = ""
