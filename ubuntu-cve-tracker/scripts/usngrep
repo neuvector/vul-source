@@ -12,6 +12,8 @@ parser.add_argument("-t", "--text", action="store_true", help="show text without
 parser.add_argument("-i", "--ignore-case", action="store_true", help="ignore case for the search")
 parser.add_argument("-r", "--reverse", action="store_true", help="reverse usn order")
 parser.add_argument("-c", "--count", action="store_true", help="instead print a count of matching lines for each match")
+parser.add_argument("-u", "--usns", action="store_true", help="instead print a list of matching USNs")
+parser.add_argument("-C", "--count-usns", action="store_true", help="instead print a count of matching USNs")
 parser.add_argument(dest="string", nargs="+", help="text used to search")
 args = parser.parse_args()
 
@@ -31,6 +33,7 @@ convert = lambda text: "%010d" % int(text) if text.isdigit() else text.lower()
 sort_lambda = lambda x: convert(x[0].split("-")[0]) + convert(x[0].split("-")[1])
 usn_db = sorted(usn_db.items(), key = sort_lambda, reverse = args.reverse)
 count = 0
+usns = []
 
 p = re.compile(r"%s" % " ".join(args.string), re.IGNORECASE if args.ignore_case else 0)
 for usn in usn_db:
@@ -41,8 +44,19 @@ for usn in usn_db:
             if args.count:
                 count += 1
                 continue
+            if args.usns or args.count_usns:
+                usns.append(f"USN-{usn[0]}")
+                continue
             text = text if args.text else desc.strip()
             print(f"USN-{usn[0]}\n{text}\n")
 
 if args.count:
     print(count)
+
+if args.usns or args.count_usns:
+    usns = sorted(set(usns), reverse = args.reverse)
+if args.usns:
+    for u in usns:
+        print(u)
+if args.count_usns:
+    print(len(usns))
