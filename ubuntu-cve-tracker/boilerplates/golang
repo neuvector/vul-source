@@ -107,7 +107,7 @@ upstream_golang-1.16: needs-triage
 trusty_golang-1.16: ignored (out of standard support)
 trusty/esm_golang-1.16: DNE
 xenial_golang-1.16: ignored (out of standard support)
-bionic_golang-1.16: DNE
+bionic_golang-1.16: needs-triage
 focal_golang-1.16: needs-triage
 jammy_golang-1.16: DNE
 kinetic_golang-1.16: DNE
