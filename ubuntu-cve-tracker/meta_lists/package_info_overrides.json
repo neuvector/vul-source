@@ -2619,6 +2619,10 @@
         "description": "Event-based framework for internet applications",
         "title": "Twisted"
     },
+    "u-boot": {
+        "description": "A boot loader for embedded systems",
+        "title": "U-Boot"
+    },
     "ubufox": {
         "description": "Ubuntu Firefox specific configuration defaults and apt support",
         "title": "ubufox update"

@@ -121,7 +121,11 @@ A negative argument means move forward that many keywords."
 
 (defvar check-cves-mode-source-packages
   (split-string
-   (shell-command-to-string "source ~/.ubuntu-cve-tracker.conf; cat $packages_mirror/sources")))
+   (shell-command-to-string "umt grep '.*'")))
+
+(defvar check-cves-mode-binary-packages
+  (split-string
+   (shell-command-to-string "dpkg-query --show --showformat '${Package}\n'")))
 
 (defun check-cves-mode-prompt-for-packages (&optional chosen)
   "Prompt user for a list of source packages excluding CHOSEN."
@@ -253,6 +257,8 @@ A negative argument means move forward that many keywords."
 
 (defun check-cves-mode-prompt-with-suggested-names (prompt &optional history names)
   "Get the suggested NAMES from the ignore line for this CVE via PROMPT with HISTORY."
+  (if (and names (symbolp names) (not (functionp names)))
+      (setq names (eval names)))
   (list (completing-read prompt (or names (check-cves-mode-suggested-names))
                          nil nil nil history)))
 
@@ -330,11 +336,13 @@ identifier (XXXX-YYYY) via `format'.")
   `((:name "apt show"
            :command  "apt show %s"
            :downcase t
-           :mode  compilation-mode)
+           :mode  compilation-mode
+           :candidates check-cves-mode-binary-packages)
     (:name "apt showsrc"
            :command  "apt showsrc %s"
            :downcase t
-           :mode  compilation-mode)
+           :mode  compilation-mode
+           :candidates check-cves-mode-source-packages)
     (:name "apt search (host)"
            :command  "apt search %s"
            :mode  compilation-mode)
@@ -351,7 +359,8 @@ identifier (XXXX-YYYY) via `format'.")
     (:name "rmadison"
            :command  "rmadison %s"
            :downcase t
-           :mode  compilation-mode)
+           :mode  compilation-mode
+           :candidates check-cves-mode-source-packages)
     (:name "umt grep"
            :command "umt grep %s"
            :downcase t
@@ -359,7 +368,8 @@ identifier (XXXX-YYYY) via `format'.")
     (:name "umt search"
            :command "umt search %s"
            :downcase t
-           :mode compilation-mode)
+           :mode compilation-mode
+           :candidates check-cves-mode-source-packages)
     (:name "command-not-found"
            :command "/usr/lib/command-not-found %s"
            :downcase t
@@ -410,11 +420,16 @@ identifier (XXXX-YYYY) via `format'.")
 (defun check-cves-mode-search (tool-name keywords)
   "Search the current CVEs KEYWORDS with TOOL-NAME (apt / umt etc)."
   (interactive
-   (list
-    (completing-read "Tool: "
-                     (mapcar #'(lambda (e) (plist-get e :name))
-                             check-cves-mode-search-tools))
-    (check-cves-mode-prompt-with-suggested-names "Keywords: ")))
+   (let* ((name (completing-read "Tool: "
+                                 (mapcar #'(lambda (e) (plist-get e :name))
+                                         check-cves-mode-search-tools)
+                                 nil t))
+          (tool (check-cves-mode-find-search-tool name)))
+     (list
+      name
+      (check-cves-mode-prompt-with-suggested-names "Keywords: "
+                                                   nil
+                                                   (plist-get tool :candidates)))))
   (let ((tool (check-cves-mode-find-search-tool tool-name))
         (words (mapconcat #'identity keywords " ")))
     (unless tool
