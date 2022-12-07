@@ -255,12 +255,12 @@ A negative argument means move forward that many keywords."
                       words))))))
       (reverse names))))
 
-(defun check-cves-mode-prompt-with-suggested-names (prompt &optional history names)
+(defun check-cves-mode-prompt-with-suggested-names (prompt &optional names history default)
   "Get the suggested NAMES from the ignore line for this CVE via PROMPT with HISTORY."
   (if (and names (symbolp names) (not (functionp names)))
       (setq names (eval names)))
   (list (completing-read prompt (or names (check-cves-mode-suggested-names))
-                         nil nil nil history)))
+                         nil nil nil history default)))
 
 ;;;###autoload
 (defun check-cves-mode-ignore (reason)
@@ -271,7 +271,7 @@ A negative argument means move forward that many keywords."
      (if current-prefix-arg
          (list (cl-first (seq-sort-by #'seq-length #'> names)))
        (check-cves-mode-prompt-with-suggested-names
-        "Reason: " 'check-cves-mode-ignore-history names))))
+        "Reason: " names 'check-cves-mode-ignore-history))))
   (check-cves-mode-modify (concat "ignore " reason))
   (add-to-list 'check-cves-mode-ignore-history reason))
 
@@ -428,8 +428,8 @@ identifier (XXXX-YYYY) via `format'.")
      (list
       name
       (check-cves-mode-prompt-with-suggested-names "Keywords: "
-                                                   nil
-                                                   (plist-get tool :candidates)))))
+                                                   (plist-get tool :candidates)
+                                                   nil (check-cves-mode-suggested-names)))))
   (let ((tool (check-cves-mode-find-search-tool tool-name))
         (words (mapconcat #'identity keywords " ")))
     (unless tool

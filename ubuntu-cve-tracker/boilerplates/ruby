@@ -88,3 +88,15 @@ focal_ruby3.1: DNE
 jammy_ruby3.1: DNE
 kinetic_ruby3.1: needs-triage
 devel_ruby3.1: needs-triage
+
+Patches_jruby:
+upstream_jruby: needs-triage
+trusty_jruby: ignored (out of standard support)
+trusty/esm_jruby: needs-triage
+xenial_jruby: ignored (end of standard support)
+bionic_jruby: needs-triage
+focal_jruby: needs-triage
+jammy_jruby: DNE
+kinetic_jruby: DNE
+devel_jruby: needs-triage
+ 

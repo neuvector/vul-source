@@ -121,7 +121,8 @@ def guess_binary_links(binary, info, sources):
     return (source_link, version_link)
 
 
-parser = argparse.ArgumentParser(description="CLI to post USNs",)
+parser = argparse.ArgumentParser(description="CLI to post USNs",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument(
     "--action",
     action="store",
@@ -147,7 +148,7 @@ parser.add_argument(
     action="store",
     type=str,
     default="https://ubuntu.com/security/notices",
-    help="API endpoint url. default is https://ubuntu.com/security/notices",
+    help="API endpoint url.",
 )
 parser.add_argument(
     "--stop",

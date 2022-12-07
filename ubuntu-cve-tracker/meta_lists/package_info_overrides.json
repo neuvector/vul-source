@@ -1815,6 +1815,10 @@
         "description": "",
         "title": "NTP"
     },
+    "numpy": {
+        "description": "scientific computing package with Python",
+        "title": "NumPy"
+    },
     "nut": {
         "description": "Network UPS tools",
         "title": "Nut"
