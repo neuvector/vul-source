@@ -1,0 +1,50 @@
+Candidate:
+PublicDate: 
+References: 
+Description:
+Ubuntu-Description:
+Notes: 
+ ccdm94> the embedded ujson code in pandas, eventhough containing similar
+ ccdm94> content as the upstream ujson code, seems to have diverged from the
+ ccdm94> ujson upstream project (they have fully forked ujson), since pandas
+ ccdm94> upstream is maintaining their own ujson bug fixes and changes without
+ ccdm94> re-syncing with the ujson upstream project. There is no indication
+ ccdm94> the ujson fork, as used in pandas, is vulnerable to the same issues
+ ccdm94> as the upstream ujson code.
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_ujson:
+upstream_ujson: needs-triage
+trusty_ujson: DNE
+xenial_ujson: ignored (end of standard support)
+bionic_ujson: needs-triage
+focal_ujson: needs-triage
+jammy_ujson: needs-triage
+kinetic_ujson: needs-triage
+devel_ujson: needs-triage
+
+Patches_pandas:
+upstream_pandas: needs-triage
+trusty/esm_pandas: needs-triage
+trusty_pandas: ignored (end of standard support)
+xenial_pandas: ignored (end of standard support)
+bionic_pandas: needs-triage
+focal_pandas: needs-triage
+jammy_pandas: needs-triage
+kinetic_pandas: needs-triage
+devel_pandas: needs-triage
+
+Patches_collada2gltf:
+upstream_collada2gltf: needs-triage
+trusty_collada2gltf: DNE
+xenial_collada2gltf: ignored (end of standard support)
+bionic_collada2gltf: needs-triage
+focal_collada2gltf: DNE
+jammy_collada2gltf: needs-triage
+kinetic_collada2gltf: needs-triage
+devel_collada2gltf: needs-triage
