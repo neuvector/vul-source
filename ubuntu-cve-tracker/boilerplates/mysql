@@ -103,16 +103,16 @@ jammy_mariadb-10.3: DNE
 kinetic_mariadb-10.3: DNE
 devel_mariadb-10.3: DNE
 
-Patches_mariadb-10.5:
-upstream_mariadb-10.5: needs-triage
-trusty_mariadb-10.5: DNE
-trusty/esm_mariadb-10.5: DNE
-xenial_mariadb-10.5: DNE
-bionic_mariadb-10.5: DNE
-focal_mariadb-10.5: DNE
-jammy_mariadb-10.5: DNE
-kinetic_mariadb-10.5: DNE
-devel_mariadb-10.5: DNE
+Patches_mariadb-10.6:
+upstream_mariadb-10.6: needs-triage
+trusty_mariadb-10.6: DNE
+trusty/esm_mariadb-10.6: DNE
+xenial_mariadb-10.6: DNE
+bionic_mariadb-10.6: DNE
+focal_mariadb-10.6: DNE
+jammy_mariadb-10.6: needs-triage
+kinetic_mariadb-10.6: needs-triage
+devel_mariadb-10.6: needs-triage
 
 Patches_percona-xtradb-cluster-5.5:
 upstream_percona-xtradb-cluster-5.5: needs-triage

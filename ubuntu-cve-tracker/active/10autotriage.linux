@@ -723,7 +723,7 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2022-23960 - Spectre-BHB ARM
 :title('UBUNTU: SAUCE: arm64: Use the clearbhb instruction in mitigations', ['local-CVE-2022-23960-1'])
-:title('UBUNTU: SAUCE: Mitigate spectre style branch history side channels', ['local-CVE-2022-23960-2'])
+:title('UBUNTU: SAUCE: arm64: Mitigate spectre style branch history side channels', ['local-CVE-2022-23960-2'])
 :title('UBUNTU: SAUCE: arm64: proton-pack: Report Spectre-BHB vulnerabilities as part of Spectre-v2', ['local-CVE-2022-23960-3'])
 
 # CVE-2021-39713
