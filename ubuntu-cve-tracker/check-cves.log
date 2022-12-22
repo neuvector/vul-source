@@ -7314,3 +7314,6 @@
 2022-12-16 11:49:08 UTC - 1 added, 2 ignored, 3 skipped, 3 total - files: ['debian-import_z60f0ikg.json']
 2022-12-16 17:31:13 UTC - 0 added, 6 ignored, 4 skipped, 6 total - files: ['nvdcve-1.1-recent.json']
 2022-12-16 17:33:52 UTC - 0 added, 0 ignored, 3 skipped, 0 total - files: ['debian-import_g5new_po.json']
+2022-12-22 15:04:06 UTC - 20 added, 501 ignored, 4 skipped, 521 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-recent.json']
+2022-12-22 16:05:23 UTC - 13 added, 2 ignored, 2 skipped, 15 total - files: ['debian-import_5bi818c3.json']
+2022-12-22 16:24:50 UTC - 0 added, 3 ignored, 1 skipped, 3 total - files: ['allitems.xml']
