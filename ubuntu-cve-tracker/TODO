@@ -16,3 +16,6 @@
   change
 - check deferred CVEs
 - if Debian has a fix, add it to upstream and check our versions
+
+- other sources to injest
+  - https://github.com/rubysec/ruby-advisory-db

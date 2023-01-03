@@ -1327,15 +1327,15 @@
         "description": "Linux kernel for Google Container Engine (GKE) systems",
         "title": "Linux kernel (GKE)"
     },
+    "linux-gke-5.15": {
+        "description": "Linux kernel for Google Container Engine (GKE) systems",
+        "title": "Linux kernel (GKE)"
+    },
     "linux-gke-5.3": {
         "description": "Linux kernel for Google Container Engine (GKE) systems",
         "title": "Linux kernel (GKE)"
     },
     "linux-gke-5.4": {
-        "description": "Linux kernel for Google Container Engine (GKE) systems",
-        "title": "Linux kernel (GKE)"
-    },
-    "linux-gke-5.15": {
         "description": "Linux kernel for Google Container Engine (GKE) systems",
         "title": "Linux kernel (GKE)"
     },
@@ -2299,6 +2299,14 @@
         "description": "An interactive high-level object-oriented language",
         "title": "Python 2.7"
     },
+    "python3.10": {
+        "description": "An interactive high-level object-oriented language",
+        "title": "Python"
+    },
+    "python3.11": {
+        "description": "An interactive high-level object-oriented language",
+        "title": "Python"
+    },
     "python3.2": {
         "description": "An interactive high-level object-oriented language",
         "title": "Python 3.2"
@@ -2328,14 +2336,6 @@
         "title": "Python"
     },
     "python3.9": {
-        "description": "An interactive high-level object-oriented language",
-        "title": "Python"
-    },
-    "python3.10": {
-        "description": "An interactive high-level object-oriented language",
-        "title": "Python"
-    },
-    "python3.11": {
         "description": "An interactive high-level object-oriented language",
         "title": "Python"
     },
@@ -2666,6 +2666,10 @@
     "usb-creator": {
         "description": "create a startup disk using a CD or disc image",
         "title": "usb-creator"
+    },
+    "usbredir": {
+        "description": "usbredir libraries and utilities",
+        "title": "usbredir"
     },
     "uw-imap": {
         "description": "University of Washington IMAP toolkit",
