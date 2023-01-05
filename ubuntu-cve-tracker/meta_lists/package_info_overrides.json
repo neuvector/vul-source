@@ -1767,6 +1767,10 @@
         "description": "Network Block Device protocol",
         "title": "NBD"
     },
+    "nautilus": {
+        "description": "file manager and graphical shell for GNOME",
+        "title": "GNOME Files"
+    },
     "net-snmp": {
         "description": "SNMP (Simple Network Management Protocol) server and applications",
         "title": "Net-SNMP"
