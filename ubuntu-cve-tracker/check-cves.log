@@ -7331,3 +7331,6 @@
 2023-01-04 13:56:23 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-01-05 11:54:25 UTC - 10 added, 80 ignored, 2 skipped, 90 total - files: ['nvdcve-1.1-recent.json']
 2023-01-05 12:00:34 UTC - 2 added, 2 ignored, 3 skipped, 4 total - files: ['debian-import_sa2c69nk.json']
+2023-01-06 12:49:31 UTC - 27 added, 74 ignored, 3 skipped, 101 total - files: ['nvdcve-1.1-recent.json']
+2023-01-06 13:01:37 UTC - 0 added, 5 ignored, 6 skipped, 5 total - files: ['nvdcve-1.1-recent.json']
+2023-01-06 13:09:48 UTC - 0 added, 27 ignored, 5 skipped, 27 total - files: ['debian-import_bzbmtbnf.json']
