@@ -7334,3 +7334,5 @@
 2023-01-06 12:49:31 UTC - 27 added, 74 ignored, 3 skipped, 101 total - files: ['nvdcve-1.1-recent.json']
 2023-01-06 13:01:37 UTC - 0 added, 5 ignored, 6 skipped, 5 total - files: ['nvdcve-1.1-recent.json']
 2023-01-06 13:09:48 UTC - 0 added, 27 ignored, 5 skipped, 27 total - files: ['debian-import_bzbmtbnf.json']
+2023-01-10 13:11:00 UTC - 11 added, 182 ignored, 2 skipped, 193 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-2023.json', 'nvdcve-1.1-recent.json']
+2023-01-10 14:28:22 UTC - 2 added, 2 ignored, 11 skipped, 4 total - files: ['debian-import_xnsl7l_j.json']
