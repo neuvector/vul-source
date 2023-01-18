@@ -766,3 +766,8 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2022-42722
 :title('UBUNTU: SAUCE: wifi: mac80211: fix crash in beacon protection for P2P-device', ['local-CVE-2022-42722-fix'])
+
+# CVE-2023-20928
+# Upstream stable applied a fix that was not in mainline and it was picked as part of stable updates
+:title('binder: fix UAF of alloc->vma in race with munmap()', ['local-CVE-2023-20928'])
+

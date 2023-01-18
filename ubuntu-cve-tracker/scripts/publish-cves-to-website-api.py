@@ -105,17 +105,27 @@ def post_single_cve(cve_filename):
         patches[pkg] = get_patches(cve_data, pkg)
 
         for codename in cve_lib.releases + ["upstream"]:
-            value = []
-            for priority_release in [codename + "/esm", "esm-infra/" + codename, "ros-esm/" + codename, codename]:
-                if priority_release in cve_data["pkgs"][pkg]:
-                    value = cve_data["pkgs"][pkg][priority_release]
-                    break
-            if value:
+            status = None
+
+            # If release is EOL and there is a public update for it
+            if codename in cve_lib.eol_releases \
+                    and codename in cve_data["pkgs"][pkg] \
+                    and cve_data["pkgs"][pkg][codename] == "released":
+                status = cve_data["pkgs"][pkg][codename]
+
+            else:
+                release = codename
+                for release in [codename + "/esm", "esm-infra/" + codename, "ros-esm/" + codename, codename]:
+                    if release in cve_data["pkgs"][pkg]:
+                        status = cve_data["pkgs"][pkg][release]
+                        break
+
+            if status:
                 statuses.append(
                     {
                         "release_codename": codename,
-                        "status": value[0],
-                        "description": value[1],
+                        "status": status[0],
+                        "description": status[1],
                     }
                 )
         package = {
