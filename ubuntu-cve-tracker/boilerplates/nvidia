@@ -298,15 +298,15 @@ kinetic_nvidia-graphics-drivers-510: needs-triage
 devel_nvidia-graphics-drivers-510: needs-triage
 
 Patches_nvidia-graphics-drivers-510-server:
-upstream_nvidia-graphics-drivers-510-server: needs-triage
+upstream_nvidia-graphics-drivers-510-server: not-affected (superseded)
 trusty_nvidia-graphics-drivers-510-server: DNE
 trusty/esm_nvidia-graphics-drivers-510-server: DNE
 xenial_nvidia-graphics-drivers-510-server: DNE
-bionic_nvidia-graphics-drivers-510-server: needs-triage
-focal_nvidia-graphics-drivers-510-server: needs-triage
-jammy_nvidia-graphics-drivers-510-server: needs-triage
-kinetic_nvidia-graphics-drivers-510-server: needs-triage
-devel_nvidia-graphics-drivers-510-server: needs-triage
+bionic_nvidia-graphics-drivers-510-server: not-affected (superseded)
+focal_nvidia-graphics-drivers-510-server: not-affected (superseded)
+jammy_nvidia-graphics-drivers-510-server: not-affected (superseded)
+kinetic_nvidia-graphics-drivers-510-server: not-affected (superseded)
+devel_nvidia-graphics-drivers-510-server: not-affected (superseded)
 
 Patches_nvidia-graphics-drivers-515:
 upstream_nvidia-graphics-drivers-515: needs-triage
@@ -329,3 +329,15 @@ focal_nvidia-graphics-drivers-515-server: needs-triage
 jammy_nvidia-graphics-drivers-515-server: needs-triage
 kinetic_nvidia-graphics-drivers-515-server: needs-triage
 devel_nvidia-graphics-drivers-515-server: needs-triage
+
+Patches_nvidia-graphics-drivers-520:
+upstream_nvidia-graphics-drivers-520: needs-triage
+trusty_nvidia-graphics-drivers-520: DNE
+trusty/esm_nvidia-graphics-drivers-520: DNE
+xenial_nvidia-graphics-drivers-520: DNE
+bionic_nvidia-graphics-drivers-520: needs-triage
+focal_nvidia-graphics-drivers-520: needs-triage
+jammy_nvidia-graphics-drivers-520: needs-triage
+kinetic_nvidia-graphics-drivers-520: needs-triage
+devel_nvidia-graphics-drivers-520: needs-triage
+
