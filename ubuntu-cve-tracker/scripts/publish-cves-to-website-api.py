@@ -81,18 +81,20 @@ def post_single_cve(cve_filename):
         references.pop(0)
 
     cvss3 = None
+    impact = None
     if len(cve_data["CVSS"]) > 0:
         if "3." in cve_data["CVSS"][0]['vector']:
             # Use CVSS3
             try:
-                c = cve_lib.parse_cvss(cve_data["CVSS"][0]['vector'])
-                cvss3 = c['baseMetricV3']['cvssV3']['baseScore']
+                impact = cve_lib.parse_cvss(cve_data["CVSS"][0]['vector'])
+                cvss3 = impact['baseMetricV3']['cvssV3']['baseScore']
             except ValueError as e:
                 print(
                     "%s: bad CVSS data %s, skipping: %s" % (cve_filename, cve_data["CVSS"][0]['vector'], e),
                     file=sys.stderr
                 )
                 cvss3 = None
+                impact = None
 
     packages = []
     tags = {}
@@ -160,7 +162,8 @@ def post_single_cve(cve_filename):
         "mitigation": cve_data.get("Mitigation", ""),
         "notes": notes,
         "priority": priority,
-        "cvss3": cvss3,  # CVSS vector to convert into Base score
+        "cvss3": cvss3,  # CVSS3 computed base score
+        "impact": impact, # Full CVSS3 base vector structure
         "references": references,
         "bugs": cve_data["Bugs"].strip().split("\n"),
         "packages": packages,
