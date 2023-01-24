@@ -163,7 +163,6 @@ def post_single_cve(cve_filename):
         "notes": notes,
         "priority": priority,
         "cvss3": cvss3,  # CVSS3 computed base score
-        "impact": impact, # Full CVSS3 base vector structure
         "references": references,
         "bugs": cve_data["Bugs"].strip().split("\n"),
         "packages": packages,
@@ -171,6 +170,9 @@ def post_single_cve(cve_filename):
         "tags": tags,
         "patches": patches,
     }
+
+    if impact:
+        cve["impact"] = impact # Full CVSS3 base vector structure
 
     if cve_data["PublicDate"] != "unknown":
         cve["published"] = cve_data["PublicDate"]
