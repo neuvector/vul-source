@@ -64,7 +64,7 @@ for filename in cves:
 
         (base_state, base_notes) = data['pkgs'][src][base_release]
         if product == 'esm-apps':
-            if not cve_lib.is_supported(pkgs, src, base_release):
+            if cve_lib.is_supported(pkgs, src, release):
                 state = base_state
                 notes = base_notes
 

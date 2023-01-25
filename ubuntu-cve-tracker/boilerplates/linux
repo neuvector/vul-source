@@ -822,7 +822,7 @@ bionic_linux-oem-5.17: DNE
 focal_linux-oem-5.17: DNE
 jammy_linux-oem-5.17: needs-triage
 kinetic_linux-oem-5.17: needs-triage
-devel_linux-oem-5.17: needs-triage
+devel_linux-oem-5.17: DNE
 
 Patches_linux-oem-6.0:
 upstream_linux-oem-6.0: needs-triage
