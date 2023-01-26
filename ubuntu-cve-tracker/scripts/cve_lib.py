@@ -854,9 +854,9 @@ def load_external_subprojects():
         subprojects[rel]["packages"].append(supported_txt)
 
         # check if aliases for packages exist
-        if os.path.isfile(f'{supported_txt[:-len("supported.txt")]}aliases.yaml'):
+        if os.path.isfile(supported_txt[:-len("supported.txt")] + 'aliases.yaml'):
             subprojects[rel].setdefault("aliases",
-                f'{supported_txt[:-len("supported.txt")]}aliases.yaml')
+                supported_txt[:-len("supported.txt")] + 'aliases.yaml')
 
         try:
             # use config to populate other parts of the

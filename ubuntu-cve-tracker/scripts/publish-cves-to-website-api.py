@@ -117,7 +117,7 @@ def post_single_cve(cve_filename):
 
             else:
                 release = codename
-                for release in [codename + "/esm", "esm-infra/" + codename, "ros-esm/" + codename, codename]:
+                for release in [codename + "/esm", "esm-infra/" + codename, "esm-apps/" + codename, "ros-esm/" + codename, codename]:
                     if release in cve_data["pkgs"][pkg]:
                         status = cve_data["pkgs"][pkg][release]
                         break
