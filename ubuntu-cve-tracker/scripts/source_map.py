@@ -121,7 +121,11 @@ def _find_from_mirror(ubuntu, canonical, data_type, arch='amd64', pockets=None, 
     for rel in releases:
         if skip_eol_releases and rel in cve_lib.eol_releases:
             continue
-        _, _, series, details = cve_lib.get_subproject_details(rel)
+        _, product, series, details = cve_lib.get_subproject_details(rel)
+        # for esm-apps and external_releases avoid loading info from packages_mirror
+        # and instead read supported.txt file only
+        if product not in [cve_lib.PRODUCT_UBUNTU, "esm-infra", "esm"]:
+            continue
         if details is None:
             print("Failed to load details for %s" % rel)
             continue
@@ -266,11 +270,11 @@ def load(data_type='sources', pockets=None, releases=None, skip_eol_releases=Tru
 
     # subprojects only do sources, not binaries
     if data_type == 'sources':
-        subproject_lists = load_subprojects_lists()
+        subproject_lists = load_subprojects_lists(releases=releases)
         for item in subproject_lists:
             for pkg in subproject_lists[item]:
                 map.setdefault(item, dict())
-                map[item][pkg] = subproject_lists[item][pkg]
+                map[item].setdefault(pkg, subproject_lists[item][pkg])
 
     # duplicate "devel" into the map for ease of use
     if "devel" not in map and cve_lib.devel_release in map:

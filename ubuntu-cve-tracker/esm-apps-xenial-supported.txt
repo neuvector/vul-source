@@ -7738,7 +7738,6 @@ kraft
 kraken
 krank
 kraptor
-krb5
 krb5-auth-dialog
 krb5-strength
 krb5-sync
