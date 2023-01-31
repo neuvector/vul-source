@@ -12487,33 +12487,33 @@ linsmith
 linssid
 lintex
 linthesia
-linux-euclid
-linux-firmware-raspi2
-linux-firmware-snapdragon
-linux-flo
+#linux-euclid
+#linux-firmware-raspi2 NOT SUPPORTED SINCE 2021.04
+#linux-firmware-snapdragon NOT SUPPORTED SINCE 2021.04
+#linux-flo
 linux-ftpd
 linux-ftpd-ssl
-linux-gke
-linux-goldfish
+#linux-gke NOT SUPPORTED SINCE 2021.04
+#linux-goldfish
 linux-grsec-base
 linux-hammerhead
 linux-igd
-linux-mako
+#linux-mako
 linux-meta-azure-edge
 linux-meta-euclid
 linux-meta-flo
-linux-meta-gke
+#linux-meta-gke NOT SUPPORTED SINCE 2021.04
 linux-meta-goldfish
 linux-meta-hammerhead
 linux-meta-mako
-linux-meta-oem
-linux-meta-raspi2
-linux-meta-snapdragon
+#linux-meta-oem
+#linux-meta-raspi2 NOT SUPPORTED SINCE 2021.04
+#linux-meta-snapdragon NOT SUPPORTED SINCE 2021.04
 linux-minidisc
-linux-oem
-linux-raspi2
-linux-signed-oem
-linux-snapdragon
+#linux-oem
+#linux-raspi2 NOT SUPPORTED SINCE 2021.04
+#linux-signed-oem
+#linux-snapdragon NOT SUPPORTED SINCE 2021.04
 linux-user-chroot
 linux-wlan-ng
 linux86
