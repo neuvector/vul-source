@@ -1579,6 +1579,10 @@
         "description": "Highly configurable logging API for the CLI log4net",
         "title": "Apache Log4net"
     },
+    "lrzip": {
+        "description": "Compression program with a very high compression ratio",
+        "title": "Long Range ZIP"
+    },
     "lrzsz": {
         "description": "Tools for zmodem/xmodem/ymodem file transfer",
         "title": "Lrzsz"
