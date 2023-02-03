@@ -4,7 +4,7 @@ References:
 Description:
 Ubuntu-Description:
 Notes:
- amurray| opensbi embeds a copy of device-tree-compiler
+ alexmurray| opensbi embeds a copy of device-tree-compiler
 Mitigation:
 Bugs:
 Priority: untriaged

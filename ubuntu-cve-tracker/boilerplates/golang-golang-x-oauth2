@@ -4,7 +4,7 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- amurray| google-guest-agent contains a vendored copy of golang-golang-x-oauth2
+ alexmurray| google-guest-agent contains a vendored copy of golang-golang-x-oauth2
 Mitigation: 
 Bugs: 
 Priority: untriaged

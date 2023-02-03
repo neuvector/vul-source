@@ -4,7 +4,7 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- amurray| google-guest-agent contains a vendored copy of golang-toml
+ alexmurray| google-guest-agent contains a vendored copy of golang-toml
 Mitigation: 
 Bugs: 
 Priority: untriaged

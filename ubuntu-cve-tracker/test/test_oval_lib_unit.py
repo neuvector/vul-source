@@ -179,7 +179,7 @@ class TestOvalLibUnit:
         </unix:uname_state>""",
         """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000010" version="1" comment="Long Term Support">
-          <linux:evr datatype="evr_string" operation="less than">0:5.0.0-1059.64</linux:evr>
+          <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1059.64</linux:evr>
         </linux:dpkginfo_state>""",
         """
         <unix:uname_state id="oval:com.ubuntu.bionic:ste:438810000020" version="1">
@@ -187,17 +187,17 @@ class TestOvalLibUnit:
         </unix:uname_state>""",
         """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000030" version="1" comment="Long Term Support">
-          <linux:evr datatype="evr_string" operation="less than">0:5.0.0-1042.43</linux:evr>
+          <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1042.43</linux:evr>
         </linux:dpkginfo_state>"""]
 
     state_epoch_mock = """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:437210000000" version="1" comment="Long Term Support">
-           <linux:evr datatype="evr_string" operation="less than">1:4.2-3ubuntu6.1</linux:evr>
+           <linux:evr datatype="debian_evr_string" operation="less than">1:4.2-3ubuntu6.1</linux:evr>
         </linux:dpkginfo_state>"""
 
     state_oci_mock = """
         <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1" comment="Long Term Support">
-           <ind:subexpression datatype="evr_string" operation="less than">5.0.0.1042.27</ind:subexpression>
+           <ind:subexpression datatype="debian_evr_string" operation="less than">5.0.0.1042.27</ind:subexpression>
         </ind:textfilecontent54_state>"""
 
     var_mock = [None,

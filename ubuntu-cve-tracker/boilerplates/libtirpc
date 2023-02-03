@@ -4,7 +4,7 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- amurray| ntirpc is forked from libtirpc so shares a lot of code
+ alexmurray| ntirpc is forked from libtirpc so shares a lot of code
 Mitigation: 
 Bugs: 
 Priority: untriaged

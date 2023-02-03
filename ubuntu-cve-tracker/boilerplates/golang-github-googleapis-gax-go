@@ -4,7 +4,7 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- amurray| google-guest-agent contains a vendored copy of golang-github-googleapis-gax-go
+ alexmurray| google-guest-agent contains a vendored copy of golang-github-googleapis-gax-go
 Mitigation: 
 Bugs: 
 Priority: untriaged

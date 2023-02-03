@@ -4,7 +4,7 @@ References:
 Description:
 Ubuntu-Description:
 Notes:
- amurray| As of isc-dhcp-4.4.3-1, isc-dhcp vendors bind9 libs
+ alexmurray> As of isc-dhcp-4.4.3-1, isc-dhcp vendors bind9 libs
 Mitigation:
 Bugs:
 Priority: untriaged

@@ -4,7 +4,7 @@ References:
 Description:
 Ubuntu-Description:
 Notes:
- amurray| grub2 has a vendored copy of minilzo which is part of lzo2 so
+ alexmurray| grub2 has a vendored copy of minilzo which is part of lzo2 so
   likely any vulnerabilities that affect lzo2 may also affect minilzo in
   grub2 and hence grub2-signed - although this is being changed for F/G/H in
   LP #1911440 to use the distro minilzo but in this case grub2 vendors the
