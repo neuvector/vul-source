@@ -273,6 +273,7 @@ meta_kernels.add_new_kernel('jammy', ['linux-kvm'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-lowlatency'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-5.17'], '-5.17.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-6.0'], '-6.0.0')
+meta_kernels.add_new_kernel('jammy', ['linux-oem-6.1'], '-6.1.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oracle'], '-5.15')
 meta_kernels.add_new_kernel('jammy', ['linux-riscv'], '-5.15', signed=False)
 meta_kernels.add_new_kernel('kinetic', ['linux'], '-5.19.0')
@@ -715,6 +716,11 @@ kernel_glitches = {
     'linux-oem-6.0': {
         'jammy': {
             '~': '6.0.0-1007.7',  # Initial publication
+        },
+    },
+    'linux-oem-6.1': {
+        'jammy': {
+            '~': '6.1.0-1004.4',  # Initial publication
         },
     },
     'linux-oracle': {
