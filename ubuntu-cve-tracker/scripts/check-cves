@@ -812,7 +812,7 @@ class CVEHandler(xml.sax.handler.ContentHandler):
         if suggestion.startswith('a ') and len(phrases) > 1:
             suggestion = phrases[-2]
 
-        version_preps = '(\s+(before|through|prior to|versions?))+\s*'
+        version_preps = '(\s+(before|through|prior to|versions?|[<>]=?))+\s*'
         version_regex = '\s+([a-zA-Z\._\-]*[0-9]+[a-zA-Z\._\-]*)+'
         # prefer 'Apple iOS before <version>' or 'Apple Mac OS X through
         # <version' in the last phrase over other suggestions
@@ -1507,6 +1507,7 @@ class CheckCVETest(unittest.TestCase):
         self.assertEqual("Exquisite Ultimate Newspaper theme for WordPress", h.get_ignore_suggestion('''The Exquisite Ultimate Newspaper theme 1.3.3 for WordPress has XSS via the anchor identifier to assets/js/jquery.foundation.plugins.js.'''))
         self.assertEqual("browserless-chrome", h.get_ignore_suggestion('''This affects all versions of package browserless-chrome. User input flowing from the workspace endpoint gets used to create a file path filePath and this is fetched and then sent back to a user. This can be escaped to fetch arbitrary files from a server.'''))
         self.assertEqual("@absolunet/kafe", h.get_ignore_suggestion('''This affects the package @absolunet/kafe before 3.2.10. It allows cause a denial of service when validating crafted invalid emails.'''))
+        self.assertEqual("Magneticlab Sàrl Homepage Pop-up plugin", h.get_ignore_suggestion('''Cross-Site Request Forgery (CSRF) vulnerability in Magneticlab Sàrl Homepage Pop-up plugin <= 1.2.5 versions.'''))
 
 ignored_notforus_path = 'ignored/not-for-us.txt'
 if destdir != './' and destdir != '.':
