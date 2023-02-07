@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language: UCT CVEs
-" Latest Revision: Feb 2021
+" Latest Revision: Jan 2023
 "
 " To use:
 " $ mkdir -p ~/.vim/syntax
@@ -40,6 +40,11 @@ syn match cveKey "^\%(Candidate\|PublicDate\|PublicDateAtUSN\|CRD\|References\|D
 " <release>_<srcpkg>: <status>
 syn match cveKeyRelease "^\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)_[a-z0-9][a-z0-9+.-]\+: *"
 
+" Product/Release/status key
+" <product>/<release>_<srcpkg>: <status>
+syn match cveKeyProduct "^\(esm-apps/\)\?\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)_[a-z0-9][a-z0-9+.-]\+: *"
+
+
 " Priorities key
 " Priority[_<srcpkg>[_<release>]]: <priority>
 syn match cvePriorityValue contained "\(negligible\|low\|medium\|high\|critical\)"
@@ -57,6 +62,7 @@ syn region cveStrictField start="^Candidate" end="$" contains=cveKey,cveId
 syn region cveStrictField start="^\(PublicDate\|CRD\)" end="$" contains=cveKey,cveDate
 syn region cveStrictField start="^Patches_" end=":$" contains=cveKey,cveSrcPkg oneline
 syn region cveStrictField start="^[a-z/-]\+_" end="$" contains=cveKeyRelease,cveStatus,cveStatusExtra oneline
+syn region cveStrictField start="^[a-z/-]\+_" end="$" contains=cveKeyProduct,cveStatus,cveStatusExtra oneline
 
 if version >= 508 || !exists("did_cve_syn_inits")
   command -nargs=+ HiLink hi def link <args>
@@ -65,6 +71,7 @@ if version >= 508 || !exists("did_cve_syn_inits")
   HiLink cvePriorityKey         Keyword
   HiLink cveTagKey              Keyword
   HiLink cveKeyRelease          Keyword
+  HiLink cveKeyProduct          Keyword
   HiLink cveElse                Normal
   HiLink cveStrictField         Error
 
