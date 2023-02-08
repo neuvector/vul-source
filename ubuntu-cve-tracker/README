@@ -147,46 +147,58 @@ for any name changes which process_cves didn't catch.
 line): 'DNE', 'ignored', 'not-affected', 'needs-triage', 'needed', 'active',
 'deferred', 'pending', 'released'
 
+    - *NOTE* 'active' is not in use anywhere, but may be at some future
+      point.
+
 3. fill in any extra fields as needed (eg Notes, references to patches,
 Assigned-to, Discovered-by, etc). Notes should be formatted as a nick,
 separator and then a message. The separator is either '>' or '|':
 
- - '>' specifies to retain each line as listed in the CVE file as
-   a separate line in the generated HTML
+    - '>' specifies to retain each line as listed in the CVE file as
+      a separate line in the generated HTML
 
- - '|' specifies that lines should be appended to one-another in
-   the generated HTML.
+    - '|' specifies that lines should be appended to one-another in
+      the generated HTML.
 
 In either case, following lines can be indented by an extra space
 so that the nick name can be omitted. For example the following two
 Notes entries will be formatted the same in the generated HTML as
 two separate lines:
 
+```
  user> this is a message that spans multiple lines
   and continues onto a second line
+```
 
+```
  user> this is a message that spans multiple lines
  user> and continues onto a second line
+```
 
 Whilst the following two entries would both result in a single line of text
 in the generated HTML:
 
+```
  user| this is a message that spans multiple lines
   and continues onto a second line
+```
 
+```
  user| this is a message that spans multiple lines
  user| and continues onto a second line
-
+```
 
 If there are patches available, then use:
 
+```
 Patches_PKG:
  debdiff: URL
  vendor: URL
  upstream: URL
  other: URL
+```
 
-Eg, for source package 'foo' that has a debdiff in launchpad, use:
+Eg, for source package `foo` that has a debdiff in launchpad, use:
 
 Patches_foo:
  debdiff: https://bugs.launchpad.net/ubuntu/+source/foo/+bug/XXXXXX

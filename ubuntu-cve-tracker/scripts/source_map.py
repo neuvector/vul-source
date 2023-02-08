@@ -476,7 +476,7 @@ def load_subprojects_lists(releases=None):
                     aliases = yaml.safe_load(file)
 
                     for pkg in aliases:
-                        if map[rel][pkg]:
+                        if pkg in map[rel]:
                             map[rel][pkg]['aliases'] = aliases[pkg]
                         else:
                             print("WARN: pkg %s found in aliases but not in supported. Skipping" % pkg)

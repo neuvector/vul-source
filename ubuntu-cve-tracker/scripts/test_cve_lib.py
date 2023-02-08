@@ -9,21 +9,23 @@ import cve_lib
 
 def pytest_generate_tests(metafunc):
     if "cvss" in metafunc.fixturenames:
-        cvss = []
+        cvss = {}
         nvdcves = ['recent'] + \
             [str(year) for year in range(2004, int(datetime.datetime.now().year))]
         for nvdcve in nvdcves:
+            nvdjson = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                   '..', 'nvdcve-1.1-%s.json' % nvdcve)
             try:
-                nvdjson = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                       '..', 'nvdcve-1.1-%s.json' % nvdcve)
                 with open(nvdjson) as fp:
                     js = json.load(fp)
                     for cve in js["CVE_Items"]:
-                        if "baseMetricV3" in cve["impact"]:
-                            cvss.append(cve["impact"])
+                        if "baseMetricV3" in cve["impact"] \
+                           and  cve["impact"]["baseMetricV3"]["cvssV3"]["vectorString"] not in cvss:
+                            # only test each vectorString once
+                            cvss[cve["impact"]["baseMetricV3"]["cvssV3"]["vectorString"]] = cve["impact"]
             except FileNotFoundError:
                 print("Failed to find %s to generate test cases..." % nvdjson, file=sys.stderr)
-        metafunc.parametrize("cvss", cvss)
+        metafunc.parametrize("cvss", [item for _, item in cvss.items()])
 
 def test_cvss_empty():
     with pytest.raises(ValueError):
@@ -113,7 +115,7 @@ class TestParseCVEFiles:
         _test_file = os.path.join(TEST_DATA_DIR, "bad", cve_test_file)
         assert os.path.exists(_test_file)
         with pytest.raises(ValueError):
-            cve = cve_lib.load_cve(_test_file, strict=True)
+            _ = cve_lib.load_cve(_test_file, strict=True)
 
     def test_cve_missing_cvss_score_and_severity(self):
         cve = cve_lib.load_cve(os.path.join(TEST_DATA_DIR, 'bad/cvss-vector-only'), strict=True)
