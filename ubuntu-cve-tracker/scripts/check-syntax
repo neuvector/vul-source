@@ -840,19 +840,34 @@ for cve in args:
             # CRD can empty or unknown
             passes = ["", "unknown"]
         if d in data and data[d] not in passes:
-            valid = False
-            # Date patterns for formatted as YYYY-MM-DD HH:MM:SS
-            date_only_format = "%Y-%m-%d"
-            date_time_format = date_only_format + " %H:%M:%S"
-            date_time_tz_offset_format = date_time_format + " %z"
-            date_time_tz_name_format = date_time_format + " %Z"
+            split_date = data[d].split()
+            date_format = "%Y-%m-%d"
+            date_value = data[d]
 
-            for fmt in [date_only_format, date_time_format, date_time_tz_offset_format, date_time_tz_name_format]:
-                try:
-                    datetime.datetime.strptime(data[d], fmt)
-                    valid = True
-                except ValueError:
-                    continue
+            if len(split_date) == 2:
+                date_format = "%Y-%m-%d %H:%M:%S"
+            # strptime only recognizes locates that are setup in the local
+            # machines's locale, except for the hard-coded UTC and GMT
+            # values, so don't validate them.
+            elif len(split_date) == 3:
+                if split_date[2][0] in "-+":
+                    # It's an offset
+                    date_format = "%Y-%m-%d %H:%M:%S %z"
+                # These two are the only ones supported
+                elif split_date[2] in ("UTC", "GMT"):
+                    date_format = "%Y-%m-%d %H:%M:%S %Z"
+                else:
+                    # We can't check the timezone, so just ignore it
+                    date_format = "%Y-%m-%d %H:%M:%S"
+                    date_value = data[d][:data[d].rfind(" ")]
+
+            valid = False
+
+            try:
+                datetime.datetime.strptime(date_value, date_format)
+                valid = True
+            except ValueError:
+                pass
 
             if not valid:
                 filename = srcmap[d][0]
