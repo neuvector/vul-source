@@ -479,7 +479,7 @@ def load_subprojects_lists(releases=None):
                         if pkg in map[rel]:
                             map[rel][pkg]['aliases'] = aliases[pkg]
                         #else:
-                        #    print("WARN: pkg %s found in aliases but not in supported. Skipping" % pkg)
+                        #    print("WARN: pkg %s found in aliases but not in supported list for %s. Skipping" % (pkg, rel))
             else:
                 pass
 

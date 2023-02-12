@@ -26,6 +26,7 @@ with open(args.nfufile) as f:
             msg = str(e)
             colnum = int(msg.split(":")[0].split(" ")[-1].split("-")[0])
             print("%s:%d:%d: error: %s" % (args.nfufile, linenum, colnum, msg))
+            print("failing line: %s" % (line))
             err += 1
         linenum += 1
 sys.exit(err)
