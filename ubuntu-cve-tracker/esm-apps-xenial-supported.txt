@@ -12501,11 +12501,11 @@ linux-igd
 #linux-mako
 linux-meta-azure-edge
 linux-meta-euclid
-linux-meta-flo
+#linux-meta-flo
 #linux-meta-gke NOT SUPPORTED SINCE 2021.04
-linux-meta-goldfish
+#linux-meta-goldfish
 linux-meta-hammerhead
-linux-meta-mako
+#linux-meta-mako
 #linux-meta-oem
 #linux-meta-raspi2 NOT SUPPORTED SINCE 2021.04
 #linux-meta-snapdragon NOT SUPPORTED SINCE 2021.04
