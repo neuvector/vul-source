@@ -16,7 +16,7 @@ CVSS:
 Patches_libev:
 upstream_libev: needs-triage
 trusty_libev: ignored (out of standard support)
-trusty/esm_libev: DNE
+trusty/esm_libev: needs-triage
 xenial_libev: needs-triage
 bionic_libev: needs-triage
 focal_libev: needs-triage

@@ -7381,3 +7381,5 @@
 2023-02-03 04:55:39 UTC - 1 added, 48 ignored, 0 skipped, 49 total - files: ['nvdcve-1.1-recent.json']
 2023-02-03 05:02:13 UTC - 6 added, 0 ignored, 0 skipped, 6 total - files: ['debian-import_5pobml4s.json']
 2023-02-03 05:08:52 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['mbox-import_v928hl2z.out.json']
+2023-02-14 13:18:11 UTC - 21 added, 186 ignored, 3 skipped, 207 total - files: ['nvdcve-1.1-recent.json']
+2023-02-14 14:29:29 UTC - 15 added, 43 ignored, 4 skipped, 58 total - files: ['debian-import_knapayck.json']
