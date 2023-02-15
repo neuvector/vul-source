@@ -429,35 +429,35 @@ for cve in args:
 
         # Check aliases
         for rel in all_required_releases:
-            if rel in source and pkg in source[rel] and \
-                'aliases' in source[rel][pkg]:
-                aliases_releases.add(rel)
-
-                # This package-release uses aliases,
-                # it shouldn't be listed
-                if rel in listed_releases and pkg \
-                    not in source[rel][pkg]['aliases']:
-                    filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                    linenum = srcmap["pkgs"][pkg][nearby_rel][1]
-                    print(
-                        "%s: %d: package '%s' not in '%s'"
-                        % (filename, linenum, pkg, rel),
-                        file=sys.stderr,
-                    )
-
-                failed = 0
-                for alias in source[rel][pkg]['aliases']:
-                    if alias not in data["pkgs"].keys():
+            if rel in source:
+                aliases = source_map.get_aliases_of_ubuntu_package(source, pkg, rel)
+                if aliases:
+                    if rel in listed_releases and pkg \
+                        not in aliases:
                         filename = srcmap["pkgs"][pkg][nearby_rel][0]
                         linenum = srcmap["pkgs"][pkg][nearby_rel][1]
                         print(
-                            "%s: %d: %s missing release '%s'"
-                            # put the error on a line near where this entry should go
-                            % (filename, linenum, alias, rel),
+                            "%s: %d: package '%s' not in '%s'"
+                            % (filename, linenum, pkg, rel),
                             file=sys.stderr,
                         )
-                        cve_okay = False
-                        failed += 1
+
+                    aliases_releases.add(rel)
+
+                    # This package-release uses aliases,
+                    # it shouldn't be listed
+
+                    for alias in aliases:
+                        if alias not in data["pkgs"].keys():
+                            filename = srcmap["pkgs"][pkg][nearby_rel][0]
+                            linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                            print(
+                                "%s: %d: %s missing release '%s'"
+                                # put the error on a line near where this entry should go
+                                % (filename, linenum, alias, rel),
+                                file=sys.stderr,
+                            )
+                            cve_okay = False
 
         missing_releases = all_required_releases - listed_releases - aliases_releases
         nearby_rel = list(listed_releases - missing_releases)[0]

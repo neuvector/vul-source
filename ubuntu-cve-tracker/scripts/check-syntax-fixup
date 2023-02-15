@@ -59,10 +59,30 @@ def delete_from_file(filename: str, linenum: int, dryrun=False, verbose=False):
     else:
         print("%s: %d: would delete this line" % (os.path.relpath(filename), linenum))
 
+
+def identify_subproject_line_number(filename: str, pkg: str, rel: str):
+    # file may not already exist
+    contents = []
+    try:
+        with open(filename, "r") as f:
+            contents = f.readlines()
+    except FileNotFoundError:
+        pass
+
+    for linenum,line in enumerate(contents):
+        line_rel, line_pkg = line.split(":")[0].split('_')
+        if pkg == line_pkg and rel == line_rel:
+            return linenum + 1
+
+    return -1
+
 def get_pkg_rel_from_msg(msg):
     parts = msg.split(" ")
     if 'DOES exist' in msg or 'not in' in msg:
         pkg = parts[1].replace("'", "")
+        rel = parts[-1].replace("'", "")
+    elif 'unknown package' in msg:
+        pkg = parts[2].replace("'", "")
         rel = parts[-1].replace("'", "")
     else:
         pkg = parts[0]
@@ -153,8 +173,11 @@ for line in args.infile:
             cve = os.path.join(
                 cve_lib.get_external_subproject_cve_dir(rel), os.path.basename(cve)
             )
-            # linenum is only relevant to the original cve file
-            linenum = 1
+            linenum = identify_subproject_line_number(cve, pkg, rel)
+            if linenum == -1:
+                if 'DOES exist' in msg:
+                    continue
+                linenum = 1 # We are inserting
 
         # Remove the 'DNE' line before adding the new one
         if 'DOES exist' in msg:
@@ -171,8 +194,10 @@ for line in args.infile:
             cve = os.path.join(
                 cve_lib.get_external_subproject_cve_dir(rel), os.path.basename(cve)
             )
-            # linenum is only relevant to the original cve file
-            linenum = 1
+            linenum = identify_subproject_line_number(cve, pkg, rel)
+            if linenum == -1:
+                print(line, file=sys.stderr)
+                continue
 
         # delete this line since
         delete_from_file(cve, linenum, args.dry_run, args.verbose)

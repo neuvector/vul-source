@@ -781,3 +781,18 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 # that was not in mainline and it was picked as part of stable updates
 :title('io_uring: add missing item types for various requests', ['local-CVE-2022-2327'])
 
+# CVE-2022-3903
+# The commit 608e58a0f461 ("media: mceusb: Use new usb_control_msg_*() routines")
+# was part of two separate merges of the media tree, in v6.0 and v6.1
+# (as 41fd1cb6151439b205ac7611883d85ae14250172). We'll treat the earlier
+# commit (608e58a0f461) as the fixing commit, but later kernels may be
+# only showing the kernel triage bot the latter commit, so alias it to
+# the former.
+#
+# (To see the separate merges, do 'git log --show-pulls drivers/media/rc/mceusb.c'
+# on both the linux-6.0.y and linux-6.1.y stable series branches; you
+# should see:
+# linux-6.0.y: fd59585c420d ("Merge tag 'usb-6.0-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb")
+# linux-6.1.y: 3272eb1ace32 ("Merge tag 'media/v6.1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/mchehab/linux-media")
+# with the latter explaining how the situation came about.)
+41fd1cb6151439b205ac7611883d85ae14250172 608e58a0f4617977178131f5f68a3fce1d3f5316
