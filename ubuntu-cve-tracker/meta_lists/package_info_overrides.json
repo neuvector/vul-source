@@ -1243,6 +1243,10 @@
         "description": "Linux kernel for Microsoft Azure cloud systems",
         "title": "Linux kernel (Azure)"
     },
+    "linux-azure-5.19": {
+        "description": "Linux kernel for Microsoft Azure cloud systems",
+        "title": "Linux kernel (Azure)"
+    },
     "linux-azure-5.3": {
         "description": "Linux kernel for Microsoft Azure cloud systems",
         "title": "Linux kernel (Azure)"
