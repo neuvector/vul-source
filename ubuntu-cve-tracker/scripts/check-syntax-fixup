@@ -70,6 +70,8 @@ def identify_subproject_line_number(filename: str, pkg: str, rel: str):
         pass
 
     for linenum,line in enumerate(contents):
+        if not line or ':' not in line or '_' not in line:
+            continue
         line_rel, line_pkg = line.split(":")[0].split('_', maxsplit=1)
         if pkg == line_pkg and rel == line_rel:
             return linenum + 1

@@ -492,7 +492,7 @@ def load_subprojects_lists(releases=None):
                 lines = f.read().split('\n')
                 f.close()
 
-            pat = re.compile(r'^[a-z0-9]')
+            pat = re.compile(r'^[_A-Za-z0-9]')
             for line in lines:
                 if not pat.search(line):
                     continue
