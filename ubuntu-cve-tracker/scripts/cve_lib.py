@@ -2366,20 +2366,50 @@ def is_active_release(rel):
 
 # takes a standard release name
 # XXX should perhaps adjust that
-def is_active_esm_release(rel):
-    if not is_active_release(rel):
-        esm_rel = get_esm_name(rel)
+def is_active_esm_release(rel, component='main'):
+    if not is_active_release(rel) or \
+        component == 'universe' or component == 'multiverse':
+        esm_rel = get_esm_name(rel, component)
         if esm_rel:
             return esm_rel not in eol_releases
     return False
 
+def get_active_releases_with_esm():
+    """Return Ubuntu releases with, at least, one active ESM release."""
+    active_esm_releases = []
+    all_esm_releases = set(esm_releases + esm_apps_releases + esm_infra_releases + ros_esm_releases)
 
-def get_esm_name(rel, component=None):
+    # Get ESM active releases that are EOL
+    for esm_rel in all_esm_releases:
+        if is_active_esm_release(esm_rel):
+            active_esm_releases.append(esm_rel)
+
+    # Get active releases that also have ESM (apps)
+    for esm_rel in all_esm_releases:
+        if is_active_release(esm_rel):
+            active_esm_releases.append(esm_rel)
+
+    return active_esm_releases
+
+def get_active_esm_releases():
+    """Return all active ESM releases."""
+    active_esm_releases = []
+    for rel in get_active_releases_with_esm():
+        for component in components:
+            if is_active_esm_release(rel, component):
+                active_esm_releases.append(get_esm_name(rel, component))
+
+    return set(active_esm_releases)
+
+# Defaults to main for historical reasons
+def get_esm_name(rel, component='main'):
     if rel in esm_releases:
         return rel + '/esm'
-    elif rel in esm_apps_releases and component:
+    elif rel in esm_apps_releases and \
+        (component == 'universe' or component == 'multiverse'):
         return 'esm-apps/' + rel
-    elif rel in esm_infra_releases:
+    elif rel in esm_infra_releases and \
+        (component == 'main' or component == 'restricted'):
         return 'esm-infra/' + rel
     elif rel in ros_esm_releases:
         return 'ros-esm/' + rel
@@ -2402,6 +2432,12 @@ def is_supported(map, pkg, rel, cvedata=None):
        ('universe-binary' in cvedata['tags'][pkg] or
         'not-ue' in cvedata['tags'][pkg]):
         return False
+
+    # If it's inside a subproject, it's supported
+    if (rel in external_releases or rel in get_active_esm_releases()) and rel in map \
+        and pkg in map[rel]:
+        return True
+
     # Look for a supported component
     if rel in map and pkg in map[rel] and \
        (map[rel][pkg]['section'] == 'main' or

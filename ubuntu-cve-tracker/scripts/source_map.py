@@ -462,6 +462,10 @@ def load_subprojects_lists(releases=None):
     if releases is None:
         releases = cve_lib.all_releases
 
+    all_sources_esm = {}
+    for item in _find_sources(releases=cve_lib.get_active_releases_with_esm(), skip_eol_releases=False):
+        load_sources_collection(item, all_sources_esm)
+
     for rel in releases:
         _, _, _, details = cve_lib.get_subproject_details(rel)
         if details is None:
@@ -501,7 +505,16 @@ def load_subprojects_lists(releases=None):
                 if pkg not in map[rel]:
                     map[rel][pkg] = dict()
                     map[rel][pkg]['pocket'] = ''
-                    map[rel][pkg]['section'] = 'main'
+
+                    orig_rel = cve_lib.get_orig_rel_name(rel)
+                    if not orig_rel in all_sources_esm or pkg not in all_sources_esm[orig_rel]:
+                        # Not an ESM subproject
+                        _, orig_rel = cve_lib.product_series(rel)
+
+                    if orig_rel in all_sources_esm and pkg in all_sources_esm[orig_rel]:
+                        map[rel][pkg]['section'] = all_sources_esm[orig_rel][pkg]['section']
+                    else:
+                        map[rel][pkg]['section'] = 'main'
 
                     if '|' in pkg:
                         main_package_name = pkg.split('|')[0]

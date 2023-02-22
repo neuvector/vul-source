@@ -255,6 +255,10 @@
         "description": "simple interprocess messaging system",
         "title": "DBus-GLib"
     },
+    "dcmtk": {
+        "description": "OFFIS DICOM toolkit command line utilities",
+        "title": "DCMTK"
+    },
     "dhcp3": {
         "description": "DHCP server and client",
         "title": "DHCP"
