@@ -447,58 +447,76 @@ for cve in args:
         nearby_rel = list(listed_releases)[0]
         aliases_releases = set()
 
+        listed_series = set()
+        for rel in listed_releases:
+            if rel not in cve_lib.subprojects and rel != 'upstream':
+                listed_series.add(rel)
+
         # Check aliases
         for rel in all_required_releases:
             if rel in cve_lib.external_releases and 'boilerplates' in cvepath:
                 continue
 
             if rel in source:
-                aliases_or_generics = False
-                pkgs_from_aliases = get_pkgs_from_aliases(source, aliases_cache, pkg, rel)
-                if pkgs_from_aliases:
-                    aliases_or_generics = True
-                    aliases_releases.add(rel)
+                skip_aliases_generics = False
+                if not 'soss' in rel:
+                    _, series = cve_lib.product_series(rel)
+                    # If the series is not listed in the original CVE,
+                    # we won't create the CVE in the subproject.
+                    if not is_active(cve) and series not in listed_series:
+                        skip_aliases_generics = True
 
-                    for pkg_alias in pkgs_from_aliases:
-                        if pkg_alias not in data["pkgs"].keys():
-                            filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                            linenum = srcmap["pkgs"][pkg][nearby_rel][1]
-                            print(
-                                "%s: %d: %s missing release '%s'"
-                                # put the error on a line near where this entry should go
-                                % (filename, linenum, pkg_alias, rel),
-                                file=sys.stderr,
-                            )
-                            cve_okay = False
-                else:
-                    pkgs_from_generic = get_pkgs_from_generic(source, generics_cache, pkg, rel)
-                    if pkgs_from_generic:
+                    # We are not adding CVEs in ignored.
+                    if "ignored/" in cvepath:
+                        skip_aliases_generics = True
+
+                if not skip_aliases_generics:
+                    aliases_or_generics = False
+                    pkgs_from_aliases = get_pkgs_from_aliases(source, aliases_cache, pkg, rel)
+                    if pkgs_from_aliases:
                         aliases_or_generics = True
                         aliases_releases.add(rel)
-                        for curr_pkg in pkgs_from_generic:
-                            if curr_pkg not in data["pkgs"].keys():
+
+                        for pkg_alias in pkgs_from_aliases:
+                            if pkg_alias not in data["pkgs"].keys():
                                 filename = srcmap["pkgs"][pkg][nearby_rel][0]
                                 linenum = srcmap["pkgs"][pkg][nearby_rel][1]
                                 print(
                                     "%s: %d: %s missing release '%s'"
                                     # put the error on a line near where this entry should go
-                                    % (filename, linenum, curr_pkg, rel),
+                                    % (filename, linenum, pkg_alias, rel),
                                     file=sys.stderr,
                                 )
                                 cve_okay = False
+                    else:
+                        pkgs_from_generic = get_pkgs_from_generic(source, generics_cache, pkg, rel)
+                        if pkgs_from_generic:
+                            aliases_or_generics = True
+                            aliases_releases.add(rel)
+                            for curr_pkg in pkgs_from_generic:
+                                if curr_pkg not in data["pkgs"].keys():
+                                    filename = srcmap["pkgs"][pkg][nearby_rel][0]
+                                    linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                                    print(
+                                        "%s: %d: %s missing release '%s'"
+                                        # put the error on a line near where this entry should go
+                                        % (filename, linenum, curr_pkg, rel),
+                                        file=sys.stderr,
+                                    )
+                                    cve_okay = False
 
-                # This package-release uses aliases or generic names,
-                # it shouldn't be listed
-                if aliases_or_generics:
-                    if rel in listed_releases and pkg \
-                        not in pkgs_from_aliases:
-                        filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                        linenum = srcmap["pkgs"][pkg][nearby_rel][1]
-                        print(
-                            "%s: %d: package '%s' not in '%s'"
-                            % (filename, linenum, pkg, rel),
-                            file=sys.stderr,
-                        )
+                    # This package-release uses aliases or generic names,
+                    # it shouldn't be listed
+                    if aliases_or_generics:
+                        if rel in listed_releases and pkg \
+                            not in pkgs_from_aliases:
+                            filename = srcmap["pkgs"][pkg][nearby_rel][0]
+                            linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                            print(
+                                "%s: %d: package '%s' not in '%s'"
+                                % (filename, linenum, pkg, rel),
+                                file=sys.stderr,
+                            )
         missing_releases = all_required_releases - listed_releases - aliases_releases
         nearby_rel = list(listed_releases - missing_releases)[0]
         for rel in missing_releases:
