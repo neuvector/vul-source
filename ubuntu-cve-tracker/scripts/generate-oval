@@ -37,7 +37,7 @@ import tempfile
 
 import apt_pkg
 from cve_lib import (kernel_srcs, product_series, load_cve, PRODUCT_UBUNTU, all_releases, eol_releases, devel_release, release_parent, release_name, release_ppa, release_progenitor, needs_oval)
-from kernel_lib import (meta_kernels, kernel_package_abi, kernel_package_version)
+from kernel_lib import meta_kernels
 import oval_lib
 import lpl_common
 
@@ -365,30 +365,6 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
             rel for rel in packages[package]['Releases']
             if packages[package]['Releases'][rel]['status'] != 'not-applicable'
         ]:
-            # add meta package
-            # handle meta package of subprojects without needing to have them in kernel_lib
-            progenitor = release_progenitor(release)
-            if progenitor:
-                meta_pkg = meta_kernels.get_meta(progenitor, package, quiet=(debug_level < 1))
-            else:
-                meta_pkg = meta_kernels.get_meta(release, package, quiet=(debug_level < 1))
-            if meta_pkg:
-                if meta_pkg not in packages:
-                    packages[meta_pkg] = {
-                        'Priority': packages[package]['Priority'],
-                        'Tags': packages[package]['Tags'],
-                        'Releases': {}
-                    }
-                if release not in packages[meta_pkg]['Releases']:
-                    kernel_status = packages[package]['Releases'][release]
-                    # kernel meta packages have a different versioning
-                    # scheme derived from the kernel version + kernel abi
-                    meta_version = None
-                    if 'fix-version' in kernel_status:
-                        meta_version = '%s.%s' % (kernel_package_version(kernel_status['fix-version']),
-                                                  kernel_package_abi(kernel_status['fix-version']))
-                    packages[meta_pkg]['Releases'][release] = \
-                        duplicate_package_status(release, meta_pkg, kernel_status, cache, override_version=meta_version)
             # add signed package
             # handle signed package of subprojects without needing to have them in kernel_lib
             progenitor = release_progenitor(release)

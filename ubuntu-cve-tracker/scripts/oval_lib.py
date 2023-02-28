@@ -79,6 +79,35 @@ by updating your system to the following package versions:""".format(cve)
 
     return instruction
 
+def is_kernel_binaries(binaries):
+    reg = re.compile('linux-image-.*')
+    if any(filter(reg.match, binaries)):
+        return True
+    return False
+
+
+""" Using the following kernel uname, we can understand its format:
+    uname -r -> 5.4.0-1059-generic
+    MAJOR_VERSION="5.4.0"
+    ABI="1059"
+    FLAVOUR="generic"
+"""
+def process_kernel_binaries(binaries, oval_format):
+    packages = ' '.join(binaries)
+    parts = re.findall('linux-image-[a-z]*-?([\d|\.]+-)\d+(-[\w|-]+)', packages)
+    if parts:
+        values = set(map(lambda x: x[0], parts))
+        version = ''.join(values)
+        values = set(map(lambda x: x[1], parts))
+        flavours = '|'.join(values)
+        regex =  version + '\d+(' + flavours + ')'
+        if oval_format == 'oci':
+            regex = 'linux-image-(?:unsigned-)?' + regex
+        return regex
+
+    return None
+
+
 class OvalGenerator:
     supported_oval_elements = ('definition', 'test', 'object', 'state',
                                'variable')
@@ -138,7 +167,7 @@ class OvalGenerator:
                             'id_base': id_base + len(test_refs),
                             'source-note': header['Source-note']
                         }
-                        if package.startswith('linux') and self.oval_format == 'dpkg' and pkg['fix-version']:
+                        if is_kernel_binaries(pkg['binaries']) and pkg['fix-version']:
                             test_ref = self.get_running_kernel_testref(pkg)
                             if test_ref:
                                 test_refs = test_refs + test_ref
@@ -277,25 +306,44 @@ class OvalGenerator:
             </definition>\n""".format(**mapping))
 
     def get_running_kernel_testref(self, package):
-        """ Using the following kernel uname, we can understand its format:
-            uname -r -> 5.4.0-1059-generic
-            MAJOR_VERSION="5.4.0"
-            ABI="1059"
-            FLAVOUR="generic"
-        """
-        for pkg in package['binaries']:
-            uname = re.search('linux-image-[a-z]*-?([\d|\.]+-)(\d+)(-[\w|-]+)', pkg)
-            if uname:
-                uname_regex = uname.group(1) + '\d{' + str(len(uname.group(2))) + '}' + uname.group(3)
-                (var_id, var_id_2) = self.get_running_kernel_variable_id(uname_regex, package['id_base'], package['fix-version'])
-                (ste_id, ste_id_2) = self.get_running_kernel_state_id(uname_regex, package['id_base'], var_id)
-                (obj_id, obj_id_2) = self.get_running_kernel_object_id(package['id_base'], var_id_2)
-                (test_id, test_id_2) = self.get_running_kernel_test_id(uname_regex, package['id_base'], package['name'],
-                                                                       obj_id, ste_id, obj_id_2, ste_id_2)
-                return [{'id': test_id, 'comment': 'Is kernel {0} running'.format(package['name']),
-                         'kernel': uname_regex, 'var_id': var_id}, {'id': test_id_2, 'comment': 'kernel version comparison', 'kernelobj': True}]
+        uname_regex = process_kernel_binaries(package['binaries'], self.oval_format)
+        if uname_regex:
+            if self.oval_format == 'dpkg':
+                (var_id, var_id_2) = self.get_running_kernel_variable_id(
+                    uname_regex,
+                    package['id_base'],
+                    package['fix-version'])
+                (ste_id, ste_id_2) = self.get_running_kernel_state_id(
+                    uname_regex,
+                    package['id_base'],
+                    var_id)
+                (obj_id, obj_id_2) = self.get_running_kernel_object_id(
+                    package['id_base'], var_id_2)
+                (test_id, test_id_2) = self.get_running_kernel_test_id(
+                    uname_regex, package['id_base'], package['name'],
+                    obj_id, ste_id, obj_id_2, ste_id_2)
+                return [{'id': test_id,
+                         'comment': 'Is kernel {0} running'.format(package['name']),
+                         'kernel': uname_regex, 'var_id': var_id},
+                        {'id': test_id_2, 'comment': 'kernel version comparison',
+                         'kernelobj': True}]
+            else:  # OCI
+                object_id = self.get_package_object_id(package['name'],
+                                                       uname_regex,
+                                                       package['id_base'])
+                state_id = self.get_package_version_state_id(package['id_base'],
+                                                             package['fix-version'])
+                test_title = "Does the '{0}' package exist and is the version less than '{1}'?".format(package['name'],
+                                                                                                       package['fix-version'])
+                test_id = self.get_package_test_id(package['name'],
+                                                   package['id_base'],
+                                                   test_title,
+                                                   object_id,
+                                                   state_id)
+                package['note'] = package['name'] + package['note']
+                return [{'id': test_id, 'comment': package['note']}]
 
-            return None
+        return None
 
     def get_oval_test_for_package(self, package):
         """ create OVAL test and dependent objects for this package status
@@ -1314,25 +1362,22 @@ class OvalGeneratorUSN():
         return version_map
 
     def get_testref(self, version, pkgs, testref_id):
-        reg = re.compile('linux-image-.*')
-        if any(filter(reg.match, pkgs)) and self.oval_format == 'dpkg':
-            for pkg in pkgs:
-                uname = re.search('linux-image-[a-z]*-?([\d|\.]+-)(\d+)(-[\w|-]+)', pkg)
-                if uname:
-                    # transform pkgs list into string to make it easy to
-                    # get all flavours at once in a list
-                    packages = ' '.join(pkgs)
-                    flavours = set(re.findall('linux-image-[a-z]*-?[\d|\.]+-\d+-([\w|-]+)', packages))
-                    name = uname.group(1) + '\d{' + str(len(uname.group(2))) + '}-(' + '|'.join(flavours) + ')'
+        if is_kernel_binaries(pkgs):
+            uname_regex = process_kernel_binaries(pkgs, self.oval_format)
+            if uname_regex:
+                if self.oval_format == 'dpkg':
                     new_id = '{0}0'.format(testref_id)
                     new_id_2 = '{0}0'.format(testref_id + 1)
                     # kernel has two test_ref:
                     # 1. check if running kernel is of same version and flavour as patched
                     # 2. check if running kernel is less than patched kernel
-                    return ({'version': version, 'pkgs': [uname.group(0)],
-                             'testref_id': new_id, 'kernel': name},
+                    return ({'version': version, 'pkgs': pkgs,
+                             'testref_id': new_id, 'kernel': uname_regex},
                             {'version': version, 'pkgs': pkgs,
                              'testref_id': new_id_2, 'kernelobj': new_id})
+                else:
+                    new_id = '{0}0'.format(testref_id)
+                    return({'version': version, 'pkgs': [uname_regex], 'testref_id': new_id}, None)
 
             return (None, None)
 
