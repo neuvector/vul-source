@@ -1343,6 +1343,9 @@ class OvalGeneratorUSN():
         urls, cves = self.filter_cves(cves)
         cves_info = []
         for cve in cves:
+            # ignore empty CVE entries
+            if len(cve) == 0:
+                continue
             res = self.get_cve_info_from_file(cve, cve_dir)
             if res:
                 cves_info.append(res)

@@ -568,6 +568,10 @@ if opt.add_cves:
 local_pickle = os.path.join(config['usn_storage'], '$USN.pickle')
 print('#!/bin/bash')
 print('set -e')
+print()
+print('# check for unfixed placeholders - DO NOT REMOVE THE FOLLOWING LINE')
+print('grep -Hn "X""X""X" "${0}" && echo "${0} still contains placeholders / FIXMEs - ensure you fix these all then rerun the script" && exit 1')
+print()
 print('export PATH=$PATH:%s' % (config['usn_tool']))
 print('export USN=%s'%(usn))
 print('export DB="%s"'%(local_pickle))
@@ -600,7 +604,7 @@ if len(CVEs):
     print('# Can also specify a URL with --cve "https://launchpad.net/bugs/XXXXXX"')
 else:
     possible_regression = True
-    print('# XXX FIX ME XXX No CVEs found!  Please include URL-based reference')
+    print('# XXX FIX ME XXX No CVEs found!  Please ensure you create a bug on LP for this update and include that as a URL-based reference')
     print('usn.py --db "$DB" $USN --cve "https://launchpad.net/bugs/XXXXXX"')
 print()
 print('test "${HIDDEN,,}" = "true" && usn.py --db "$DB" --hidden "$HIDDEN" "$USN"')
