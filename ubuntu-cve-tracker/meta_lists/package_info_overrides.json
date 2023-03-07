@@ -1051,6 +1051,10 @@
         "description": "libtorrent-rasterbar",
         "title": "C++ bittorrent library with Python bindings"
     },
+    "libtpms": {
+        "description": "TPM emulation library",
+        "title": "Libtpms"
+    },
     "libu2f-host": {
         "description": "Universal 2nd Factor (U2F) host communication C Library",
         "title": ""
