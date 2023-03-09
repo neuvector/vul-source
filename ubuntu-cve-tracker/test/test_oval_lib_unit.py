@@ -68,14 +68,14 @@ class TestOvalLibUnit:
     test_ref_mock = [({'version': '5.0.0-1059.64',
                        'pkgs': ['linux-image-5.0.0-1059-oem-osp1'],
                        'testref_id': '438810000000',
-                       'kernel': '5.0.0-\d{4}-(oem-osp1)'},
+                       'kernel': '5.0.0-\d+(-oem-osp1)'},
                       {'version': '5.0.0-1059.64',
                        'pkgs': ['linux-image-5.0.0-1059-oem-osp1'],
                        'testref_id': '438810000010'}),
                       ({'version': '5.0.0-1042.43',
                        'pkgs': ['linux-image-5.0.0-1042-gke'],
                        'testref_id': '438810000020',
-                       'kernel': '5.0.0-\d{4}-(gke)'},
+                       'kernel': '5.0.0-\d+(-gke)'},
                       {'version': '5.0.0-1042.43',
                        'pkgs': ['linux-image-5.0.0-1042-gke'],
                        'testref_id': '438810000030'})]
@@ -123,7 +123,7 @@ class TestOvalLibUnit:
               <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>"""
 
     test_mock = ["""
-        <unix:uname_test check="at least one" comment="Is kernel 5.0.0-\d{4}-(oem-osp1) currently running?" id="oval:com.ubuntu.bionic:tst:438810000000" version="1">
+        <unix:uname_test check="at least one" comment="Is kernel 5.0.0-\d+(-oem-osp1) currently running?" id="oval:com.ubuntu.bionic:tst:438810000000" version="1">
            <unix:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
            <unix:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
         </unix:uname_test>""",
@@ -175,7 +175,7 @@ class TestOvalLibUnit:
 
     state_mock = ["""
         <unix:uname_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1">
-           <unix:os_release operation="pattern match">5.0.0-\d{4}-(oem-osp1)</unix:os_release>
+           <unix:os_release operation="pattern match">5.0.0-\d+(-oem-osp1)</unix:os_release>
         </unix:uname_state>""",
         """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000010" version="1" comment="Long Term Support">

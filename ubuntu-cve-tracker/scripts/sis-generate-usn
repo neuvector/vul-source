@@ -247,7 +247,7 @@ def find_archive_path_one_release(source, release, arch, filename, fuzzy=None):
         # non-deb: stored in the source package's location
         try:
             base = os.path.join(src_locations[release][arch][source], prefix, source, filename)
-        except KeyError as e:
+        except KeyError:
             raise KeyError("cannot find %s path for %s %s/%s/%s" % (arch, release, prefix, source, filename))
         filepath = os.path.join(pool, base)
         return filepath, base
@@ -878,7 +878,7 @@ print()
 
 # Affected Binaries
 for release in releases:
-    print('# Reduce to minimum binaries affected in %s' % (release))
+    print('# XXX Reduce to minimum binaries affected in %s' % (release))
     for source in sorted(info[release].keys()):
         version = info[release][source]['version']
         for deb in sorted(info[release][source]['binaries']):
@@ -893,7 +893,7 @@ for release in releases:
             if source in binaries and release in binaries[source] and deb in binaries[source][release]:
                 try:
                     version = binaries[source][release][deb]['version']
-                except KeyError as e:
+                except KeyError:
                     pass
                 if not filter_dbg.search(deb) and (not opt.filter_bins or opt.filter_bins.search(deb)):
                     pocket = ""
@@ -944,7 +944,7 @@ for release in releases:
             if source in binaries and release in binaries[source] and deb in binaries[source][release]:
                 try:
                     version = binaries[source][release][deb]['version']
-                except KeyError as e:
+                except KeyError:
                     pass
                 if not filter_dbg.search(deb):
                     pocket = ""

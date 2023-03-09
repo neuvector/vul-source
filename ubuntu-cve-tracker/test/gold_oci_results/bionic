@@ -543,7 +543,7 @@ Definition oval:com.ubuntu.bionic:def:38531000000: true
 Definition oval:com.ubuntu.bionic:def:38521000000: false
 Definition oval:com.ubuntu.bionic:def:38511000000: false
 Definition oval:com.ubuntu.bionic:def:38501000000: false
-Definition oval:com.ubuntu.bionic:def:38471000000: false
+Definition oval:com.ubuntu.bionic:def:38471000000: true
 Definition oval:com.ubuntu.bionic:def:38452000000: false
 Definition oval:com.ubuntu.bionic:def:38451000000: false
 Definition oval:com.ubuntu.bionic:def:38441000000: false
@@ -554,7 +554,7 @@ Definition oval:com.ubuntu.bionic:def:38391000000: false
 Definition oval:com.ubuntu.bionic:def:38381000000: false
 Definition oval:com.ubuntu.bionic:def:38372000000: false
 Definition oval:com.ubuntu.bionic:def:38371000000: false
-Definition oval:com.ubuntu.bionic:def:38361000000: false
+Definition oval:com.ubuntu.bionic:def:38361000000: true
 Definition oval:com.ubuntu.bionic:def:38341000000: true
 Definition oval:com.ubuntu.bionic:def:38331000000: false
 Definition oval:com.ubuntu.bionic:def:38312000000: false
@@ -565,7 +565,7 @@ Definition oval:com.ubuntu.bionic:def:38281000000: false
 Definition oval:com.ubuntu.bionic:def:38271000000: false
 Definition oval:com.ubuntu.bionic:def:38261000000: false
 Definition oval:com.ubuntu.bionic:def:38251000000: false
-Definition oval:com.ubuntu.bionic:def:38201000000: false
+Definition oval:com.ubuntu.bionic:def:38201000000: true
 Definition oval:com.ubuntu.bionic:def:38181000000: false
 Definition oval:com.ubuntu.bionic:def:38171000000: false
 Definition oval:com.ubuntu.bionic:def:38162000000: true
@@ -606,7 +606,7 @@ Definition oval:com.ubuntu.bionic:def:37811000000: false
 Definition oval:com.ubuntu.bionic:def:37801000000: false
 Definition oval:com.ubuntu.bionic:def:37781000000: false
 Definition oval:com.ubuntu.bionic:def:37773000000: false
-Definition oval:com.ubuntu.bionic:def:37771000000: false
+Definition oval:com.ubuntu.bionic:def:37771000000: true
 Definition oval:com.ubuntu.bionic:def:37741000000: false
 Definition oval:com.ubuntu.bionic:def:37731000000: false
 Definition oval:com.ubuntu.bionic:def:37721000000: false
@@ -618,7 +618,7 @@ Definition oval:com.ubuntu.bionic:def:37671000000: true
 Definition oval:com.ubuntu.bionic:def:37661000000: false
 Definition oval:com.ubuntu.bionic:def:37651000000: true
 Definition oval:com.ubuntu.bionic:def:37641000000: false
-Definition oval:com.ubuntu.bionic:def:37621000000: false
+Definition oval:com.ubuntu.bionic:def:37621000000: true
 Definition oval:com.ubuntu.bionic:def:37613000000: false
 Definition oval:com.ubuntu.bionic:def:37612000000: false
 Definition oval:com.ubuntu.bionic:def:37611000000: false
@@ -628,7 +628,7 @@ Definition oval:com.ubuntu.bionic:def:37571000000: false
 Definition oval:com.ubuntu.bionic:def:37561000000: false
 Definition oval:com.ubuntu.bionic:def:37551000000: false
 Definition oval:com.ubuntu.bionic:def:37523000000: false
-Definition oval:com.ubuntu.bionic:def:37521000000: false
+Definition oval:com.ubuntu.bionic:def:37521000000: true
 Definition oval:com.ubuntu.bionic:def:37511000000: false
 Definition oval:com.ubuntu.bionic:def:37501000000: false
 Definition oval:com.ubuntu.bionic:def:37491000000: false
