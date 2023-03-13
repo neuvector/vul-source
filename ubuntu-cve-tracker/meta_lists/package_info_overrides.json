@@ -1149,7 +1149,7 @@
     },
     "libxstream-java": {
         "description": "Java library to serialize objects to XML and back again",
-        "title": "XStream library"
+        "title": "XStream"
     },
     "libxt": {
         "description": "X11 toolkit intrinsics library",

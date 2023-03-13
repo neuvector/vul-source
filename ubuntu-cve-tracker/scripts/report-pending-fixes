@@ -54,17 +54,20 @@ for name in cves:
             continue
 
         state, version = cve['pkgs'][opt.pkg][rel]
-        if state not in reportable:
-            continue
-        if version_compare(opt.prev_version, version) >= 0 and name not in forced_cves:
-            continue
-        if version_compare(version, opt.curr_version) > 0 and name not in forced_cves:
-            continue
+        if name not in forced_cves:
+            if state not in reportable:
+                continue
+            if version_compare(opt.prev_version, version) >= 0:
+                continue
+            if version_compare(version, opt.curr_version) > 0:
+                continue
 
         report = name
 
         if opt.states:
             report += " %s %s %s %s" % (opt.pkg, rel, state, version)
+            if state != 'pending':
+                report += "\n[== WARNING state %s is not pending ==]" % (state)
 
         if opt.fixes:
             pkg = 'linux' if opt.pkg in cve_lib.kernel_srcs else opt.pkg
