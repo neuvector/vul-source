@@ -590,16 +590,16 @@ class OvalGenerator:
                kernel is greater than the running kernel
             The result of this two will go through an AND logic to confirm
             if we are or not vulnerable to such CVE"""
-        if not hasattr(self, 'kernel_objects'):
-            self.kernel_objects = {}
+        if not hasattr(self, 'kernel_uname_obj_id'):
+            self.kernel_uname_obj_id = None
 
-        if id_base not in self.kernel_objects:
+        if not self.kernel_uname_obj_id:
             object_id = '{0}:obj:{1}0'.format(self.ns, id_base)
 
             self.queue_element('object', """
                     <unix-def:uname_object id="{0}" version="{1}"/>\n""".format(object_id, version))
 
-            self.kernel_objects[id_base] = object_id
+            self.kernel_uname_obj_id = object_id
 
         object_id_2 = '{0}:obj:{1}0'.format(self.ns, id_base + 1)
 
@@ -609,7 +609,7 @@ class OvalGenerator:
                 </ind-def:variable_object>\n""".format(object_id_2, version, var_id))
 
 
-        return (self.kernel_objects[id_base], object_id_2)
+        return (self.kernel_uname_obj_id, object_id_2)
 
     def get_running_kernel_state_id(self, uname_regex, id_base, var_id, version=1):
         """ create uname_state to compare the system uname to the affected kernel
@@ -620,6 +620,9 @@ class OvalGenerator:
         if not hasattr(self, 'uname_states'):
             self.uname_states = {}
 
+        if not hasattr(self, 'kernel_state_id'):
+            self.kernel_state_id = None
+
         if uname_regex not in self.uname_states:
             state_id = '{0}:ste:{1}0'.format(self.ns, id_base)
             self.queue_element('state', """
@@ -629,14 +632,16 @@ class OvalGenerator:
 
             self.uname_states[uname_regex] = state_id
 
-        state_id_2 = '{0}:ste:{1}0'.format(self.ns, id_base + 1)
-        self.queue_element('state', """
-                <ind-def:variable_state id="{0}" version="{1}">
-                    <ind-def:value operation="greater than" datatype="debian_evr_string" var_ref="{2}" var_check="at least one" />
-                </ind-def:variable_state>\n""".format(state_id_2, version, var_id))
+        if not self.kernel_state_id:
+            state_id_2 = '{0}:ste:{1}0'.format(self.ns, id_base + 1)
+            self.queue_element('state', """
+                    <ind-def:variable_state id="{0}" version="{1}">
+                        <ind-def:value operation="greater than" datatype="debian_evr_string" var_ref="{2}" var_check="at least one" />
+                    </ind-def:variable_state>\n""".format(state_id_2, version, var_id))
 
+            self.kernel_state_id = state_id_2
 
-        return (self.uname_states[uname_regex], state_id_2)
+        return (self.uname_states[uname_regex], self.kernel_state_id)
 
     def get_running_kernel_variable_id(self, uname_regex, id_base, fixed_version, version=1):
         """ creates a local variable to store running kernel version in devian evr string"""

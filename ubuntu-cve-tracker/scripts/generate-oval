@@ -635,7 +635,7 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
     # Get the usn database.json data
     usn_database = get_usn_database(usn_db_dir)
     if not usn_database:
-        error("Error getting USN database.")
+        error("Error getting local USN database. Please, run '$UCT/scripts/fetch-db database.json.bz2' to retrieve the database and try again.")
 
     if usn:
         if usn not in usn_database:
