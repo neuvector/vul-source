@@ -799,3 +799,6 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2023-0266
 :title('ALSA: pcm: Move rwsem lock inside snd_ctl_elem_read to prevent UAF', ['local-CVE-2023-0266-fix'])
+
+# CVE-2022-2991
+:title('lightnvm: disable the subsystem', ['local-CVE-2022-2991-fix'])
