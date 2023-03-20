@@ -329,7 +329,7 @@ class OvalGenerator:
                          'kernelobj': True}]
             else:  # OCI
                 object_id = self.get_package_object_id(package['name'],
-                                                       uname_regex,
+                                                       [uname_regex],
                                                        package['id_base'])
                 state_id = self.get_package_version_state_id(package['id_base'],
                                                              package['fix-version'])
