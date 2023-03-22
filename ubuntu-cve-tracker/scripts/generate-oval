@@ -674,7 +674,7 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
         for oval in ovals:
             oval.generate_usn_oval(usn_database[usn], usn_database[usn]['id'], cve_dir)
     else:
-        for usn in usn_database.keys():
+        for usn in sorted(usn_database.keys()):
             prepend_usn_to_id(usn_database, usn)
             for oval in ovals:
                 oval.generate_usn_oval(usn_database[usn], usn_database[usn]['id'], cve_dir)
