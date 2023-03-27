@@ -802,3 +802,11 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2022-2991
 :title('lightnvm: disable the subsystem', ['local-CVE-2022-2991-fix'])
+
+# CVE-2022-39188 got a specific fix for stable releases.
+# Despite that fix getting the same "upstream SHA1" as the upstream fix,
+# it got a followup fix. In order to require that followup fix for those
+# stable branches, but not the branches with the stable fix, we ought to
+# use a local fix for the original stable one.
+:title('mm: Force TLB flush for PFNMAP mappings before unlink_file_vma()', ['local-CVE-2022-39188-fix-1'])
+:title('mm: Fix TLB flush for not-first PFNMAP mappings in unmap_region()', ['local-CVE-2022-39188-fix-2'])

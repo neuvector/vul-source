@@ -1835,6 +1835,10 @@
         "description": "Natural Language Toolkit",
         "title": "NLTK"
     },
+    "node-url-parse": {
+        "description": "Small footprint URL parser that works across Node.js and browsers",
+        "title": "url-parse"
+    },
     "nova": {
         "description": "OpenStack Compute cloud infrastructure",
         "title": "Nova"
