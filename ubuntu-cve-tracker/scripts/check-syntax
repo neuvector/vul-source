@@ -21,6 +21,7 @@ import re
 import sys
 import subprocess
 import signal
+import multiprocessing
 
 import cve_lib
 import kernel_lib
@@ -253,8 +254,11 @@ parser.add_option(
 if opt.debug:
     pp = pprint.PrettyPrinter(indent=4)
 
-all_okay = True
-cves_updated = False
+def debug(args):
+    if opt.debug:
+        pp.pprint(args)
+
+
 warned_kernels = []
 esm_warned = False
 
@@ -284,14 +288,12 @@ check_dirs = [cve_lib.active_dir, cve_lib.retired_dir, cve_lib.ignored_dir]
 if os.path.islink(cve_lib.embargoed_dir):
     check_dirs.append(cve_lib.embargoed_dir)
 
-if opt.debug:
-    pp.pprint("check_dirs %s" % check_dirs)
+debug("check_dirs %s" % check_dirs)
 
 all_files = True
 if len(args) == 0:
     if opt.filelist:
-        if opt.debug:
-            pp.pprint("Using filelist %s" % opt.filelist)
+        debug("Using filelist %s" % opt.filelist)
 
         all_files = False
         with open(opt.filelist) as fh:
@@ -300,8 +302,7 @@ if len(args) == 0:
                     if line.startswith("%s/CVE-" % dir):
                         args += [line.rstrip()]
     elif opt.modified:
-        if opt.debug:
-            pp.pprint("Checking modified files only")
+        debug("Checking modified files only")
 
         all_files = False
 
@@ -329,13 +330,11 @@ if len(args) == 0:
 else:
     all_files = False
 
-if opt.debug:
-    pp.pprint("args %s" % args)
+debug("args %s" % args)
 
 ignored = cve_lib.parse_CVEs_from_uri("%s/not-for-us.txt" % cve_lib.ignored_dir)
 
-if opt.debug:
-    pp.pprint("ignored %s" % ignored)
+debug("ignored %s" % ignored)
 
 cna_cves_set = CVEs_from_CNA()
 # Just run this if we're not specifying specific CVEs
@@ -355,12 +354,11 @@ if len(cna_cves_set) > 0 and all_files:
     ignored_set = set(ignored)
     args_set = {find_cves(name) for name in filter(filter_cves, args)}
 
-    if opt.debug:
-        pp.pprint("cna_cves_set: %s\n" % cna_cves_set)
-        pp.pprint("ignored_set: %s\n" % ignored_set)
-        pp.pprint("args: %s" % args)
-        pp.pprint("filtered_args: %s" % filter(filter_cves, args))
-        pp.pprint("args_set: %s\n" % args_set)
+    debug("cna_cves_set: %s\n" % cna_cves_set)
+    debug("ignored_set: %s\n" % ignored_set)
+    debug("args: %s" % args)
+    debug("filtered_args: %s" % filter(filter_cves, args))
+    debug("args_set: %s\n" % args_set)
 
     # if we ever assign a CVE then ignore it (vbulletin comes to mind...)
     # we can use the "IGNORED" tag to skip these checks
@@ -377,7 +375,7 @@ if len(cna_cves_set) > 0 and all_files:
 aliases_cache = {}
 generics_cache = {}
 
-for cve in args:
+def check_cve(cve):
     if re.match(r"EMB-", cve):
         cvepath = os.path.join(cve_lib.embargoed_dir, cve)
     elif re.match(r"CVE-", cve):
@@ -395,14 +393,13 @@ for cve in args:
             data = cve_lib.load_cve(cvepath, opt.strict, srcmap=srcmap)
     except ValueError as e:
         print(e, file=sys.stderr)
-        all_okay = False
-        continue
+        return False
     if cve in ignored:
         print(
             "%s: %d: duplicate CVE found in not-for-us.txt" % (cvepath, 1),
             file=sys.stderr,
         )
-        all_okay = False
+        cve_okay = False
     matches = set()
     for dir in [
         cve_lib.active_dir,
@@ -418,7 +415,7 @@ for cve in args:
             % (cvepath, 1, ", ".join(sorted(matches))),
             file=sys.stderr,
         )
-        all_okay = False
+        cve_okay = False
 
     # verify required fields are present
     for field in required_fields:
@@ -1010,16 +1007,14 @@ for cve in args:
             cve_okay = False
 
 
-    # Report on failures
-    if not cve_okay:
-        all_okay = False
-    elif opt.debug:
+    if opt.debug:
         pp.pprint(data)
+    debug(data)
+    return cve_okay
 
-
-if cves_updated:
-    print("CVEs updated. Please run again.", file=sys.stderr)
-    all_okay = False
+with multiprocessing.Pool(multiprocessing.cpu_count()) as p:
+    results = p.map(check_cve, args)
+    all_okay = all(results)
 
 if all_okay and opt.verbose:
     print("OK: %d CVEs" % (len(args)))

@@ -494,6 +494,7 @@ kernel_glitches = {
     'linux-azure-5.19': {
         'jammy': {
             '~': '5.19.0-1021.22~22.04.1',  # initial publication
+            '5.19.0-1021.22~22.04.1': '5.19.0.1022.23~22.04.1', # only edge binaries
         },
     },
     'linux-azure-fde': {
