@@ -28,11 +28,11 @@
         "title": "AppArmor update"
     },
     "apport": {
-        "description": "",
+        "description": "automatically generate crash reports for debugging",
         "title": "Apport"
     },
     "apr": {
-        "description": "",
+        "description": "Apache Portable Runtime Library",
         "title": "APR"
     },
     "apt": {
@@ -117,14 +117,14 @@
     },
     "boost1.50": {
         "description": "C++ utility libraries",
-        "title": ""
+        "title": "boost1.50"
     },
     "bouncycastle": {
         "description": "Java implementation of cryptographic algorithms",
         "title": "Bouncy Castle"
     },
     "brotli": {
-        "description": "",
+        "description": "lossless compression algorithm and format (command line utility)",
         "title": "Brotli"
     },
     "bsh": {
@@ -188,7 +188,7 @@
         "title": "colord"
     },
     "commons-beanutils": {
-        "description": "",
+        "description": "Apache Commons BeanUtils - Utility for manipulating Java beans",
         "title": "Apache Commons BeanUtils"
     },
     "condor": {
@@ -237,7 +237,7 @@
     },
     "db": {
         "description": "Berkeley DB Utilities",
-        "title": ""
+        "title": "db"
     },
     "db4.8": {
         "description": "Berkeley DB Utilities",
@@ -264,7 +264,7 @@
         "title": "DHCP"
     },
     "dino-im": {
-        "description": "",
+        "description": "modern XMPP client",
         "title": "Dino"
     },
     "djvulibre": {
@@ -340,7 +340,7 @@
         "title": "Exim"
     },
     "exiv2": {
-        "description": "",
+        "description": "EXIF/IPTC/XMP metadata manipulation tool",
         "title": "Exiv2"
     },
     "expat": {
@@ -356,7 +356,7 @@
         "title": "file"
     },
     "file-roller": {
-        "description": "",
+        "description": "archive manager for GNOME",
         "title": "File Roller"
     },
     "firebird2.5": {
@@ -416,7 +416,7 @@
         "title": "FreeType"
     },
     "freexl": {
-        "description": "",
+        "description": "library for direct reading of Microsoft Excel spreadsheets",
         "title": "FreeXL"
     },
     "frr": {
@@ -444,7 +444,7 @@
         "title": "Ghostscript"
     },
     "gifsicle": {
-        "description": "",
+        "description": "Tool for manipulating GIF images",
         "title": "Gifsicle"
     },
     "git": {
@@ -581,7 +581,7 @@
     },
     "gst-plugins-good1.0": {
         "description": "GStreamer plugins",
-        "title": ""
+        "title": "gst-plugins-good1.0"
     },
     "gtk+2.0": {
         "description": "GTK+ graphical user interface library",
@@ -596,7 +596,7 @@
         "title": "gtk-vnc"
     },
     "gummi": {
-        "description": "",
+        "description": "simple LaTeX editor with live preview",
         "title": "Gummi"
     },
     "gupnp": {
@@ -652,7 +652,7 @@
         "title": "HttpClient"
     },
     "ibus": {
-        "description": "",
+        "description": "Intelligent Input Bus - core",
         "title": "IBus"
     },
     "icedtea-web": {
@@ -893,7 +893,7 @@
     },
     "libjpeg6b": {
         "description": "library for handling JPEG files",
-        "title": ""
+        "title": "libjpeg6b"
     },
     "libkdcraw": {
         "description": "RAW picture decoding library",
@@ -952,7 +952,7 @@
         "title": "OpenMPT"
     },
     "libpam-krb5": {
-        "description": "",
+        "description": "PAM module for MIT Kerberos",
         "title": "pam-krb5"
     },
     "libpcap": {
@@ -1057,7 +1057,7 @@
     },
     "libu2f-host": {
         "description": "Universal 2nd Factor (U2F) host communication C Library",
-        "title": ""
+        "title": "libu2f-host"
     },
     "libunity-webapps": {
         "description": "UnityWebapps library",
@@ -1129,7 +1129,7 @@
     },
     "libxrandr": {
         "description": "X11 RandR extension library",
-        "title": ""
+        "title": "libxrandr"
     },
     "libxrandr-lts-quantal": {
         "description": "X11 RandR extension library",
@@ -1421,7 +1421,7 @@
     },
     "linux-linaro": {
         "description": "Linux kernel for ARM",
-        "title": ""
+        "title": "linux-linaro"
     },
     "linux-lowlatency": {
         "description": "Linux low latency kernel",
@@ -1553,7 +1553,7 @@
     },
     "linux-qcm-msm": {
         "description": "Linux kernel for MSM",
-        "title": ""
+        "title": "linux-qcm-msm"
     },
     "linux-raspi": {
         "description": "Linux kernel for Raspberry Pi systems",
@@ -1697,7 +1697,7 @@
     },
     "mesa-lts-quantal": {
         "description": "free implementation of the EGL API",
-        "title": ""
+        "title": "mesa-lts-quantal"
     },
     "mime-support": {
         "description": "MIME support programs",
@@ -1708,7 +1708,7 @@
         "title": "mini_httpd"
     },
     "minicom": {
-        "description": "",
+        "description": "Friendly menu driven serial communication program",
         "title": "Minicom"
     },
     "miniupnpc": {
@@ -1724,7 +1724,7 @@
         "title": "MongoDB"
     },
     "monit": {
-        "description": "",
+        "description": "utility for monitoring and managing daemons or similar programs",
         "title": "Monit"
     },
     "mono": {
@@ -1748,7 +1748,7 @@
         "title": "MPlayer"
     },
     "mumble": {
-        "description": "",
+        "description": "Low latency encrypted VoIP client",
         "title": "Mumble"
     },
     "munin": {
@@ -1756,12 +1756,12 @@
         "title": "Munin"
     },
     "mutt": {
-        "description": "",
+        "description": "text-based mailreader supporting MIME, GPG, PGP and threading",
         "title": "Mutt"
     },
     "mysql-5.1": {
         "description": "MySQL database",
-        "title": ""
+        "title": "mysql-5.1"
     },
     "mysql-5.5": {
         "description": "MySQL database",
@@ -1769,7 +1769,7 @@
     },
     "mysql-5.6": {
         "description": "MySQL database",
-        "title": ""
+        "title": "mysql-5.6"
     },
     "mysql-5.7": {
         "description": "MySQL database",
@@ -1785,7 +1785,7 @@
     },
     "mysql-dfsg-5.1": {
         "description": "MySQL database",
-        "title": ""
+        "title": "mysql-dfsg-5.1"
     },
     "nas": {
         "description": "Network Audio System",
@@ -1804,7 +1804,7 @@
         "title": "Net-SNMP"
     },
     "netatalk": {
-        "description": "",
+        "description": "Apple Filing Protocol service",
         "title": "Netatalk"
     },
     "netqmail": {
@@ -1852,7 +1852,7 @@
         "title": "NTFS-3G"
     },
     "ntp": {
-        "description": "",
+        "description": "Network Time Protocol daemon/utilities (transitional package)",
         "title": "NTP"
     },
     "numpy": {
@@ -1865,7 +1865,7 @@
     },
     "nvidia-graphics-drivers": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers"
     },
     "nvidia-graphics-drivers-173": {
         "description": "NVIDIA binary X.Org driver",
@@ -1873,7 +1873,7 @@
     },
     "nvidia-graphics-drivers-173-updates": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-173-updates"
     },
     "nvidia-graphics-drivers-304": {
         "description": "NVIDIA binary X.Org driver",
@@ -1881,35 +1881,35 @@
     },
     "nvidia-graphics-drivers-304-updates": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-304-updates"
     },
     "nvidia-graphics-drivers-331": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-331"
     },
     "nvidia-graphics-drivers-331-updates": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-331-updates"
     },
     "nvidia-graphics-drivers-340": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-340"
     },
     "nvidia-graphics-drivers-340-updates": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-340-updates"
     },
     "nvidia-graphics-drivers-352": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-352"
     },
     "nvidia-graphics-drivers-352-updates": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-352-updates"
     },
     "nvidia-graphics-drivers-367": {
         "description": "NVIDIA binary X.Org driver",
-        "title": ""
+        "title": "nvidia-graphics-drivers-367"
     },
     "nvidia-graphics-drivers-375": {
         "description": "NVIDIA binary X.Org driver",
@@ -1977,11 +1977,11 @@
     },
     "nvidia-settings": {
         "description": "Tool for configuring the NVIDIA graphics driver",
-        "title": ""
+        "title": "nvidia-settings"
     },
     "nvidia-settings-updates": {
         "description": "Tool for configuring the NVIDIA graphics driver",
-        "title": ""
+        "title": "nvidia-settings-updates"
     },
     "octavia": {
         "description": "OpenStack Load Balancer Service",
@@ -2060,7 +2060,7 @@
         "title": "OpenSLP"
     },
     "opensmtpd": {
-        "description": "",
+        "description": "secure, reliable, lean, and easy-to configure SMTP server",
         "title": "OpenSMTPD"
     },
     "openssh": {
@@ -2133,7 +2133,7 @@
     },
     "php-perl": {
         "description": "PHP Extension and Application Repository",
-        "title": ""
+        "title": "php-perl"
     },
     "php5": {
         "description": "HTML-embedded scripting language interpreter",
@@ -2145,7 +2145,7 @@
     },
     "php7.1": {
         "description": "HTML-embedded scripting language interpreter",
-        "title": ""
+        "title": "php7.1"
     },
     "php7.2": {
         "description": "HTML-embedded scripting language interpreter",
@@ -2168,7 +2168,7 @@
         "title": "phpLDAPadmin"
     },
     "phpmyadmin": {
-        "description": "",
+        "description": "MySQL web administration tool",
         "title": "phpMyAdmin"
     },
     "pillow": {
@@ -2229,7 +2229,7 @@
     },
     "postgresql-9.4": {
         "description": "Object-relational SQL database",
-        "title": ""
+        "title": "postgresql-9.4"
     },
     "postgresql-9.5": {
         "description": "Object-relational SQL database",
@@ -2304,7 +2304,7 @@
         "title": "Python Imaging Library"
     },
     "python-ldap": {
-        "description": "",
+        "description": "LDAP interface module for Python",
         "title": "Python LDAP"
     },
     "python-pip": {
@@ -2324,7 +2324,7 @@
         "title": "urllib3"
     },
     "python-werkzeug": {
-        "description": "",
+        "description": "collection of utilities for WSGI applications",
         "title": "Werkzeug"
     },
     "python2.6": {
@@ -2361,7 +2361,7 @@
     },
     "python3.6": {
         "description": "An interactive high-level object-oriented language",
-        "title": ""
+        "title": "python3.6"
     },
     "python3.7": {
         "description": "An interactive high-level object-oriented language",
@@ -2481,11 +2481,11 @@
     },
     "ruby2.0": {
         "description": "Object-oriented scripting language",
-        "title": ""
+        "title": "ruby2.0"
     },
     "ruby2.1": {
         "description": "Object-oriented scripting language",
-        "title": ""
+        "title": "ruby2.1"
     },
     "ruby2.3": {
         "description": "Object-oriented scripting language",
@@ -2600,7 +2600,7 @@
         "title": "SSSD"
     },
     "ssvnc": {
-        "description": "",
+        "description": "Enhanced TightVNC viewer with SSL/SSH tunnel helper",
         "title": "SSVNC"
     },
     "strongswan": {
@@ -2620,11 +2620,11 @@
         "title": "OpenStack Swift"
     },
     "sysstat": {
-        "description": "",
+        "description": "system performance tools for Linux",
         "title": "Sysstat"
     },
     "teeworlds": {
-        "description": "",
+        "description": "online multi-player platform 2D shooter",
         "title": "Teeworlds"
     },
     "thunderbird": {
@@ -2712,15 +2712,15 @@
         "title": "UW IMAP"
     },
     "uwsgi": {
-        "description": "",
+        "description": "fast, self-healing application container server",
         "title": "uWSGI"
     },
     "vcftools": {
-        "description": "",
+        "description": "Collection of tools to work with VCF files",
         "title": "VCFtools"
     },
     "vim": {
-        "description": "",
+        "description": "Vi IMproved - enhanced vi editor",
         "title": "Vim"
     },
     "vino": {
@@ -2740,11 +2740,11 @@
         "title": "vsftpd"
     },
     "vtk": {
-        "description": "",
+        "description": "Visualization Toolkit - A high level 3D visualization library",
         "title": "VTK"
     },
     "wavpack": {
-        "description": "",
+        "description": "audio codec (lossy and lossless) - encoder and decoder",
         "title": "WavPack"
     },
     "wayland": {
@@ -2813,23 +2813,23 @@
     },
     "xorg-server-lts-raring": {
         "description": "X.Org X11 server",
-        "title": ""
+        "title": "xorg-server-lts-raring"
     },
     "xorg-server-lts-trusty": {
         "description": "X.Org X11 server",
-        "title": ""
+        "title": "xorg-server-lts-trusty"
     },
     "xorg-server-lts-utopic": {
         "description": "X.Org X11 server",
-        "title": ""
+        "title": "xorg-server-lts-utopic"
     },
     "xorg-server-lts-vivid": {
         "description": "X.Org X11 server",
-        "title": ""
+        "title": "xorg-server-lts-vivid"
     },
     "xorg-server-lts-xenial": {
         "description": "X.Org X11 server",
-        "title": ""
+        "title": "xorg-server-lts-xenial"
     },
     "xulrunner-1.9.2": {
         "description": "Mozilla Gecko runtime environment",

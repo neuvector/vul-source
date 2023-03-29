@@ -1,0 +1,30 @@
+Candidate: 
+PublicDate: 
+References: 
+Description: 
+Ubuntu-Description: 
+Notes: 
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS:
+
+Patches_u-boot:
+upstream_u-boot: needs-triage
+esm-infra/xenial_u-boot: needs-triage
+bionic_u-boot: needs-triage
+focal_u-boot: needs-triage 
+jammy_u-boot: needs-triage
+kinetic_u-boot: needs-triage
+devel_u-boot: needs-triage
+
+Patches_u-boot-nezha:
+upstream_u-boot-nezha: needs-triage
+esm-infra/xenial_u-boot-nezha: DNE
+bionic_u-boot-nezha: DNE
+focal_u-boot-nezha: DNE
+jammy_u-boot-nezha: needs-triage
+kinetic_u-boot-nezha: needs-triage
+devel_u-boot-nezha: needs-triage

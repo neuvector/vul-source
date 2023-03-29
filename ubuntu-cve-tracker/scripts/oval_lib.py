@@ -1449,8 +1449,7 @@ class OvalGeneratorUSN():
         test_refs = []
         instructions = ""
         pkg = {}
-        for key in list(binary_versions):
-            binary_versions[key].sort()
+        for key in sorted(list(binary_versions)):
             (test_ref, test_ref_2) = self.get_testref(key, binary_versions[key], id_base + len(test_refs))
             if test_ref:
                 test_refs.append(test_ref)

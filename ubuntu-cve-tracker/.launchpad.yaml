@@ -17,7 +17,6 @@ jobs:
       - python3-pytest
       - python3-yaml
       - rsync
-      - moreutils
       - wget
     run-before: |
       # configure a basic ~/.ubuntu-cve-tracker.conf and setup packages-mirror

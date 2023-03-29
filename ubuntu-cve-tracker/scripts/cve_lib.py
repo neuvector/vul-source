@@ -107,7 +107,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm/ubuntu",
         "parent": "ubuntu/precise",
         "description": "Available with UA Infra or UA Desktop: https://ubuntu.com/advantage",
-        "stamp": 1493521200,
     },
     "esm/trusty": {
         "eol": False,
@@ -119,7 +118,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/trusty",
         "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
-        "stamp": 1556593200,
     },
     "esm-infra/xenial": {
         "eol": False,
@@ -131,7 +129,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/xenial",
         "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
-        "stamp": 1618963200,
     },
     "esm-apps/xenial": {
         "eol": False,
@@ -143,7 +140,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "esm-infra/xenial",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
-        "stamp": 1618963200,
     },
     "esm-apps/bionic": {
         "eol": False,
@@ -155,7 +151,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/bionic",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
-        "stamp": 1524870000,
     },
     "esm-apps/focal": {
         "eol": False,
@@ -167,7 +162,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/focal",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
-        "stamp": 1587567600,
     },
     "esm-apps/jammy": {
         "eol": False,
@@ -179,7 +173,6 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/jammy",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
-        "stamp": 1650693600,
     },
     "fips/xenial": {
         "eol": False,
@@ -251,7 +244,6 @@ subprojects = {
         "ppa": "ubuntu-robotics-packagers/ros-security/ubuntu",
         "parent": "ubuntu/xenial",
         "description": "Available with Ubuntu Advantage: https://ubuntu.com/advantage",
-        "stamp": None,
     },
     "ros-esm/melodic": {
         "eol": False,
@@ -263,7 +255,6 @@ subprojects = {
         "ppa": "ubuntu-robotics-packagers/ros-security/ubuntu",
         "parent": "ubuntu/bionic",
         "description": "Available with Ubuntu Advantage: https://ubuntu.com/advantage",
-        "stamp": None,
     },
     "ubuntu/warty": {
         "eol": True,
@@ -642,7 +633,7 @@ def product_series(rel):
 
 # get the subproject details for rel along with it's canonical name, product and series
 def get_subproject_details(rel):
-    """Return the product,series,details tuple for rel."""
+    """Return the canonical name,product,series,details tuple for rel."""
     canon, product, series, details = None, None, None, None
     try:
         details = subprojects[rel]
@@ -652,7 +643,8 @@ def get_subproject_details(rel):
         # look for alias
         for r in subprojects:
             try:
-                if subprojects[r]["alias"] == rel:
+                if subprojects[r]["alias"] == rel \
+                   or (rel == "devel" and subprojects[r]["devel"]):
                     product, series = product_series(r)
                     details = subprojects[r]
                     canon = product + "/" + series
@@ -726,12 +718,19 @@ def release_progenitor(rel):
 
 def release_stamp(rel):
     """Return the time stamp for rel."""
-    stamp = 0
+    stamp = -1
     _, _, _, details = get_subproject_details(rel)
-    try:
-        stamp = details["stamp"]
-    except (KeyError, TypeError):
-        pass
+    if details:
+        # devel is special and so is assumed to be released in the future
+        if "devel" in details and details["devel"]:
+            stamp = sys.maxsize
+        try:
+            stamp = details["stamp"]
+        except KeyError:
+            rel = release_progenitor(rel)
+            _, _, _, details = get_subproject_details(rel)
+            if details:
+                stamp = details["stamp"]
     return stamp
 
 def release_ppa(rel):
@@ -889,12 +888,36 @@ for release in subprojects:
         releases.append(rel)
 
 
+def release_sort(release_list):
+    '''takes a list of release names and sorts them in release order'''
+
+    # turn list into a tuples of (name, release stamp)
+    rels = [(x, release_stamp(x)) for x in release_list]
+    # sort list by release stamp (formatted to 20 places so we don't have to
+    # worry about the number of digits in the stamp) but also prepend the
+    # release name so releases that have the same stamp sort in alphabetical
+    # order by name, then pull out just the names
+    return [x[0] for x in sorted(rels, key=lambda x: ("%020d" % x[1]) + x[0])]
+
+
+def release_is_older_than(release_a, release_b):
+    '''return True if release_a appeared before release_b'''
+
+    # NOTE: foo/esm will be considered older than foo+1, even if the
+    # actual esm event occurred far later than foo+1's release
+    return all_releases.index(release_a) < all_releases.index(release_b)
+
+
 # releases to display for flavors
 flavor_releases = [
     'lucid', 'precise', 'trusty', 'utopic', 'vivid', 'wily', 'xenial',
     'yakkety', 'zesty', 'artful', 'bionic', 'cosmic', 'disco', 'eoan',
     'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic', "lunar",
 ]
+
+all_releases = release_sort(all_releases)
+flavor_releases = release_sort(flavor_releases)
+releases = release_sort(releases)
 
 # primary name of extended support maintenance (esm) releases
 esm_releases = [x.split('/esm')[0] for x in all_releases if x.endswith('/esm')]
@@ -1320,23 +1343,6 @@ priorities = ['negligible', 'low', 'medium', 'high', 'critical']
 CVE_RE = re.compile(r'^CVE-\d\d\d\d-[N\d]{4,7}$')
 
 NOTE_RE = re.compile(r'^\s+([A-Za-z0-9-]+)([>|]) *(.*)$')
-
-
-def release_sort(release_list):
-    '''takes a list of release names and sorts them in release order'''
-
-    # turn list into a tuples of (name, release index)
-    rels = [(x, all_releases.index(x)) for x in release_list]
-    # sort list by release index, then pull out just the names
-    return [x[0] for x in sorted(rels, key=lambda x: x[1])]
-
-
-def release_is_older_than(release_a, release_b):
-    '''return True if release_a appeared before release_b'''
-
-    # NOTE: foo/esm will be considered older than foo+1, even if the
-    # actual esm event occurred far later than foo+1's release
-    return all_releases.index(release_a) < all_releases.index(release_b)
 
 
 

@@ -307,7 +307,7 @@ if [ "$only_partner" = "no" ]; then
         gen_packages lunar    "amd64 i386"               >> "$pull"
 
         # don't bother to pull duplicates
-        sort -u "$pull" | sponge "$pull"
+        sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
         pull_packages "$pull" "$server/ubuntu" || echo "FAIL: supported architectures" >&2
         cat /dev/null > "$pull"
 
@@ -325,7 +325,7 @@ if [ "$only_partner" = "no" ]; then
         gen_packages lunar    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
 
         # don't bother to pull duplicates
-        sort -u "$pull" | sponge "$pull"
+        sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
         pull_packages "$pull" "$ports/ubuntu-ports" || echo "FAIL: ports architectures" >&2
         cat /dev/null > "$pull"
 

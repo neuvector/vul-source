@@ -89,7 +89,7 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
             fixed_in_release = fixed[p][1]
         if len(fixed[p]) > 2:
             fixed_in_release_version = fixed[p][2]
-    for rel in ['upstream'] + list(source.keys()):
+    for rel in ['upstream'] + cve_lib.release_sort(list(source.keys())):
         aliases = source_map.get_aliases_of_ubuntu_package(source, p, rel)
         pkgs_from_generic = source_map.get_packages_from_generic_name(source, p, rel)
         # determine default state but override this if pkg_db has a
