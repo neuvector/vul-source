@@ -84,69 +84,69 @@ class TestOvalLibUnit:
 
     definition_mock = """
         <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
-           <metadata>
-              <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
-              <affected family="unix">
-                 <platform>Ubuntu 18.04 LTS</platform>
-              </affected>
-              <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>
-              <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required</description>
-              <advisory from="security@ubuntu.com">
-                 <severity>Medium</severity>
-                 <issued date="2020-06-09"/>
-                 <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
-              </advisory>
-           </metadata>
-           <criteria operator="OR">
-            <criteria operator="AND">
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
-              </criteria>
-              <criteria operator="AND">
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
-              </criteria>
-           </criteria>
+            <metadata>
+                <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
+                <affected family="unix">
+                    <platform>Ubuntu 18.04 LTS</platform>
+                </affected>
+                <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>
+                <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required</description>
+                <advisory from="security@ubuntu.com">
+                    <severity>Medium</severity>
+                    <issued date="2020-06-09"/>
+                    <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
+                </advisory>
+            </metadata>
+            <criteria operator="OR">
+                <criteria operator="AND">
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
+                </criteria>
+                <criteria operator="AND">
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+                </criteria>
+            </criteria>
         </definition>"""
 
     references_mock = """<reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>"""
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>"""
 
     test_mock = ["""
         <unix:uname_test check="at least one" comment="Is kernel 5.0.0-\d+(-oem-osp1) currently running?" id="oval:com.ubuntu.bionic:tst:438810000000" version="1">
-           <unix:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
-           <unix:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
+            <unix:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
+            <unix:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
         </unix:uname_test>""",
         """
         <linux:dpkginfo_test id="oval:com.ubuntu.bionic:tst:438810000010" version="1" check_existence="at_least_one_exists" check="at least one" comment="Long Term Support">
-           <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000010"/>
-           <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000010"/>
+            <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000010"/>
+            <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000010"/>
         </linux:dpkginfo_test>""",
         """
         <linux:dpkginfo_test id="oval:com.ubuntu.bionic:tst:438810000020" version="1" check_existence="at_least_one_exists" check="at least one" comment="Long Term Support">
-           <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000020"/>
-           <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000020"/>
+            <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000020"/>
+            <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000020"/>
         </linux:dpkginfo_test>""",
         """
         <linux:dpkginfo_test id="oval:com.ubuntu.bionic:tst:438810000030" version="1" check_existence="at_least_one_exists" check="at least one" comment="Long Term Support">
-           <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000030"/>
-           <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000030"/>
+            <linux:object object_ref="oval:com.ubuntu.bionic:obj:438810000030"/>
+            <linux:state state_ref="oval:com.ubuntu.bionic:ste:438810000030"/>
         </linux:dpkginfo_test>"""]
 
     test_oci_mock = """
         <ind:textfilecontent54_test id="oval:com.ubuntu.bionic:tst:438810000000" version="1" check_existence="at_least_one_exists" check="at least one" comment="Long Term Support">
-           <ind:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
-           <ind:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
+            <ind:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
+            <ind:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
         </ind:textfilecontent54_test>"""
 
 
@@ -154,66 +154,66 @@ class TestOvalLibUnit:
         <unix:uname_object id="oval:com.ubuntu.bionic:obj:438810000000" version="1"/>""",
         """
         <linux:dpkginfo_object id="oval:com.ubuntu.bionic:obj:438810000010" version="1" comment="Long Term Support">
-          <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000010" var_check="at least one" />
+            <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000010" var_check="at least one" />
         </linux:dpkginfo_object>""",
         """
         <linux:dpkginfo_object id="oval:com.ubuntu.bionic:obj:438810000020" version="1" comment="Long Term Support">
-          <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000020" var_check="at least one" />
+            <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000020" var_check="at least one" />
         </linux:dpkginfo_object>""",
         """
         <linux:dpkginfo_object id="oval:com.ubuntu.bionic:obj:438810000030" version="1" comment="Long Term Support">
-          <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000030" var_check="at least one" />
+            <linux:name var_ref="oval:com.ubuntu.bionic:var:438810000030" var_check="at least one" />
         </linux:dpkginfo_object>"""]
 
     obj_oci_mock = """
         <ind:textfilecontent54_object id="oval:com.ubuntu.bionic:obj:438810000000" version="1" comment="Long Term Support">
-           <ind:path>.</ind:path>
-           <ind:filename>manifest</ind:filename>
-           <ind:pattern operation="pattern match" datatype="string" var_ref="oval:com.ubuntu.bionic:var:438810000000" var_check="at least one" />
-           <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+            <ind:path>.</ind:path>
+            <ind:filename>manifest</ind:filename>
+            <ind:pattern operation="pattern match" datatype="string" var_ref="oval:com.ubuntu.bionic:var:438810000000" var_check="at least one" />
+            <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>"""
 
     state_mock = ["""
         <unix:uname_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1">
-           <unix:os_release operation="pattern match">5.0.0-\d+(-oem-osp1)</unix:os_release>
+            <unix:os_release operation="pattern match">5.0.0-\d+(-oem-osp1)</unix:os_release>
         </unix:uname_state>""",
         """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000010" version="1" comment="Long Term Support">
-          <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1059.64</linux:evr>
+            <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1059.64</linux:evr>
         </linux:dpkginfo_state>""",
         """
         <unix:uname_state id="oval:com.ubuntu.bionic:ste:438810000020" version="1">
-           <unix:os_release operation="pattern match">5.0.0-1042-(gke)</unix:os_release>
+            <unix:os_release operation="pattern match">5.0.0-1042-(gke)</unix:os_release>
         </unix:uname_state>""",
         """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000030" version="1" comment="Long Term Support">
-          <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1042.43</linux:evr>
+            <linux:evr datatype="debian_evr_string" operation="less than">0:5.0.0-1042.43</linux:evr>
         </linux:dpkginfo_state>"""]
 
     state_epoch_mock = """
         <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:437210000000" version="1" comment="Long Term Support">
-           <linux:evr datatype="debian_evr_string" operation="less than">1:4.2-3ubuntu6.1</linux:evr>
+            <linux:evr datatype="debian_evr_string" operation="less than">1:4.2-3ubuntu6.1</linux:evr>
         </linux:dpkginfo_state>"""
 
     state_oci_mock = """
         <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1" comment="Long Term Support">
-           <ind:subexpression datatype="debian_evr_string" operation="less than">5.0.0.1042.27</ind:subexpression>
+            <ind:subexpression datatype="debian_evr_string" operation="less than">5.0.0.1042.27</ind:subexpression>
         </ind:textfilecontent54_state>"""
 
     var_mock = [None,
         """
         <constant_variable id="oval:com.ubuntu.bionic:var:438810000010" version="1" datatype="string" comment="Long Term Support">
-           <value>linux-image-5.0.0-1059-oem-osp1</value>
+            <value>linux-image-5.0.0-1059-oem-osp1</value>
         </constant_variable>""",
         None,
         """
         <constant_variable id="oval:com.ubuntu.bionic:var:438810000030" version="1" datatype="string" comment="Long Term Support">
-           <value>linux-image-5.0.0-1042-gke</value>
+            <value>linux-image-5.0.0-1042-gke</value>
         </constant_variable>"""]
 
     var_oci_mock = """
         <constant_variable id="oval:com.ubuntu.bionic:var:438810000010" version="1" datatype="string" comment="Long Term Support">
-           <value>^linux-image-5.0.0-1059-oem-osp1(?::\w+|)\s+(.*)$</value>
+            <value>^linux-image-5.0.0-1059-oem-osp1(?::\w+|)\s+(.*)$</value>
         </constant_variable>"""
 
     bin_mock = {'linux-image-gke-5.0': {'version': '5.0.0.1042.27'},
@@ -277,30 +277,30 @@ class TestOvalLibUnit:
     invalid_priority_references_mock = """<reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>"""
     invalid_priority_ret = """
         <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
-           <metadata>
-              <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
-              <affected family="unix">
-                 <platform>Ubuntu 18.04 LTS</platform>
-              </affected>
-              <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
-              <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
-              <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required</description>
-              <advisory from="security@ubuntu.com">
-                 <severity>Medium</severity>
-                 <issued date="2020-06-09"/>
-                 <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
-              </advisory>
-           </metadata>
-           <criteria operator="OR">
-            <criteria operator="AND">
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
-              </criteria>
-              <criteria operator="AND">
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
-              </criteria>
-           </criteria>
+            <metadata>
+                <title>USN-4388-1 -- Linux kernel vulnerabilities</title>
+                <affected family="unix">
+                    <platform>Ubuntu 18.04 LTS</platform>
+                </affected>
+                <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
+                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
+                <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required</description>
+                <advisory from="security@ubuntu.com">
+                    <severity>Medium</severity>
+                    <issued date="2020-06-09"/>
+                    <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
+                </advisory>
+            </metadata>
+            <criteria operator="OR">
+                <criteria operator="AND">
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
+                </criteria>
+                <criteria operator="AND">
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
+                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+                </criteria>
+            </criteria>
         </definition>"""
 
     cve_severity_mock = [2, 2, 2, 2, 1, 2]
@@ -312,22 +312,22 @@ Update Instructions:
 Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected
 by updating your system to the following package versions:
 
-linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64
+linux-image-5.0.0-1042-gke - 5.0.0-1042.43
 No subscription required
 
-linux-image-5.0.0-1042-gke - 5.0.0-1042.43
+linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64
 No subscription required"""
 
     def test_create_release_def(self):
         def_mock = """
         <definition class="inventory" id="oval:com.ubuntu.bionic:def:100" version="1">
-           <metadata>
-              <title>Check that Ubuntu 18.04 LTS (bionic) is installed.</title>
-              <description></description>
-           </metadata>
-           <criteria>
-              <criterion test_ref="oval:com.ubuntu.bionic:tst:100" comment="Ubuntu 18.04 LTS (bionic) is installed." />
-           </criteria>
+            <metadata>
+                <title>Check that Ubuntu 18.04 LTS (bionic) is installed.</title>
+                <description></description>
+            </metadata>
+            <criteria>
+                <criterion test_ref="oval:com.ubuntu.bionic:tst:100" comment="Ubuntu 18.04 LTS (bionic) is installed." />
+            </criteria>
         </definition>"""
 
         test_def = oval_lib.OvalGeneratorUSN.create_release_definition(
@@ -346,8 +346,8 @@ No subscription required"""
     def test_create_release_test(self):
         release_test_mock = """
         <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="oval:com.ubuntu.bionic:tst:100" version="1" comment="Ubuntu 18.04 LTS (bionic) is installed.">
-           <ind:object object_ref="oval:com.ubuntu.bionic:obj:100" />
-           <ind:state state_ref="oval:com.ubuntu.bionic:ste:100" />
+            <ind:object object_ref="oval:com.ubuntu.bionic:obj:100" />
+            <ind:state state_ref="oval:com.ubuntu.bionic:ste:100" />
         </ind:textfilecontent54_test>"""
 
         test_ret = oval_lib.OvalGeneratorUSN.create_release_test(
@@ -358,9 +358,9 @@ No subscription required"""
     def test_create_release_obj(self):
         release_obj_mock = """
         <ind:textfilecontent54_object id="oval:com.ubuntu.bionic:obj:100" version="1">
-           <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
-             <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
-           <ind:instance datatype="int">1</ind:instance>
+            <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
+                <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
+            <ind:instance datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>"""
 
         test_obj = oval_lib.OvalGeneratorUSN.create_release_object(
@@ -371,7 +371,7 @@ No subscription required"""
     def test_create_release_state(self):
         release_state_mock = """
         <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:100" version="1" comment="Ubuntu 18.04 LTS">
-           <ind:subexpression datatype="string" operation="equals">bionic</ind:subexpression>
+            <ind:subexpression datatype="string" operation="equals">bionic</ind:subexpression>
         </ind:textfilecontent54_state>"""
 
         test_state = oval_lib.OvalGeneratorUSN.create_release_state(

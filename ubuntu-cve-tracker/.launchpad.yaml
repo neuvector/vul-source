@@ -2,9 +2,42 @@ license:
   spdx: GPL-3.0
 
 pipeline:
-  - tests
+  # run unit-tests and check-cves in parallel so that a failure in unit-tests
+  # doesn't stop check-cves from running
+  -
+    - unit-tests
+    - check-cves
 jobs:
-  tests:
+  unit-tests:
+    series: jammy
+    architectures: amd64
+    packages:
+      - distro-info
+      - lsb-release
+      - python3
+      - python3-apt
+      - python3-configobj
+      - python3-progressbar
+      - python3-pytest
+      - python3-yaml
+    run-before: |
+      # configure a basic ~/.ubuntu-cve-tracker.conf
+      echo plb_authentication=/dev/null > ~/.ubuntu-cve-tracker.conf
+    run: |
+      export UCT=$(pwd)
+      # when lpcraft runs on a local users machine where embargoed already
+      # exists as a symlink it won't point to anywhere so remove that and fake a
+      # new one
+      rm -f embargoed
+      mkdir embargoed
+      echo "Running unit tests..."
+      ./scripts/test_cve_lib.py
+      ./scripts/test_kernel_lib.py
+      ./scripts/test_usn_lib.py
+      # ideally we would also run ./scripts/check-cves --test here as well as it
+      # is more of a unit test but it requires packages-mirror so run it as part
+      # of check-syntax below
+  check-cves:
     series: jammy
     architectures: amd64
     packages:
@@ -40,11 +73,7 @@ jobs:
       # new one
       rm -f embargoed
       mkdir embargoed
-      echo "Running unit tests..."
-      ./scripts/test_cve_lib.py
-      ./scripts/test_kernel_lib.py
-      ./scripts/test_usn_lib.py
-      ./scripts/check-cves --test
 
+      ./scripts/check-cves --test
       echo "Checking syntax..."
       ./scripts/check-syntax

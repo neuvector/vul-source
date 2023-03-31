@@ -217,16 +217,16 @@ class OvalGenerator:
             criteria.append('<criteria operator="OR">')
             for test_ref in test_refs:
                 if 'kernel' in test_ref:
-                    criteria.append('  <criteria operator="AND">')
+                    criteria.append('    <criteria operator="AND">')
                     negation_attribute = 'negate = "true" ' \
                         if 'negate' in test_ref and test_ref['negate'] else ''
                     criteria.append(
-                        '    <criterion test_ref="{0}" comment="{1}" {2}/>'.format(
+                        '        <criterion test_ref="{0}" comment="{1}" {2}/>'.format(
                             test_ref['id'],
                             escape(test_ref['comment']), negation_attribute))
                 elif 'kernelobj' in test_ref:
                     criteria.append(
-                        '    <criterion test_ref="{0}" comment="{1}" {2}/>'.format(
+                        '        <criterion test_ref="{0}" comment="{1}" {2}/>'.format(
                             test_ref['id'],
                             escape(test_ref['comment']), negation_attribute))
                     criteria.append('  </criteria>')
@@ -478,10 +478,10 @@ class OvalGenerator:
                 # create variable for binary package names
                 variable_id = '{0}:var:{1}0'.format(self.ns, id_base)
                 if self.oval_format == 'dpkg':
-                    variable_values = '</value>\n                        <value>'.join(bin_pkgs)
+                    variable_values = '</value>\n                            <value>'.join(bin_pkgs)
                     self.queue_element('variable', """
                         <constant_variable id="{0}" version="{1}" datatype="string" comment="'{2}' package binaries">
-                           <value>{3}</value>
+                            <value>{3}</value>
                         </constant_variable>\n""".format(variable_id, version, name, variable_values))
 
                     # create an object that references the variable
@@ -491,10 +491,10 @@ class OvalGenerator:
                         </linux-def:dpkginfo_object>\n""".format(object_id, version, name, variable_id))
 
                 else:
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                        <value>^'.join(bin_pkgs)
+                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                            <value>^'.join(bin_pkgs)
                     self.queue_element('variable', """
                         <constant_variable id="{0}" version="{1}" datatype="string" comment="'{2}' package binaries">
-                           <value>^{3}(?::\w+|)\s+(.*)$\s+(.*)</value>
+                            <value>^{3}(?::\w+|)\s+(.*)$\s+(.*)</value>
                         </constant_variable>\n""".format(variable_id, version, name, variable_values))
 
                     # create an object that references the variable
@@ -515,7 +515,7 @@ class OvalGenerator:
                         </linux-def:dpkginfo_object>\n""".format(object_id, version, name, bin_pkgs[0]))
                 else:
                     variable_id = '{0}:var:{1}0'.format(self.ns, id_base)
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                        <value>^'.join(bin_pkgs)
+                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                            <value>^'.join(bin_pkgs)
                     self.queue_element('variable', """
                         <constant_variable id="{0}" version="{1}" datatype="string" comment="'{2}' package binaries">
                             <value>^{3}(?::\w+|)\s+(.*)$\s+(.*)</value>
@@ -564,13 +564,13 @@ class OvalGenerator:
         if key not in self.package_tests:
             test_id = '{0}:tst:{1}0'.format(self.ns, id_base)
             if self.oval_format == 'dpkg':
-                state_ref = '\n                    <linux-def:state state_ref="{0}" />'.format(state_id) if state_id else ''
+                state_ref = '\n                        <linux-def:state state_ref="{0}" />'.format(state_id) if state_id else ''
                 self.queue_element('test', """
                     <linux-def:dpkginfo_test id="{0}" version="{1}" check_existence="{5}" check="at least one" comment="{2}">
                         <linux-def:object object_ref="{3}"/>{4}
                     </linux-def:dpkginfo_test>\n""".format(test_id, version, test_title, object_id, state_ref, check_existence))
             else:
-                state_ref = '\n                    <ind-def:state state_ref="{0}" />'.format(state_id) if state_id else ''
+                state_ref = '\n                        <ind-def:state state_ref="{0}" />'.format(state_id) if state_id else ''
                 self.queue_element('test', """
                     <ind-def:textfilecontent54_test id="{0}" version="{1}" check_existence="{5}" check="at least one" comment="{2}">
                         <ind-def:object object_ref="{3}"/>{4}
@@ -670,7 +670,7 @@ class OvalGenerator:
             patched = fixed_version
         self.queue_element('variable', """
                  <constant_variable id="{0}" version="{1}" datatype="debian_evr_string" comment="patched kernel">
-                    <value>0:{2}</value>
+                     <value>0:{2}</value>
                  </constant_variable>""".format(var_id_2, version, patched))
 
         return (self.uname_variables['local_variable'], var_id_2)
@@ -863,13 +863,13 @@ class OvalGeneratorUSN():
             definition =\
         """
         <definition class="inventory" id="{ns}:def:{id}" version="1">
-           <metadata>
-              <title>{title} is installed.</title>
-              <description></description>
-           </metadata>
-           <criteria>
-              <criterion test_ref="{ns}:tst:{id}" comment="{comment} is installed." />
-           </criteria>
+            <metadata>
+                <title>{title} is installed.</title>
+                <description></description>
+            </metadata>
+            <criteria>
+                <criterion test_ref="{ns}:tst:{id}" comment="{comment} is installed." />
+            </criteria>
         </definition>""".format(**mapping)
         else:
             definition = ""
@@ -887,8 +887,8 @@ class OvalGeneratorUSN():
             test =\
         """
         <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="{ns}:tst:{id}" version="1" comment="{comment} is installed.">
-           <ind:object object_ref="{ns}:obj:{id}" />
-           <ind:state state_ref="{ns}:ste:{id}" />
+            <ind:object object_ref="{ns}:obj:{id}" />
+            <ind:state state_ref="{ns}:ste:{id}" />
         </ind:textfilecontent54_test>""".format(**mapping)
         else:
             test = ""
@@ -905,9 +905,9 @@ class OvalGeneratorUSN():
             _object =\
         """
         <ind:textfilecontent54_object id="{ns}:obj:{id}" version="1">
-           <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
-             <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
-           <ind:instance datatype="int">1</ind:instance>
+            <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
+                <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
+            <ind:instance datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>""".format(**mapping)
         else:
             _object = ""
@@ -926,7 +926,7 @@ class OvalGeneratorUSN():
             state =\
         """
         <ind:textfilecontent54_state id="{ns}:ste:{id}" version="1" comment="{comment}">
-           <ind:subexpression datatype="string" operation="equals">{release_codename}</ind:subexpression>
+            <ind:subexpression datatype="string" operation="equals">{release_codename}</ind:subexpression>
         </ind:textfilecontent54_state>""".format(**mapping)
         else:
             state = ""
@@ -963,7 +963,7 @@ class OvalGeneratorUSN():
         references = ""
         for cve in cves:
             references += \
-                    """              <reference source="CVE" ref_url="{}" ref_id="{}"/>
+                    """                <reference source="CVE" ref_url="{}" ref_id="{}"/>
 """.format(cve['CVE_URL'], cve['Candidate'])
 
         return references.strip()
@@ -1018,41 +1018,42 @@ class OvalGeneratorUSN():
         for test_ref in test_refs:
             if self.pocket == 'livepatch' and self.oval_format == 'dpkg':
                 criteria.append('<criteria operator="AND">')
-                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, str(int(test_ref['testref_id']) + 1), self.product_description))
-                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, str(int(test_ref['testref_id']) + 1), self.product_description))
+                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
                 criteria.append('</criteria>')
             elif 'kernel' in test_ref and self.oval_format == 'dpkg':
                 kernel = True
                 criteria.append('<criteria operator="AND">')
-                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+            elif kernel:
+                kernel = False
+                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('</criteria>')
             else:
-                criteria.append('  <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
-                if kernel:
-                    kernel = False
-                    criteria.append('</criteria>')
+                criteria.append('<criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
 
-        mapping['criteria'] = '\n              '.join(criteria)
+        mapping['criteria'] = '\n                '.join(criteria)
 
         definition = \
         """
         <definition id="{ns}:def:{id}" version="1" class="patch">
-           <metadata>
-              <title>{title}</title>
-              <affected family="unix">
-                 <platform>{platform}</platform>
-              </affected>
-              <reference source="USN" ref_url="{usn_url}" ref_id="{usn_id}"/>
-              {cves_references}
-              <description>{description}</description>
-              <advisory from="security@ubuntu.com">
-                 <severity>{severity}</severity>
-                 <issued date="{usn_timestamp}"/>
-                 {bug_references}
-              </advisory>
-           </metadata>
-           <criteria operator="OR">
-            {criteria}
-           </criteria>
+            <metadata>
+                <title>{title}</title>
+                <affected family="unix">
+                    <platform>{platform}</platform>
+                </affected>
+                <reference source="USN" ref_url="{usn_url}" ref_id="{usn_id}"/>
+                {cves_references}
+                <description>{description}</description>
+                <advisory from="security@ubuntu.com">
+                    <severity>{severity}</severity>
+                    <issued date="{usn_timestamp}"/>
+                    {bug_references}
+                </advisory>
+            </metadata>
+            <criteria operator="OR">
+                {criteria}
+            </criteria>
         </definition>""".format(**mapping)
 
         return definition
@@ -1070,16 +1071,16 @@ class OvalGeneratorUSN():
                 test =  \
         """
         <unix:uname_test check="at least one" comment="Is kernel {name} currently running?" id="{ns}:tst:{id}" version="1">
-           <unix:object object_ref="{ns}:obj:{id}"/>
-           <unix:state state_ref="{ns}:ste:{id}"/>
+            <unix:object object_ref="{ns}:obj:{id}"/>
+            <unix:state state_ref="{ns}:ste:{id}"/>
         </unix:uname_test>""".format(**mapping)
 
             elif 'kernelobj' in test_ref:
                 test =  \
         """
         <ind:variable_test id="{ns}:tst:{id}" version="1" check="all" check_existence="all_exist" comment="kernel version comparison">
-           <ind:object object_ref="{ns}:obj:{id}"/>
-           <ind:state state_ref="{ns}:ste:{id}"/>
+            <ind:object object_ref="{ns}:obj:{id}"/>
+            <ind:state state_ref="{ns}:ste:{id}"/>
         </ind:variable_test>""".format(**mapping)
 
             elif self.pocket == 'livepatch':
@@ -1087,27 +1088,27 @@ class OvalGeneratorUSN():
                 test = \
         """
         <unix:file_test id="{ns}:tst:{liv-id}" version="1" check="all" check_existence="all_exist" comment="canonical-livepatch installed">
-           <unix:object object_ref="{ns}:obj:{liv-id}" />
-           <unix:state state_ref="{ns}:ste:{liv-id}" />
+            <unix:object object_ref="{ns}:obj:{liv-id}" />
+            <unix:state state_ref="{ns}:ste:{liv-id}" />
         </unix:file_test>
         <ind:textfilecontent54_test id="{ns}:tst:{id}" version="1" check="all" check_existence="all_exist" comment="livepatch testing">
-           <ind:object object_ref="{ns}:obj:{id}"/>
-           <ind:state state_ref="{ns}:ste:{id}"/>
+            <ind:object object_ref="{ns}:obj:{id}"/>
+            <ind:state state_ref="{ns}:ste:{id}"/>
         </ind:textfilecontent54_test>""".format(**mapping)
 
             else:
                 test = \
         """
         <linux:dpkginfo_test id="{ns}:tst:{id}" version="1" check_existence="at_least_one_exists" check="at least one" comment="{product}">
-           <linux:object object_ref="{ns}:obj:{id}"/>
-           <linux:state state_ref="{ns}:ste:{id}"/>
+            <linux:object object_ref="{ns}:obj:{id}"/>
+            <linux:state state_ref="{ns}:ste:{id}"/>
         </linux:dpkginfo_test>""".format(**mapping)
         else:
             test = \
         """
         <ind:textfilecontent54_test id="{ns}:tst:{id}" version="1" check_existence="at_least_one_exists" check="at least one" comment="{product}">
-           <ind:object object_ref="{ns}:obj:{id}"/>
-           <ind:state state_ref="{ns}:ste:{id}"/>
+            <ind:object object_ref="{ns}:obj:{id}"/>
+            <ind:state state_ref="{ns}:ste:{id}"/>
         </ind:textfilecontent54_test>""".format(**mapping)
 
         return test
@@ -1139,20 +1140,19 @@ class OvalGeneratorUSN():
                 _object =  \
         """
         <unix:file_object id="{ns}:obj:{liv-id}" version="1" comment="{product}">
-             <unix:filepath>/snap/bin/canonical-livepatch</unix:filepath>
+            <unix:filepath>/snap/bin/canonical-livepatch</unix:filepath>
         </unix:file_object>
         <ind:textfilecontent54_object id="{ns}:obj:{id}" version="1" comment="{product}">
-             <ind:filepath datatype="string">/proc/modules</ind:filepath>
-             <!-- <ind:pattern operation="pattern match">^{module}\s.*$</ind:pattern> -->
-             <ind:pattern operation="pattern match" var_ref="{ns}:var:{id}" var_check="at least one" />
-             <ind:instance datatype="int">1</ind:instance>
+            <ind:filepath datatype="string">/proc/modules</ind:filepath>
+            <ind:pattern operation="pattern match" var_ref="{ns}:var:{id}" var_check="at least one" />
+            <ind:instance datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>""".format(**mapping)
 
             else:
                 _object = \
         """
         <linux:dpkginfo_object id="{ns}:obj:{id}" version="1" comment="{product}">
-           <linux:name var_ref="{ns}:var:{id}" var_check="at least one" />
+            <linux:name var_ref="{ns}:var:{id}" var_check="at least one" />
         </linux:dpkginfo_object>""".format(**mapping)
         else:
             mapping['path'] = "."
@@ -1161,10 +1161,10 @@ class OvalGeneratorUSN():
             _object = \
         """
         <ind:textfilecontent54_object id="{ns}:obj:{id}" version="1" comment="{product}">
-           <ind:path>{path}</ind:path>
-           <ind:filename>manifest</ind:filename>
-           <ind:pattern operation="pattern match" datatype="string" var_ref="{ns}:var:{id}" var_check="at least one" />
-           <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+            <ind:path>{path}</ind:path>
+            <ind:filename>manifest</ind:filename>
+            <ind:pattern operation="pattern match" datatype="string" var_ref="{ns}:var:{id}" var_check="at least one" />
+            <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>""".format(**mapping)
 
         return _object
@@ -1184,7 +1184,7 @@ class OvalGeneratorUSN():
                 state = \
         """
         <unix:uname_state id="{ns}:ste:{id}" version="1">
-           <unix:os_release operation="pattern match">{regex}</unix:os_release>
+            <unix:os_release operation="pattern match">{regex}</unix:os_release>
         </unix:uname_state>""".format(**mapping)
 
             elif 'kernelobj' in test_ref:
@@ -1216,7 +1216,7 @@ class OvalGeneratorUSN():
                 state = \
         """
         <linux:dpkginfo_state id="{ns}:ste:{id}" version="1" comment="{product}">
-           <linux:evr datatype="debian_evr_string" operation="less than">{bversion}</linux:evr>
+            <linux:evr datatype="debian_evr_string" operation="less than">{bversion}</linux:evr>
         </linux:dpkginfo_state>""".format(**mapping)
 
         else:
@@ -1225,7 +1225,7 @@ class OvalGeneratorUSN():
             state = \
         """
         <ind:textfilecontent54_state id="{ns}:ste:{id}" version="1" comment="{product}">
-           <ind:subexpression datatype="debian_evr_string" operation="less than">{bversion}</ind:subexpression>
+            <ind:subexpression datatype="debian_evr_string" operation="less than">{bversion}</ind:subexpression>
         </ind:textfilecontent54_state>""".format(**mapping)
 
         return state
@@ -1245,12 +1245,12 @@ class OvalGeneratorUSN():
                 variable = \
             """
         <local_variable id="{ns}:var:{id}" datatype="debian_evr_string" version="1" comment="kernel version in evr format">
-           <concat>
-              <literal_component>0:</literal_component>
-              <regex_capture pattern="^([\d|\.]+-\d+)[-|\w]+$">
-                 <object_component object_ref="{ns}:obj:{id}" item_field="os_release"  />
-              </regex_capture>
-           </concat>
+            <concat>
+                <literal_component>0:</literal_component>
+                <regex_capture pattern="^([\d|\.]+-\d+)[-|\w]+$">
+                    <object_component object_ref="{ns}:obj:{id}" item_field="os_release"  />
+                </regex_capture>
+            </concat>
         </local_variable>""".format(**mapping)
 
                 return variable
@@ -1263,7 +1263,7 @@ class OvalGeneratorUSN():
                 variable = \
             """
         <constant_variable id="{ns}:var:{id}" version="1" datatype="debian_evr_string" comment="patched kernel">
-           <value>{bversion}</value>
+            <value>{bversion}</value>
         </constant_variable>""".format(**mapping)
 
                 return variable
@@ -1284,7 +1284,7 @@ class OvalGeneratorUSN():
         constant_variable = \
         """
         <constant_variable id="{ns}:var:{id}" version="1" datatype="string" comment="{product}">
-           {values}
+            {values}
         </constant_variable>""".format(**mapping)
 
         return constant_variable

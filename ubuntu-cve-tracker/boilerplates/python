@@ -21,7 +21,7 @@ bionic_python2.7: needs-triage
 focal_python2.7: needs-triage
 jammy_python2.7: needs-triage
 kinetic_python2.7: needs-triage
-devel_python2.7: needs-triage
+devel_python2.7: DNE
 
 Patches_python3.4:
 upstream_python3.4: needs-triage
