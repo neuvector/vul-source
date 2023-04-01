@@ -7471,3 +7471,5 @@
 2023-03-29 16:34:29 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-03-31 06:28:42 UTC - 13 added, 239 ignored, 19 skipped, 252 total - files: ['nvdcve-1.1-recent.json']
 2023-03-31 06:49:11 UTC - 1 added, 0 ignored, 20 skipped, 1 total - files: ['debian-import_ep3wb794.json']
+2023-04-01 05:23:13 UTC - 5 added, 52 ignored, 18 skipped, 57 total - files: ['nvdcve-1.1-recent.json']
+2023-04-01 05:44:58 UTC - 0 added, 0 ignored, 20 skipped, 0 total - files: ['debian-import_8sop_ask.json']
