@@ -71,10 +71,9 @@ class TestPackageOverrideTests:
 
 class TestReleaseSort:
     def test_release_sort(self):
-        print(cve_lib.all_releases)
         assert cve_lib.release_sort(
-            ["jammy", "focal", "xenial", "bionic", "esm-apps/jammy"]) == \
-            ["xenial", "bionic", "focal", "esm-apps/jammy", "jammy"]
+            ["jammy", "focal", "esm-apps/bionic", "xenial", "bionic", "esm-apps/jammy"]) == \
+            ["xenial", "bionic", "esm-apps/bionic", "focal", "jammy", "esm-apps/jammy"]
 
     # check all release lists in cve_lib are sorted OOTB
     @pytest.mark.parametrize("releases",

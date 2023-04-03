@@ -107,6 +107,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm/ubuntu",
         "parent": "ubuntu/precise",
         "description": "Available with UA Infra or UA Desktop: https://ubuntu.com/advantage",
+        "stamp": 1493521200,
     },
     "esm/trusty": {
         "eol": False,
@@ -118,6 +119,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/trusty",
         "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+        "stamp": 1556593200,
     },
     "esm-infra/xenial": {
         "eol": False,
@@ -129,6 +131,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-infra-security/ubuntu",
         "parent": "ubuntu/xenial",
         "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+        "stamp": 1618963200,
     },
     "esm-apps/xenial": {
         "eol": False,
@@ -140,6 +143,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "esm-infra/xenial",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+        "stamp": 1618963200,
     },
     "esm-apps/bionic": {
         "eol": False,
@@ -151,6 +155,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/bionic",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+        "stamp": 1524870000,
     },
     "esm-apps/focal": {
         "eol": False,
@@ -162,6 +167,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/focal",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+        "stamp": 1587567600,
     },
     "esm-apps/jammy": {
         "eol": False,
@@ -173,6 +179,7 @@ subprojects = {
         "ppa": "ubuntu-esm/esm-apps-security/ubuntu",
         "parent": "ubuntu/jammy",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+        "stamp": 1650693600,
     },
     "fips/xenial": {
         "eol": False,
@@ -260,6 +267,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 4.10",
+        "version": 4.10,
         "codename": "Warty Warthog",
         "alias": "warty",
         "description": "Interim Release",
@@ -269,6 +277,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 5.04",
+        "version": 5.04,
         "codename": "Hoary Hedgehog",
         "alias": "hoary",
         "description": "Interim Release",
@@ -278,6 +287,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 5.10",
+        "version": 5.10,
         "codename": "Breezy Badger",
         "alias": "breezy",
         "description": "Interim Release",
@@ -287,6 +297,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 6.06 LTS",
+        "version": 6.06,
         "codename": "Dapper Drake",
         "alias": "dapper",
         "description": "Long Term Support",
@@ -296,6 +307,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 6.10",
+        "version": 6.10,
         "codename": "Edgy Eft",
         "alias": "edgy",
         "description": "Interim Release",
@@ -305,6 +317,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 7.04",
+        "version": 7.04,
         "codename": "Feisty Fawn",
         "alias": "feisty",
         "description": "Interim Release",
@@ -314,6 +327,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 7.10",
+        "version": 7.10,
         "codename": "Gutsy Gibbon",
         "alias": "gutsy",
         "description": "Interim Release",
@@ -323,6 +337,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 8.04 LTS",
+        "version": 8.04,
         "codename": "Hardy Heron",
         "alias": "hardy",
         "description": "Long Term Support",
@@ -332,6 +347,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 8.10",
+        "version": 8.10,
         "codename": "Intrepid Ibex",
         "alias": "intrepid",
         "description": "Interim Release",
@@ -341,6 +357,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 9.04",
+        "version": 9.04,
         "codename": "Jaunty Jackalope",
         "alias": "jaunty",
         "description": "Interim Release",
@@ -350,6 +367,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 9.10",
+        "version": 9.10,
         "codename": "Karmic Koala",
         "alias": "karmic",
         "description": "Interim Release",
@@ -359,6 +377,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 10.04 LTS",
+        "version": 10.04,
         "codename": "Lucid Lynx",
         "alias": "lucid",
         "description": "Long Term Support",
@@ -368,6 +387,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 10.10",
+        "version": 10.10,
         "codename": "Maverick Meerkat",
         "alias": "maverick",
         "description": "Interim Release",
@@ -377,6 +397,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 11.04",
+        "version": 11.04,
         "codename": "Natty Narwhal",
         "alias": "natty",
         "description": "Interim Release",
@@ -386,6 +407,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 11.10",
+        "version": 11.10,
         "codename": "Oneiric Ocelot",
         "alias": "oneiric",
         "description": "Interim Release",
@@ -395,6 +417,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 12.04 LTS",
+        "version": 12.04,
         "codename": "Precise Pangolin",
         "alias": "precise",
         "description": "Long Term Support",
@@ -404,6 +427,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 12.10",
+        "version": 12.10,
         "codename": "Quantal Quetzal",
         "alias": "quantal",
         "description": "Interim Release",
@@ -413,6 +437,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 13.04",
+        "version": 13.04,
         "codename": "Raring Ringtail",
         "alias": "raring",
         "description": "Interim Release",
@@ -422,6 +447,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 13.10",
+        "version": 13.10,
         "codename": "Saucy Salamander",
         "alias": "saucy",
         "description": "Interim Release",
@@ -431,6 +457,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 14.04 LTS",
+        "version": 14.04,
         "codename": "Trusty Tahr",
         "alias": "trusty",
         "description": "Long Term Support",
@@ -440,6 +467,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 14.10",
+        "version": 14.10,
         "codename": "Utopic Unicorn",
         "alias": "utopic",
         "description": "Interim Release",
@@ -449,6 +477,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 15.04",
+        "version": 15.04,
         "codename": "Vivid Vervet",
         "alias": "vivid",
         "description": "Interim Release",
@@ -458,6 +487,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 15.10",
+        "version": 15.10,
         "codename": "Wily Werewolf",
         "alias": "wily",
         "description": "Interim Release",
@@ -467,6 +497,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 16.04 LTS",
+        "version": 16.04,
         "codename": "Xenial Xerus",
         "alias": "xenial",
         "description": "Long Term Support",
@@ -476,6 +507,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 16.10",
+        "version": 16.10,
         "codename": "Yakkety Yak",
         "alias": "yakkety",
         "description": "Interim Release",
@@ -485,6 +517,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 17.04",
+        "version": 17.04,
         "codename": "Zesty Zapus",
         "alias": "zesty",
         "description": "Interim Release",
@@ -494,6 +527,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 17.10",
+        "version": 17.10,
         "codename": "Artful Aardvark",
         "alias": "artful",
         "description": "Interim Release",
@@ -504,6 +538,7 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 18.04 LTS",
+        "version": 18.04,
         "codename": "Bionic Beaver",
         "alias": "bionic",
         "description": "Long Term Support",
@@ -513,6 +548,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 18.10",
+        "version": 18.10,
         "codename": "Cosmic Cuttlefish",
         "alias": "cosmic",
         "description": "Interim Release",
@@ -522,6 +558,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 19.04",
+        "version": 19.04,
         "codename": "Disco Dingo",
         "alias": "disco",
         "description": "Interim Release",
@@ -531,6 +568,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 19.10",
+        "version": 19.10,
         "codename": "Eoan Ermine",
         "alias": "eoan",
         "description": "Interim Release",
@@ -541,6 +579,7 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 20.04 LTS",
+        "version": 20.04,
         "codename": "Focal Fossa",
         "alias": "focal",
         "description": "Long Term Support",
@@ -550,6 +589,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 20.10",
+        "version": 20.10,
         "codename": "Groovy Gorilla",
         "alias": "groovy",
         "description": "Interim Release",
@@ -559,6 +599,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 21.04",
+        "version": 21.04,
         "codename": "Hirsute Hippo",
         "alias": "hirsute",
         "description": "Interim Release",
@@ -568,6 +609,7 @@ subprojects = {
         "eol": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 21.10",
+        "version": 21.10,
         "codename": "Impish Indri",
         "alias": "impish",
         "description": "Interim Release",
@@ -578,6 +620,7 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse", "partner"],
         "name": "Ubuntu 22.04 LTS",
+        "version": 22.04,
         "codename": "Jammy Jellyfish",
         "alias": "jammy",
         "description": "Long Term Support",
@@ -588,6 +631,7 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 22.10",
+        "version": 22.10,
         "codename": "Kinetic Kudu",
         "alias": "kinetic",
         "devel": False,
@@ -599,6 +643,7 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 23.04",
+        "version": 23.04,
         "codename": "Lunar Lobster",
         "alias": "lunar",
         "devel": True,  # there can be only one ⚔
@@ -717,7 +762,7 @@ def release_progenitor(rel):
     return parent
 
 def release_stamp(rel):
-    """Return the time stamp for rel."""
+    """Return the time stamp for rel or its parent if it doesn't define one."""
     stamp = -1
     _, _, _, details = get_subproject_details(rel)
     if details:
@@ -732,6 +777,20 @@ def release_stamp(rel):
             if details:
                 stamp = details["stamp"]
     return stamp
+
+def release_version(rel):
+    """Return the version for rel or its parent if it doesn't have one."""
+    version = 0.0
+    _, _, _, details = get_subproject_details(rel)
+    if details:
+        try:
+            version = details["version"]
+        except KeyError:
+            rel = release_progenitor(rel)
+            _, _, _, details = get_subproject_details(rel)
+            if details:
+                version = details["version"]
+    return version
 
 def release_ppa(rel):
     """Return the ppa for a given subproject."""
@@ -889,15 +948,21 @@ for release in subprojects:
 
 
 def release_sort(release_list):
-    '''takes a list of release names and sorts them in release order'''
+    '''takes a list of release names and sorts them in release order
 
-    # turn list into a tuples of (name, release stamp)
-    rels = [(x, release_stamp(x)) for x in release_list]
-    # sort list by release stamp (formatted to 20 places so we don't have to
-    # worry about the number of digits in the stamp) but also prepend the
-    # release name so releases that have the same stamp sort in alphabetical
-    # order by name, then pull out just the names
-    return [x[0] for x in sorted(rels, key=lambda x: ("%020d" % x[1]) + x[0])]
+    This is not a strict ordering based on when the release was made but a logic
+    ordering used for human consumption.
+    '''
+
+    # turn list into a tuples of (name, version) - we want sub-releases to sort
+    # later than their parent, so introduce a hack to add one month to their
+    # release version so they sort after their parent
+    rels = [(x, release_version(x) + 0.01 if "/" in x else release_version(x))
+            for x in release_list]
+    # sort by release version but also append the release name so releases that
+    # have the same stamp sort in alphabetical order by name, then pull out just
+    # the names
+    return [x[0] for x in sorted(rels, key=lambda x: ("%02.2f" % x[1]) + x[0])]
 
 
 def release_is_older_than(release_a, release_b):
