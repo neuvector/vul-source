@@ -1835,6 +1835,10 @@
         "description": "Natural Language Toolkit",
         "title": "NLTK"
     },
+    "node-trim-newlines": {
+        "description": "Trim newlines from the start and/or end of a string",
+        "title": "trim-newlines"
+    },
     "node-url-parse": {
         "description": "Small footprint URL parser that works across Node.js and browsers",
         "title": "url-parse"
