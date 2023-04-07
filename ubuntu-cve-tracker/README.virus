@@ -225,3 +225,43 @@ jq:
 This is a general purpose utility to work with JSON-formatted input in
 shell scripts. It is identified by some virus scanners as a trojan or
 other malware. See LP: #1892552
+
+
+libwine-development:
+--------------------
+
+This has been reported to be parts of several malware suites. This has
+Windows-compatible executables. Our assumption is these are just useful
+tools.
+
+msinfo32.exe
+tasklist.exe
+shutdown.exe
+winemsibuilder.exe
+msiexec.exe
+hh.exe
+
+
+ruby-ace-rails-ap:
+------------------
+
+This has been reported to be HEUR_JS.O.FNK, which we suspect means
+"there's javascript files here", which is true, there are javascript files
+in this package.
+
+
+proftpd-mod-clamav:
+-------------------
+
+Some AV tools find the EICAR test file in this package. Good job! We're
+all proud of you!
+
+
+rspamd:
+-------
+
+This has been reported to be HEUR_NAMETRICK.A, which we suspect means
+"these names are confusing to users". One such example:
+
+rspamd-1.9.4/test/functional/messages/f.zip.gz.eml
+
