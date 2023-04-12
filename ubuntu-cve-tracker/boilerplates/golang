@@ -81,7 +81,7 @@ bionic_golang-1.13: needs-triage
 focal_golang-1.13: needs-triage
 jammy_golang-1.13: needs-triage
 kinetic_golang-1.13: needs-triage
-devel_golang-1.13: needs-triage
+devel_golang-1.13: DNE
 
 Patches_golang-1.14:
 upstream_golang-1.14: needs-triage
@@ -133,5 +133,27 @@ bionic_golang-1.18: needs-triage
 focal_golang-1.18: needs-triage
 jammy_golang-1.18: needs-triage
 kinetic_golang-1.18: DNE
-devel_golang-1.18: needs-triage
+devel_golang-1.18: DNE
+
+Patches_golang-1.19:
+upstream_golang-1.19: needs-triage
+trusty_golang-1.19: ignored (out of standard support)
+trusty/esm_golang-1.19: DNE
+xenial_golang-1.19: ignored (out of standard support)
+bionic_golang-1.19: DNE
+focal_golang-1.19: DNE
+jammy_golang-1.19: DNE
+kinetic_golang-1.19: needs-triage
+devel_golang-1.19: needs-triage
+
+Patches_golang-1.20:
+upstream_golang-1.20: needs-triage
+trusty_golang-1.20: ignored (out of standard support)
+trusty/esm_golang-1.20: DNE
+xenial_golang-1.20: ignored (out of standard support)
+bionic_golang-1.20: DNE
+focal_golang-1.20: DNE
+jammy_golang-1.20: DNE
+kinetic_golang-1.20: DNE
+devel_golang-1.20: needs-triage
 

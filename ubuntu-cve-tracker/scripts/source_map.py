@@ -304,6 +304,8 @@ def load_sources_collection(item, map):
         pkg = parser.section['Package']
         map.setdefault(release, dict()).setdefault(pkg, {'section': 'unset', 'version': '~', 'pocket': 'unset'})
         map[release][pkg]['section'] = section
+        if 'Description' in parser.section:
+            map[release][pkg]['description'] = parser.section['Description']
         if not pocket:
             map[release][pkg]['release_version'] = parser.section['Version']
         if apt_pkg.version_compare(parser.section['Version'], map[release][pkg]['version']) > 0:
@@ -322,6 +324,9 @@ def load_packages_collection(item, map):
         pkg = parser.section['Package']
         map.setdefault(release, dict()).setdefault(pkg, {'section': 'unset', 'version': '~', 'pocket': 'unset'})
         map[release][pkg]['section'] = section
+        if 'Description' in parser.section:
+            map[release][pkg]['description'] = parser.section['Description']
+
         if not pocket:
             map[release][pkg]['release_version'] = parser.section['Version']
         if apt_pkg.version_compare(parser.section['Version'], map[release][pkg]['version']) > 0:

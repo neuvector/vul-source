@@ -27,10 +27,18 @@ import shutil
 import sys
 import tempfile
 import collections
+import glob
+import xml.etree.cElementTree as etree
+from typing import Tuple # Needed because of Python < 3.9 and to also support < 3.7
 
-from cve_lib import load_cve, get_subproject_description, release_name, release_stamp
+from source_map import load
+import cve_lib
 
 from xml.sax.saxutils import escape
+
+sources = {}
+source_map_binaries = {}
+debug_level = 0
 
 def recursive_rm(dirPath):
     '''recursively remove directory'''
@@ -107,8 +115,1015 @@ def process_kernel_binaries(binaries, oval_format):
 
     return None
 
+def debug(message):
+    """ print a debuging message """
+    if debug_level > 0:
+        sys.stdout.write('\rDEBUG: {0}\n'.format(message))
 
 class OvalGenerator:
+    supported_oval_elements = ('definition', 'test', 'object', 'state', 'variable')
+    generator_version = '1.1'
+    oval_schema_version = '5.11.1'
+    def __init__(self, release, release_name, parent = None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
+        self.release = release
+        # e.g. codename for trusty/esm should be trusty
+        self.release_codename = parent if parent else self.release.replace('/', '_')
+        self.release_name = release_name
+        #self.warn = warn_method or self.warn
+        self.tmpdir = tempfile.mkdtemp(prefix='oval_lib-')
+        self.output_dir = outdir
+        self.oval_format = oval_format
+        self.output_filepath = \
+            '{0}com.ubuntu.{1}.cve.oval.xml'.format(prefix, self.release.replace('/', '_'))
+        self.ns = 'oval:com.ubuntu.{0}'.format(self.release_codename)
+        self.id = 100
+        self.host_def_id = self.id
+        self.release_applicability_definition_id = '{0}:def:{1}0'.format(self.ns, self.id)
+
+    def _add_structure(self, root) -> None:
+        structure = {}
+        for element in self.supported_oval_elements:
+            structure_element = element + 's'
+            etree.SubElement(root, structure_element)
+        
+        return structure
+
+    def _get_root_element(self, type) -> etree.Element:
+        oval_timestamp = datetime.now(tz=timezone.utc).strftime(
+            '%Y-%m-%dT%H:%M:%S')
+
+        root_element = etree.Element("oval_definitions", attrib= {
+            "xmlns":"http://oval.mitre.org/XMLSchema/oval-definitions-5",
+            "xmlns:ind-def":"http://oval.mitre.org/XMLSchema/oval-definitions-5#independent",
+            "xmlns:oval":"http://oval.mitre.org/XMLSchema/oval-common-5",
+            "xmlns:unix-def":"http://oval.mitre.org/XMLSchema/oval-definitions-5#unix",
+            "xmlns:linux-def":"http://oval.mitre.org/XMLSchema/oval-definitions-5#linux",
+            "xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance" ,
+            "xsi:schemaLocation":"http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#macos linux-definitions-schema.xsd"
+        })
+
+        generator = etree.SubElement(root_element, "generator")
+        product_name = etree.SubElement(generator, "oval:product_name")
+        product_version = etree.SubElement(generator, "oval:product_version")
+        schema_version = etree.SubElement(generator, "oval:schema_version")
+        timestamp = etree.SubElement(generator, "oval:timestamp")
+
+        product_name.text = f"Canonical {type} OVAL Generator"
+        product_version.text = self.generator_version
+        schema_version.text = self.oval_schema_version
+        timestamp.text = oval_timestamp
+
+        xml_tree = etree.ElementTree(root_element)
+        return xml_tree, root_element
+
+    def _add_release_checks(self, root_element) -> None:
+        rel_definition = self._create_release_definition()
+        rel_family_test, rel_test = self._create_release_test()
+        rel_family_obj, rel_obj = self._create_release_object()
+        rel_family_state, rel_state = self._create_release_state()
+
+        definitions = root_element.find("definitions")
+        tests = root_element.find("tests")
+        objects = root_element.find("objects")
+        states = root_element.find("states")
+
+        definitions.append(rel_definition)
+        tests.append(rel_family_test)
+        tests.append(rel_test)
+        objects.append(rel_family_obj)
+        objects.append(rel_obj)
+        states.append(rel_family_state)
+        states.append(rel_state)
+
+
+    def _create_release_definition(self) -> etree.Element:
+        if self.oval_format == 'dpkg':
+            definition = etree.Element("definition")
+            definition.set("class", "inventory")
+            definition.set("id", f'{self.ns}:def:{self.id}')
+            definition.set("version", "1")
+
+            # Metadata tag
+            metadata = etree.Element("metadata")
+            title = etree.SubElement(metadata, "title")
+            etree.SubElement(metadata, "description")
+            title.text = f"Check that {self.release_name} ({self.release_codename}) is installed."
+
+            # Criteria tag
+            criteria = etree.Element("criteria")
+            criterion_unix = etree.SubElement(criteria, "criterion")
+            criterion_rel = etree.SubElement(criteria, "criterion")
+
+
+            criterion_unix.set("test_ref", f'{self.ns}:tst:{self.id}')
+            criterion_unix.set("comment", "The host is part of the unix family.")
+
+            criterion_rel.set("test_ref", f'{self.ns}:tst:{self.id+1}')
+            criterion_rel.set("comment", f"The host is running Ubuntu {self.release_codename}")
+
+
+            definition.append(metadata)
+            definition.append(criteria)
+        else:
+            definition = etree.Element()
+
+        return definition
+
+    def _create_release_test(self) -> Tuple[etree.Element, etree.Element]:
+        if self.oval_format == 'dpkg':
+            family_test = etree.Element("ind-def:family_test", attrib={
+                "id": f'{self.ns}:tst:{self.id}',
+                "check":"at least one",
+                "check_existence":"at_least_one_exists",
+                "version":"1",
+                "comment":"Is the host part of the unix family?"
+            })
+
+            family_test_obj = etree.SubElement(family_test, "ind-def:object")
+            family_test_state = etree.SubElement(family_test, "ind-def:state")
+            family_test_obj.set("object_ref", f'{self.ns}:obj:{self.id}')
+            family_test_state.set("state_ref", f'{self.ns}:ste:{self.id}')
+
+            textfilecontent54_test = etree.Element("ind-def:textfilecontent54_test", attrib={
+                "id": f'{self.ns}:tst:{self.id+1}',
+                "check":"at least one",
+                "check_existence":"at_least_one_exists",
+                "version":"1",
+                "comment":f"Is the host running Ubuntu {self.release_codename}?"
+            })
+
+            textfc54_test_obj = etree.SubElement(textfilecontent54_test, "ind-def:object")
+            textfc54_test_state = etree.SubElement(textfilecontent54_test, "ind-def:state")
+            textfc54_test_obj.set("object_ref", f'{self.ns}:obj:{self.id+1}')
+            textfc54_test_state.set("state_ref", f'{self.ns}:ste:{self.id+1}')
+
+        else:
+            family_test = etree.Element()
+            textfilecontent54_test = etree.Element()
+
+        return family_test, textfilecontent54_test
+
+    def _create_release_object(self) -> Tuple[etree.Element, etree.Element]:
+        if self.oval_format == 'dpkg':
+            family_object = etree.Element("ind-def:family_object", 
+                attrib={
+                    'id' : f"{self.ns}:obj:{self.id}",
+                    'version': "1",
+                    "comment": "The singleton family object."
+                })
+
+            object = etree.Element("ind-def:textfilecontent54_object", 
+                attrib={
+                    'id' : f"{self.ns}:obj:{self.id+1}",
+                    'version': "1",
+                    "comment": f"The singleton {self.release_codename} object."
+                })
+            filepath = etree.SubElement(object, "ind-def:filepath")
+            pattern = etree.SubElement(object, "ind-def:pattern",attrib={"operation": "pattern match"})
+            instance = etree.SubElement(object, "ind-def:instance",attrib={"datatype": "int"})
+
+            filepath.text = "/etc/lsb-release"
+            pattern.text = "^[\s\S]*DISTRIB_CODENAME=([a-z]+)$"
+            instance.text = "1"
+        else:
+            family_object = etree.Element("")
+            object = etree.Element("")
+
+        return family_object, object
+
+    def _create_release_state(self) -> Tuple[etree.Element, etree.Element]:
+        if self.oval_format == 'dpkg':
+
+            family_state= etree.Element("ind-def:family_state", 
+                attrib={
+                    'id' : f"{self.ns}:ste:{self.id}",
+                    'version': "1",
+                    "comment": "The singleton family state."
+                })
+
+            state = etree.Element("ind-def:textfilecontent54_state", 
+                attrib={
+                    'id' : f"{self.ns}:ste:{self.id+1}",
+                    'version': "1",
+                    "comment": f"The singleton {self.release_codename} state."
+                })
+
+            family = etree.SubElement(family_state, "ind-def:family")
+            subexpression = etree.SubElement(state, "ind-def:subexpression")
+
+            family.text = "unix"
+            subexpression.text = cve_lib.product_series(self.release)[1]
+        else:
+            family_state = etree.Element()
+            state = etree.Element()
+
+        return family_state, state
+
+class CVEPkgRelEntry:
+    def __init__(self, pkg, cve, status, note) -> None:
+        self.pkg = pkg
+        self.cve = cve
+        self.orig_status = status
+        self.orig_note = note
+        cve_info = CVEPkgRelEntry.parse_package_status(pkg.rel, pkg.name, status, note, cve.number, None)
+        
+        self.note = cve_info['note']
+        self.status = cve_info['status']
+        self.fixed_version = cve_info['fix-version'] if self.status == 'fixed' else None
+
+    @staticmethod
+    def parse_package_status(release, package, status_text, note, filepath, cache):
+        """ parse ubuntu package status string format:
+            <status code> (<version/notes>)
+            outputs dictionary: {
+            'status'        : '<not-applicable | unknown | vulnerable | fixed>',
+            'note'          : '<description of the status>',
+            'fix-version'   : '<version with issue fixed, if applicable>',
+            'bin-pkgs'      : []
+            } """
+
+        # TODO fix for CVE Generator
+
+        # break out status code and detail
+        code = status_text.lower()
+        detail = note.strip('()') if note else None
+        status = {}
+
+        if cache and code != 'dne':
+            if detail and detail[0].isdigit() and code in ['released', 'not-affected']:
+                status['bin-pkgs'] = cache.get_binarypkgs(package, release, version=detail)
+            else:
+                status['bin-pkgs'] = cache.get_binarypkgs(package, release)
+
+        note_end = " (note: '{0}').".format(detail) if detail else '.'
+        if code == 'dne':
+            status['status'] = 'not-applicable'
+            status['note'] = \
+                " package does not exist in {0}{1}".format(release, note_end)
+        elif code == 'ignored':
+            status['status'] = 'vulnerable'
+            status['note'] = ": while related to the CVE in some way, a decision has been made to ignore this issue{0}".format(note_end)
+        elif code == 'not-affected':
+            # check if there is a release version and if so, test for
+            # package existence with that version
+            if detail and detail[0].isdigit():
+                status['status'] = 'fixed'
+                status['note'] = " package in {0}, is related to the CVE in some way and has been fixed{1}".format(release, note_end)
+                status['fix-version'] = detail
+            else:
+                status['status'] = 'not-vulnerable'
+                status['note'] = " package in {0}, while related to the CVE in some way, is not affected{1}".format(release, note_end)
+        elif code == 'needed':
+            status['status'] = 'vulnerable'
+            status['note'] = \
+                " package in {0} is affected and needs fixing{1}".format(release, note_end)
+        elif code == 'pending':
+            # pending means that packages have been prepared and are in
+            # -proposed or in a ppa somewhere, and should have a version
+            # attached. If there is a version, test for package existence
+            # with that version, otherwise mark as vulnerable
+            if detail and detail[0].isdigit():
+                status['status'] = 'fixed'
+                status['note'] = " package in {0} is affected. An update containing the fix has been completed and is pending publication{1}".format(release, note_end)
+                status['fix-version'] = detail
+            else:
+                status['status'] = 'vulnerable'
+                status['note'] = " package in {0} is affected. An update containing the fix has been completed and is pending publication{1}".format(release, note_end)
+        elif code == 'deferred':
+            status['status'] = 'vulnerable'
+            status['note'] = " package in {0} is affected, but a decision has been made to defer addressing it{1}".format(release, note_end)
+        elif code in ['released']:
+            # if there isn't a release version, then just mark
+            # as vulnerable to test for package existence
+            if not detail:
+                status['status'] = 'vulnerable'
+                status['note'] = " package in {0} was vulnerable and has been fixed, but no release version available for it{1}".format(release, note_end)
+            else:
+                status['status'] = 'fixed'
+                status['note'] = " package in {0} was vulnerable but has been fixed{1}".format(release, note_end)
+                status['fix-version'] = detail
+        elif code == 'needs-triage':
+            status['status'] = 'vulnerable'
+            status['note'] = " package in {0} is affected and may need fixing{1}".format(release, note_end)
+        else:
+            # TODO LOGGIN
+            print('Unsupported status "{0}" in {1}_{2} in "{3}". Setting to "unknown".'.format(code, release, package, filepath))
+            status['status'] = 'unknown'
+            status['note'] = " package in {0} has a vulnerability that is not known (status: '{1}'). It is pending evaluation{2}".format(release, code, note_end)
+
+        return status
+
+    def __str__(self) -> str:
+        return f'{str(self.pkg)}:{self.status} {self.fixed_version}'
+
+class CVE:
+    def __init__(self, number, info, pkgs=[]) -> None:
+        self.number = number
+        self.description = info['Description']
+        self.pkg_rel_entries = {}
+        self.pkgs = pkgs
+    
+    def add_pkg(self, pkg_object, state, note):
+        cve_pkg_entry = CVEPkgRelEntry(pkg_object, self, state, note)
+        self.pkg_rel_entries[Package.get_unique_id(pkg_object.name, pkg_object.rel)] = cve_pkg_entry
+        self.pkgs.append(pkg_object)
+
+    def __str__(self) -> str:
+        return self.number
+
+    def __repr__(self):
+        return self.__str__()
+
+class Package:
+    def __init__(self, pkgname, rel, binaries, version):
+        self.name = pkgname
+        self.rel = rel
+        self.description = cve_lib.lookup_package_override_description(pkgname)
+
+        if not self.description:
+            if 'description' in sources[rel][pkgname]:
+                self.description = sources[rel][pkgname]['description']
+            elif pkgname in source_map_binaries[rel] and \
+                'description' in source_map_binaries[rel][pkgname]:
+                self.description = source_map_binaries[rel][pkgname]['description']
+            else:
+                # Get first description found
+                if 'binaries' in sources[self.rel][self.name]:
+                    for binary in sources[self.rel][self.name]['binaries']:
+                        if binary in source_map_binaries[self.rel] and 'description' in source_map_binaries[self.rel][binary]:
+                            self.description = source_map_binaries[self.rel][binary]["description"]
+                            break
+
+        self.section = sources[rel][pkgname]['section']
+        self.version = version
+        self.binaries = binaries if binaries else []
+        self.cves = []
+
+    @staticmethod
+    def get_unique_id(name, rel):
+        return f'{name}/{rel}'
+
+    def add_cve(self, cve) -> None:
+        self.cves.append(cve)
+
+    def __str__(self) -> str:
+        return f"{self.name}/{self.rel}"
+
+    def __repr__(self):
+        return self.__str__()
+
+class OvalGeneratorPkg(OvalGenerator):
+    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, cve_cache=None,  cve_prefix_dir=None, parent=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
+        super().__init__(release, release_name, parent, warn_method, outdir, prefix, oval_format)
+        ###
+        # ID schema: 2204|00001|0001
+        # * The first four digits are the ubuntu release number
+        # * The next 5 digits is # just a package counter, we increase it for each definition
+        # * The last 4 digits is a counter for the criterion
+        ###
+        release_code = int(release_name.split(' ')[1].replace('.', '')) if release not in cve_lib.external_releases else 1111
+        self.definition_id = release_code * 10 ** 10
+        self.definition_step = 1 * 10 ** 5
+        self.criterion_step = 10
+        self.progress = progress
+        self.cve_cache = cve_cache
+        self.pkg_cache = pkg_cache
+        self.cve_paths = cve_paths
+        self.packages = self._load_pkgs(cve_prefix_dir, packages)
+
+    def _generate_advisory(self, package: Package) -> etree.Element:
+        advisory = etree.Element("advisory")
+        rights = etree.SubElement(advisory, "rights")
+        component = etree.SubElement(advisory, "component")
+        version = etree.SubElement(advisory, "current_version")
+
+        rights.text = f"Copyright (C) {datetime.now().year} Canonical Ltd."
+        component.text = package.section
+        version.text = package.version
+
+        return advisory
+
+    def _generate_metadata(self, package: Package) -> etree.Element:
+        metadata = etree.Element("metadata")
+        title = etree.SubElement(metadata, "title")
+        reference = self._generate_reference(package)
+        advisory = self._generate_advisory(package)
+        metadata.append(reference)
+        description = etree.SubElement(metadata, "description")
+        affected = etree.SubElement(metadata, "affected", attrib = {"family": "unix"})
+        platform = etree.SubElement(affected, "platform")
+        metadata.append(advisory)
+
+        platform.text = self.release_name
+        title.text = package.name
+        description.text = package.description
+        
+        return metadata
+    
+    def _generate_criteria(self) -> etree.Element:
+        criteria = etree.Element("criteria")
+        if self.oval_format == 'dpkg':
+            extend_definition = etree.SubElement(criteria, "extend_definition")
+
+            extend_definition.set("definition_ref", f"{self.ns}:def:{self.host_def_id}")
+            extend_definition.set("comment", f"{self.release_name} is installed.")
+            extend_definition.set("applicability_check", "true")
+
+        return criteria
+
+    # Element generators
+    def _generate_reference(self, package) -> etree.Element:
+        reference = etree.Element("reference", attrib={
+            "source": "Package",
+            "ref_id": package.name,
+            "ref_url": f'https://launchpad.net/ubuntu/+source/{package.name}'
+        })
+
+        return reference
+
+    def _generate_definition_object(self, package) -> None:
+        id = f"{self.ns}:def:{self.definition_id}"
+        definition = etree.Element("definition")
+        definition.set("class", "vulnerability")
+        definition.set("id", id)
+        definition.set("version", "1")
+
+        metadata = self._generate_metadata(package)
+        criteria = self._generate_criteria()
+        definition.append(metadata)
+        definition.append(criteria)
+        return definition
+
+    def _generate_var_object(self, comment, id, binaries) -> etree.Element:
+        var = etree.Element("constant_variable", 
+            attrib={
+                'id' : f"{self.ns}:var:{id}",
+                'version': "1",
+                "datatype": "string",
+                "comment": comment
+            })
+        
+        for binary in binaries:
+            item = etree.SubElement(var, "value")
+            item.text = binary
+
+        return var
+
+    def _generate_object_object(self, comment, id, var_id) -> etree.Element:
+        if self.oval_format == 'dpkg':
+            object = etree.Element("linux-def:dpkginfo_object", 
+                attrib={
+                    'id' : f"{self.ns}:obj:{id}",
+                    'version': "1",
+                    "comment": comment
+                })
+            
+            etree.SubElement(object, "linux-def:name", attrib={
+                "var_ref": f"{self.ns}:var:{var_id}",
+                "var_check": "at least one"
+            })
+        elif self.oval_format == 'oci':
+            object = etree.Element("ind-def:textfilecontent54_object", 
+                attrib={
+                    'id' : f"{self.ns}:obj:{id}",
+                    'version': "1",
+                    "comment": comment
+                })
+            path = etree.SubElement(object, 'ind-def:path')
+            filename = etree.SubElement(object, 'ind-def:filename')
+            etree.SubElement(object, "ind-def:pattern", attrib={
+                "operation": "pattern match",
+                "datatype": "string",
+                "var_ref": f"{self.ns}:var:{var_id}",
+                "var_check": "at least one"
+            })
+            instance = etree.SubElement(object, 'ind-def:instance', attrib={
+                "operation": "greater than or equal",
+                "datatype": "int"
+            })
+            path.text = '.'
+            filename.text = 'manifest'
+            instance.text = '1'         
+        return object
+
+    def _generate_test_element(self, comment, id, create_state, type, obj_id = None, state_id=None) -> etree.Element:
+        if type == 'pkg':
+            if self.oval_format == 'dpkg':
+                tag = 'dpkginfo_test'
+                pre_tag = 'linux-def'
+            elif self.oval_format == 'oci':
+                tag = 'textfilecontent54_test'
+                pre_tag = 'ind-def'
+            else:
+                ValueError()
+        elif type == 'kernel':
+            tag = 'variable_test'
+            pre_tag = 'ind-def'
+
+        test = etree.Element(f'{pre_tag}:{tag}', attrib={
+            "id": f"{self.ns}:tst:{id}",
+            "version": "1",
+            "check_existence": "at_least_one_exists",
+            "check": "at least one",
+            "comment": comment
+        })
+        textfc54_test_obj = etree.SubElement(test, f"{pre_tag}:object")
+        textfc54_test_obj.set("object_ref", f'{self.ns}:obj:{obj_id if obj_id else id}')
+
+        if create_state:
+            textfc54_test_state = etree.SubElement(test, f"{pre_tag}:state")
+            textfc54_test_state.set("state_ref", f'{self.ns}:ste:{state_id if state_id else id}')
+
+        return test
+
+    def _generate_state_object(self, comment, id, version) -> None:
+        if self.oval_format == 'dpkg':
+            object = etree.Element("linux-def:dpkginfo_state", 
+                attrib={
+                    'id' : f"{self.ns}:ste:{id}",
+                    'version': "1",
+                    "comment": comment
+                })
+            
+            version_check = etree.SubElement(object, "linux-def:evr", attrib={
+                "datatype": "debian_evr_string",
+                "operation": "less than"
+            })
+
+            version_check.text = f"0:{version}"
+        elif self.oval_format == 'oci':
+            object = etree.Element("ind-def:textfilecontent54_state", 
+                attrib={
+                    'id' : f"{self.ns}:ste:{id}",
+                    'version': "1",
+                    "comment": comment
+                })
+            
+            version_check = etree.SubElement(object, "ind-def:subexpression", attrib={
+                "datatype": "debian_evr_string",
+                "operation": "less than"
+            })
+
+            version_check.text = f"0:{version}"
+        else:
+            ValueError(f"Format not {self.oval_format} not supported")
+
+        return object
+
+    def _generate_criterion_element(self, comment, id) -> etree.Element:
+        criterion = etree.Element("criterion", attrib={
+            "test_ref": f"{self.ns}:tst:{id}",
+            "comment": comment
+        }) 
+
+        return criterion
+
+    # Running kernel element generators
+    def _add_running_kernel_checks(self, root_element):
+        objects = root_element.find("objects")
+        variables = root_element.find("variables")
+        states = root_element.find("states")
+
+        variable_local_kernel_check = self._generate_local_variable_kernel(self.definition_id, "Kernel version in evr format", self.definition_id)
+        obj_running_kernel = self._generate_uname_object_element(self.definition_id)
+        state_kernel_version = self._generate_state_kernel_element("Kernel check", self.definition_id, self.definition_id)
+
+        objects.append(obj_running_kernel)
+        variables.append(variable_local_kernel_check)
+        states.append(state_kernel_version)
+
+    def _generate_local_variable_kernel(self, id, comment, uname_obj_id):
+        var = etree.Element("local_variable", 
+            attrib={
+                'id' : f"{self.ns}:var:{id}",
+                'version': "1",
+                "datatype": "debian_evr_string",
+                "comment": comment
+            })
+        concat = etree.SubElement(var, "concat")
+        component = etree.SubElement(concat, "literal_component")
+        regex = etree.SubElement(concat, "regex_capture", attrib={
+            "pattern": "^([\d|\.]+-\d+)[-|\w]+$"
+        })
+
+        etree.SubElement(regex, "object_component", attrib={
+            "object_ref": f"{self.ns}:obj:{uname_obj_id}",
+            "item_field": "os_release"
+        })
+
+        component.text = "0:"
+
+        return var
+    
+    def _generate_uname_object_element(self, id):
+        object = etree.Element("unix-def:uname_object", 
+            attrib={
+                'id' : f"{self.ns}:obj:{id}",
+                'version': "1",
+                "comment": "The uname object."
+            })
+        
+        return object
+
+    def _generate_uname_state_element(self, id, regex, comment):
+        object = etree.Element("unix-def:uname_state", 
+            attrib={
+                'id' : f"{self.ns}:ste:{id}",
+                'version': "1",
+                "comment": comment
+            })
+        
+        version_check = etree.SubElement(object, "unix-def:os_release", attrib={
+            "operation": "pattern match"
+        })
+
+        version_check.text = regex
+        
+        return object
+
+    def _generate_variable_kernel_version(self, comment, id, version):
+        var = etree.Element("constant_variable", 
+            attrib={
+                'id' : f"{self.ns}:var:{id}",
+                'version': "1",
+                "datatype": "debian_evr_string",
+                "comment": comment
+            })
+        
+        item = etree.SubElement(var, "value")
+        item.text = f"0:{version.rsplit('.', 1)[0]}"
+    
+        return var
+
+    def _generate_test_element_running_kernel(self, id, comment, obj_id):
+        test = etree.Element("unix-def:uname_test", attrib={
+            "id": f"{self.ns}:tst:{id}",
+            "version": "1",
+            "check": "at least one",
+            "comment": comment
+        })
+
+        textfc54_test_obj = etree.SubElement(test, "unix-def:object")
+        textfc54_test_obj.set("object_ref", f'{self.ns}:obj:{obj_id}')
+
+        textfc54_test_state = etree.SubElement(test, "unix-def:state")
+        textfc54_test_state.set("state_ref", f'{self.ns}:ste:{id}')
+
+        return test
+
+    # Kernel elements generators
+    def _generate_criteria_kernel(self, operator) -> etree.Element:
+        return etree.Element("criteria", attrib={
+            "operator": operator
+        })
+
+    def _generate_kernel_version_object_element(self, id, var_id) -> etree.Element:
+        object = etree.Element("ind-def:variable_object", 
+            attrib={
+                'id' : f"{self.ns}:obj:{id}",
+                'version': "1",
+            })
+        
+        var_ref = etree.SubElement(object, 'ind-def:var_ref')
+        var_ref.text = f"{self.ns}:var:{var_id}"
+
+        return object
+
+    def _generate_state_kernel_element(self, comment, id, var_id) -> None:
+        state = etree.Element("ind-def:variable_state", 
+            attrib={
+                'id' : f"{self.ns}:ste:{id}",
+                'version': "1",
+                "comment": comment
+            })
+        
+        etree.SubElement(state, "ind-def:value", attrib={
+            "datatype": "debian_evr_string",
+            "operation": "greater than",
+            "var_check": "at least one",
+            "var_ref": f"{self.ns}:var:{var_id}"
+        })
+        
+        return state
+
+    def _generate_kernel_package_elements(self, package: Package, root_element, running_kernel_check_id) -> etree.Element:
+        tests = root_element.find("tests")
+        states = root_element.find("states")
+
+        comment_running_kernel = f'Is kernel {package.name} running?'
+        regex = process_kernel_binaries(package.binaries, self.oval_format)
+
+        criterion_running_kernel = self._generate_criterion_element(comment_running_kernel, self.definition_id)
+        test_running_kernel = self._generate_test_element_running_kernel(self.definition_id, comment_running_kernel, running_kernel_check_id)
+        state_running_kernel = self._generate_uname_state_element(self.definition_id, regex, f"Regex match for kernel {package.name}")
+
+        self.definition_id += self.criterion_step
+
+        tests.append(test_running_kernel)
+        states.append(state_running_kernel)
+
+        return criterion_running_kernel
+
+    def _add_fixed_kernel_elements(self, cve: CVE, package: Package, package_rel_entry:CVEPkgRelEntry, root_element, running_kernel_id) -> etree.Element:
+        tests = root_element.find("tests")
+        objects = root_element.find("objects")
+        variables = root_element.find("variables")
+
+        comment_version = f'Kernel {package.name} version comparison ({package_rel_entry.fixed_version})'
+        comment_criterion = f'({cve.number}) {package.name} {package_rel_entry.note}'
+        criterion_version = self._generate_criterion_element(comment_criterion, self.definition_id)
+        test_kernel_version = self._generate_test_element(comment_version, self.definition_id, True, 'kernel', state_id=running_kernel_id)
+
+        obj_kernel_version = self._generate_kernel_version_object_element(self.definition_id, self.definition_id)
+        var_version_kernel = self._generate_variable_kernel_version(comment_version, self.definition_id, package_rel_entry.fixed_version)
+
+        tests.append(test_kernel_version)
+        objects.append(obj_kernel_version)
+        variables.append(var_version_kernel)
+
+        return criterion_version
+
+    # General functions
+    def _increase_id(self, is_definition):
+        if is_definition:
+            self.definition_id += self.definition_step
+            clean_value = self.definition_step / 10
+            self.definition_id = int(int(self.definition_id / clean_value) * clean_value)
+        else:
+            self.definition_id += self.criterion_step
+
+    def _add_to_criteria(self, definition, element, depth=2, operator='OR'):
+        criteria = definition
+        for _ in range(depth):
+            prev_criteria = criteria
+            criteria = criteria.find('criteria')
+            if criteria == None:
+                criteria = etree.SubElement(prev_criteria, "criteria")
+                criteria.set("operator", operator)
+
+        criteria.append(element)
+
+    def _add_criterion(self, id, package_entry, cve, definition, depth=2) -> None:
+        criterion_note = f'({cve.number}) {package_entry.pkg.name}{package_entry.note}'
+        criterion = self._generate_criterion_element(criterion_note, id)
+        self._add_to_criteria(definition, criterion, depth)
+
+    def _generate_vulnerable_elements(self, package, obj_id=None):
+        binary_keyword = 'binaries' if len(package.binaries) > 1 else 'binary'
+        test_note = f"Does the '{package.name}' package exist?"
+        object_note = f"The '{package.name}' package {binary_keyword}"
+
+        test = self._generate_test_element(test_note, self.definition_id, False, 'pkg', obj_id=obj_id)
+
+        if not obj_id:
+            object = self._generate_object_object(object_note, self.definition_id, self.definition_id)
+
+            binaries = package.binaries
+            if self.oval_format == 'oci':
+                if is_kernel_binaries(package.binaries):
+                    regex = process_kernel_binaries(package.binaries, 'oci')
+                    binaries = [f'^{regex}(?::\w+|)\s+(.*)$\s+(.*)']
+                else:
+                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)'
+
+                    binaries = []
+                    for binary in package.binaries:
+                        binaries.append(f'^{binary}{variable_values}')
+            var = self._generate_var_object(object_note, self.definition_id, binaries)
+        else:
+            object = None
+            var = None
+        return test, object, var
+
+    def _generate_fixed_elements(self, package, pkg_rel_entry, obj_id=None):
+        binary_keyword = 'binaries' if len(package.binaries) > 1 else 'binary'
+        test_note = f"Does the '{package.name}' package exist and is the version less than '{pkg_rel_entry.fixed_version}'?"
+        object_note = f"The '{package.name}' package {binary_keyword}"
+        state_note = f"The package version is less than '{pkg_rel_entry.fixed_version}'"
+
+        test = self._generate_test_element(test_note, self.definition_id, True, 'pkg', obj_id=obj_id)
+        if not obj_id:
+            object = self._generate_object_object(object_note, self.definition_id, self.definition_id)
+
+            binaries = package.binaries
+            if self.oval_format == 'oci':
+                if is_kernel_binaries(package.binaries):
+                    regex = process_kernel_binaries(package.binaries, 'oci')
+                    binaries = [f'^{regex}(?::\w+|)\s+(.*)$\s+(.*)']
+                else:
+                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)'
+
+                    binaries = []
+                    for binary in package.binaries:
+                        binaries.append(f'^{binary}{variable_values}')
+
+            var = self._generate_var_object(object_note, self.definition_id, binaries)
+        else:
+            object = None
+            var = None
+        state = self._generate_state_object(state_note, self.definition_id, pkg_rel_entry.fixed_version)
+        
+        return test, object, var, state
+
+    def _populate_pkg(self, package, root_element):
+        pkg_id = Package.get_unique_id(package.name, self.release)
+        tests = root_element.find("tests")
+        objects = root_element.find("objects")
+        variables = root_element.find("variables")
+        states = root_element.find("states")
+
+        # Add package definition
+        definitions = root_element.find("definitions")
+        definition_element = self._generate_definition_object(package)
+
+        # Control/cache variables
+        one_time_added_id = None
+        fixed_versions = {}
+        binaries_id = None
+        cve_added = False
+
+        for cve in package.cves:
+            pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
+            if pkg_rel_entry.status == 'vulnerable':
+                cve_added = True
+                if one_time_added_id:
+                    self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element)
+                else:
+                    self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element)
+
+                    test, object, var = self._generate_vulnerable_elements(package, binaries_id)
+                    tests.append(test)
+
+                    if not binaries_id:
+                        objects.append(object)
+                        variables.append(var)
+                        binaries_id = self.definition_id
+
+                    one_time_added_id = self.definition_id
+                    self._increase_id(is_definition=False)
+            elif pkg_rel_entry.status == 'fixed':
+                cve_added = True
+
+                if pkg_rel_entry.fixed_version in fixed_versions:
+                    self._add_criterion(fixed_versions[pkg_rel_entry.fixed_version], pkg_rel_entry, cve, definition_element)
+                else:
+                    self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element)
+
+                    test, object, var, state = self._generate_fixed_elements(package, pkg_rel_entry, binaries_id)
+                    tests.append(test)
+                    states.append(state)
+
+                    if not binaries_id:
+                        objects.append(object)
+                        variables.append(var)
+                        binaries_id = self.definition_id
+
+                    fixed_versions[pkg_rel_entry.fixed_version] = self.definition_id
+                    self._increase_id(is_definition=False)
+
+        if cve_added:
+            definitions.append(definition_element)
+
+        self._increase_id(is_definition=True)
+
+    def _populate_kernel_pkg(self, package, root_element, running_kernel_id):
+        pkg_id = Package.get_unique_id(package.name, self.release)
+        tests = root_element.find("tests")
+        objects = root_element.find("objects")
+        variables = root_element.find("variables")
+        
+        # Add package definition
+        definitions = root_element.find("definitions")
+        definition_element = self._generate_definition_object(package)
+
+        # Control/cache variables
+        one_time_added_id = None
+        fixed_versions = []
+        binaries_id = None
+        cve_added = False
+
+        # Generate one-time elements
+        kernel_criterion = self._generate_kernel_package_elements(package, root_element, running_kernel_id)
+        criteria = self._generate_criteria_kernel('OR')
+
+        self._add_to_criteria(definition_element, kernel_criterion, operator='AND')
+        self._add_to_criteria(definition_element, criteria, operator='AND')
+
+        for cve in package.cves:
+            pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
+            if pkg_rel_entry.status == 'vulnerable':
+                cve_added = True
+                if one_time_added_id:
+                    self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element, depth=3)
+                else:
+                    self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element, depth=3)
+
+                    test, object, var = self._generate_vulnerable_elements(package, binaries_id)
+                    tests.append(test)
+                    objects.append(object)
+
+                    if not binaries_id:
+                        variables.append(var)
+                        binaries_id = self.definition_id
+
+                    one_time_added_id = self.definition_id
+                    self._increase_id(is_definition=False)
+            elif pkg_rel_entry.status == 'fixed':
+                cve_added = True
+
+                if not pkg_rel_entry.fixed_version in fixed_versions:
+                    kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id)
+                    self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)
+                    fixed_versions.append(pkg_rel_entry.fixed_version)
+                    self._increase_id(is_definition=False)
+
+        if cve_added:
+            definitions.append(definition_element)
+        self._increase_id(is_definition=True)
+
+    def _load_pkgs(self, cve_prefix_dir, packages_filter=None) -> None:
+        cve_lib.load_external_subprojects()
+
+        cves = []
+        for pathname in self.cve_paths:
+            cves = cves + glob.glob(os.path.join(cve_prefix_dir, pathname))
+        cves.sort()
+
+        packages = {}
+        sources[self.release] = load(releases=[self.release], skip_eol_releases=False)[self.release]
+        orig_name = cve_lib.get_orig_rel_name(self.release)
+        if '/' in orig_name:
+            orig_name = orig_name.split('/', maxsplit=1)[1]
+        source_map_binaries[self.release] = load(data_type='packages',releases=[orig_name], skip_eol_releases=False)[orig_name] \
+            if self.release not in cve_lib.external_releases else {}
+
+        i = 0
+        for cve_path in cves:
+            cve_number = cve_path.rsplit('/', 1)[1]
+            i += 1
+
+            if self.progress:
+                print(f'[{i:5}/{len(cves)}] Processing {cve_number:18}', end='\r')
+
+            if not cve_number in self.cve_cache:
+                self.cve_cache[cve_number] = cve_lib.load_cve(cve_path)
+            
+            info = self.cve_cache[cve_number]
+            cve_obj = CVE(cve_number, info)
+
+            for pkg in info['pkgs']:
+                if packages_filter and pkg not in packages_filter:
+                    continue
+
+                if self.release in info['pkgs'][pkg] and \
+                    info['pkgs'][pkg][self.release][0] != 'DNE' and \
+                    pkg in sources[self.release]:
+                        pkg_id = Package.get_unique_id(pkg, self.release)
+                        if pkg_id not in packages:
+                            binaries = self.pkg_cache.get_binarypkgs(pkg, self.release)
+                            version = ''
+                            if binaries:
+                                version = self.pkg_cache.pkgcache[pkg]['Releases'][self.release]['source_version']
+                            pkg_obj = Package(pkg, self.release, binaries, version)
+                            packages[pkg_id] = pkg_obj
+
+                        pkg_obj = packages[pkg_id]
+                        pkg_obj.cves.append(cve_obj)
+                        # add_pkg (pkg, status, note)
+                        cve_obj.add_pkg(pkg_obj, info['pkgs'][pkg][self.release][0],info['pkgs'][pkg][self.release][1])
+
+        packages = dict(sorted(packages.items()))
+        print(' ' * 40, end='\r')
+        return packages
+
+    def generate_oval(self) -> None:
+        xml_tree, root_element = self._get_root_element("Package")
+        self._add_structure(root_element)
+
+        if self.oval_format == 'dpkg':
+            # One time kernel check
+            self._add_release_checks(root_element)
+            self._add_running_kernel_checks(root_element)
+            running_kernel_id = self.definition_id
+            self._increase_id(is_definition=True)
+
+        for pkg in self.packages:
+            if len(self.packages[pkg].binaries) == 0:
+                continue
+
+            if is_kernel_binaries(self.packages[pkg].binaries) and self.oval_format != 'oci':
+                self._populate_kernel_pkg(self.packages[pkg], root_element, running_kernel_id)
+            else:
+                self._populate_pkg(self.packages[pkg], root_element)
+        
+        etree.indent(xml_tree, level=0)
+        filename = f"com.ubuntu.{self.release_codename}.pkg.oval.xml"
+        if self.oval_format == 'oci':
+            filename = f'oci.{filename}'
+        xml_tree.write(os.path.join(self.output_dir, filename))
+        return
+
+class OvalGeneratorCVE:
     supported_oval_elements = ('definition', 'test', 'object', 'state',
                                'variable')
     generator_version = '1.1'
@@ -179,9 +1194,9 @@ class OvalGenerator:
                         # prepare update instructions if package is fixed
                         if pkg['status'] == 'fixed':
                             if 'parent' in release_status:
-                                product_description = get_subproject_description(release_status['parent'])
+                                product_description = cve_lib.get_subproject_description(release_status['parent'])
                             else:
-                                product_description = get_subproject_description(release)
+                                product_description = cve_lib.get_subproject_description(release)
                             instruction = prepare_instructions(instruction, header['Candidate'], product_description, pkg)
 
         # if no packages for this release, then we're done
@@ -407,6 +1422,7 @@ class OvalGenerator:
             package['note'] = package['name'] + package['note']
             return {'id': self.id_unknown_test, 'comment': package['note']}
 
+    # TODO: xml lib
     def add_release_applicability_definition(self):
         """ add platform/release applicability OVAL definition for codename """
 
@@ -464,6 +1480,7 @@ class OvalGenerator:
                     <ind-def:subexpression>{codename}</ind-def:subexpression>
                 </ind-def:textfilecontent54_state>\n""".format(**mapping))
 
+    # TODO: xml lib
     def get_package_object_id(self, name, bin_pkgs, id_base, version=1):
         """ create unique object for each package and return its OVAL id """
         if not hasattr(self, 'package_objects'):
@@ -532,6 +1549,7 @@ class OvalGenerator:
 
         return self.package_objects[key]
 
+    # TODO: xml lib
     def get_package_version_state_id(self, id_base, fix_version, version=1):
         """ create unique states for each version and return its OVAL id """
         if not hasattr(self, 'package_version_states'):
@@ -555,6 +1573,7 @@ class OvalGenerator:
 
         return self.package_version_states[key]
 
+    # TODO: xml lib
     def get_package_test_id(self, name, id_base, test_title, object_id, state_id=None, version=1, check_existence='at_least_one_exists'):
         """ create unique test for each parameter set and return its OVAL id """
         if not hasattr(self, 'package_tests'):
@@ -579,6 +1598,7 @@ class OvalGenerator:
 
         return self.package_tests[key]
 
+    # TODO: xml lib
     def get_running_kernel_object_id(self, id_base, var_id, version=1):
         """ creates a uname_object so we can use the value from uname -r for
             mainly two things:
@@ -611,6 +1631,7 @@ class OvalGenerator:
 
         return (self.kernel_uname_obj_id, object_id_2)
 
+    # TODO: xml lib
     def get_running_kernel_state_id(self, uname_regex, id_base, var_id, version=1):
         """ create uname_state to compare the system uname to the affected kernel
             uname regex, allowing us to verify we are running the same major version
@@ -643,6 +1664,7 @@ class OvalGenerator:
 
         return (self.uname_states[uname_regex], self.kernel_state_id)
 
+    # TODO: xml lib
     def get_running_kernel_variable_id(self, uname_regex, id_base, fixed_version, version=1):
         """ creates a local variable to store running kernel version in devian evr string"""
         if not hasattr(self, 'uname_variables'):
@@ -675,6 +1697,7 @@ class OvalGenerator:
 
         return (self.uname_variables['local_variable'], var_id_2)
 
+    # TODO: xml lib
     def get_running_kernel_test_id(self, uname_regex, id_base, name, object_id, state_id, object_id_2, state_id_2, version=1):
         """ create uname test and return its OVAL id """
         if not hasattr(self, 'uname_tests'):
@@ -724,6 +1747,7 @@ class OvalGenerator:
 
         self.tmp[element].write(xml + '\n')
 
+    # TODO: xml lib
     def write_to_file(self):
         """ dequeue all elements into one OVAL definitions file and clean up """
         if not hasattr(self, 'tmp'):
@@ -792,7 +1816,6 @@ class OvalGenerator:
         """ print a warning message """
         print('WARNING: {0}'.format(message))
 
-
 class OvalGeneratorUSN():
     supported_oval_elements = ('definition', 'test', 'object', 'state',
                                'variable')
@@ -851,6 +1874,7 @@ class OvalGeneratorUSN():
         self.oval_structure['object'].write(oval_rel_struct['object'])
         self.oval_structure['state'].write(oval_rel_struct['state'])
 
+    # TODO: xml lib
     def create_release_definition(self):
         if self.oval_format == 'dpkg':
             mapping = {
@@ -876,6 +1900,7 @@ class OvalGeneratorUSN():
 
         return definition
 
+    # TODO: xml lib
     def create_release_test(self):
         if self.oval_format == 'dpkg':
             mapping = {
@@ -895,6 +1920,7 @@ class OvalGeneratorUSN():
 
         return test
 
+    # TODO: xml lib
     def create_release_object(self):
         if self.oval_format == 'dpkg':
             mapping = {
@@ -914,6 +1940,7 @@ class OvalGeneratorUSN():
 
         return _object
 
+    # TODO: xml lib
     def create_release_state(self):
         if self.oval_format == 'dpkg':
             mapping = {
@@ -980,6 +2007,7 @@ class OvalGeneratorUSN():
                             if key[1] == max_severity][0][0]
         return usn_severity.capitalize()
 
+    # TODO: xml lib
     def create_usn_definition(self, usn_object, usn_number, id_base, test_refs, cve_dir, instructions):
         urls, cves_info = self.format_cves_info(usn_object['cves'], cve_dir)
         cve_references = self.create_cves_references(cves_info)
@@ -1058,6 +2086,7 @@ class OvalGeneratorUSN():
 
         return definition
 
+    # TODO: xml lib
     def create_usn_test(self, test_ref):
         mapping = {
             'id': test_ref['testref_id'],
@@ -1113,6 +2142,7 @@ class OvalGeneratorUSN():
 
         return test
 
+    # TODO: xml lib
     def create_usn_object(self, test_ref):
         mapping = {
             'id': test_ref['testref_id'],
@@ -1168,7 +2198,8 @@ class OvalGeneratorUSN():
         </ind:textfilecontent54_object>""".format(**mapping)
 
         return _object
-
+    
+    # TODO: xml lib
     def create_usn_state(self, test_ref):
         mapping = {
             'id': test_ref['testref_id'],
@@ -1229,7 +2260,8 @@ class OvalGeneratorUSN():
         </ind:textfilecontent54_state>""".format(**mapping)
 
         return state
-
+    
+    # TODO: xml lib
     def create_usn_variable(self, test_ref):
         binaries_list = test_ref['pkgs']
 
@@ -1300,7 +2332,7 @@ class OvalGeneratorUSN():
         else:
             return None
 
-        cve_object = load_cve(cve_file_path)
+        cve_object = cve_lib.load_cve(cve_file_path)
         if not cve_object:
             return None
 
@@ -1407,23 +2439,23 @@ class OvalGeneratorUSN():
                 break
             except KeyError:
                 # trusty usns don't have pocket, so try to check on timestamp
-                if self.release_codename == 'trusty' and stamp >= release_stamp('esm/trusty'):
+                if self.release_codename == 'trusty' and stamp >= cve_lib.release_stamp('esm/trusty'):
                     self.pocket = 'esm'
                 else:
                     self.pocket = 'security'
                 break
 
         if self.pocket in ['security', 'updates', 'livepatch']:
-            self.release_name = release_name(self.release_codename)
-            self.product_description = get_subproject_description(self.release_codename)
+            self.release_name = cve_lib.release_name(self.release_codename)
+            self.product_description = cve_lib.get_subproject_description(self.release_codename)
         else:
             # deal with trusty's weirdness
             if self.release_codename == 'trusty':
-                self.release_name = release_name('esm/' + self.release_codename)
-                self.product_description = get_subproject_description('esm/' + self.release_codename)
+                self.release_name = cve_lib.release_name('esm/' + self.release_codename)
+                self.product_description = cve_lib.get_subproject_description('esm/' + self.release_codename)
             else:
-                self.release_name = release_name(self.pocket + '/' + self.release_codename)
-                self.product_description = get_subproject_description(self.pocket + '/' + self.release_codename)
+                self.release_name = cve_lib.release_name(self.pocket + '/' + self.release_codename)
+                self.product_description = cve_lib.get_subproject_description(self.pocket + '/' + self.release_codename)
 
     def generate_usn_oval(self, usn_object, usn_number, cve_dir):
         if self.release_codename not in usn_object['releases'].keys():
@@ -1479,6 +2511,7 @@ class OvalGeneratorUSN():
             if usn_variable:
                 self.oval_structure['variable'].write(usn_variable)
 
+    # TODO: xml lib
     def write_oval_elements(self):
         """ write OVAL elements to .xml file w. OVAL header and footer """
         for key in self.oval_structure:

@@ -26,20 +26,20 @@
 from __future__ import print_function, unicode_literals
 
 import argparse
-import functools
 import glob
 import json
 import os
 import re
 import sys
-import tempfile
 #from launchpadlib.launchpad import Launchpad
 
 import apt_pkg
 from cve_lib import (kernel_srcs, product_series, load_cve, PRODUCT_UBUNTU, all_releases, eol_releases, devel_release, release_parent, release_name, release_ppa, release_progenitor, needs_oval)
 from kernel_lib import meta_kernels
 import oval_lib
+import functools
 import lpl_common
+import tempfile
 
 # cope with apt_pkg api changes.
 if 'init_system' in dir(apt_pkg):
@@ -61,6 +61,9 @@ packages_to_ignore = ("-dev", "-doc", "-dbg", "-dbgsym", "-udeb", "-locale-")
 
 debug_level = 0
 
+package_cache = None
+
+cve_cache = {}
 
 def main():
     """ parse command line options and iterate through files to be processed
@@ -95,12 +98,14 @@ def main():
                         help="report debugging information")
     parser.add_argument('--usn-oval', action='store_true',
                         help='generates oval from the USN database')
+    parser.add_argument('--pkg-oval', action='store_true',
+                        help='generates oval from the Package database')
     parser.add_argument('--usn-db-dir', default='./', type=str,
                         help='location of USN database.json to process '
                         '(default is ./)')
     parser.add_argument('--usn-number', default=None, type=str,
                         help='if passed specifics a USN for the oval_usn generator')
-    parser.add_argument('--usn-oval-release', default=None, type=str,
+    parser.add_argument('--oval-release', default=None, type=str,
                         help='specifies a release to generate the oval usn')
     parser.add_argument('--packages', nargs='+', action='store', default=None,
                         help='generates oval for specific packages. Only for '
@@ -134,139 +139,33 @@ def main():
 
     if args.usn_oval:
         if args.oci:
-            generate_oval_usn(args.output_dir, args.usn_number, args.usn_oval_release,
+            generate_oval_usn(args.output_dir, args.usn_number, args.oval_release,
                               args.cve_prefix_dir, args.usn_db_dir, ociprefix, ocioutdir)
         else:
-            generate_oval_usn(args.output_dir, args.usn_number, args.usn_oval_release,
+            generate_oval_usn(args.output_dir, args.usn_number, args.oval_release,
                               args.cve_prefix_dir, args.usn_db_dir)
 
         return
 
-    ovals = dict()
-    for i in supported_releases:
-        # we can have nested parent releases
-        parent = release_progenitor(i)
-        index = '{0}_dpkg'.format(i)
-        ovals[index] = oval_lib.OvalGenerator(i, release_name(i), parent, warn, outdir, prefix='', oval_format='dpkg')
-        ovals[index].add_release_applicability_definition()
-        if args.oci:
-            index = '{0}_oci'.format(i)
-            ovals[index] = oval_lib.OvalGenerator(i, release_name(i), parent, warn, ocioutdir, prefix=ociprefix, oval_format='oci')
-            ovals[index].add_release_applicability_definition()
-
-    # set up cachefile
+    cve_cache = {}
     cache = PackageCache(args.pkg_cache, args.force_cache_reload)
 
-    # loop through all CVE data files
-    files = []
-    for pathname in pathnames:
-        files = files + glob.glob(os.path.join(args.cve_prefix_dir, pathname))
-    files.sort()
+    if args.pkg_oval:
+        releases = [args.oval_release] if args.oval_release else supported_releases
+        for release in releases:
+            if args.oci:
+                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, ociprefix, ocioutdir)
+            else:
+                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames)
+        return
 
-    pkg_filter = None
-    if args.packages:
-        pkg_filter = args.packages
-
-    files_count = len(files)
-    for i_file, filepath in enumerate(files):
-        cve_data = parse_cve_file(filepath, cache, pkg_filter)
-
-        # skip CVEs without packages for supported releases
-        if not cve_data['packages']:
-            if not args.no_progress:
-                progress_bar(i_file + 1, files_count)
-            continue
-
-        for i in ovals:
-            ovals[i].generate_cve_definition(cve_data)
-
-        if not args.no_progress:
-            progress_bar(i_file + 1, files_count)
-
-    for i in ovals:
-        ovals[i].write_to_file()
-
-    cache.write_cache()
-
-
-def parse_package_status(release, package, status_text, filepath, cache):
-    """ parse ubuntu package status string format:
-          <status code> (<version/notes>)
-        outputs dictionary: {
-          'status'        : '<not-applicable | unknown | vulnerable | fixed>',
-          'note'          : '<description of the status>',
-          'fix-version'   : '<version with issue fixed, if applicable>',
-          'bin-pkgs'      : []
-        } """
-
-    # break out status code and detail
-    status_sections = status_text.strip().split(' ', 1)
-    code = status_sections[0].strip().lower()
-    detail = status_sections[1].strip('()') if len(status_sections) > 1 else None
-
-    status = {}
-    note_end = " (note: '{0}').".format(detail) if detail else '.'
-    if code != 'dne':
-        if detail and detail[0].isdigit() and code in ['released', 'not-affected']:
-            status['bin-pkgs'] = cache.get_binarypkgs(package, release, version=detail)
-        else:
-            status['bin-pkgs'] = cache.get_binarypkgs(package, release)
-
-    if code == 'dne':
-        status['status'] = 'not-applicable'
-        status['note'] = \
-            " package does not exist in {0}{1}".format(release, note_end)
-    elif code == 'ignored':
-        status['status'] = 'vulnerable'
-        status['note'] = ": while related to the CVE in some way, a decision has been made to ignore this issue{0}".format(note_end)
-    elif code == 'not-affected':
-        # check if there is a release version and if so, test for
-        # package existence with that version
-        if detail and detail[0].isdigit():
-            status['status'] = 'fixed'
-            status['note'] = " package in {0}, is related to the CVE in some way and has been fixed{1}".format(release, note_end)
-            status['fix-version'] = detail
-        else:
-            status['status'] = 'not-vulnerable'
-            status['note'] = " package in {0}, while related to the CVE in some way, is not affected{1}".format(release, note_end)
-    elif code == 'needed':
-        status['status'] = 'vulnerable'
-        status['note'] = \
-            " package in {0} is affected and needs fixing{1}".format(release, note_end)
-    elif code == 'pending':
-        # pending means that packages have been prepared and are in
-        # -proposed or in a ppa somewhere, and should have a version
-        # attached. If there is a version, test for package existence
-        # with that version, otherwise mark as vulnerable
-        if detail and detail[0].isdigit():
-            status['status'] = 'fixed'
-            status['note'] = " package in {0} is affected. An update containing the fix has been completed and is pending publication{1}".format(release, note_end)
-            status['fix-version'] = detail
-        else:
-            status['status'] = 'vulnerable'
-            status['note'] = " package in {0} is affected. An update containing the fix has been completed and is pending publication{1}".format(release, note_end)
-    elif code == 'deferred':
-        status['status'] = 'vulnerable'
-        status['note'] = " package in {0} is affected, but a decision has been made to defer addressing it{1}".format(release, note_end)
-    elif code in ['released']:
-        # if there isn't a release version, then just mark
-        # as vulnerable to test for package existence
-        if not detail:
-            status['status'] = 'vulnerable'
-            status['note'] = " package in {0} was vulnerable and has been fixed, but no release version available for it{1}".format(release, note_end)
-        else:
-            status['status'] = 'fixed'
-            status['note'] = " package in {0} was vulnerable but has been fixed{1}".format(release, note_end)
-            status['fix-version'] = detail
-    elif code == 'needs-triage':
-        status['status'] = 'vulnerable'
-        status['note'] = " package in {0} is affected and may need fixing{1}".format(release, note_end)
+    if args.oci:
+        generate_oval_cve(args.output_dir, args.cve_prefix_dir, cache, args.oci,
+                        args.no_progress, args.packages, pathnames,  ociprefix, ocioutdir)
     else:
-        warn('Unsupported status "{0}" in {1}_{2} in "{3}". Setting to "unknown".'.format(code, release, package, filepath))
-        status['status'] = 'unknown'
-        status['note'] = " package in {0} has a vulnerability that is not known (status: '{1}'). It is pending evaluation{2}".format(release, code, note_end)
+        generate_oval_cve(args.output_dir, args.cve_prefix_dir, cache, args.oci,
+                        args.no_progress, args.packages, pathnames)
 
-    return status
 
 
 # given a status generated by parse_package_status(), duplicate it for a
@@ -354,10 +253,7 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
             if rel not in supported_releases:
                 continue
             state, details = data['pkgs'][pkg][rel]
-            status_line = state
-            if len(details) > 0:
-                status_line += ' (' + details + ')'
-            packages[pkg]['Releases'][rel] = parse_package_status(rel, pkg, status_line, filepath, cache)
+            packages[pkg]['Releases'][rel] = oval_lib.CVEPkgRelEntry.parse_package_status(rel, pkg, state, details, filepath, cache)
 
     # add supplemental packages; usually kernels only need this special case.
     for package in [name for name in packages if name in kernel_srcs]:
@@ -458,7 +354,6 @@ def prepend_usn_to_id(usn_database, usn_id):
     if re.search(r'^[0-9]+-[0-9]$', usn_id):
         usn_database[usn_id]['id'] = 'USN-' + usn_id
 
-
 # Class to contain the binary package cache
 class PackageCache():
 
@@ -466,6 +361,7 @@ class PackageCache():
     cache_updates = 0
     releases = dict()
     unpublished_sources = dict()
+    packages_to_ignore = ("-dev", "-doc", "-dbg", "-dbgsym", "-udeb", "-locale-")
 
     def __init__(self, cachefile='data_file.json', force_reload=False):
         self.cachefile = cachefile
@@ -597,7 +493,7 @@ class PackageCache():
             if pname.startswith('linux') and not (i.binary_package_name).startswith('linux-image-'):
                 continue
             # skip ignored packages, with exception of golang*-dev pkgs
-            if (i.binary_package_name).startswith(('golang-go')) or not any(s in i.binary_package_name for s in packages_to_ignore):
+            if (i.binary_package_name).startswith(('golang-go')) or not any(s in i.binary_package_name for s in self.packages_to_ignore):
                 binlist.append(i.binary_package_name)
 
         # save current pkgcache to local cache
@@ -684,6 +580,54 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
 
     return True
 
+def generate_oval_package(release, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, ociprefix=None, ocioutdir=None):
+    print(f'[*] Generating OVAL for packages in release {release}')
+    ov = oval_lib.OvalGeneratorPkg(release, release_name(release), pathnames,packages, not no_progress,pkg_cache=pkg_cache, cve_cache=cve_cache, oval_format='oci' if oci else 'dpkg', outdir=outdir, cve_prefix_dir=cve_prefix_dir, prefix=ociprefix)
+    ov.generate_oval()
+    pkg_cache.write_cache()
+    print(f'[X] Done generating OVAL for packages in release {release}')
 
+def generate_oval_cve(outdir, cve_prefix_dir, cache, oci, no_progress, packages, pathnames, ociprefix=None, ocioutdir=None):
+    ovals = dict()
+    for i in supported_releases:
+        # we can have nested parent releases
+        parent = release_progenitor(i)
+        index = '{0}_dpkg'.format(i)
+        ovals[index] = oval_lib.OvalGeneratorCVE(i, release_name(i), parent, warn, outdir, prefix='', oval_format='dpkg')
+        ovals[index].add_release_applicability_definition()
+        if oci:
+            index = '{0}_oci'.format(i)
+            ovals[index] = oval_lib.OvalGeneratorCVE(i, release_name(i), parent, warn, ocioutdir, prefix=ociprefix, oval_format='oci')
+            ovals[index].add_release_applicability_definition()
+
+    # loop through all CVE data files
+    files = []
+    for pathname in pathnames:
+        files = files + glob.glob(os.path.join(cve_prefix_dir, pathname))
+    files.sort()
+
+    pkg_filter = None
+    if packages:
+        pkg_filter = packages
+
+    files_count = len(files)
+    for i_file, filepath in enumerate(files):
+        cve_data = parse_cve_file(filepath, cache, pkg_filter)
+        # skip CVEs without packages for supported releases
+        if not cve_data['packages']:
+            if not no_progress:
+                progress_bar(i_file + 1, files_count)
+            continue
+
+        for i in ovals:
+            ovals[i].generate_cve_definition(cve_data)
+
+        if not no_progress:
+            progress_bar(i_file + 1, files_count)
+
+    for i in ovals:
+        ovals[i].write_to_file()
+
+    cache.write_cache()
 if __name__ == '__main__':
     main()

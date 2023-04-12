@@ -184,3 +184,24 @@ class TestParseCVEFiles:
                 js = cve_lib.parse_cvss(cvss[0]['vector'])
                 assert cvss[0]['baseScore'] == str(js['baseMetricV3']['cvssV3']['baseScore'])
                 assert cvss[0]['baseSeverity'] == js['baseMetricV3']['cvssV3']['baseSeverity']
+
+
+class TestSubprojects:
+
+    def test_load_subprojects_loads_every_config_available(self):
+        # mimic here how subprojects are loaded to then assert cve_lib.subprojects
+        # contains every config available
+        for supported_txt in cve_lib.find_files_recursive(cve_lib.subprojects_dir, "supported.txt"):
+            # rel name is the path component between subprojects/ and
+            # /supported.txt
+            rel = supported_txt[len(cve_lib.subprojects_dir) + 1:-len("supported.txt") - 1]
+            config = cve_lib.read_external_subproject_config(rel)
+            config_data = ['ppa', 'oval', 'name', 'description', 'parent']
+            for data in config_data:
+                if data in config:
+                    assert cve_lib.subprojects[rel][data] == config[data]
+            project = cve_lib.read_external_subproject_details(rel)
+            if project and "customer" in project:
+                assert cve_lib.subprojects[rel]["customer"] == project["customer"]
+
+

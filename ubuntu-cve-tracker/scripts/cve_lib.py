@@ -856,6 +856,17 @@ def read_external_subproject_config(subproject):
     with open(config_yaml) as cfg:
         return yaml.safe_load(cfg)
 
+
+def read_external_subproject_details(subproject):
+    """Read and return the project details for the given subproject."""
+    sp_dir = get_external_subproject_dir(subproject)
+    # project.yml is located in the top level folder for the subproject
+    project_dir = sp_dir[:sp_dir.rfind("/")]
+    project_yaml = os.path.join(project_dir, "project.yml")
+    if os.path.isfile(project_yaml):
+        with open(project_yaml) as cfg:
+            return yaml.safe_load(cfg)
+
 def find_files_recursive(path, name):
     """Return a list of all files under path with name."""
     matches = []
@@ -920,11 +931,13 @@ def load_external_subprojects():
             # use config to populate other parts of the
             # subproject settings
             config = read_external_subproject_config(rel)
-            subprojects[rel].setdefault("ppa", config["ppa"])
-            subprojects[rel].setdefault("oval", config["oval"])
-            subprojects[rel].setdefault("name", config["name"])
-            subprojects[rel].setdefault("description", config["description"])
-            subprojects[rel].setdefault("parent", config["parent"])
+            config_data = ['ppa', 'oval', 'name', 'description', 'parent']
+            for data in config_data:
+                if data in config:
+                    subprojects[rel].setdefault(data, config[data])
+            project = read_external_subproject_details(rel)
+            if project and "customer" in project:
+                subprojects[rel].setdefault("customer", project["customer"])
         except:
             pass
 
