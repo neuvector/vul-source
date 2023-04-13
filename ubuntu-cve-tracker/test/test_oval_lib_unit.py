@@ -390,7 +390,7 @@ No subscription required"""
         finally:
             oval_gen_mock.file_cleanup()
 
-    @mock.patch("oval_lib.load_cve", autospec=True)
+    @mock.patch("cve_lib.load_cve", autospec=True)
     def test_empty_cve_object(self, load_cve_mock):
         load_cve_mock.return_value = {}
 

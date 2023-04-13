@@ -2,7 +2,7 @@
 
 import pytest
 from test_utils import TestUtilities as util
-
+from test_utils import OVALType
 class TestOvalLibFunctional:
     @pytest.mark.parametrize("manifest",
         # Only one of the binaries in manifest and it is vulnerable
@@ -12,8 +12,8 @@ class TestOvalLibFunctional:
     def test_multiple_binary_package(self, manifest):
         """Test a package with multiple binaries"""
         util.create_validate_oci(util.focal_dpkg_file, "focal_4410",
-            ["--usn-number", "4410-1", "--usn-oval-release", "focal"],
-            manifest, "focal_mock_4410_vul")
+            ["--usn-number", "4410-1", "--oval-release", "focal"],
+            manifest, "focal_mock_4410_vul", OVALType.USN)
 
     @pytest.mark.parametrize("manifest",
         # Binary is in manifest and not vulnerable  
@@ -23,8 +23,8 @@ class TestOvalLibFunctional:
     def test_single_binary_package(self, manifest):
         """Test a package with a single binary"""
         util.create_validate_oci(util.bionic_dpkg_file, "bionic_3642",
-            ["--usn-number", "3642-1", "--usn-oval-release", "bionic"],
-            manifest, manifest)
+            ["--usn-number", "3642-1", "--oval-release", "bionic"],
+            manifest, manifest, OVALType.USN)
 
     @pytest.mark.parametrize("manifest",
         # Only one of the packages is in manifest, which is vulnerable
@@ -34,8 +34,8 @@ class TestOvalLibFunctional:
     def test_multiple_packages_usn(self, manifest):
         """Test USN with multiple source packages"""
         util.create_validate_oci(util.bionic_dpkg_file, "bionic_4428",
-            ["--usn-number", "4428-1", "--usn-oval-release", "bionic"],
-            manifest, "bionic_mock_4428")
+            ["--usn-number", "4428-1", "--oval-release", "bionic"],
+            manifest, "bionic_mock_4428", OVALType.USN)
 
     @pytest.mark.parametrize("manifest,gold_file,usn",
         # USN epoch 1 and manifest epoch 0 vulnerable
@@ -68,7 +68,7 @@ class TestOvalLibFunctional:
     def test_epoch(self, manifest, gold_file, usn):
         """Test epochs are used correctly in vulnerability assesments"""
         util.create_validate_oci(util.focal_dpkg_file, "focal_{}".format(usn),
-            ["--usn-number", usn, "--usn-oval-release", "focal"], manifest,
-            gold_file)
+            ["--usn-number", usn, "--oval-release", "focal"], manifest,
+            gold_file, OVALType.USN)
 
 

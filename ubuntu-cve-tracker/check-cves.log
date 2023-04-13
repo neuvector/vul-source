@@ -7493,3 +7493,5 @@
 2023-04-12 13:45:24 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['redhat.mbox.json']
 2023-04-12 13:55:20 UTC - 4 added, 0 ignored, 1 skipped, 4 total - files: ['rhel8oval-import_r_bgzhv0.json']
 2023-04-12 13:55:29 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
+2023-04-13 17:56:55 UTC - 15 added, 104 ignored, 1 skipped, 119 total - files: ['nvdcve-1.1-recent.json']
+2023-04-13 18:25:48 UTC - 1 added, 0 ignored, 2 skipped, 1 total - files: ['debian-import_3ucvjjrk.json']

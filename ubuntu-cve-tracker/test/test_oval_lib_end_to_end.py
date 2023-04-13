@@ -3,11 +3,11 @@
 import pytest
 import subprocess
 from test_utils import TestUtilities as util
-
+from test_utils import OVALType
 class TestOvalLibEndToEnd:
     @pytest.mark.parametrize("output_file,oscap_args",
-        [(util.focal_dpkg_file, ["--usn-oval-release", "focal"]),
-        (util.xenial_dpkg_file, ["--usn-oval-release", "xenial"])])
+        [(util.focal_dpkg_file, ["--oval-release", "focal"]),
+        (util.xenial_dpkg_file, ["--oval-release", "xenial"])])
     def test_validate_entire_dpkg_oval(self, output_file, oscap_args):
         """Coherence check of entire generated dpkg OVAL"""
         write_file = util.rel_test_path + output_file
@@ -29,4 +29,4 @@ class TestOvalLibEndToEnd:
     def test_validate_entire_oci_oval(self, dpkg_file, manifest, release):
         """Coherence check of entire generated oci OVAL"""
         util.create_validate_oci(dpkg_file, "{}_full".format(release),
-            ["--usn-oval-release", release], manifest, release)
+            ["--oval-release", release], manifest, release, OVALType.USN)

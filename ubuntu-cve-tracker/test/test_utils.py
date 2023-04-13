@@ -3,6 +3,12 @@
 import os
 import sys
 import subprocess
+from enum import Enum
+
+class OVALType(Enum):
+    USN = '--usn-oval'
+    CVE = ''
+    PKG = '--pkg-oval'
 
 class TestUtilities:
     cwd = os.getcwd()
@@ -19,7 +25,7 @@ class TestUtilities:
 
     @classmethod
     def create_validate_oci(cls, output_file, new_filename, oscap_args,
-            manifest, gold_file):
+            manifest, gold_file, type: OVALType):
         """Generate and validate oci and dpkg oval XML files for a single Ubuntu
         release"""
 
@@ -41,7 +47,7 @@ class TestUtilities:
             else:
                 pycov = "python3-coverage"
             subprocess.check_output([pycov, "run", "-a",
-                                     "scripts/generate-oval", "--oci", "--usn-oval",
+                                     "scripts/generate-oval", "--oci", type.value,
                                      "--output-dir={}".format(cls.rel_test_path)] + oscap_args)
 
             # Validate file structure
