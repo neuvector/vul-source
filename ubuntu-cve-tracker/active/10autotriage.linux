@@ -817,3 +817,7 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2023-0461
 :title('UBUNTU: SAUCE: Fix inet_csk_listen_start after CVE-2023-0461', ['local-CVE-2023-0461-regression-1'])
+
+# CVE-2023-1872
+:title('io_uring: add missing lock in io_get_file_fixed', ['local-CVE-2023-1872-fix-1'])
+:title('io_uring: ensure that io_init_req() passes in the right issue_flags', ['local-CVE-2023-1872-fix-2'])

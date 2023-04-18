@@ -137,11 +137,11 @@ upstream_nvidia-graphics-drivers-390: needs-triage
 trusty_nvidia-graphics-drivers-390: DNE
 trusty/esm_nvidia-graphics-drivers-390: DNE
 xenial_nvidia-graphics-drivers-390: DNE
-bionic_nvidia-graphics-drivers-390: needs-triage
-focal_nvidia-graphics-drivers-390: needs-triage
-jammy_nvidia-graphics-drivers-390: needs-triage
-kinetic_nvidia-graphics-drivers-390: needs-triage
-devel_nvidia-graphics-drivers-390: needs-triage
+bionic_nvidia-graphics-drivers-390: ignored
+focal_nvidia-graphics-drivers-390: ignored
+jammy_nvidia-graphics-drivers-390: ignored
+kinetic_nvidia-graphics-drivers-390: ignored
+devel_nvidia-graphics-drivers-390: ignored
 
 Patches_nvidia-graphics-drivers-418-server:
 upstream_nvidia-graphics-drivers-418-server: needs-triage
@@ -291,11 +291,11 @@ upstream_nvidia-graphics-drivers-510: needs-triage
 trusty_nvidia-graphics-drivers-510: DNE
 trusty/esm_nvidia-graphics-drivers-510: DNE
 xenial_nvidia-graphics-drivers-510: DNE
-bionic_nvidia-graphics-drivers-510: needs-triage
-focal_nvidia-graphics-drivers-510: needs-triage
-jammy_nvidia-graphics-drivers-510: needs-triage
-kinetic_nvidia-graphics-drivers-510: needs-triage
-devel_nvidia-graphics-drivers-510: needs-triage
+bionic_nvidia-graphics-drivers-510: ignored
+focal_nvidia-graphics-drivers-510: ignored
+jammy_nvidia-graphics-drivers-510: ignored
+kinetic_nvidia-graphics-drivers-510: ignored
+devel_nvidia-graphics-drivers-510: ignored
 
 Patches_nvidia-graphics-drivers-510-server:
 upstream_nvidia-graphics-drivers-510-server: not-affected (superseded)
@@ -335,10 +335,10 @@ upstream_nvidia-graphics-drivers-520: needs-triage
 trusty_nvidia-graphics-drivers-520: DNE
 trusty/esm_nvidia-graphics-drivers-520: DNE
 xenial_nvidia-graphics-drivers-520: DNE
-bionic_nvidia-graphics-drivers-520: needs-triage
-focal_nvidia-graphics-drivers-520: needs-triage
-jammy_nvidia-graphics-drivers-520: needs-triage
-kinetic_nvidia-graphics-drivers-520: needs-triage
+bionic_nvidia-graphics-drivers-520: ignored
+focal_nvidia-graphics-drivers-520: ignored
+jammy_nvidia-graphics-drivers-520: ignored
+kinetic_nvidia-graphics-drivers-520: ignored
 devel_nvidia-graphics-drivers-520: DNE
 
 Patches_nvidia-graphics-drivers-525:
