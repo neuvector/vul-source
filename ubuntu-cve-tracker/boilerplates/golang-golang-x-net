@@ -5,6 +5,7 @@ Description:
 Ubuntu-Description: 
 Notes: 
  alexmurray| google-guest-agent contains a vendored copy of golang-golang-x-net
+ mdesluar| containerd contains a vendored copy of golang-golang-x-net
 Mitigation: 
 Bugs: 
 Priority: untriaged
@@ -33,3 +34,15 @@ focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage
+
+Patches_containerd:
+upstream_containerd: needs-triage
+trusty_containerd: ignored (out of standard support)
+xenial_containerd: ignored (out of standard support)
+esm-apps/xenial_containerd: needs-triage
+bionic_containerd: needs-triage
+esm-apps/bionic_containerd: needs-triage
+focal_containerd: needs-triage
+jammy_containerd: needs-triage
+kinetic_containerd: needs-triage
+devel_containerd: needs-triage
