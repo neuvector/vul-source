@@ -33,6 +33,7 @@ opter.add_option("--filter-bins", metavar="REGEX", help="Only include binary pac
 opter.add_option("--cves", metavar="CVES", help="Comma separated list of CVEs to use instead of the normal *_source.changes autodetection (must be a superset).", default=None)
 opter.add_option("--add-cves", metavar="CVES", help="Comma separated list of CVEs to use in addition to the normal *_source.changes autodetection.", default=None)
 opter.add_option("--ignore-cves", metavar="CVES", help="Comma separated list of CVEs to ignore when doing CVE autodetection.", default=None)
+opter.add_option("--ignore-released-cves-in-changelog", help="Filter out CVEs already marked as released", action='store_true')
 opter.add_option("--embargoed", help="Include embargoed directory when looking for CVE descriptions", action='store_true')
 opter.add_option("--include-eol", help="Include EoL releases", action='store_true')
 opter.add_option("--binaries-json", help="Path to JSON mapping of binary packages to versions (can repeat, default: binaries.json)", action='append', default=[])
@@ -550,6 +551,21 @@ for json_file in opt.binaries_json:
 
 if opt.ignore_cves:
     CVEs.difference_update(set(opt.ignore_cves.split(',')))
+
+# filter out CVEs from the changelog that are marked as released
+# usually needed in kernel USNs that may contain previous changelogs
+# appended to the current.
+if opt.ignore_released_cves_in_changelog:
+    released = set()
+    for cve_num in CVEs:
+        cve = cve_lib.load_cve(cve_lib.find_cve(cve_num))
+        for release in info.keys():
+            for pkg in info[release].keys():
+                if pkg in cve["pkgs"].keys():
+                    if cve["pkgs"][pkg][release][0] == "released":
+                        released.add(cve_num)
+    print("INFO: CVEs '%s' in changelog(s) are already released, ignoring" % (released), file=sys.stderr)
+    CVEs.difference_update(released)
 
 if opt.cves:
     superset = set(opt.cves.split(','))

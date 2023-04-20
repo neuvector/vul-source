@@ -70,9 +70,9 @@ report_pending_fixes_kernel(){
     fi
 
     if [ -z "$DO_UPDATE" ] ; then
-        scripts/report-pending-fixes -r "$release" "$kernel" 0 "$version"  -s | grep pending || true
+        scripts/report-pending-fixes -r "$release" "$kernel" 0 "$version"  -s | grep "$release pending" || true
     else
-        scripts/report-pending-fixes -r "$release" "$kernel" 0 "$version"  -s | grep pending \
+        scripts/report-pending-fixes -r "$release" "$kernel" 0 "$version"  -s | grep "$release pending" \
         | while read -r line ; do
              CVE=$(echo "$line" | cut -f1 -d' ')
              _kernel=$(echo "$line" | cut -d ' ' -f 2)

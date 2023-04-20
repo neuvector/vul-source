@@ -174,6 +174,7 @@ parser.add_argument('-P', '--ppa', action='store', default='ubuntu', help='Use k
 parser.add_argument('-F', '--force', action='store_true', default=False, help='Override sanity checks and continue anyway')
 parser.add_argument('--use-changes', action='store', default=None, help='Use previously downloaded changes files from prior run (sets --keep-changes as well')
 parser.add_argument('--keep-changes', action='store_true', default=False, help='Keep changes files downloaded by sis-changes')
+parser.add_argument("--ignore-released-cves-in-changelog", action='store_true', help="Filter out CVEs already marked as released")
 parser.add_argument('release', action='store', nargs=1,  help='Primary release name (e.g. xenial)')
 parser.add_argument('kernel', action=KernelVersionAction, nargs='+',  help='Kernel source package name and versions; e.g. "linux 4.4.0-42.62. Source package can be a release/name pair"')
 args = parser.parse_args()
@@ -310,6 +311,9 @@ try:
             print("INFO no cves found, is this a regression or an embargoed update?")
     else:
         cmd += ['--cves', ','.join(cves)]
+
+    if args.ignore_released_cves_in_changelog:
+        cmd += ['--ignore-released-cves-in-changelog']
 
     if args.embargoed:
         cmd += ['--embargoed']
