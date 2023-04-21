@@ -10,6 +10,7 @@ embargoed
 scripts/lpl_common.py
 database.json*
 database-all.json*
+database-lsn.json
 package-popularity.json*
 com.ubuntu.*
 *.oval.xml
