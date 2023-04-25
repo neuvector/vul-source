@@ -234,7 +234,6 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
     cve_header_data['References'].insert(0, get_cve_url(filepath))
     cve_header_data['Bugs'] = [bug.strip() for bug in cve_header_data['Bugs'].split('\n') if len(bug.strip()) > 0]
     cve_header_data['Notes'] = ' '.join(user + '> ' + note.replace('\n', ' ') for user, note in cve_header_data['Notes'])
-    cve_header_data['CVSS'] = ' '.join(cvss['source'] + ': ' + cvss['vector'] for cvss in cve_header_data['CVSS'])
 
     packages = {}
     for pkg in data['pkgs']:

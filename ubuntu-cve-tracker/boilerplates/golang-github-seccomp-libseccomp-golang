@@ -21,6 +21,7 @@ bionic_golang-github-seccomp-libseccomp-golang: needs-triage
 focal_golang-github-seccomp-libseccomp-golang: needs-triage
 jammy_golang-github-seccomp-libseccomp-golang: needs-triage
 kinetic_golang-github-seccomp-libseccomp-golang: needs-triage
+lunar_golang-github-seccomp-libseccomp-golang: needs-triage
 devel_golang-github-seccomp-libseccomp-golang: needs-triage
 
 Patches_runc:
@@ -32,4 +33,5 @@ bionic_runc: needs-triage
 focal_runc: needs-triage
 jammy_runc: needs-triage
 kinetic_runc: needs-triage
+lunar_runc: needs-triage
 devel_runc: needs-triage

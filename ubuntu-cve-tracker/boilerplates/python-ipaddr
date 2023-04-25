@@ -24,6 +24,7 @@ bionic_python-ipaddr: needs-triage
 focal_python-ipaddr: needs-triage
 jammy_python-ipaddr: DNE
 kinetic_python-ipaddr: DNE
+lunar_python-ipaddr: DNE
 devel_python-ipaddr: DNE
 
 Patches_python-pip:
@@ -35,6 +36,7 @@ bionic_python-pip: needs-triage
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage
+lunar_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

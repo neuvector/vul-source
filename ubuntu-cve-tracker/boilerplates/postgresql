@@ -22,6 +22,7 @@ bionic_postgresql-14: DNE
 focal_postgresql-14: DNE
 jammy_postgresql-14: needs-triage
 kinetic_postgresql-14: needs-triage
+lunar_postgresql-14: needs-triage
 devel_postgresql-14: needs-triage
 
 Patches_postgresql-13:
@@ -33,6 +34,7 @@ bionic_postgresql-13: DNE
 focal_postgresql-13: DNE
 jammy_postgresql-13: DNE
 kinetic_postgresql-13: DNE
+lunar_postgresql-13: DNE
 devel_postgresql-13: DNE
 
 Patches_postgresql-12:
@@ -44,6 +46,7 @@ bionic_postgresql-12: DNE
 focal_postgresql-12: needs-triage
 jammy_postgresql-12: DNE
 kinetic_postgresql-12: DNE
+lunar_postgresql-12: DNE
 devel_postgresql-12: DNE
 
 Patches_postgresql-10:
@@ -55,6 +58,7 @@ bionic_postgresql-10: needs-triage
 focal_postgresql-10: DNE
 jammy_postgresql-10: DNE
 kinetic_postgresql-10: DNE
+lunar_postgresql-10: DNE
 devel_postgresql-10: DNE
 
 Patches_postgresql-9.5:
@@ -67,6 +71,7 @@ bionic_postgresql-9.5: DNE
 focal_postgresql-9.5: DNE
 jammy_postgresql-9.5: DNE
 kinetic_postgresql-9.5: DNE
+lunar_postgresql-9.5: DNE
 devel_postgresql-9.5: DNE
 
 Patches_postgresql-9.3:
@@ -78,6 +83,7 @@ bionic_postgresql-9.3: DNE
 focal_postgresql-9.3: DNE
 jammy_postgresql-9.3: DNE
 kinetic_postgresql-9.3: DNE
+lunar_postgresql-9.3: DNE
 devel_postgresql-9.3: DNE
 
 Patches_postgresql-9.1:
@@ -89,4 +95,5 @@ bionic_postgresql-9.1: DNE
 focal_postgresql-9.1: DNE
 jammy_postgresql-9.1: DNE
 kinetic_postgresql-9.1: DNE
+lunar_postgresql-9.1: DNE
 devel_postgresql-9.1: DNE

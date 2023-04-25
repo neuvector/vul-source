@@ -20,6 +20,7 @@ bionic_emacs: DNE
 focal_emacs: needs-triage
 jammy_emacs: needs-triage
 kinetic_emacs: needs-triage
+lunar_emacs: needs-triage
 devel_emacs: needs-triage
 
 Patches_xemacs21:
@@ -31,6 +32,7 @@ bionic_xemacs21: needs-triage
 focal_xemacs21: needs-triage
 jammy_xemacs21: needs-triage
 kinetic_xemacs21: needs-triage
+lunar_xemacs21: needs-triage
 devel_xemacs21: needs-triage
 
 Patches_xemacs21-packages:
@@ -42,6 +44,7 @@ bionic_xemacs21-packages: needs-triage
 focal_xemacs21-packages: needs-triage
 jammy_xemacs21-packages: needs-triage
 kinetic_xemacs21-packages: needs-triage
+lunar_xemacs21-packages: needs-triage
 devel_xemacs21-packages: needs-triage
 
 Patches_emacs23:
@@ -53,6 +56,7 @@ bionic_emacs23: DNE
 focal_emacs23: DNE
 jammy_emacs23: DNE
 kinetic_emacs23: DNE
+lunar_emacs23: DNE
 devel_emacs23: DNE
 
 Patches_emacs24:
@@ -65,6 +69,7 @@ bionic_emacs24: DNE
 focal_emacs24: DNE
 jammy_emacs24: DNE
 kinetic_emacs24: DNE
+lunar_emacs24: DNE
 devel_emacs24: DNE
 
 Patches_emacs25:
@@ -76,4 +81,5 @@ bionic_emacs25: needs-triage
 focal_emacs25: DNE
 jammy_emacs25: DNE
 kinetic_emacs25: DNE
+lunar_emacs25: DNE
 devel_emacs25: DNE

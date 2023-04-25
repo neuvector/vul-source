@@ -23,6 +23,7 @@ bionic_libmspack: needs-triage
 focal_libmspack: needs-triage
 jammy_libmspack: needs-triage
 kinetic_libmspack: needs-triage
+lunar_libmspack: needs-triage
 devel_libmspack: needs-triage
 
 Patches_clamav:
@@ -35,4 +36,5 @@ bionic_clamav: not-affected (uses system libmspack)
 focal_clamav: not-affected (uses system libmspack)
 jammy_clamav: not-affected (uses system libmspack)
 kinetic_clamav: not-affected (uses system libmspack)
+lunar_clamav: not-affected (uses system libmspack)
 devel_clamav: not-affected (uses system libmspack)

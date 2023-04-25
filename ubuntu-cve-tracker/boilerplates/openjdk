@@ -21,6 +21,7 @@ bionic_openjdk-8: needs-triage
 focal_openjdk-8: needs-triage
 jammy_openjdk-8: needs-triage
 kinetic_openjdk-8: needs-triage
+lunar_openjdk-8: needs-triage
 devel_openjdk-8: needs-triage
 
 Patches_openjdk-9:
@@ -32,6 +33,7 @@ bionic_openjdk-9: DNE
 focal_openjdk-9: DNE
 jammy_openjdk-9: DNE
 kinetic_openjdk-9: DNE
+lunar_openjdk-9: DNE
 devel_openjdk-9: DNE
 
 Patches_openjdk-lts:
@@ -43,6 +45,7 @@ bionic_openjdk-lts: needs-triage
 focal_openjdk-lts: needs-triage
 jammy_openjdk-lts: needs-triage
 kinetic_openjdk-lts: needs-triage
+lunar_openjdk-lts: needs-triage
 devel_openjdk-lts: needs-triage
 
 Patches_openjdk-13:
@@ -54,6 +57,7 @@ bionic_openjdk-13: DNE
 focal_openjdk-13: ignored (superseded by openjdk-17)
 jammy_openjdk-13: DNE
 kinetic_openjdk-13: DNE
+lunar_openjdk-13: DNE
 devel_openjdk-13: DNE
 
 Patches_openjdk-16:
@@ -65,6 +69,7 @@ bionic_openjdk-16: DNE
 focal_openjdk-16: ignored (superseded by openjdk-17)
 jammy_openjdk-16: DNE
 kinetic_openjdk-16: DNE
+lunar_openjdk-16: DNE
 devel_openjdk-16: DNE
 
 Patches_openjdk-17:
@@ -76,6 +81,7 @@ bionic_openjdk-17: needs-triage
 focal_openjdk-17: needs-triage
 jammy_openjdk-17: needs-triage
 kinetic_openjdk-17: needs-triage
+lunar_openjdk-17: needs-triage
 devel_openjdk-17: needs-triage
 
 Patches_openjdk-18:
@@ -87,6 +93,7 @@ bionic_openjdk-18: DNE
 focal_openjdk-18: DNE
 jammy_openjdk-18: ignored (superseded by openjdk-19)
 kinetic_openjdk-18: ignored (superseded by openjdk-19)
+lunar_openjdk-18: needs-triage
 devel_openjdk-18: needs-triage
 
 Patches_openjdk-19:
@@ -98,6 +105,7 @@ bionic_openjdk-19: DNE
 focal_openjdk-19: DNE
 jammy_openjdk-19: needs-triage
 kinetic_openjdk-19: needs-triage
+lunar_openjdk-19: needs-triage
 devel_openjdk-19: needs-triage
 
 Patches_openjdk-20:
@@ -109,6 +117,7 @@ bionic_openjdk-20: DNE
 focal_openjdk-20: DNE
 jammy_openjdk-20: DNE
 kinetic_openjdk-20: needs-triage
+lunar_openjdk-20: needs-triage
 devel_openjdk-20: needs-triage
 
 Patches_openjdk-21:
@@ -120,4 +129,5 @@ bionic_openjdk-21: DNE
 focal_openjdk-21: DNE
 jammy_openjdk-21: DNE
 kinetic_openjdk-21: DNE
+lunar_openjdk-21: needs-triage
 devel_openjdk-21: needs-triage

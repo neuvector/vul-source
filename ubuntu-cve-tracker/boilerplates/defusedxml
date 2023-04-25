@@ -23,4 +23,5 @@ bionic_defusedxml: needs-triage
 focal_defusedxml: needs-triage
 jammy_defusedxml: needs-triage
 kinetic_defusedxml: needs-triage
+lunar_defusedxml: needs-triage
 devel_defusedxml: needs-triage

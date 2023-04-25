@@ -22,6 +22,7 @@ bionic_bind9: needs-triage
 focal_bind9: needs-triage
 jammy_bind9: needs-triage
 kinetic_bind9: needs-triage
+lunar_bind9: needs-triage
 devel_bind9: needs-triage
 
 Patches_isc-dhcp:
@@ -34,5 +35,6 @@ bionic_isc-dhcp: not-affected (code not present)
 focal_isc-dhcp: not-affected (code not present)
 jammy_isc-dhcp: not-affected (code not present)
 kinetic_isc-dhcp: needs-triage
+lunar_isc-dhcp: needs-triage
 devel_isc-dhcp: needs-triage
 

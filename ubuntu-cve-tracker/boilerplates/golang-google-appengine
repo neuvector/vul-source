@@ -21,6 +21,7 @@ bionic_golang-google-appengine: needs-triage
 focal_golang-google-appengine: needs-triage
 jammy_golang-google-appengine: needs-triage
 kinetic_golang-google-appengine: needs-triage
+lunar_golang-google-appengine: needs-triage
 devel_golang-google-appengine: needs-triage
 
 Patches_google-guest-agent:
@@ -32,4 +33,5 @@ bionic_google-guest-agent: needs-triage
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage
+lunar_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

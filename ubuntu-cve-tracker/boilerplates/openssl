@@ -27,6 +27,7 @@ fips/focal_openssl: needs-triage
 fips-updates/focal_openssl: needs-triage
 jammy_openssl: needs-triage
 kinetic_openssl: needs-triage
+lunar_openssl: needs-triage
 devel_openssl: needs-triage
 
 Patches_openssl1.0:
@@ -38,6 +39,7 @@ bionic_openssl1.0: needs-triage
 focal_openssl1.0: DNE
 jammy_openssl1.0: DNE
 kinetic_openssl1.0: DNE
+lunar_openssl1.0: DNE
 devel_openssl1.0: DNE
 
 Patches_nodejs:
@@ -49,6 +51,7 @@ bionic_nodejs: not-affected (uses system openssl1.0)
 focal_nodejs: not-affected (uses system openssl)
 jammy_nodejs: needed
 kinetic_nodejs: not-affected (uses system openssl)
+lunar_nodejs: not-affected (uses system openssl)
 devel_nodejs: not-affected (uses system openssl)
 
 Patches_edk2:
@@ -60,4 +63,5 @@ bionic_edk2: needs-triage
 focal_edk2: needs-triage
 jammy_edk2: needs-triage
 kinetic_edk2: needs-triage
+lunar_edk2: needs-triage
 devel_edk2: needs-triage

@@ -20,6 +20,7 @@ bionic_sqlite: needs-triage
 focal_sqlite: needs-triage
 jammy_sqlite: needs-triage
 kinetic_sqlite: needs-triage
+lunar_sqlite: needs-triage
 devel_sqlite: needs-triage
 
 Patches_sqlite3:
@@ -32,4 +33,5 @@ bionic_sqlite3: needs-triage
 focal_sqlite3: needs-triage
 jammy_sqlite3: needs-triage
 kinetic_sqlite3: needs-triage
+lunar_sqlite3: needs-triage
 devel_sqlite3: needs-triage

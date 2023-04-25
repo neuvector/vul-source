@@ -21,6 +21,7 @@ bionic_lua50: needs-triage
 focal_lua50: needs-triage
 jammy_lua50: DNE
 kinetic_lua50: DNE
+lunar_lua50: DNE
 devel_lua50: DNE
 
 Patches_lua5.1:
@@ -33,6 +34,7 @@ bionic_lua5.1: needs-triage
 focal_lua5.1: needs-triage
 jammy_lua5.1: needs-triage
 kinetic_lua5.1: needs-triage
+lunar_lua5.1: needs-triage
 devel_lua5.1: needs-triage
 
 Patches_lua5.2:
@@ -45,6 +47,7 @@ bionic_lua5.2: needs-triage
 focal_lua5.2: needs-triage
 jammy_lua5.2: needs-triage
 kinetic_lua5.2: needs-triage
+lunar_lua5.2: needs-triage
 devel_lua5.2: needs-triage
 
 Patches_lua5.3:
@@ -57,6 +60,7 @@ bionic_lua5.3: needs-triage
 focal_lua5.3: needs-triage
 jammy_lua5.3: needs-triage
 kinetic_lua5.3: needs-triage
+lunar_lua5.3: needs-triage
 devel_lua5.3: needs-triage
 
 Patches_lua5.4:
@@ -68,4 +72,5 @@ bionic_lua5.4: DNE
 focal_lua5.4: DNE
 jammy_lua5.4: needs-triage
 kinetic_lua5.4: needs-triage
+lunar_lua5.4: needs-triage
 devel_lua5.4: needs-triage

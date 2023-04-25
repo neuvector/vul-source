@@ -22,6 +22,7 @@ bionic_libtirpc: needs-triage
 focal_libtirpc: needs-triage
 jammy_libtirpc: needs-triage
 kinetic_libtirpc: needs-triage
+lunar_libtirpc: needs-triage
 devel_libtirpc: needs-triage
 
 Patches_ntirpc:
@@ -33,4 +34,5 @@ bionic_ntirpc: needs-triage
 focal_ntirpc: needs-triage
 jammy_ntirpc: needs-triage
 kinetic_ntirpc: needs-triage
+lunar_ntirpc: needs-triage
 devel_ntirpc: needs-triage

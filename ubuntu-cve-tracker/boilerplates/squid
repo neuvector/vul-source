@@ -21,6 +21,7 @@ bionic_squid3: needs-triage
 focal_squid3: DNE
 jammy_squid3: DNE
 kinetic_squid3: DNE
+lunar_squid3: DNE
 devel_squid3: DNE
 
 Patches_squid:
@@ -32,4 +33,5 @@ bionic_squid: DNE
 focal_squid: needs-triage
 jammy_squid: needs-triage
 kinetic_squid: needs-triage
+lunar_squid: needs-triage
 devel_squid: needs-triage

@@ -21,6 +21,7 @@ bionic_pillow: needs-triage
 focal_pillow: needs-triage
 jammy_pillow: needs-triage
 kinetic_pillow: needs-triage
+lunar_pillow: needs-triage
 devel_pillow: needs-triage
 
 Patches_pillow-python2:
@@ -32,4 +33,5 @@ bionic_pillow-python2: DNE
 focal_pillow-python2: needs-triage
 jammy_pillow-python2: DNE
 kinetic_pillow-python2: DNE
+lunar_pillow-python2: DNE
 devel_pillow-python2: DNE

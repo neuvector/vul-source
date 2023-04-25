@@ -21,6 +21,7 @@ bionic_libraw: needs-triage
 focal_libraw: needs-triage
 jammy_libraw: needs-triage
 kinetic_libraw: needs-triage
+lunar_libraw: needs-triage
 devel_libraw: needs-triage
 
 Patches_ufraw:
@@ -32,6 +33,7 @@ bionic_ufraw: needs-triage
 focal_ufraw: DNE
 jammy_ufraw: DNE
 kinetic_ufraw: DNE
+lunar_ufraw: DNE
 devel_ufraw: DNE
 
 Patches_darktable:
@@ -43,6 +45,7 @@ bionic_darktable: needs-triage
 focal_darktable: needs-triage
 jammy_darktable: needs-triage
 kinetic_darktable: needs-triage
+lunar_darktable: needs-triage
 devel_darktable: needs-triage
 
 Patches_exactimage:
@@ -54,6 +57,7 @@ bionic_exactimage: needs-triage
 focal_exactimage: needs-triage
 jammy_exactimage: needs-triage
 kinetic_exactimage: needs-triage
+lunar_exactimage: needs-triage
 devel_exactimage: needs-triage
 
 Patches_dcraw:
@@ -65,6 +69,7 @@ bionic_dcraw: needs-triage
 focal_dcraw: needs-triage
 jammy_dcraw: needs-triage
 kinetic_dcraw: needs-triage
+lunar_dcraw: needs-triage
 devel_dcraw: needs-triage
 
 Patches_rawtherapee:
@@ -76,6 +81,7 @@ bionic_rawtherapee: needs-triage
 focal_rawtherapee: needs-triage
 jammy_rawtherapee: needs-triage
 kinetic_rawtherapee: needs-triage
+lunar_rawtherapee: needs-triage
 devel_rawtherapee: needs-triage
 
 Patches_xbmc:
@@ -87,6 +93,7 @@ bionic_xbmc: DNE
 focal_xbmc: DNE
 jammy_xbmc: DNE
 kinetic_xbmc: DNE
+lunar_xbmc: DNE
 devel_xbmc: DNE
 
 Patches_kodi:
@@ -98,6 +105,7 @@ bionic_kodi: needs-triage
 focal_kodi: needs-triage
 jammy_kodi: needs-triage
 kinetic_kodi: needs-triage
+lunar_kodi: needs-triage
 devel_kodi: needs-triage
 
 Patches_digikam:
@@ -109,4 +117,5 @@ bionic_digikam: needs-triage
 focal_digikam: needs-triage
 jammy_digikam: needs-triage
 kinetic_digikam: needs-triage
+lunar_digikam: needs-triage
 devel_digikam: needs-triage

@@ -23,6 +23,7 @@ bionic_python-resolvelib: DNE
 focal_python-resolvelib: DNE
 jammy_python-resolvelib: needs-triage
 kinetic_python-resolvelib: needs-triage
+lunar_python-resolvelib: needs-triage
 devel_python-resolvelib: needs-triage
 
 Patches_python-pip:
@@ -34,6 +35,7 @@ bionic_python-pip: needs-triage
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage
+lunar_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

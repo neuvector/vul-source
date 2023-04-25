@@ -22,4 +22,5 @@ bionic_oath-toolkit: needs-triage
 focal_oath-toolkit: needs-triage
 jammy_oath-toolkit: needs-triage
 kinetic_oath-toolkit: needs-triage
+lunar_oath-toolkit: needs-triage
 devel_oath-toolkit: needs-triage

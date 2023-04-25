@@ -30,6 +30,7 @@ fips/focal_openssh: needs-triage
 fips-updates/focal_openssh: needs-triage
 jammy_openssh: needs-triage
 kinetic_openssh: needs-triage
+lunar_openssh: needs-triage
 devel_openssh: needs-triage
 
 Patches_openssh-ssh1:
@@ -41,4 +42,5 @@ bionic_openssh-ssh1: needs-triage
 focal_openssh-ssh1: needs-triage
 jammy_openssh-ssh1: needs-triage
 kinetic_openssh-ssh1: needs-triage
+lunar_openssh-ssh1: needs-triage
 devel_openssh-ssh1: needs-triage

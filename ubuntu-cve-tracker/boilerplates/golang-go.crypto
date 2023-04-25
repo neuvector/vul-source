@@ -24,6 +24,7 @@ bionic_golang-go.crypto: needs-triage
 focal_golang-go.crypto: needs-triage
 jammy_golang-go.crypto: needs-triage
 kinetic_golang-go.crypto: needs-triage
+lunar_golang-go.crypto: needs-triage
 devel_golang-go.crypto: needs-triage
 
 Patches_snapd:
@@ -37,6 +38,7 @@ focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
 kinetic_snapd: needs-triage
+lunar_snapd: needs-triage
 devel_snapd: needs-triage
 
 Patches_lxd:
@@ -49,4 +51,5 @@ bionic_lxd: needs-triage
 focal_lxd: not-affected (code-not-present)
 jammy_lxd: DNE
 kinetic_lxd: DNE
+lunar_lxd: DNE
 devel_lxd: DNE

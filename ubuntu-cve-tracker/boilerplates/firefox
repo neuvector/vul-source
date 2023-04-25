@@ -24,6 +24,7 @@ bionic_firefox: needed
 focal_firefox: needed
 jammy_firefox: not-affected (code not present)
 kinetic_firefox: not-affected (code not present)
+lunar_firefox: not-affected (code not present)
 devel_firefox: not-affected (code not present)
 
 Patches_thunderbird:
@@ -37,6 +38,7 @@ bionic_thunderbird: needed
 focal_thunderbird: needed
 jammy_thunderbird: needed
 kinetic_thunderbird: needed
+lunar_thunderbird: needed
 devel_thunderbird: needed
 
 Patches_mozjs38:
@@ -48,6 +50,7 @@ bionic_mozjs38: needs-triage
 focal_mozjs38: DNE
 jammy_mozjs38: DNE
 kinetic_mozjs38: DNE
+lunar_mozjs38: DNE
 devel_mozjs38: DNE
 
 Patches_mozjs52:
@@ -59,6 +62,7 @@ bionic_mozjs52: needs-triage
 focal_mozjs52: needs-triage
 jammy_mozjs52: DNE
 kinetic_mozjs52: DNE
+lunar_mozjs52: DNE
 devel_mozjs52: DNE
 
 Patches_mozjs68:
@@ -70,6 +74,7 @@ bionic_mozjs68: DNE
 focal_mozjs68: needs-triage
 jammy_mozjs68: DNE
 kinetic_mozjs68: DNE
+lunar_mozjs68: DNE
 devel_mozjs68: DNE
 
 Patches_mozjs78:
@@ -81,6 +86,7 @@ bionic_mozjs78: DNE
 focal_mozjs78: DNE
 jammy_mozjs78: needs-triage
 kinetic_mozjs78: needs-triage
+lunar_mozjs78: needs-triage
 devel_mozjs78: needs-triage
 
 Patches_mozjs91:
@@ -92,4 +98,5 @@ bionic_mozjs91: DNE
 focal_mozjs91: DNE
 jammy_mozjs91: needs-triage
 kinetic_mozjs91: DNE
+lunar_mozjs91: DNE
 devel_mozjs91: DNE

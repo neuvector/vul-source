@@ -21,6 +21,7 @@ bionic_golang-go.opencensus: DNE
 focal_golang-go.opencensus: needs-triage
 jammy_golang-go.opencensus: needs-triage
 kinetic_golang-go.opencensus: needs-triage
+lunar_golang-go.opencensus: needs-triage
 devel_golang-go.opencensus: needs-triage
 
 Patches_google-guest-agent:
@@ -32,4 +33,5 @@ bionic_google-guest-agent: needs-triage
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage
+lunar_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

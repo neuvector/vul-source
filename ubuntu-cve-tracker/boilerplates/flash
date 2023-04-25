@@ -21,6 +21,7 @@ bionic_flashplugin-nonfree: needs-triage
 focal_flashplugin-nonfree: needs-triage
 jammy_flashplugin-nonfree: DNE
 kinetic_flashplugin-nonfree: DNE
+lunar_flashplugin-nonfree: DNE
 devel_flashplugin-nonfree: DNE
 
 Patches_adobe-flashplugin:
@@ -32,4 +33,5 @@ bionic_adobe-flashplugin: needs-triage
 focal_adobe-flashplugin: needs-triage
 jammy_adobe-flashplugin: DNE
 kinetic_adobe-flashplugin: DNE
+lunar_adobe-flashplugin: DNE
 devel_adobe-flashplugin: DNE

@@ -23,6 +23,7 @@ bionic_libyaml: needs-triage
 focal_libyaml: needs-triage
 jammy_libyaml: needs-triage
 kinetic_libyaml: needs-triage
+lunar_libyaml: needs-triage
 devel_libyaml: needs-triage
 
 Patches_libyaml-libyaml-perl:
@@ -35,6 +36,7 @@ bionic_libyaml-libyaml-perl: needs-triage
 focal_libyaml-libyaml-perl: needs-triage
 jammy_libyaml-libyaml-perl: needs-triage
 kinetic_libyaml-libyaml-perl: needs-triage
+lunar_libyaml-libyaml-perl: needs-triage
 devel_libyaml-libyaml-perl: needs-triage
 
 Patches_golang-goyaml:
@@ -46,6 +48,7 @@ bionic_golang-goyaml: DNE
 focal_golang-goyaml: DNE
 jammy_golang-goyaml: DNE
 kinetic_golang-goyaml: DNE
+lunar_golang-goyaml: DNE
 devel_golang-goyaml: DNE
 
 Patches_golang-yaml.v2:
@@ -58,5 +61,6 @@ bionic_golang-yaml.v2: needs-triage
 focal_golang-yaml.v2: needs-triage
 jammy_golang-yaml.v2: needs-triage
 kinetic_golang-yaml.v2: needs-triage
+lunar_golang-yaml.v2: needs-triage
 devel_golang-yaml.v2: needs-triage
 

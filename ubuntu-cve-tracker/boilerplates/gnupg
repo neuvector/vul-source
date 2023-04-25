@@ -21,6 +21,7 @@ bionic_gnupg: DNE
 focal_gnupg: DNE
 jammy_gnupg: DNE
 kinetic_gnupg: DNE
+lunar_gnupg: DNE
 devel_gnupg: DNE
 
 Patches_gnupg2:
@@ -33,4 +34,5 @@ bionic_gnupg2: needs-triage
 focal_gnupg2: needs-triage
 jammy_gnupg2: needs-triage
 kinetic_gnupg2: needs-triage
+lunar_gnupg2: needs-triage
 devel_gnupg2: needs-triage

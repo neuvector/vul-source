@@ -24,6 +24,7 @@ bionic_libxpm: needs-triage
 focal_libxpm: needs-triage
 jammy_libxpm: needs-triage
 kinetic_libxpm: needs-triage
+lunar_libxpm: needs-triage
 devel_libxpm: needs-triage
 
 Patches_motif:
@@ -39,4 +40,5 @@ esm-apps/xenial_motif: needs-triage
 esm-apps/bionic_motif: needs-triage
 esm-apps/focal_motif: needs-triage
 esm-apps/jammy_motif: needs-triage
+lunar_motif: needs-triage
 devel_motif: needs-triage

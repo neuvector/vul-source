@@ -22,6 +22,7 @@ bionic_libjpeg6b: needs-triage
 focal_libjpeg6b: needs-triage
 jammy_libjpeg6b: needs-triage
 kinetic_libjpeg6b: needs-triage
+lunar_libjpeg6b: needs-triage
 devel_libjpeg6b: needs-triage
 
 Patches_libjpeg-turbo:
@@ -34,6 +35,7 @@ bionic_libjpeg-turbo: needs-triage
 focal_libjpeg-turbo: needs-triage
 jammy_libjpeg-turbo: needs-triage
 kinetic_libjpeg-turbo: needs-triage
+lunar_libjpeg-turbo: needs-triage
 devel_libjpeg-turbo: needs-triage
 
 Patches_libjpeg9:
@@ -45,4 +47,5 @@ bionic_libjpeg9: needs-triage
 focal_libjpeg9: needs-triage
 jammy_libjpeg9: needs-triage
 kinetic_libjpeg9: needs-triage
+lunar_libjpeg9: needs-triage
 devel_libjpeg9: needs-triage

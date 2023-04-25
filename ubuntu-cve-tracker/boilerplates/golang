@@ -24,6 +24,7 @@ bionic_golang: DNE
 focal_golang: DNE
 jammy_golang: DNE
 kinetic_golang: DNE
+lunar_golang: DNE
 devel_golang: DNE
 
 Patches_golang-1.6:
@@ -36,6 +37,7 @@ bionic_golang-1.6: DNE
 focal_golang-1.6: DNE
 jammy_golang-1.6: DNE
 kinetic_golang-1.6: DNE
+lunar_golang-1.6: DNE
 devel_golang-1.6: DNE
 
 Patches_golang-1.8:
@@ -47,6 +49,7 @@ bionic_golang-1.8: needs-triage
 focal_golang-1.8: DNE
 jammy_golang-1.8: DNE
 kinetic_golang-1.8: DNE
+lunar_golang-1.8: DNE
 devel_golang-1.8: DNE
 
 Patches_golang-1.9:
@@ -58,6 +61,7 @@ bionic_golang-1.9: needs-triage
 focal_golang-1.9: DNE
 jammy_golang-1.9: DNE
 kinetic_golang-1.9: DNE
+lunar_golang-1.9: DNE
 devel_golang-1.9: DNE
 
 Patches_golang-1.10:
@@ -70,6 +74,7 @@ bionic_golang-1.10: needs-triage
 focal_golang-1.10: DNE
 jammy_golang-1.10: DNE
 kinetic_golang-1.10: DNE
+lunar_golang-1.10: DNE
 devel_golang-1.10: DNE
 
 Patches_golang-1.13:
@@ -81,6 +86,7 @@ bionic_golang-1.13: needs-triage
 focal_golang-1.13: needs-triage
 jammy_golang-1.13: needs-triage
 kinetic_golang-1.13: needs-triage
+lunar_golang-1.13: DNE
 devel_golang-1.13: DNE
 
 Patches_golang-1.14:
@@ -92,6 +98,7 @@ bionic_golang-1.14: DNE
 focal_golang-1.14: needs-triage
 jammy_golang-1.14: DNE
 kinetic_golang-1.14: DNE
+lunar_golang-1.14: DNE
 devel_golang-1.14: DNE
 
 Patches_golang-1.15:
@@ -111,6 +118,7 @@ bionic_golang-1.16: needs-triage
 focal_golang-1.16: needs-triage
 jammy_golang-1.16: DNE
 kinetic_golang-1.16: DNE
+lunar_golang-1.16: DNE
 devel_golang-1.16: DNE
 
 Patches_golang-1.17:
@@ -122,6 +130,7 @@ bionic_golang-1.17: DNE
 focal_golang-1.17: DNE
 jammy_golang-1.17: needs-triage
 kinetic_golang-1.17: DNE
+lunar_golang-1.17: DNE
 devel_golang-1.17: DNE
 
 Patches_golang-1.18:
@@ -133,6 +142,7 @@ bionic_golang-1.18: needs-triage
 focal_golang-1.18: needs-triage
 jammy_golang-1.18: needs-triage
 kinetic_golang-1.18: DNE
+lunar_golang-1.18: DNE
 devel_golang-1.18: DNE
 
 Patches_golang-1.19:
@@ -144,6 +154,7 @@ bionic_golang-1.19: DNE
 focal_golang-1.19: DNE
 jammy_golang-1.19: DNE
 kinetic_golang-1.19: needs-triage
+lunar_golang-1.19: needs-triage
 devel_golang-1.19: needs-triage
 
 Patches_golang-1.20:
@@ -155,5 +166,6 @@ bionic_golang-1.20: DNE
 focal_golang-1.20: DNE
 jammy_golang-1.20: DNE
 kinetic_golang-1.20: DNE
+lunar_golang-1.20: needs-triage
 devel_golang-1.20: needs-triage
 

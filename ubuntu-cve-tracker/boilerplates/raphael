@@ -21,6 +21,7 @@ bionic_raphael: needs-triage
 focal_raphael: needs-triage
 jammy_raphael: needs-triage
 kinetic_raphael: needs-triage
+lunar_raphael: needs-triage
 devel_raphael: needs-triage
 
 Patches_maas:
@@ -33,4 +34,5 @@ bionic_maas: needs-triage
 focal_maas: needs-triage
 jammy_maas: DNE
 kinetic_maas: DNE
+lunar_maas: DNE
 devel_maas: DNE

@@ -22,6 +22,7 @@ bionic_libev: needs-triage
 focal_libev: needs-triage
 jammy_libev: needs-triage
 kinetic_libev: needs-triage
+lunar_libev: needs-triage
 devel_libev: needs-triage
 
 Patches_ruby-nio4r:
@@ -33,5 +34,6 @@ bionic_ruby-nio4r: needs-triage
 focal_ruby-nio4r: needs-triage
 jammy_ruby-nio4r: needs-triage
 kinetic_ruby-nio4r: needs-triage
+lunar_ruby-nio4r: needs-triage
 devel_ruby-nio4r: needs-triage
 

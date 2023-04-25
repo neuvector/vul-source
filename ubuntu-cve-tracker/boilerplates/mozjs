@@ -20,6 +20,7 @@ bionic_mozjs: DNE
 focal_mozjs: DNE
 jammy_mozjs: DNE
 kinetic_mozjs: DNE
+lunar_mozjs: DNE
 devel_mozjs: DNE
 
 Patches_mozjs17:
@@ -31,6 +32,7 @@ bionic_mozjs17: DNE
 focal_mozjs17: DNE
 jammy_mozjs17: DNE
 kinetic_mozjs17: DNE
+lunar_mozjs17: DNE
 devel_mozjs17: DNE
 
 Patches_mozjs24:
@@ -42,6 +44,7 @@ bionic_mozjs24: DNE
 focal_mozjs24: DNE
 jammy_mozjs24: DNE
 kinetic_mozjs24: DNE
+lunar_mozjs24: DNE
 devel_mozjs24: DNE
 
 Patches_mozjs38:
@@ -53,6 +56,7 @@ bionic_mozjs38: needs-triage
 focal_mozjs38: DNE
 jammy_mozjs38: DNE
 kinetic_mozjs38: DNE
+lunar_mozjs38: DNE
 devel_mozjs38: DNE
 
 Patches_mozjs52:
@@ -64,6 +68,7 @@ bionic_mozjs52: needs-triage
 focal_mozjs52: needs-triage
 jammy_mozjs52: DNE
 kinetic_mozjs52: DNE
+lunar_mozjs52: DNE
 devel_mozjs52: DNE
 
 Patches_mozjs60:
@@ -75,6 +80,7 @@ bionic_mozjs60: DNE
 focal_mozjs60: DNE
 jammy_mozjs60: DNE
 kinetic_mozjs60: DNE
+lunar_mozjs60: DNE
 devel_mozjs60: DNE
 
 Patches_mozjs68:
@@ -86,6 +92,7 @@ bionic_mozjs68: DNE
 focal_mozjs68: needs-triage
 jammy_mozjs68: DNE
 kinetic_mozjs68: DNE
+lunar_mozjs68: DNE
 devel_mozjs68: DNE
 
 Patches_mozjs78:
@@ -97,4 +104,5 @@ bionic_mozjs78: DNE
 focal_mozjs78: DNE
 jammy_mozjs78: needs-triage
 kinetic_mozjs78: needs-triage
+lunar_mozjs78: needs-triage
 devel_mozjs78: needs-triage

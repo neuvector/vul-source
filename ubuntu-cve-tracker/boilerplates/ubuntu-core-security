@@ -24,4 +24,5 @@ bionic_ubuntu-core-security: DNE
 focal_ubuntu-core-security: DNE
 jammy_ubuntu-core-security: DNE
 kinetic_ubuntu-core-security: DNE
+lunar_ubuntu-core-security: DNE
 devel_ubuntu-core-security: DNE

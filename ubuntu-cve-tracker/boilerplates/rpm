@@ -23,4 +23,5 @@ bionic_rpm: needs-triage
 focal_rpm: needs-triage
 jammy_rpm: needs-triage
 kinetic_rpm: needs-triage
+lunar_rpm: needs-triage
 devel_rpm: needs-triage

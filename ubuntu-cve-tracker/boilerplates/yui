@@ -23,6 +23,7 @@ bionic_yui3: needs-triage
 focal_yui3: needs-triage
 jammy_yui3: DNE
 kinetic_yui3: DNE
+lunar_yui3: DNE
 devel_yui3: DNE
 
 Patches_yui:
@@ -34,6 +35,7 @@ bionic_yui: DNE
 focal_yui: DNE
 jammy_yui: DNE
 kinetic_yui: DNE
+lunar_yui: DNE
 devel_yui: DNE
 
 Patches_maas:
@@ -46,4 +48,5 @@ bionic_maas: needs-triage
 focal_maas: needs-triage
 jammy_maas: DNE
 kinetic_maas: DNE
+lunar_maas: DNE
 devel_maas: DNE

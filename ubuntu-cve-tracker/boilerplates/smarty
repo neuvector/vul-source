@@ -20,5 +20,6 @@ bionic_moodle: needs-triage
 focal_moodle: DNE
 jammy_moodle: DNE
 kinetic_moodle: DNE
+lunar_moodle: DNE
 devel_moodle: DNE
 

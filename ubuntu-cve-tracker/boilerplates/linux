@@ -21,6 +21,7 @@ bionic_linux: needs-triage
 focal_linux: needs-triage
 jammy_linux: needs-triage
 kinetic_linux: needs-triage
+lunar_linux: needs-triage
 devel_linux: needs-triage
 
 Patches_linux-hwe:
@@ -33,6 +34,7 @@ bionic_linux-hwe: ignored (replaced by linux-hwe-5.4)
 focal_linux-hwe: DNE
 jammy_linux-hwe: DNE
 kinetic_linux-hwe: DNE
+lunar_linux-hwe: DNE
 devel_linux-hwe: DNE
 
 Patches_linux-hwe-5.4:
@@ -44,6 +46,7 @@ bionic_linux-hwe-5.4: needs-triage
 focal_linux-hwe-5.4: DNE
 jammy_linux-hwe-5.4: DNE
 kinetic_linux-hwe-5.4: DNE
+lunar_linux-hwe-5.4: DNE
 devel_linux-hwe-5.4: DNE
 
 Patches_linux-hwe-5.8:
@@ -55,6 +58,7 @@ bionic_linux-hwe-5.8: DNE
 focal_linux-hwe-5.8: ignored (superseded by linux-hwe-5.11)
 jammy_linux-hwe-5.8: DNE
 kinetic_linux-hwe-5.8: DNE
+lunar_linux-hwe-5.8: DNE
 devel_linux-hwe-5.8: DNE
 
 Patches_linux-hwe-5.11:
@@ -67,6 +71,7 @@ bionic_linux-hwe-5.11: DNE
 focal_linux-hwe-5.11: ignored (superseded by linux-hwe-5.13)
 jammy_linux-hwe-5.11: DNE
 kinetic_linux-hwe-5.11: DNE
+lunar_linux-hwe-5.11: DNE
 devel_linux-hwe-5.11: DNE
 
 Patches_linux-hwe-5.13:
@@ -79,6 +84,7 @@ bionic_linux-hwe-5.13: DNE
 focal_linux-hwe-5.13: ignored (superseded by linux-hwe-5.15)
 jammy_linux-hwe-5.13: DNE
 kinetic_linux-hwe-5.13: DNE
+lunar_linux-hwe-5.13: DNE
 devel_linux-hwe-5.13: DNE
 
 Patches_linux-hwe-5.15:
@@ -91,6 +97,7 @@ bionic_linux-hwe-5.15: DNE
 focal_linux-hwe-5.15: needs-triage
 jammy_linux-hwe-5.15: DNE
 kinetic_linux-hwe-5.15: DNE
+lunar_linux-hwe-5.15: DNE
 devel_linux-hwe-5.15: DNE
 
 Patches_linux-hwe-5.19:
@@ -103,6 +110,7 @@ bionic_linux-hwe-5.19: DNE
 focal_linux-hwe-5.19: DNE
 jammy_linux-hwe-5.19: needs-triage
 kinetic_linux-hwe-5.19: DNE
+lunar_linux-hwe-5.19: DNE
 devel_linux-hwe-5.19: DNE
 
 Patches_linux-hwe-edge:
@@ -115,6 +123,7 @@ bionic_linux-hwe-edge: ignored (superseded by linux-hwe-5.4)
 focal_linux-hwe-edge: DNE
 jammy_linux-hwe-edge: DNE
 kinetic_linux-hwe-edge: DNE
+lunar_linux-hwe-edge: DNE
 devel_linux-hwe-edge: DNE
 
 Patches_linux-lts-xenial:
@@ -126,6 +135,7 @@ bionic_linux-lts-xenial: DNE
 focal_linux-lts-xenial: DNE
 jammy_linux-lts-xenial: DNE
 kinetic_linux-lts-xenial: DNE
+lunar_linux-lts-xenial: DNE
 devel_linux-lts-xenial: DNE
 
 Patches_linux-kvm:
@@ -138,6 +148,7 @@ bionic_linux-kvm: needs-triage
 focal_linux-kvm: needs-triage
 jammy_linux-kvm: needs-triage
 kinetic_linux-kvm: needs-triage
+lunar_linux-kvm: needs-triage
 devel_linux-kvm: needs-triage
 
 Patches_linux-aws:
@@ -150,6 +161,7 @@ bionic_linux-aws: needs-triage
 focal_linux-aws: needs-triage
 jammy_linux-aws: needs-triage
 kinetic_linux-aws: needs-triage
+lunar_linux-aws: needs-triage
 devel_linux-aws: needs-triage
 
 Patches_linux-aws-5.0:
@@ -161,6 +173,7 @@ bionic_linux-aws-5.0: ignored (superseded by linux-aws-5.3)
 focal_linux-aws-5.0: DNE
 jammy_linux-aws-5.0: DNE
 kinetic_linux-aws-5.0: DNE
+lunar_linux-aws-5.0: DNE
 devel_linux-aws-5.0: DNE
 
 Patches_linux-aws-5.3:
@@ -172,6 +185,7 @@ bionic_linux-aws-5.3: ignored (superseded by linux-aws-5.4)
 focal_linux-aws-5.3: DNE
 jammy_linux-aws-5.3: DNE
 kinetic_linux-aws-5.3: DNE
+lunar_linux-aws-5.3: DNE
 devel_linux-aws-5.3: DNE
 
 Patches_linux-aws-5.4:
@@ -183,6 +197,7 @@ bionic_linux-aws-5.4: needs-triage
 focal_linux-aws-5.4: DNE
 jammy_linux-aws-5.4: DNE
 kinetic_linux-aws-5.4: DNE
+lunar_linux-aws-5.4: DNE
 devel_linux-aws-5.4: DNE
 
 Patches_linux-aws-5.8:
@@ -195,6 +210,7 @@ bionic_linux-aws-5.8: DNE
 focal_linux-aws-5.8: ignored (superseded by linux-aws-5.11)
 jammy_linux-aws-5.8: DNE
 kinetic_linux-aws-5.8: DNE
+lunar_linux-aws-5.8: DNE
 devel_linux-aws-5.8: DNE
 
 Patches_linux-aws-5.11:
@@ -207,6 +223,7 @@ bionic_linux-aws-5.11: DNE
 focal_linux-aws-5.11: ignored (superseded by linux-aws-5.13)
 jammy_linux-aws-5.11: DNE
 kinetic_linux-aws-5.11: DNE
+lunar_linux-aws-5.11: DNE
 devel_linux-aws-5.11: DNE
 
 Patches_linux-aws-5.13:
@@ -219,6 +236,7 @@ bionic_linux-aws-5.13: DNE
 focal_linux-aws-5.13: ignored (superseded by linux-aws-5.15)
 jammy_linux-aws-5.13: DNE
 kinetic_linux-aws-5.13: DNE
+lunar_linux-aws-5.13: DNE
 devel_linux-aws-5.13: DNE
 
 Patches_linux-aws-5.15:
@@ -231,6 +249,7 @@ bionic_linux-aws-5.15: DNE
 focal_linux-aws-5.15: needs-triage
 jammy_linux-aws-5.15: DNE
 kinetic_linux-aws-5.15: DNE
+lunar_linux-aws-5.15: DNE
 devel_linux-aws-5.15: DNE
 
 Patches_linux-aws-hwe:
@@ -243,6 +262,7 @@ bionic_linux-aws-hwe: DNE
 focal_linux-aws-hwe: DNE
 jammy_linux-aws-hwe: DNE
 kinetic_linux-aws-hwe: DNE
+lunar_linux-aws-hwe: DNE
 devel_linux-aws-hwe: DNE
 
 Patches_linux-azure:
@@ -255,6 +275,7 @@ bionic_linux-azure: ignored (superseded by linux-azure-5.3)
 focal_linux-azure: needs-triage
 jammy_linux-azure: needs-triage
 kinetic_linux-azure: needs-triage
+lunar_linux-azure: needs-triage
 devel_linux-azure: needs-triage
 
 Patches_linux-azure-4.15:
@@ -266,6 +287,7 @@ bionic_linux-azure-4.15: needs-triage
 focal_linux-azure-4.15: DNE
 jammy_linux-azure-4.15: DNE
 kinetic_linux-azure-4.15: DNE
+lunar_linux-azure-4.15: DNE
 devel_linux-azure-4.15: DNE
 
 Patches_linux-azure-5.3:
@@ -277,6 +299,7 @@ bionic_linux-azure-5.3: ignored (superseded by linux-azure-5.4)
 focal_linux-azure-5.3: DNE
 jammy_linux-azure-5.3: DNE
 kinetic_linux-azure-5.3: DNE
+lunar_linux-azure-5.3: DNE
 devel_linux-azure-5.3: DNE
 
 Patches_linux-azure-5.4:
@@ -288,6 +311,7 @@ bionic_linux-azure-5.4: needs-triage
 focal_linux-azure-5.4: DNE
 jammy_linux-azure-5.4: DNE
 kinetic_linux-azure-5.4: DNE
+lunar_linux-azure-5.4: DNE
 devel_linux-azure-5.4: DNE
 
 Patches_linux-azure-5.8:
@@ -300,6 +324,7 @@ bionic_linux-azure-5.8: DNE
 focal_linux-azure-5.8: ignored (superseded by linux-azure-5.11)
 jammy_linux-azure-5.8: DNE
 kinetic_linux-azure-5.8: DNE
+lunar_linux-azure-5.8: DNE
 devel_linux-azure-5.8: DNE
 
 Patches_linux-azure-5.11:
@@ -321,6 +346,7 @@ bionic_linux-azure-5.13: DNE
 focal_linux-azure-5.13: ignored (superseded by linux-azure-5.15)
 jammy_linux-azure-5.13: DNE
 kinetic_linux-azure-5.13: DNE
+lunar_linux-azure-5.13: DNE
 devel_linux-azure-5.13: DNE
 
 Patches_linux-azure-5.15:
@@ -333,6 +359,7 @@ bionic_linux-azure-5.15: DNE
 focal_linux-azure-5.15: needs-triage
 jammy_linux-azure-5.15: DNE
 kinetic_linux-azure-5.15: DNE
+lunar_linux-azure-5.15: DNE
 devel_linux-azure-5.15: DNE
 
 Patches_linux-azure-5.19:
@@ -345,6 +372,7 @@ bionic_linux-azure-5.19: DNE
 focal_linux-azure-5.19: DNE
 jammy_linux-azure-5.19: needs-triage
 kinetic_linux-azure-5.19: DNE
+lunar_linux-azure-5.19: DNE
 devel_linux-azure-5.19: DNE
 
 Patches_linux-azure-fde:
@@ -357,6 +385,7 @@ bionic_linux-azure-fde: DNE
 focal_linux-azure-fde: needs-triage
 jammy_linux-azure-fde: needs-triage
 kinetic_linux-azure-fde: DNE
+lunar_linux-azure-fde: DNE
 devel_linux-azure-fde: DNE
 
 Patches_linux-azure-fde-5.15:
@@ -369,6 +398,7 @@ bionic_linux-azure-fde-5.15: DNE
 focal_linux-azure-fde-5.15: needs-triage
 jammy_linux-azure-fde-5.15: DNE
 kinetic_linux-azure-fde-5.15: DNE
+lunar_linux-azure-fde-5.15: DNE
 devel_linux-azure-fde-5.15: DNE
 
 Patches_linux-bluefield:
@@ -381,6 +411,7 @@ bionic_linux-bluefield: DNE
 focal_linux-bluefield: needs-triage
 jammy_linux-bluefield: DNE
 kinetic_linux-bluefield: DNE
+lunar_linux-bluefield: DNE
 devel_linux-bluefield: DNE
 
 Patches_linux-dell300x:
@@ -392,6 +423,7 @@ bionic_linux-dell300x: needs-triage
 focal_linux-dell300x: DNE
 jammy_linux-dell300x: DNE
 kinetic_linux-dell300x: DNE
+lunar_linux-dell300x: DNE
 devel_linux-dell300x: DNE
 
 Patches_linux-azure-edge:
@@ -403,6 +435,7 @@ bionic_linux-azure-edge: ignored (superseded by linux-azure-5.3)
 focal_linux-azure-edge: DNE
 jammy_linux-azure-edge: DNE
 kinetic_linux-azure-edge: DNE
+lunar_linux-azure-edge: DNE
 devel_linux-azure-edge: DNE
 
 Patches_linux-fips:
@@ -421,6 +454,7 @@ fips-updates/focal_linux-fips: needs-triage
 hirsute_linux-fips: DNE
 jammy_linux-fips: DNE
 kinetic_linux-fips: DNE
+lunar_linux-fips: DNE
 devel_linux-fips: DNE
 
 Patches_linux-gcp:
@@ -433,6 +467,7 @@ bionic_linux-gcp: ignored (superseded by linux-gcp-5.3)
 focal_linux-gcp: needs-triage
 jammy_linux-gcp: needs-triage
 kinetic_linux-gcp: needs-triage
+lunar_linux-gcp: needs-triage
 devel_linux-gcp: needs-triage
 
 Patches_linux-gcp-4.15:
@@ -444,6 +479,7 @@ bionic_linux-gcp-4.15: needs-triage
 focal_linux-gcp-4.15: DNE
 jammy_linux-gcp-4.15: DNE
 kinetic_linux-gcp-4.15: DNE
+lunar_linux-gcp-4.15: DNE
 devel_linux-gcp-4.15: DNE
 
 Patches_linux-gcp-5.3:
@@ -455,6 +491,7 @@ bionic_linux-gcp-5.3: ignored (superseded by linux-gcp-5.4)
 focal_linux-gcp-5.3: DNE
 jammy_linux-gcp-5.3: DNE
 kinetic_linux-gcp-5.3: DNE
+lunar_linux-gcp-5.3: DNE
 devel_linux-gcp-5.3: DNE
 
 Patches_linux-gcp-5.4:
@@ -466,6 +503,7 @@ bionic_linux-gcp-5.4: needs-triage
 focal_linux-gcp-5.4: DNE
 jammy_linux-gcp-5.4: DNE
 kinetic_linux-gcp-5.4: DNE
+lunar_linux-gcp-5.4: DNE
 devel_linux-gcp-5.4: DNE
 
 Patches_linux-gcp-5.8:
@@ -478,6 +516,7 @@ bionic_linux-gcp-5.8: DNE
 focal_linux-gcp-5.8: ignored (superseded by linux-gcp-5.11)
 jammy_linux-gcp-5.8: DNE
 kinetic_linux-gcp-5.8: DNE
+lunar_linux-gcp-5.8: DNE
 devel_linux-gcp-5.8: DNE
 
 Patches_linux-gcp-5.11:
@@ -490,6 +529,7 @@ bionic_linux-gcp-5.11: DNE
 focal_linux-gcp-5.11: ignored (superseded by linux-gcp-5.13)
 jammy_linux-gcp-5.11: DNE
 kinetic_linux-gcp-5.11: DNE
+lunar_linux-gcp-5.11: DNE
 devel_linux-gcp-5.11: DNE
 
 Patches_linux-gcp-5.13:
@@ -502,6 +542,7 @@ bionic_linux-gcp-5.13: DNE
 focal_linux-gcp-5.13: ignored (superseded by linux-gcp-5.15)
 jammy_linux-gcp-5.13: DNE
 kinetic_linux-gcp-5.13: DNE
+lunar_linux-gcp-5.13: DNE
 devel_linux-gcp-5.13: DNE
 
 Patches_linux-gcp-5.15:
@@ -514,6 +555,7 @@ bionic_linux-gcp-5.15: DNE
 focal_linux-gcp-5.15: needs-triage
 jammy_linux-gcp-5.15: DNE
 kinetic_linux-gcp-5.15: DNE
+lunar_linux-gcp-5.15: DNE
 devel_linux-gcp-5.15: DNE
 
 Patches_linux-gke:
@@ -525,6 +567,7 @@ bionic_linux-gke: DNE
 focal_linux-gke: needs-triage
 jammy_linux-gke: needs-triage
 kinetic_linux-gke: DNE
+lunar_linux-gke: DNE
 devel_linux-gke: DNE
 
 Patches_linux-gke-4.15:
@@ -536,6 +579,7 @@ bionic_linux-gke-4.15: needs-triage
 focal_linux-gke-4.15: DNE
 jammy_linux-gke-4.15: DNE
 kinetic_linux-gke-4.15: DNE
+lunar_linux-gke-4.15: DNE
 devel_linux-gke-4.15: DNE
 
 Patches_linux-gke-5.0:
@@ -547,6 +591,7 @@ bionic_linux-gke-5.0: ignored (superseded by linux-gke-5.3)
 focal_linux-gke-5.0: DNE
 jammy_linux-gke-5.0: DNE
 kinetic_linux-gke-5.0: DNE
+lunar_linux-gke-5.0: DNE
 devel_linux-gke-5.0: DNE
 
 Patches_linux-gke-5.3:
@@ -558,6 +603,7 @@ bionic_linux-gke-5.3: ignored (superseded by linux-gke-5.4)
 focal_linux-gke-5.3: DNE
 jammy_linux-gke-5.3: DNE
 kinetic_linux-gke-5.3: DNE
+lunar_linux-gke-5.3: DNE
 devel_linux-gke-5.3: DNE
 
 Patches_linux-gke-5.4:
@@ -569,6 +615,7 @@ bionic_linux-gke-5.4: needs-triage
 focal_linux-gke-5.4: DNE
 jammy_linux-gke-5.4: DNE
 kinetic_linux-gke-5.4: DNE
+lunar_linux-gke-5.4: DNE
 devel_linux-gke-5.4: DNE
 
 Patches_linux-gke-5.15:
@@ -581,6 +628,7 @@ bionic_linux-gke-5.15: DNE
 focal_linux-gke-5.15: needs-triage
 jammy_linux-gke-5.15: DNE
 kinetic_linux-gke-5.15: DNE
+lunar_linux-gke-5.15: DNE
 devel_linux-gke-5.15: DNE
 
 Patches_linux-gkeop:
@@ -592,6 +640,7 @@ bionic_linux-gkeop: DNE
 focal_linux-gkeop: needs-triage
 jammy_linux-gkeop: needs-triage
 kinetic_linux-gkeop: DNE
+lunar_linux-gkeop: DNE
 devel_linux-gkeop: DNE
 
 Patches_linux-gkeop-5.4:
@@ -603,6 +652,7 @@ bionic_linux-gkeop-5.4: needs-triage
 focal_linux-gkeop-5.4: DNE
 jammy_linux-gkeop-5.4: DNE
 kinetic_linux-gkeop-5.4: DNE
+lunar_linux-gkeop-5.4: DNE
 devel_linux-gkeop-5.4: DNE
 
 Patches_linux-ibm:
@@ -615,6 +665,7 @@ bionic_linux-ibm: DNE
 focal_linux-ibm: needs-triage
 jammy_linux-ibm: needs-triage
 kinetic_linux-ibm: needs-triage
+lunar_linux-ibm: needs-triage
 devel_linux-ibm: needs-triage
 
 Patches_linux-ibm-5.4:
@@ -627,6 +678,7 @@ bionic_linux-ibm-5.4: needs-triage
 focal_linux-ibm-5.4: DNE
 jammy_linux-ibm-5.4: DNE
 kinetic_linux-ibm-5.4: DNE
+lunar_linux-ibm-5.4: DNE
 devel_linux-ibm-5.4: DNE
 
 Patches_linux-intel-5.13:
@@ -638,6 +690,7 @@ bionic_linux-intel-5.13: DNE
 focal_linux-intel-5.13: needs-triage
 jammy_linux-intel-5.13: DNE
 kinetic_linux-intel-5.13: DNE
+lunar_linux-intel-5.13: DNE
 devel_linux-intel-5.13: DNE
 
 Patches_linux-intel-iotg:
@@ -650,6 +703,7 @@ bionic_linux-intel-iotg: DNE
 focal_linux-intel-iotg: DNE
 jammy_linux-intel-iotg: needs-triage
 kinetic_linux-intel-iotg: DNE
+lunar_linux-intel-iotg: DNE
 devel_linux-intel-iotg: DNE
 
 Patches_linux-intel-iotg-5.15:
@@ -662,6 +716,7 @@ bionic_linux-intel-iotg-5.15: DNE
 focal_linux-intel-iotg-5.15: needs-triage
 jammy_linux-intel-iotg-5.15: DNE
 kinetic_linux-intel-iotg-5.15: DNE
+lunar_linux-intel-iotg-5.15: DNE
 devel_linux-intel-iotg-5.15: DNE
 
 Patches_linux-lowlatency:
@@ -674,6 +729,7 @@ bionic_linux-lowlatency: DNE
 focal_linux-lowlatency: DNE
 jammy_linux-lowlatency: needs-triage
 kinetic_linux-lowlatency: needs-triage
+lunar_linux-lowlatency: needs-triage
 devel_linux-lowlatency: needs-triage
 
 Patches_linux-lowlatency-hwe-5.15:
@@ -686,6 +742,7 @@ bionic_linux-lowlatency-hwe-5.15: DNE
 focal_linux-lowlatency-hwe-5.15: needs-triage
 jammy_linux-lowlatency-hwe-5.15: DNE
 kinetic_linux-lowlatency-hwe-5.15: DNE
+lunar_linux-lowlatency-hwe-5.15: DNE
 devel_linux-lowlatency-hwe-5.15: DNE
 
 Patches_linux-lowlatency-hwe-5.19:
@@ -698,6 +755,7 @@ bionic_linux-lowlatency-hwe-5.19: DNE
 focal_linux-lowlatency-hwe-5.19: DNE
 jammy_linux-lowlatency-hwe-5.19: needs-triage
 kinetic_linux-lowlatency-hwe-5.19: DNE
+lunar_linux-lowlatency-hwe-5.19: DNE
 devel_linux-lowlatency-hwe-5.19: DNE
 
 Patches_linux-oracle:
@@ -710,6 +768,7 @@ bionic_linux-oracle: needs-triage
 focal_linux-oracle: needs-triage
 jammy_linux-oracle: needs-triage
 kinetic_linux-oracle: needs-triage
+lunar_linux-oracle: needs-triage
 devel_linux-oracle: needs-triage
 
 Patches_linux-oracle-5.0:
@@ -721,6 +780,7 @@ bionic_linux-oracle-5.0: ignored (superseded by linux-oracle-5.3)
 focal_linux-oracle-5.0: DNE
 jammy_linux-oracle-5.0: DNE
 kinetic_linux-oracle-5.0: DNE
+lunar_linux-oracle-5.0: DNE
 devel_linux-oracle-5.0: DNE
 
 Patches_linux-oracle-5.3:
@@ -732,6 +792,7 @@ bionic_linux-oracle-5.3: ignored (superseded by linux-oracle-5.4)
 focal_linux-oracle-5.3: DNE
 jammy_linux-oracle-5.3: DNE
 kinetic_linux-oracle-5.3: DNE
+lunar_linux-oracle-5.3: DNE
 devel_linux-oracle-5.3: DNE
 
 Patches_linux-oracle-5.4:
@@ -743,6 +804,7 @@ bionic_linux-oracle-5.4: needs-triage
 focal_linux-oracle-5.4: DNE
 jammy_linux-oracle-5.4: DNE
 kinetic_linux-oracle-5.4: DNE
+lunar_linux-oracle-5.4: DNE
 devel_linux-oracle-5.4: DNE
 
 Patches_linux-oracle-5.8:
@@ -755,6 +817,7 @@ bionic_linux-oracle-5.8: DNE
 focal_linux-oracle-5.8: ignored (superseded by linux-oracle-5.11)
 jammy_linux-oracle-5.8: DNE
 kinetic_linux-oracle-5.8: DNE
+lunar_linux-oracle-5.8: DNE
 devel_linux-oracle-5.8: DNE
 
 Patches_linux-oracle-5.11:
@@ -767,6 +830,7 @@ bionic_linux-oracle-5.11: DNE
 focal_linux-oracle-5.11: ignored (superseded by linux-oracle-5.13)
 jammy_linux-oracle-5.11: DNE
 kinetic_linux-oracle-5.11: DNE
+lunar_linux-oracle-5.11: DNE
 devel_linux-oracle-5.11: DNE
 
 Patches_linux-oracle-5.13:
@@ -779,6 +843,7 @@ bionic_linux-oracle-5.13: DNE
 focal_linux-oracle-5.13: needs-triage
 jammy_linux-oracle-5.13: DNE
 kinetic_linux-oracle-5.13: DNE
+lunar_linux-oracle-5.13: DNE
 devel_linux-oracle-5.13: DNE
 
 Patches_linux-oracle-5.15:
@@ -791,6 +856,7 @@ bionic_linux-oracle-5.15: DNE
 focal_linux-oracle-5.15: needs-triage
 jammy_linux-oracle-5.15: DNE
 kinetic_linux-oracle-5.15: DNE
+lunar_linux-oracle-5.15: DNE
 devel_linux-oracle-5.15: DNE
 
 Patches_linux-oem:
@@ -802,6 +868,7 @@ bionic_linux-oem: needs-triage
 focal_linux-oem: DNE
 jammy_linux-oem: DNE
 kinetic_linux-oem: DNE
+lunar_linux-oem: DNE
 devel_linux-oem: DNE
 
 Patches_linux-oem-5.6:
@@ -813,6 +880,7 @@ bionic_linux-oem-5.6: DNE
 focal_linux-oem-5.6: needs-triage
 jammy_linux-oem-5.6: DNE
 kinetic_linux-oem-5.6: DNE
+lunar_linux-oem-5.6: DNE
 devel_linux-oem-5.6: DNE
 
 Patches_linux-oem-5.10:
@@ -824,6 +892,7 @@ bionic_linux-oem-5.10: DNE
 focal_linux-oem-5.10: needs-triage
 jammy_linux-oem-5.10: DNE
 kinetic_linux-oem-5.10: DNE
+lunar_linux-oem-5.10: DNE
 devel_linux-oem-5.10: DNE
 
 Patches_linux-oem-5.13:
@@ -835,6 +904,7 @@ bionic_linux-oem-5.13: DNE
 focal_linux-oem-5.13: ignored (superseded by linux-oem-5.14)
 jammy_linux-oem-5.13: DNE
 kinetic_linux-oem-5.13: DNE
+lunar_linux-oem-5.13: DNE
 devel_linux-oem-5.13: DNE
 
 Patches_linux-oem-5.14:
@@ -846,6 +916,7 @@ bionic_linux-oem-5.14: DNE
 focal_linux-oem-5.14: needs-triage
 jammy_linux-oem-5.14: DNE
 kinetic_linux-oem-5.14: DNE
+lunar_linux-oem-5.14: DNE
 devel_linux-oem-5.14: DNE
 
 Patches_linux-oem-5.17:
@@ -858,6 +929,7 @@ bionic_linux-oem-5.17: DNE
 focal_linux-oem-5.17: DNE
 jammy_linux-oem-5.17: needs-triage
 kinetic_linux-oem-5.17: needs-triage
+lunar_linux-oem-5.17: DNE
 devel_linux-oem-5.17: DNE
 
 Patches_linux-oem-6.0:
@@ -870,6 +942,7 @@ bionic_linux-oem-6.0: DNE
 focal_linux-oem-6.0: DNE
 jammy_linux-oem-6.0: needs-triage
 kinetic_linux-oem-6.0: DNE
+lunar_linux-oem-6.0: DNE
 devel_linux-oem-6.0: DNE
 
 Patches_linux-oem-6.1:
@@ -882,6 +955,7 @@ bionic_linux-oem-6.1: DNE
 focal_linux-oem-6.1: DNE
 jammy_linux-oem-6.1: needs-triage
 kinetic_linux-oem-6.1: DNE
+lunar_linux-oem-6.1: DNE
 devel_linux-oem-6.1: DNE
 
 Patches_linux-oem-osp1:
@@ -893,6 +967,7 @@ bionic_linux-oem-osp1: needs-triage
 focal_linux-oem-osp1: DNE
 jammy_linux-oem-osp1: DNE
 kinetic_linux-oem-osp1: DNE
+lunar_linux-oem-osp1: DNE
 devel_linux-oem-osp1: DNE
 
 Patches_linux-raspi:
@@ -904,6 +979,7 @@ bionic_linux-raspi: DNE
 focal_linux-raspi: needs-triage
 jammy_linux-raspi: needs-triage
 kinetic_linux-raspi: needs-triage
+lunar_linux-raspi: needs-triage
 devel_linux-raspi: needs-triage
 
 Patches_linux-raspi2:
@@ -915,6 +991,7 @@ bionic_linux-raspi2: needs-triage
 focal_linux-raspi2: ignored (replaced by linux-raspi)
 jammy_linux-raspi2: DNE
 kinetic_linux-raspi2: DNE
+lunar_linux-raspi2: DNE
 devel_linux-raspi2: DNE
 
 Patches_linux-raspi2-5.3:
@@ -926,6 +1003,7 @@ bionic_linux-raspi2-5.3: ignored (superseded by linux-raspi-5.4)
 focal_linux-raspi2-5.3: DNE
 jammy_linux-raspi2-5.3: DNE
 kinetic_linux-raspi2-5.3: DNE
+lunar_linux-raspi2-5.3: DNE
 devel_linux-raspi2-5.3: DNE
 
 Patches_linux-raspi-5.4:
@@ -937,6 +1015,7 @@ bionic_linux-raspi-5.4: needs-triage
 focal_linux-raspi-5.4: DNE
 jammy_linux-raspi-5.4: DNE
 kinetic_linux-raspi-5.4: DNE
+lunar_linux-raspi-5.4: DNE
 devel_linux-raspi-5.4: DNE
 
 Patches_linux-riscv:
@@ -948,6 +1027,7 @@ bionic_linux-riscv: DNE
 focal_linux-riscv: ignored (superseded by linux-riscv-5.8)
 jammy_linux-riscv: needs-triage
 kinetic_linux-riscv: needs-triage
+lunar_linux-riscv: needs-triage
 devel_linux-riscv: needs-triage
 
 Patches_linux-riscv-5.8:
@@ -960,6 +1040,7 @@ bionic_linux-riscv-5.8: DNE
 focal_linux-riscv-5.8: ignored (superseded by linux-riscv-5.11)
 jammy_linux-riscv-5.8: DNE
 kinetic_linux-riscv-5.8: DNE
+lunar_linux-riscv-5.8: DNE
 devel_linux-riscv-5.8: DNE
 
 Patches_linux-riscv-5.11:
@@ -972,6 +1053,7 @@ bionic_linux-riscv-5.11: DNE
 focal_linux-riscv-5.11: ignored (superseded by linux-riscv-5.13)
 jammy_linux-riscv-5.11: DNE
 kinetic_linux-riscv-5.11: DNE
+lunar_linux-riscv-5.11: DNE
 devel_linux-riscv-5.11: DNE
 
 Patches_linux-snapdragon:
@@ -983,4 +1065,5 @@ bionic_linux-snapdragon: needs-triage
 focal_linux-snapdragon: DNE
 jammy_linux-snapdragon: DNE
 kinetic_linux-snapdragon: DNE
+lunar_linux-snapdragon: DNE
 devel_linux-snapdragon: DNE

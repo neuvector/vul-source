@@ -20,6 +20,7 @@ bionic_db: DNE
 focal_db: DNE
 jammy_db: DNE
 kinetic_db: DNE
+lunar_db: DNE
 devel_db: DNE
 
 Patches_db4.8:
@@ -31,6 +32,7 @@ bionic_db4.8: DNE
 focal_db4.8: DNE
 jammy_db4.8: DNE
 kinetic_db4.8: DNE
+lunar_db4.8: DNE
 devel_db4.8: DNE
 
 Patches_db5.3:
@@ -43,6 +45,7 @@ bionic_db5.3: needs-triage
 focal_db5.3: needs-triage
 jammy_db5.3: needs-triage
 kinetic_db5.3: needs-triage
+lunar_db5.3: needs-triage
 devel_db5.3: needs-triage
 
 Patches_db6.0:
@@ -54,4 +57,5 @@ bionic_db6.0: DNE
 focal_db6.0: DNE
 jammy_db6.0: DNE
 kinetic_db6.0: DNE
+lunar_db6.0: DNE
 devel_db6.0: DNE

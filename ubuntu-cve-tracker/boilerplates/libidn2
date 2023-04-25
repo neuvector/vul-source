@@ -20,6 +20,7 @@ bionic_libidn2: needs-triage
 focal_libidn2: needs-triage
 jammy_libidn2: needs-triage
 kinetic_libidn2: needs-triage
+lunar_libidn2: needs-triage
 devel_libidn2: needs-triage
 
 Patches_libidn2-0:
@@ -31,4 +32,5 @@ bionic_libidn2-0: DNE
 focal_libidn2-0: DNE
 jammy_libidn2-0: DNE
 kinetic_libidn2-0: DNE
+lunar_libidn2-0: DNE
 devel_libidn2-0: DNE

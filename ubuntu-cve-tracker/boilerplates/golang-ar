@@ -21,6 +21,7 @@ bionic_golang-ar: needs-triage
 focal_golang-ar: needs-triage
 jammy_golang-ar: needs-triage
 kinetic_golang-ar: needs-triage
+lunar_golang-ar: needs-triage
 devel_golang-ar: needs-triage
 
 Patches_snapd:
@@ -34,4 +35,5 @@ focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
 kinetic_snapd: needs-triage
+lunar_snapd: needs-triage
 devel_snapd: needs-triage

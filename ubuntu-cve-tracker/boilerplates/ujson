@@ -26,6 +26,7 @@ bionic_ujson: needs-triage
 focal_ujson: needs-triage
 jammy_ujson: needs-triage
 kinetic_ujson: needs-triage
+lunar_ujson: needs-triage
 devel_ujson: needs-triage
 
 Patches_pandas:
@@ -37,6 +38,7 @@ bionic_pandas: needs-triage
 focal_pandas: needs-triage
 jammy_pandas: needs-triage
 kinetic_pandas: needs-triage
+lunar_pandas: needs-triage
 devel_pandas: needs-triage
 
 Patches_collada2gltf:
@@ -47,4 +49,5 @@ bionic_collada2gltf: needs-triage
 focal_collada2gltf: DNE
 jammy_collada2gltf: needs-triage
 kinetic_collada2gltf: needs-triage
+lunar_collada2gltf: needs-triage
 devel_collada2gltf: needs-triage

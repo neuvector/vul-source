@@ -22,6 +22,7 @@ bionic_tgt: needs-triage
 focal_tgt: needs-triage
 jammy_tgt: needs-triage
 kinetic_tgt: needs-triage
+lunar_tgt: needs-triage
 devel_tgt: needs-triage
 
 Patches_iscsitarget:
@@ -33,4 +34,5 @@ bionic_iscsitarget: DNE
 focal_iscsitarget: DNE
 jammy_iscsitarget: DNE
 kinetic_iscsitarget: DNE
+lunar_iscsitarget: DNE
 devel_iscsitarget: DNE

@@ -20,6 +20,7 @@ bionic_ruby1.9.1: DNE
 focal_ruby1.9.1: DNE
 jammy_ruby1.9.1: DNE
 kinetic_ruby1.9.1: DNE
+lunar_ruby1.9.1: DNE
 devel_ruby1.9.1: DNE
 
 Patches_ruby2.0:
@@ -31,6 +32,7 @@ bionic_ruby2.0: DNE
 focal_ruby2.0: DNE
 jammy_ruby2.0: DNE
 kinetic_ruby2.0: DNE
+lunar_ruby2.0: DNE
 devel_ruby2.0: DNE
 
 Patches_ruby2.3:
@@ -43,6 +45,7 @@ bionic_ruby2.3: DNE
 focal_ruby2.3: DNE
 jammy_ruby2.3: DNE
 kinetic_ruby2.3: DNE
+lunar_ruby2.3: DNE
 devel_ruby2.3: DNE
 
 Patches_ruby2.5:
@@ -54,6 +57,7 @@ bionic_ruby2.5: needs-triage
 focal_ruby2.5: DNE
 jammy_ruby2.5: DNE
 kinetic_ruby2.5: DNE
+lunar_ruby2.5: DNE
 devel_ruby2.5: DNE
 
 Patches_ruby2.7:
@@ -65,6 +69,7 @@ bionic_ruby2.7: DNE
 focal_ruby2.7: needs-triage
 jammy_ruby2.7: DNE
 kinetic_ruby2.7: DNE
+lunar_ruby2.7: DNE
 devel_ruby2.7: DNE
 
 Patches_ruby3.0:
@@ -76,6 +81,7 @@ bionic_ruby3.0: DNE
 focal_ruby3.0: DNE
 jammy_ruby3.0: needs-triage
 kinetic_ruby3.0: needs-triage
+lunar_ruby3.0: needs-triage
 devel_ruby3.0: needs-triage
 
 Patches_ruby3.1:
@@ -87,6 +93,7 @@ bionic_ruby3.1: DNE
 focal_ruby3.1: DNE
 jammy_ruby3.1: DNE
 kinetic_ruby3.1: needs-triage
+lunar_ruby3.1: needs-triage
 devel_ruby3.1: needs-triage
 
 Patches_jruby:
@@ -98,5 +105,6 @@ bionic_jruby: needs-triage
 focal_jruby: needs-triage
 jammy_jruby: DNE
 kinetic_jruby: DNE
+lunar_jruby: needs-triage
 devel_jruby: needs-triage
  

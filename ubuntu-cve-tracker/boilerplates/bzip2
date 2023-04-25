@@ -23,6 +23,7 @@ bionic_bzip2: needs-triage
 focal_bzip2: needs-triage
 jammy_bzip2: needs-triage
 kinetic_bzip2: needs-triage
+lunar_bzip2: needs-triage
 devel_bzip2: needs-triage
 
 Patches_clamav:
@@ -35,4 +36,5 @@ bionic_clamav: needed
 focal_clamav: needs-triage
 jammy_clamav: needs-triage
 kinetic_clamav: needs-triage
+lunar_clamav: needs-triage
 devel_clamav: needs-triage

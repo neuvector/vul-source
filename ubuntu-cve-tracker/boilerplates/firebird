@@ -20,6 +20,7 @@ bionic_firebird2.5: DNE
 focal_firebird2.5: DNE
 jammy_firebird2.5: DNE
 kinetic_firebird2.5: DNE
+lunar_firebird2.5: DNE
 devel_firebird2.5: DNE
 
 Patches_firebird3.0:
@@ -31,4 +32,5 @@ bionic_firebird3.0: needs-triage
 focal_firebird3.0: needs-triage
 jammy_firebird3.0: needs-triage
 kinetic_firebird3.0: needs-triage
+lunar_firebird3.0: needs-triage
 devel_firebird3.0: needs-triage

@@ -123,7 +123,7 @@ def extract_cve_descriptions(usn, usnnum):
 
     return descriptions
 
-
+srcmap = {}
 for usn in usnlist:
     ubuntu_descriptions = dict()
     if args.debug:
@@ -239,7 +239,8 @@ for usn in usnlist:
                         if cve_lib.is_active_release(rel):
                             cve_rel = cve_lib.get_esm_name(rel, 'universe')
                         else:
-                            srcmap = load(releases=[rel], skip_eol_releases=False)
+                            if not rel in srcmap:
+                                srcmap[rel] = load(releases=[rel], skip_eol_releases=False)[rel]
                             if cve_lib.is_universe(srcmap, src, rel, None):
                                 cve_rel = cve_lib.get_esm_name(rel, 'universe')
                             else:
@@ -309,6 +310,20 @@ for usn in usnlist:
                             version = usn_ver
                         if args.update:
                             cve_lib.update_state(filename, src, cve_rel, 'released', version)
+
+                            if esm_version_match:
+                                continue
+
+                            if not cve_rel in srcmap:
+                                srcmap[cve_rel] = load(releases=[cve_rel], skip_eol_releases=False)[cve_rel]
+
+                            esm_rel = cve_lib.get_esm_name(cve_rel, 'universe' if cve_lib.is_universe(srcmap, src, cve_rel, None) else 'main')
+                            if esm_rel and esm_rel in cves[cve]['pkgs'][src]:
+                                status_esm = cves[cve]['pkgs'][src][esm_rel][0]
+                                if status_esm != 'released' and status_esm != 'not-affected' and status_esm != 'ignored':
+                                    print("USN-%s fixed %s in %s %s%s/%s (was %s)" % (usn, cve, src, version, detail, esm_rel, status_esm), file=sys.stderr)
+                                    cve_lib.update_state(filename, src, esm_rel, 'not-affected', version)
+
                             if args.git_stage:
                                 cve_lib.git_add(filename)
                     elif args.debug:

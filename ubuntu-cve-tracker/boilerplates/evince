@@ -21,6 +21,7 @@ bionic_evince: needs-triage
 focal_evince: needs-triage
 jammy_evince: needs-triage
 kinetic_evince: needs-triage
+lunar_evince: needs-triage
 devel_evince: needs-triage
 
 Patches_atril:
@@ -32,4 +33,5 @@ bionic_atril: needs-triage
 focal_atril: needs-triage
 jammy_atril: needs-triage
 kinetic_atril: needs-triage
+lunar_atril: needs-triage
 devel_atril: needs-triage

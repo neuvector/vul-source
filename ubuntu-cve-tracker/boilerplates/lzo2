@@ -30,6 +30,7 @@ hirsute_lzo2:
 impish_lzo2:
 jammy_lzo2:
 kinetic_lzo2:
+lunar_lzo2:
 devel_lzo2:
 
 Patches_samhain:
@@ -44,6 +45,7 @@ hirsute_samhain:
 impish_samhain:
 jammy_samhain:
 kinetic_samhain:
+lunar_samhain:
 devel_samhain:
 
 Patches_valgrind:
@@ -59,6 +61,7 @@ hirsute_valgrind:
 impish_valgrind:
 jammy_valgrind:
 kinetic_valgrind:
+lunar_valgrind:
 devel_valgrind:
 
 Patches_syslinux:
@@ -74,6 +77,7 @@ hirsute_syslinux:
 impish_syslinux:
 jammy_syslinux:
 kinetic_syslinux:
+lunar_syslinux:
 devel_syslinux:
 
 Patches_distcc:
@@ -88,6 +92,7 @@ hirsute_distcc:
 impish_distcc:
 jammy_distcc:
 kinetic_distcc:
+lunar_distcc:
 devel_distcc:
 
 Patches_bb:
@@ -102,6 +107,7 @@ hirsute_bb:
 impish_bb:
 jammy_bb:
 kinetic_bb:
+lunar_bb:
 devel_bb:
 
 Patches_u-boot:
@@ -117,6 +123,7 @@ hirsute_u-boot:
 impish_u-boot:
 jammy_u-boot:
 kinetic_u-boot:
+lunar_u-boot:
 devel_u-boot:
 
 Patches_refind:
@@ -131,6 +138,7 @@ hirsute_refind:
 impish_refind:
 jammy_refind:
 kinetic_refind:
+lunar_refind:
 devel_refind:
 
 Patches_blender:
@@ -145,6 +153,7 @@ hirsute_blender:
 impish_blender:
 jammy_blender:
 kinetic_blender:
+lunar_blender:
 devel_blender:
 
 Patches_n2n:
@@ -159,6 +168,7 @@ hirsute_n2n:
 impish_n2n:
 jammy_n2n:
 kinetic_n2n:
+lunar_n2n:
 devel_n2n:
 
 Patches_nfdump:
@@ -173,6 +183,7 @@ hirsute_nfdump:
 impish_nfdump:
 jammy_nfdump:
 kinetic_nfdump:
+lunar_nfdump:
 devel_nfdump:
 
 Patches_libvncserver:
@@ -188,6 +199,7 @@ hirsute_libvncserver:
 impish_libvncserver:
 jammy_libvncserver:
 kinetic_libvncserver:
+lunar_libvncserver:
 devel_libvncserver:
 
 Patches_ht:
@@ -202,6 +214,7 @@ hirsute_ht:
 impish_ht:
 jammy_ht:
 kinetic_ht:
+lunar_ht:
 devel_ht:
 
 Patches_medafen:
@@ -213,6 +226,7 @@ bionic_medafen: DNE
 focal_medafen: DNE
 jammy_medafen: DNE
 kinetic_medafen: DNE
+lunar_medafen: DNE
 devel_medafen: DNE
 
 Patches_qemu:
@@ -228,6 +242,7 @@ hirsute_qemu:
 impish_qemu:
 jammy_qemu:
 kinetic_qemu:
+lunar_qemu:
 devel_qemu:
 
 Patches_grub2:
@@ -243,6 +258,7 @@ hirsute_grub2:
 impish_grub2:
 jammy_grub2:
 kinetic_grub2:
+lunar_grub2:
 devel_grub2:
 
 Patches_grub2-signed:
@@ -258,4 +274,5 @@ hirsute_grub2-signed:
 impish_grub2-signed:
 jammy_grub2-signed:
 kinetic_grub2-signed:
+lunar_grub2-signed:
 devel_grub2-signed:

@@ -20,6 +20,7 @@ bionic_tomcat6: DNE
 focal_tomcat6: DNE
 jammy_tomcat6: DNE
 kinetic_tomcat6: DNE
+lunar_tomcat6: DNE
 devel_tomcat6: DNE
 
 Patches_tomcat7:
@@ -31,6 +32,7 @@ bionic_tomcat7: needs-triage
 focal_tomcat7: DNE
 jammy_tomcat7: DNE
 kinetic_tomcat7: DNE
+lunar_tomcat7: DNE
 devel_tomcat7: DNE
 
 Patches_tomcat8:
@@ -43,6 +45,7 @@ bionic_tomcat8: needs-triage
 focal_tomcat8: DNE
 jammy_tomcat8: DNE
 kinetic_tomcat8: DNE
+lunar_tomcat8: DNE
 devel_tomcat8: DNE
 
 Patches_tomcat9:
@@ -54,4 +57,5 @@ bionic_tomcat9: needs-triage
 focal_tomcat9: needs-triage
 jammy_tomcat9: needs-triage
 kinetic_tomcat9: needs-triage
+lunar_tomcat9: needs-triage
 devel_tomcat9: needs-triage

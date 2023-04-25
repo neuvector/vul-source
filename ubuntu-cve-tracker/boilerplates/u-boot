@@ -18,6 +18,7 @@ bionic_u-boot: needs-triage
 focal_u-boot: needs-triage 
 jammy_u-boot: needs-triage
 kinetic_u-boot: needs-triage
+lunar_u-boot: needs-triage
 devel_u-boot: needs-triage
 
 Patches_u-boot-nezha:
@@ -27,4 +28,5 @@ bionic_u-boot-nezha: DNE
 focal_u-boot-nezha: DNE
 jammy_u-boot-nezha: needs-triage
 kinetic_u-boot-nezha: needs-triage
+lunar_u-boot-nezha: needs-triage
 devel_u-boot-nezha: needs-triage

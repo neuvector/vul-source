@@ -21,4 +21,5 @@ bionic_qemu: needs-triage
 focal_qemu: needs-triage
 jammy_qemu: needs-triage
 kinetic_qemu: needs-triage
+lunar_qemu: needs-triage
 devel_qemu: needs-triage

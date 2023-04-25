@@ -178,7 +178,7 @@ def _find_from_mirror(ubuntu, canonical, data_type, arch='amd64', pockets=None, 
             # FIXME: 2020-04-29: disabled partner warning for dev for now
             # FIXME: 2021-04-24: disabling for both devel and hirsute;
             # looks like mirroring on people.c.c stopped?
-            if rel == cve_lib.devel_release or rel in ['hirsute', 'impish', 'jammy', 'kinetic']:
+            if rel == cve_lib.devel_release or rel in ['hirsute', 'impish', 'jammy', 'kinetic', 'lunar']:
                 prefreeze = os.path.join(canonical, 'dists', '%s-series' % rel[0])
                 prefreeze
                 #if not os.path.isdir(prefreeze):

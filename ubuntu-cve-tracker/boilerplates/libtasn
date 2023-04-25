@@ -20,6 +20,7 @@ bionic_libtasn1-3: DNE
 focal_libtasn1-3: DNE
 jammy_libtasn1-3: DNE
 kinetic_libtasn1-3: DNE
+lunar_libtasn1-3: DNE
 devel_libtasn1-3: DNE
 
 Patches_libtasn1-6:
@@ -32,5 +33,6 @@ bionic_libtasn1-6: needs-triage
 focal_libtasn1-6: needs-triage
 jammy_libtasn1-6: needs-triage
 kinetic_libtasn1-6: needs-triage
+lunar_libtasn1-6: needs-triage
 devel_libtasn1-6: needs-triage
 

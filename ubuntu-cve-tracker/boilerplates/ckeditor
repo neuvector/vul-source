@@ -22,6 +22,7 @@ bionic_ckeditor: needs-triage
 focal_ckeditor: needs-triage
 jammy_ckeditor: needs-triage
 kinetic_ckeditor: needs-triage
+lunar_ckeditor: needs-triage
 devel_ckeditor: needs-triage
 
 Patches_ckeditor3:
@@ -33,6 +34,7 @@ bionic_ckeditor3: needs-triage
 focal_ckeditor3: needs-triage
 jammy_ckeditor3: needs-triage
 kinetic_ckeditor3: needs-triage
+lunar_ckeditor3: needs-triage
 devel_ckeditor3: needs-triage
 
 Patches_ldap-account-manager:
@@ -44,6 +46,7 @@ bionic_ldap-account-manager: needs-triage
 focal_ldap-account-manager: needs-triage
 jammy_ldap-account-manager: needs-triage
 kinetic_ldap-account-manager: needs-triage
+lunar_ldap-account-manager: needs-triage
 devel_ldap-account-manager: needs-triage
 
 Patches_request-tracker4:
@@ -55,4 +58,5 @@ bionic_request-tracker4: needs-triage
 focal_request-tracker4: needs-triage
 jammy_request-tracker4: needs-triage
 kinetic_request-tracker4: needs-triage
+lunar_request-tracker4: needs-triage
 devel_request-tracker4: needs-triage

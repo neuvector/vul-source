@@ -21,6 +21,7 @@ bionic_libvncserver: needs-triage
 focal_libvncserver: needs-triage
 jammy_libvncserver: needs-triage
 kinetic_libvncserver: needs-triage
+lunar_libvncserver: needs-triage
 devel_libvncserver: needs-triage
 
 Patches_vino:
@@ -33,6 +34,7 @@ bionic_vino: needs-triage
 focal_vino: needs-triage
 jammy_vino: needs-triage
 kinetic_vino: needs-triage
+lunar_vino: needs-triage
 devel_vino: needs-triage
 
 Patches_x11vnc:
@@ -44,6 +46,7 @@ bionic_x11vnc: needs-triage
 focal_x11vnc: needs-triage
 jammy_x11vnc: needs-triage
 kinetic_x11vnc: needs-triage
+lunar_x11vnc: needs-triage
 devel_x11vnc: needs-triage
 
 Patches_veyon:
@@ -55,6 +58,7 @@ bionic_veyon: DNE
 focal_veyon: needs-triage
 jammy_veyon: needs-triage
 kinetic_veyon: needs-triage
+lunar_veyon: needs-triage
 devel_veyon: needs-triage
 
 Patches_italc:
@@ -66,6 +70,7 @@ bionic_italc: needs-triage
 focal_italc: DNE
 jammy_italc: DNE
 kinetic_italc: DNE
+lunar_italc: DNE
 devel_italc: DNE
 
 Patches_tightvnc:
@@ -77,4 +82,5 @@ bionic_tightvnc: needs-triage
 focal_tightvnc: needs-triage
 jammy_tightvnc: needs-triage
 kinetic_tightvnc: needs-triage
+lunar_tightvnc: needs-triage
 devel_tightvnc: needs-triage

@@ -80,7 +80,7 @@ parser.add_option("-n", "--number", help="Number of suggestions")
 releases = cve_lib.releases
 if not opt.all_releases:
     # should contain most recent LTS and most recent non-LTS
-    releases = ['jammy', 'kinetic']
+    releases = ['jammy', 'lunar']
 
 cp_args = []
 for r in releases:

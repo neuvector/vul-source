@@ -23,6 +23,7 @@ bionic_spice-gtk: needs-triage
 focal_spice-gtk: needs-triage
 jammy_spice-gtk: needs-triage
 kinetic_spice-gtk: needs-triage
+lunar_spice-gtk: needs-triage
 devel_spice-gtk: needs-triage
 
 Patches_spice:
@@ -35,6 +36,7 @@ bionic_spice: needs-triage
 focal_spice: needs-triage
 jammy_spice: needs-triage
 kinetic_spice: needs-triage
+lunar_spice: needs-triage
 devel_spice: needs-triage
 
 Patches_spice-protocol:
@@ -47,4 +49,5 @@ bionic_spice-protocol: needs-triage
 focal_spice-protocol: needs-triage
 jammy_spice-protocol: needs-triage
 kinetic_spice-protocol: needs-triage
+lunar_spice-protocol: needs-triage
 devel_spice-protocol: needs-triage

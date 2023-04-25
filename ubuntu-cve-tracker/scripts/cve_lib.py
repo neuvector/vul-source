@@ -646,9 +646,21 @@ subprojects = {
         "version": 23.04,
         "codename": "Lunar Lobster",
         "alias": "lunar",
-        "devel": True,  # there can be only one ⚔
+        "devel": False,
         "description": "Interim Release",
+        "stamp": 1682431200,
     },
+#    "ubuntu/mantic": {
+#        "eol": False,
+#        "oval": True,
+#        "components": ["main", "restricted", "universe", "multiverse"],
+#        "name": "Ubuntu 23.10",
+#        "version": 23.10,
+#        "codename": "Mantic",
+#        "alias": "mantic",
+#        "devel": True,  # there can be only one ⚔
+#        "description": "Interim Release",
+#    },
     "snap": {
         "eol": False,
         "oval": False,
@@ -1348,6 +1360,12 @@ release_expectations = {
        'bonus': [],
        'arch_all': 'amd64',
     },
+#    'mantic': {
+#       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
+#       'expected': ['riscv64'],
+#       'bonus': [],
+#       'arch_all': 'amd64',
+#    },
 }
 
 # components in the archive

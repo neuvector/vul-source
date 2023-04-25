@@ -20,6 +20,7 @@ bionic_eglibc: DNE
 focal_eglibc: DNE
 jammy_eglibc: DNE
 kinetic_eglibc: DNE
+lunar_eglibc: DNE
 devel_eglibc: DNE
 
 Patches_glibc:
@@ -32,4 +33,5 @@ bionic_glibc: needs-triage
 focal_glibc: needs-triage
 jammy_glibc: needs-triage
 kinetic_glibc: needs-triage
+lunar_glibc: needs-triage
 devel_glibc: needs-triage

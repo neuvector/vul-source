@@ -21,6 +21,7 @@ bionic_python2.7: needs-triage
 focal_python2.7: needs-triage
 jammy_python2.7: needs-triage
 kinetic_python2.7: needs-triage
+lunar_python2.7: DNE
 devel_python2.7: DNE
 
 Patches_python3.4:
@@ -32,6 +33,7 @@ bionic_python3.4: DNE
 focal_python3.4: DNE
 jammy_python3.4: DNE
 kinetic_python3.4: DNE
+lunar_python3.4: DNE
 devel_python3.4: DNE
 
 Patches_python3.5:
@@ -44,6 +46,7 @@ bionic_python3.5: DNE
 focal_python3.5: DNE
 jammy_python3.5: DNE
 kinetic_python3.5: DNE
+lunar_python3.5: DNE
 devel_python3.5: DNE
 
 Patches_python3.6:
@@ -55,6 +58,7 @@ bionic_python3.6: needs-triage
 focal_python3.6: DNE
 jammy_python3.6: DNE
 kinetic_python3.6: DNE
+lunar_python3.6: DNE
 devel_python3.6: DNE
 
 Patches_python3.7:
@@ -66,6 +70,7 @@ bionic_python3.7: needs-triage
 focal_python3.7: DNE
 jammy_python3.7: DNE
 kinetic_python3.7: DNE
+lunar_python3.7: DNE
 devel_python3.7: DNE
 
 Patches_python3.8:
@@ -77,6 +82,7 @@ bionic_python3.8: needs-triage
 focal_python3.8: needs-triage
 jammy_python3.8: DNE
 kinetic_python3.8: DNE
+lunar_python3.8: DNE
 devel_python3.8: DNE
 
 Patches_python3.9:
@@ -88,6 +94,7 @@ bionic_python3.9: DNE
 focal_python3.9: needs-triage
 jammy_python3.9: DNE
 kinetic_python3.9: DNE
+lunar_python3.9: DNE
 devel_python3.9: DNE
 
 Patches_python3.10:
@@ -99,6 +106,7 @@ bionic_python3.10: DNE
 focal_python3.10: DNE
 jammy_python3.10: needs-triage
 kinetic_python3.10: needs-triage
+lunar_python3.10: DNE
 devel_python3.10: DNE
 
 Patches_python3.11:
@@ -110,4 +118,5 @@ bionic_python3.11: DNE
 focal_python3.11: DNE
 jammy_python3.11: needs-triage
 kinetic_python3.11: needs-triage
+lunar_python3.11: needs-triage
 devel_python3.11: needs-triage
