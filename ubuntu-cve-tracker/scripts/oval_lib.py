@@ -29,6 +29,7 @@ import tempfile
 import collections
 import glob
 import xml.etree.cElementTree as etree
+from xml.dom import minidom
 from typing import Tuple # Needed because of Python < 3.9 and to also support < 3.7
 
 from source_map import load
@@ -1167,11 +1168,15 @@ class OvalGeneratorPkg(OvalGenerator):
             else:
                 self._populate_pkg(self.packages[pkg], root_element)
 
-        etree.indent(xml_tree, level=0)
+        #etree.indent(xml_tree, level=0) -> only available from Python 3.9
         filename = f"com.ubuntu.{self.release_codename}.pkg.oval.xml"
+        xmlstr = minidom.parseString(etree.tostring(root_element)).toprettyxml(indent="  ")
         if self.oval_format == 'oci':
             filename = f'oci.{filename}'
-        xml_tree.write(os.path.join(self.output_dir, filename))
+
+        with open(os.path.join(self.output_dir, filename), 'w') as file:
+            file.write(xmlstr)
+        #xml_tree.write(os.path.join(self.output_dir, filename))
         return
 
 class OvalGeneratorCVE:

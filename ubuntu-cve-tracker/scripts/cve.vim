@@ -38,22 +38,22 @@ syn match cveKey "^\%(Candidate\|PublicDate\|PublicDateAtUSN\|CRD\|References\|D
 
 " Release/status key
 " <release>_<srcpkg>: <status>
-syn match cveKeyRelease "^\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)_[a-z0-9][a-z0-9+.-]\+: *"
+syn match cveKeyRelease "^\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)_[a-z0-9][a-z0-9+.-]\+: *"
 
 " Product/Release/status key
 " <product>/<release>_<srcpkg>: <status>
-syn match cveKeyProduct "^\(esm-apps/\)\?\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)_[a-z0-9][a-z0-9+.-]\+: *"
+syn match cveKeyProduct "^\(esm-apps/\)\?\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)_[a-z0-9][a-z0-9+.-]\+: *"
 
 
 " Priorities key
 " Priority[_<srcpkg>[_<release>]]: <priority>
 syn match cvePriorityValue contained "\(negligible\|low\|medium\|high\|critical\)"
-syn match cvePriorityKey "^Priority\(_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)\)\?\)\?: *"
+syn match cvePriorityKey "^Priority\(_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)\)\?\)\?: *"
 
 " Tags key
 " Tags_<srcpkg>[_<release>]: <tag>
 syn match cveTagValue contained "\(apparmor\|fortify-source\|hardlink-restriction\|heap-protector\|not-ue\|pie\|stack-protector\|symlink-restriction\|universe-binary\) *"
-syn match cveTagKey "^Tags_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\)\)\?: *"
+syn match cveTagKey "^Tags_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)\)\?: *"
 
 " Fields where we do strict syntax checking
 syn region cveStrictField start="^Priority" end="$" contains=cvePriorityKey,cvePriorityValue oneline

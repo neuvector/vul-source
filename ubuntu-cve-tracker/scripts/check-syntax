@@ -30,7 +30,8 @@ import usn_lib
 import source_map
 
 source = source_map.load()
-dev_proposed = source_map.load(pockets=["-proposed"], releases=[cve_lib.devel_release])
+if cve_lib.devel_release:
+    dev_proposed = source_map.load(pockets=["-proposed"], releases=[cve_lib.devel_release])
 
 # add to this list when adding tracking for kernels that have not been
 # published to updates/security yet. Once published, can be removed

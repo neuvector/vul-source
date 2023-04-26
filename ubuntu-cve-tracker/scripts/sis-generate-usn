@@ -334,6 +334,7 @@ def is_origin_ppa_for_archive(origin):
     default_ppas = [
         'ubuntu',  # ubuntu archive itself
         "~ubuntu-security/ubuntu/ppa",  # private security ppa
+        "~ubuntu-security/ubuntu/ubuntu-security-collab",  # private cross-team security ppa
         "~ubuntu-security-proposed/ubuntu/ppa",  # public security-proposed ppa
         "~ubuntu-mozilla-security/ubuntu/ppa",  # public security ppa for Mozilla updates
     ]
