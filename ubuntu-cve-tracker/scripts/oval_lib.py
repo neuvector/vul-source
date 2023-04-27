@@ -133,7 +133,7 @@ def generate_cve_tag(cve):
             if not cve_ref_usns:
                 cve_ref_usns = True
                 cve_ref += ' usns="'
-            cve_ref += '{0},'.format(ref[41:])
+            cve_ref += '{0},'.format(ref[40:])
 
     if cve_ref_usns:
         cve_ref = '{0}"'.format(cve_ref[:-1])
@@ -451,7 +451,7 @@ class CVE:
         self.usns = []
         for url in info['References'].split('\n'):
             if 'https://ubuntu.com/security/notices/USN-' in url:
-                self.usns.append(url[41:])
+                self.usns.append(url[40:])
         self.pkg_rel_entries = {}
         self.pkgs = pkgs
 

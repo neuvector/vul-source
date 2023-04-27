@@ -85,6 +85,8 @@ devel_release = ""
 # specifies list of files containing the names of supported packages for the
 # subproject. alias defines an alternate preferred name for the subproject
 # (this is often used to support historical names for projects etc).
+
+# UPDATE WITH COMPLETE MANTIC CODENAME WHEN AVAILABLE!!!!
 subprojects = {
     "stable-phone-overlay/vivid": {
         "eol": True,
@@ -650,17 +652,17 @@ subprojects = {
         "description": "Interim Release",
         "stamp": 1682431200,
     },
-#    "ubuntu/mantic": {
-#        "eol": False,
-#        "oval": True,
-#        "components": ["main", "restricted", "universe", "multiverse"],
-#        "name": "Ubuntu 23.10",
-#        "version": 23.10,
-#        "codename": "Mantic",
-#        "alias": "mantic",
-#        "devel": True,  # there can be only one ⚔
-#        "description": "Interim Release",
-#    },
+    "ubuntu/mantic": {
+        "eol": False,
+        "oval": True,
+        "components": ["main", "restricted", "universe", "multiverse"],
+        "name": "Ubuntu 23.10",
+        "version": 23.10,
+        "codename": "Mantic",
+        "alias": "mantic",
+        "devel": True,  # there can be only one ⚔
+        "description": "Interim Release",
+    },
     "snap": {
         "eol": False,
         "oval": False,
@@ -1003,6 +1005,7 @@ flavor_releases = [
     'lucid', 'precise', 'trusty', 'utopic', 'vivid', 'wily', 'xenial',
     'yakkety', 'zesty', 'artful', 'bionic', 'cosmic', 'disco', 'eoan',
     'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic', "lunar",
+    'mantic',
 ]
 
 all_releases = release_sort(all_releases)
@@ -1360,12 +1363,12 @@ release_expectations = {
        'bonus': [],
        'arch_all': 'amd64',
     },
-#    'mantic': {
-#       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
-#       'expected': ['riscv64'],
-#       'bonus': [],
-#       'arch_all': 'amd64',
-#    },
+    'mantic': {
+       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
+       'expected': ['riscv64'],
+       'bonus': [],
+       'arch_all': 'amd64',
+    },
 }
 
 # components in the archive

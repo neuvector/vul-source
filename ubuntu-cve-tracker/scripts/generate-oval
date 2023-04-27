@@ -583,6 +583,11 @@ def generate_oval_package(release, outdir, cve_prefix_dir, pkg_cache, cve_cache,
     print(f'[*] Generating OVAL for packages in release {release}')
     ov = oval_lib.OvalGeneratorPkg(release, release_name(release), pathnames,packages, not no_progress,pkg_cache=pkg_cache, cve_cache=cve_cache, oval_format='oci' if oci else 'dpkg', outdir=outdir, cve_prefix_dir=cve_prefix_dir, prefix=ociprefix)
     ov.generate_oval()
+
+    if oci:
+        ov.oval_format = 'dpkg'
+        ov.generate_oval()
+
     pkg_cache.write_cache()
     print(f'[X] Done generating OVAL for packages in release {release}')
 
