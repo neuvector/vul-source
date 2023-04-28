@@ -85,8 +85,6 @@ devel_release = ""
 # specifies list of files containing the names of supported packages for the
 # subproject. alias defines an alternate preferred name for the subproject
 # (this is often used to support historical names for projects etc).
-
-# UPDATE WITH COMPLETE MANTIC CODENAME WHEN AVAILABLE!!!!
 subprojects = {
     "stable-phone-overlay/vivid": {
         "eol": True,
@@ -658,7 +656,7 @@ subprojects = {
         "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 23.10",
         "version": 23.10,
-        "codename": "Mantic",
+        "codename": "Mantic Minotaur",
         "alias": "mantic",
         "devel": True,  # there can be only one ⚔
         "description": "Interim Release",
