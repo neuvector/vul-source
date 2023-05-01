@@ -591,13 +591,13 @@ class OvalGeneratorPkg(OvalGenerator):
         return definition
 
     def _generate_cve_object(self, cve: CVE) -> etree.Element:
-        cve_tag = etree.Element("cve", 
+        cve_tag = etree.Element("cve",
             attrib={
                 'href' : f"https://ubuntu.com/security/{cve.number}",
                 'severity': cve.severity,
                 'public': cve.public_date.split(' ')[0].replace('-', '')
             })
-        
+
         cve_tag.text = cve.number
         if cve.cvss:
             cve_tag.set('cvss_score', cve.cvss[0]['baseScore'])
@@ -1145,7 +1145,8 @@ class OvalGeneratorPkg(OvalGenerator):
                         cve_obj.add_pkg(pkg_obj, info['pkgs'][pkg][self.release][0],info['pkgs'][pkg][self.release][1])
 
         packages = dict(sorted(packages.items()))
-        print(' ' * 40, end='\r')
+        if self.progress:
+            print(' ' * 40, end='\r')
         return packages
 
     def generate_oval(self) -> None:
