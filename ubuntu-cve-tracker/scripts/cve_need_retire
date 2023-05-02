@@ -62,7 +62,7 @@ if [ -n "${commit}" ] && [ -z "${update}" ] ; then
     exit 1
 fi
 
-./scripts/ubuntu-table 2>&1 >/dev/null | grep '^retire: ' | while read junk cve
+./scripts/ubuntu-table -r 2>&1 >/dev/null | grep '^retire: ' | while read junk cve
 do
     if [ -z "$full" ]; then
         if [ -z "$update" ]; then
