@@ -7519,3 +7519,5 @@
 2023-04-28 08:40:34 UTC - 1 added, 1 ignored, 0 skipped, 2 total - files: ['rhel8oval-import_r61quidg.json']
 2023-04-28 08:40:43 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-04-28 08:51:45 UTC - 0 added, 6 ignored, 0 skipped, 6 total - files: ['mbox-import_w2104e9e.out.json']
+2023-05-03 08:36:07 UTC - 3 added, 0 ignored, 0 skipped, 3 total - files: ['nvdcve-1.1-recent.json']
+2023-05-03 08:36:35 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['allitems.xml']
