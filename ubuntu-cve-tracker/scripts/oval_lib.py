@@ -876,22 +876,28 @@ class OvalGeneratorPkg(OvalGenerator):
 
         return criterion_running_kernel
 
-    def _add_fixed_kernel_elements(self, cve: CVE, package: Package, package_rel_entry:CVEPkgRelEntry, root_element, running_kernel_id) -> etree.Element:
+    def _add_fixed_kernel_elements(self, cve: CVE, package: Package, package_rel_entry:CVEPkgRelEntry, root_element, running_kernel_id, fixed_versions) -> etree.Element:
         tests = root_element.find("tests")
         objects = root_element.find("objects")
         variables = root_element.find("variables")
 
         comment_version = f'Kernel {package.name} version comparison ({package_rel_entry.fixed_version})'
         comment_criterion = f'({cve.number}) {package.name} {package_rel_entry.note}'
-        criterion_version = self._generate_criterion_element(comment_criterion, self.definition_id)
-        test_kernel_version = self._generate_test_element(comment_version, self.definition_id, True, 'kernel', state_id=running_kernel_id)
 
-        obj_kernel_version = self._generate_kernel_version_object_element(self.definition_id, self.definition_id)
-        var_version_kernel = self._generate_variable_kernel_version(comment_version, self.definition_id, package_rel_entry.fixed_version)
+        if package_rel_entry.fixed_version in fixed_versions:
+            criterion_version = self._generate_criterion_element(comment_criterion, fixed_versions[package_rel_entry.fixed_version])
+        else:
+            criterion_version = self._generate_criterion_element(comment_criterion, self.definition_id)
+            test_kernel_version = self._generate_test_element(comment_version, self.definition_id, True, 'kernel', state_id=running_kernel_id)
 
-        tests.append(test_kernel_version)
-        objects.append(obj_kernel_version)
-        variables.append(var_version_kernel)
+            obj_kernel_version = self._generate_kernel_version_object_element(self.definition_id, self.definition_id)
+            var_version_kernel = self._generate_variable_kernel_version(comment_version, self.definition_id, package_rel_entry.fixed_version)
+
+            tests.append(test_kernel_version)
+            objects.append(obj_kernel_version)
+            variables.append(var_version_kernel)
+
+            fixed_versions[package_rel_entry.fixed_version] = self.definition_id
 
         return criterion_version
 
@@ -1050,7 +1056,7 @@ class OvalGeneratorPkg(OvalGenerator):
 
         # Control/cache variables
         one_time_added_id = None
-        fixed_versions = []
+        fixed_versions = {}
         binaries_id = None
         cve_added = False
 
@@ -1083,11 +1089,9 @@ class OvalGeneratorPkg(OvalGenerator):
             elif pkg_rel_entry.status == 'fixed':
                 cve_added = True
 
-                if not pkg_rel_entry.fixed_version in fixed_versions:
-                    kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id)
-                    self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)
-                    fixed_versions.append(pkg_rel_entry.fixed_version)
-                    self._increase_id(is_definition=False)
+                kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id, fixed_versions)
+                self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)
+                self._increase_id(is_definition=False)
 
         if cve_added:
             definitions.append(definition_element)
