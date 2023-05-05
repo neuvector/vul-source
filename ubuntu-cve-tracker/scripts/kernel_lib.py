@@ -235,6 +235,7 @@ meta_kernels.add_new_kernel('focal', ['linux-hwe-5.11'], '-5.11.0')
 meta_kernels.add_new_kernel('focal', ['linux-hwe-5.13'], '-5.13.0')
 meta_kernels.add_new_kernel('focal', ['linux-hwe-5.15'], '-5.15.0')
 meta_kernels.add_new_kernel('focal', ['linux-lowlatency-hwe-5.15'], '-5.15.0')
+meta_kernels.add_new_kernel('focal', ['linux-azure-fde-5.15'], '-5.15.0')
 meta_kernels.add_new_kernel('groovy', ['linux'], '-5.8.0')
 meta_kernels.add_new_kernel('groovy', ['linux-raspi'], '-5.8.0', signed=False)
 meta_kernels.add_new_kernel('groovy', ['linux-aws'], '-5.8.0', signed=False)
@@ -504,7 +505,8 @@ kernel_glitches = {
     'linux-azure-5.19': {
         'jammy': {
             '~': '5.19.0-1021.22~22.04.1',  # initial publication
-            '5.19.0-1021.22~22.04.1': '5.19.0.1022.23~22.04.1', # only edge binaries
+            '5.19.0-1021.22~22.04.1': '5.19.0-1022.23~22.04.1', # only edge binaries
+            '5.19.0-1022.23~22.04.1': '5.19.0-1025.28~22.04.1', # only edge binaries
         },
     },
     'linux-azure-fde': {
@@ -514,6 +516,11 @@ kernel_glitches = {
         },
         'jammy': {
             '~': '5.15.0-1019.24.1',  # initial publication
+        },
+    },
+    'linux-azure-fde-5.15' : {
+        'focal': {
+            '~': '5.15.0-1037.44~20.04.1.1',
         },
     },
     'linux-bluefield': {

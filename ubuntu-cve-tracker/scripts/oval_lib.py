@@ -1103,7 +1103,12 @@ class OvalGeneratorPkg(OvalGenerator):
         cves = []
         for pathname in self.cve_paths:
             cves = cves + glob.glob(os.path.join(cve_prefix_dir, pathname))
-        cves.sort()
+
+        cves.sort(key=lambda cve:
+                   (int(cve.split('/')[-1].split('-')[1]), int(cve.split('/')[-1].split('-')[2])) \
+                    if cve.split('/')[-1].split('-')[2].isnumeric() \
+                    else (int(cve.split('/')[-1].split('-')[1]), 0)
+                 )
 
         packages = {}
         sources[self.release] = load(releases=[self.release], skip_eol_releases=False)[self.release]
