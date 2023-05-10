@@ -19,6 +19,7 @@ import sys
 import cve_lib
 import yaml
 
+built_using_tags = ["Built-Using", "Static-Built-Using", "X-Cargo-Built-Using"]
 apt_pkg.init_system()
 
 
@@ -338,8 +339,9 @@ def load_packages_collection(item, map):
             else:
                 map[release][pkg]['source'] = parser.section['Package']
 
-            if 'Built-Using' in parser.section:
-                map[release][pkg]['built-using'] = parser.section['Built-Using'].split(', ')
+            for tag in built_using_tags:
+                if tag in parser.section:
+                    map[release][pkg][tag] = parser.section[tag].split(', ')
 
             map[release][pkg]['architecture'] = parser.section['Architecture']
 
@@ -354,38 +356,38 @@ def load_built_using_collection(pmap, releases=None, component=None):
             continue
 
         for pkg in pmap[rel]:
-            if 'built-using' in pmap[rel][pkg]:
-                # Built-Using for a binary in the Packages file lists the
-                # originating source package of the embedded binary
-                section = pmap[rel][pkg]['section']
-                if component is not None and section != component:
-                    continue
+            for tag in built_using_tags:
+                if tag in pmap[rel][pkg]:
+                    section = pmap[rel][pkg]['section']
+                    if component is not None and section != component:
+                        continue
 
-                pocket = rel
-                if pmap[rel][pkg]['pocket'] != '':
-                    pocket += "-%s" % pmap[rel][pkg]['pocket']
+                    pocket = rel
+                    if pmap[rel][pkg]['pocket'] != '':
+                        pocket += "-%s" % pmap[rel][pkg]['pocket']
 
-                for (s, c, v) in map(lambda x: x.split(' ', 3),
-                                     pmap[rel][pkg]['built-using']):
-                    v = v.rstrip(')')
-                    if s not in built_using:
-                        built_using[s] = dict()
-                    if v not in built_using[s]:
-                        built_using[s][v] = dict()
-                    if section not in built_using[s][v]:
-                        built_using[s][v][section] = dict()
-                    if pocket not in built_using[s][v][section]:
-                        built_using[s][v][section][pocket] = []
-                    if pkg not in built_using[s][v][section][pocket]:
-                        built_using[s][v][section][pocket].append(
-                            (pkg, pmap[rel][pkg]['version']))
+                    for (s, c, v) in map(lambda x: x.split(' ', 3),
+                                        pmap[rel][pkg][tag]):
+                        v = v.rstrip(')')
+                        if s not in built_using:
+                            built_using[s] = dict()
+                        if v not in built_using[s]:
+                            built_using[s][v] = dict()
+                        if section not in built_using[s][v]:
+                            built_using[s][v][section] = dict()
+                        if pocket not in built_using[s][v][section]:
+                            built_using[s][v][section][pocket] = []
+                        if pkg not in built_using[s][v][section][pocket]:
+                            built_using[s][v][section][pocket].append(
+                                (pkg, pmap[rel][pkg]['version'], tag))
 
     return built_using
 
 
-built_using_source_format = '%-35s'
-built_using_pocket_format = '%-15s'
+built_using_source_format = '%-55s'
+built_using_pocket_format = '%-20s'
 built_using_component_format = '%-11s'
+built_using_tag_format = '%-24s'
 built_using_usedby_format = '%-35s'
 
 
@@ -407,13 +409,15 @@ def get_built_using(built_using_map, src):
                         continue
                 elif src_version != version:
                     continue
+
             for section in sorted(built_using_map[src][version]):
                 for pocket in sorted(built_using_map[src][version][section]):
-                    for s, v in sorted(
+                    for s, v, t in sorted(
                             built_using_map[src][version][section][pocket]):
                         out += built_using_source_format % ("%s (%s) " % (src, version))
                         out += built_using_pocket_format % pocket
                         out += built_using_component_format % section
+                        out += built_using_tag_format % t
                         out += built_using_usedby_format % s
                         out += '\n'
 
@@ -424,8 +428,9 @@ def get_built_using_header():
     header = built_using_source_format % "Source (version)"
     header += built_using_pocket_format % "Pocket"
     header += built_using_component_format % "Component"
+    header += built_using_tag_format % 'Tag'
     header += built_using_usedby_format % "Used by"
-    header += "\n" + "-" * 78
+    header += "\n" + "-" * 120
     return header
 
 def get_all_aliases(sources, rel):

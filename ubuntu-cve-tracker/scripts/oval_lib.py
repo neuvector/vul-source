@@ -505,7 +505,7 @@ class Package:
         return self.__str__()
 
 class OvalGeneratorPkg(OvalGenerator):
-    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, cve_cache=None,  cve_prefix_dir=None, parent=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
+    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, fixed_only=True, cve_cache=None,  cve_prefix_dir=None, parent=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
         super().__init__(release, release_name, parent, warn_method, outdir, prefix, oval_format)
         ###
         # ID schema: 2204|00001|0001
@@ -521,6 +521,7 @@ class OvalGeneratorPkg(OvalGenerator):
         self.cve_cache = cve_cache
         self.pkg_cache = pkg_cache
         self.cve_paths = cve_paths
+        self.fixed_only = fixed_only
         self.packages = self._load_pkgs(cve_prefix_dir, packages)
 
     def _generate_advisory(self, package: Package) -> etree.Element:
@@ -529,7 +530,12 @@ class OvalGeneratorPkg(OvalGenerator):
         component = etree.SubElement(advisory, "component")
         version = etree.SubElement(advisory, "current_version")
 
+        pkg_id = Package.get_unique_id(package.name, self.release)
         for cve in package.cves:
+            if cve.pkg_rel_entries[pkg_id].status == 'not-vulnerable':
+                continue
+            elif self.fixed_only and cve.pkg_rel_entries[pkg_id].status != 'fixed':
+                continue
             cve_obj = self._generate_cve_object(cve)
             advisory.append(cve_obj)
 
@@ -1002,7 +1008,7 @@ class OvalGeneratorPkg(OvalGenerator):
 
         for cve in package.cves:
             pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
-            if pkg_rel_entry.status == 'vulnerable':
+            if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
                 cve_added = True
                 if one_time_added_id:
                     self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element)
@@ -1069,7 +1075,7 @@ class OvalGeneratorPkg(OvalGenerator):
 
         for cve in package.cves:
             pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
-            if pkg_rel_entry.status == 'vulnerable':
+            if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
                 cve_added = True
                 if one_time_added_id:
                     self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element, depth=3)

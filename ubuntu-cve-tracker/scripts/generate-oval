@@ -110,6 +110,8 @@ def main():
     parser.add_argument('--packages', nargs='+', action='store', default=None,
                         help='generates oval for specific packages. Only for '
                         'CVE OVAL')
+    parser.add_argument('--fixed-only', action='store_true',
+                        help='only generate pkg oval for fixed CVEs')
 
     args = parser.parse_args()
     pathnames = args.pathname or default_cves_to_process
@@ -154,9 +156,9 @@ def main():
         releases = [args.oval_release] if args.oval_release else supported_releases
         for release in releases:
             if args.oci:
-                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, ociprefix, ocioutdir)
+                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, ociprefix, ocioutdir)
             else:
-                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames)
+                generate_oval_package(release, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only)
         return
 
     if args.oci:
@@ -579,10 +581,10 @@ def generate_oval_usn(outdir, usn, usn_release, cve_dir, usn_db_dir, ociprefix=N
 
     return True
 
-def generate_oval_package(release, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, ociprefix=None, ocioutdir=None):
+def generate_oval_package(release, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, fixed_only, ociprefix=None, ocioutdir=None):
     if not no_progress:
         print(f'[*] Generating OVAL for packages in release {release}')
-    ov = oval_lib.OvalGeneratorPkg(release, release_name(release), pathnames,packages, not no_progress,pkg_cache=pkg_cache, cve_cache=cve_cache, oval_format='oci' if oci else 'dpkg', outdir=outdir, cve_prefix_dir=cve_prefix_dir, prefix=ociprefix)
+    ov = oval_lib.OvalGeneratorPkg(release, release_name(release), pathnames, packages, not no_progress,pkg_cache=pkg_cache, fixed_only=fixed_only, cve_cache=cve_cache, oval_format='oci' if oci else 'dpkg', outdir=outdir, cve_prefix_dir=cve_prefix_dir, prefix=ociprefix)
     ov.generate_oval()
 
     if oci:
