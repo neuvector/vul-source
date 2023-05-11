@@ -2315,6 +2315,10 @@
         "description": "Flask extension for handling Cross Origin Resource Sharing (CORS)",
         "title": "Flask-CORS"
     },
+    "python-glance-store": {
+        "description": "OpenStack Image Service store library",
+        "title": "Glance_store"
+    },
     "python-imaging": {
         "description": "Python Imaging Library",
         "title": "Python Imaging Library"
@@ -2322,6 +2326,10 @@
     "python-ldap": {
         "description": "LDAP interface module for Python",
         "title": "Python LDAP"
+    },
+    "python-os-brick": {
+        "description": "Library for managing local volume attaches",
+        "title": "os-brick"
     },
     "python-pip": {
         "description": "Python package installer",
