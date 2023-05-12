@@ -22,8 +22,8 @@ bionic_postgresql-14: DNE
 focal_postgresql-14: DNE
 jammy_postgresql-14: needs-triage
 kinetic_postgresql-14: needs-triage
-lunar_postgresql-14: needs-triage
-devel_postgresql-14: needs-triage
+lunar_postgresql-14: DNE
+devel_postgresql-14: DNE
 
 Patches_postgresql-13:
 upstream_postgresql-13: needs-triage

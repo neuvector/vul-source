@@ -2059,14 +2059,21 @@ class OvalGeneratorUSN():
 
         return bugs.strip()
 
-    def create_cves_references(self, cves):
-        references = ""
+    def generate_cve_ref(self, cve):
+        return '<reference source="CVE" ref_id="{0}" ref_url="{1}" />'.format(cve['Candidate'], cve['CVE_URL'])
+
+    def create_cves_elements(self, cves):
+        cve_tags = ""
+        cve_references = ""
         for cve in cves:
-            cve_ref = generate_cve_tag(cve)
-            references += \
+            cve_references += \
                 """{0}
-                    """.format(cve_ref)
-        return references.strip()
+                """.format(self.generate_cve_ref(cve))
+
+            cve_tags += \
+                """{0}
+                    """.format(generate_cve_tag(cve))
+        return cve_references.strip(), cve_tags.strip()
 
     def get_usn_severity(self, cves):
         if not cves:
@@ -2083,7 +2090,7 @@ class OvalGeneratorUSN():
     # TODO: xml lib
     def create_usn_definition(self, usn_object, usn_number, id_base, test_refs, cve_dir, instructions):
         urls, cves_info = self.format_cves_info(usn_object['cves'], cve_dir)
-        cve_references = self.create_cves_references(cves_info)
+        cve_references, cve_tags = self.create_cves_elements(cves_info)
         bug_references = self.create_bug_references(urls)
 
         for cve in cves_info:
@@ -2107,6 +2114,7 @@ class OvalGeneratorUSN():
             'usn_url': self.usn_base_url.format(usn_object['id']),
             'description': escape(' '.join((usn_object['description'].strip() + instructions).split('\n'))),
             'cves_references': cve_references,
+            'cve_tags': cve_tags,
             'bug_references': bug_references,
             'severity': usn_severity,
             'usn_timestamp': datetime.fromtimestamp(usn_object['timestamp'], tz=timezone.utc).strftime('%Y-%m-%d'),
@@ -2144,11 +2152,12 @@ class OvalGeneratorUSN():
                     <platform>{platform}</platform>
                 </affected>
                 <reference source="USN" ref_url="{usn_url}" ref_id="{usn_id}"/>
+                {cves_references}
                 <description>{description}</description>
                 <advisory from="security@ubuntu.com">
                     <severity>{severity}</severity>
                     <issued date="{usn_timestamp}"/>
-                    {cves_references}
+                    {cve_tags}
                     {bug_references}
                 </advisory>
             </metadata>
