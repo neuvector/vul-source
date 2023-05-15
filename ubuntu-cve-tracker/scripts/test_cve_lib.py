@@ -94,6 +94,11 @@ class TestReleaseSort:
         sortd = cve_lib.release_sort(unsorted)
         assert sortd == cve_lib.all_releases
 
+    def test_release_sort_padding(self):
+        # Dapper (6.06) should be before Xenial (16.04)
+        assert cve_lib.release_sort(
+            ["xenial", "dapper"]) == ["dapper", "xenial"]
+
 TEST_DATA_DIR = "test/"
 
 # these are tests located in the 'okay' subdirectory that

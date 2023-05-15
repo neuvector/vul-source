@@ -53,7 +53,7 @@ class TestOvalLibUnit:
     id_base_mock = 43881000000
     test_cve_file = "CVE-TEST"
     usn_object_mock['id'] = "USN-" + usn_mock
-
+    pocket = 'security'
 
     bin_dict_mock = collections.defaultdict(list)
     bin_dict_mock = {'5.0.0.1042.27': ['linux-image-gke-5.0'], '5.0.0-1059.64':
@@ -68,14 +68,14 @@ class TestOvalLibUnit:
     test_ref_mock = [({'version': '5.0.0-1059.64',
                        'pkgs': ['linux-image-5.0.0-1059-oem-osp1'],
                        'testref_id': '438810000000',
-                       'kernel': '5.0.0-\d+(-oem-osp1)'},
+                       'kernel': r'5.0.0-\d+(-oem-osp1)'},
                       {'version': '5.0.0-1059.64',
                        'pkgs': ['linux-image-5.0.0-1059-oem-osp1'],
                        'testref_id': '438810000010'}),
                       ({'version': '5.0.0-1042.43',
                        'pkgs': ['linux-image-5.0.0-1042-gke'],
                        'testref_id': '438810000020',
-                       'kernel': '5.0.0-\d+(-gke)'},
+                       'kernel': r'5.0.0-\d+(-gke)'},
                       {'version': '5.0.0-1042.43',
                        'pkgs': ['linux-image-5.0.0-1042-gke'],
                        'testref_id': '438810000030'})]
@@ -89,17 +89,23 @@ class TestOvalLibUnit:
                 <affected family="unix">
                     <platform>Ubuntu 18.04 LTS</platform>
                 </affected>
-                <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>
+                <reference source="USN" ref_id="USN-4388-1" ref_url="https://ubuntu.com/security/notices/USN-4388-1"/>
+                <reference source="CVE" ref_id="CVE-2020-0067" ref_url="https://ubuntu.com/security/CVE-2020-0067"/>
+                <reference source="CVE" ref_id="CVE-2020-0543" ref_url="https://ubuntu.com/security/CVE-2020-0543"/>
+                <reference source="CVE" ref_id="CVE-2020-12114" ref_url="https://ubuntu.com/security/CVE-2020-12114"/>
+                <reference source="CVE" ref_id="CVE-2020-12464" ref_url="https://ubuntu.com/security/CVE-2020-12464"/>
+                <reference source="CVE" ref_id="CVE-2020-12659" ref_url="https://ubuntu.com/security/CVE-2020-12659"/>
+                <reference source="CVE" ref_id="CVE-2020-1749" ref_url="https://ubuntu.com/security/CVE-2020-1749"/>
                 <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required</description>
                 <advisory from="security@ubuntu.com">
                     <severity>Medium</severity>
                     <issued date="2020-06-09"/>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0067</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0543" severity="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0543</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12114" severity="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H">CVE-2020-12114</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12464" severity="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12464</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12659" severity="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12659</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-1749" severity="medium" public="20200304">CVE-2020-1749</cve>
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
@@ -115,14 +121,22 @@ class TestOvalLibUnit:
             </criteria>
         </definition>"""
 
-    references_mock = """<reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0543" ref_id="CVE-2020-0543"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12114" ref_id="CVE-2020-12114"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12464" ref_id="CVE-2020-12464"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-12659" ref_id="CVE-2020-12659"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-1749" ref_id="CVE-2020-1749"/>"""
+    references_mock = """<reference source="CVE" ref_id="CVE-2020-0067" ref_url="https://ubuntu.com/security/CVE-2020-0067"/>
+                <reference source="CVE" ref_id="CVE-2020-0543" ref_url="https://ubuntu.com/security/CVE-2020-0543"/>
+                <reference source="CVE" ref_id="CVE-2020-12114" ref_url="https://ubuntu.com/security/CVE-2020-12114"/>
+                <reference source="CVE" ref_id="CVE-2020-12464" ref_url="https://ubuntu.com/security/CVE-2020-12464"/>
+                <reference source="CVE" ref_id="CVE-2020-12659" ref_url="https://ubuntu.com/security/CVE-2020-12659"/>
+                <reference source="CVE" ref_id="CVE-2020-1749" ref_url="https://ubuntu.com/security/CVE-2020-1749"/>"""
+    
+    cve_tags_mock = """<cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0067</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0543" severity="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0543</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12114" severity="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H">CVE-2020-12114</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12464" severity="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12464</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12659" severity="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12659</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-1749" severity="medium" public="20200304">CVE-2020-1749</cve>"""
 
-    test_mock = ["""
+
+    test_mock = [r"""
         <unix:uname_test check="at least one" comment="Is kernel 5.0.0-\d+(-oem-osp1) currently running?" id="oval:com.ubuntu.bionic:tst:438810000000" version="1">
             <unix:object object_ref="oval:com.ubuntu.bionic:obj:438810000000"/>
             <unix:state state_ref="oval:com.ubuntu.bionic:ste:438810000000"/>
@@ -173,7 +187,7 @@ class TestOvalLibUnit:
             <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
         </ind:textfilecontent54_object>"""
 
-    state_mock = ["""
+    state_mock = [r"""
         <unix:uname_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1">
             <unix:os_release operation="pattern match">5.0.0-\d+(-oem-osp1)</unix:os_release>
         </unix:uname_state>""",
@@ -211,7 +225,7 @@ class TestOvalLibUnit:
             <value>linux-image-5.0.0-1042-gke</value>
         </constant_variable>"""]
 
-    var_oci_mock = """
+    var_oci_mock = r"""
         <constant_variable id="oval:com.ubuntu.bionic:var:438810000010" version="1" datatype="string" comment="Long Term Support">
             <value>^linux-image-5.0.0-1059-oem-osp1(?::\w+|)\s+(.*)$</value>
         </constant_variable>"""
@@ -237,44 +251,42 @@ class TestOvalLibUnit:
     url_ref_mock = \
         "<ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>"
     cves_info_mock = [{'Candidate': 'CVE-2020-0067',
-        'PublicDate': '2020-04-17 19:15:00 UTC', 'Priority': 'medium', 'CVSS':
-        'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N', 'CVSS_SEVERITY_LEVEL':
-        'MEDIUM', 'CVSS_SCORE': '4.4', 'CVE_URL':
-        'https://ubuntu.com/security/CVE-2020-0067',
+        'PublicDate': '2020-04-17 19:15:00 UTC', 'Priority': 'medium', 'CVSS': [{
+        'vector': 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N', 'baseScore': '4.4',
+        'baseSeverity': 'MEDIUM'}], 'CVE_URL': 'https://ubuntu.com/security/CVE-2020-0067',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0067'},
         {'Candidate': 'CVE-2020-0543', 'PublicDate': '2020-06-09 17:00:00 UTC',
-        'Priority': 'medium', 'CVSS': 'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N',
-        'CVSS_SEVERITY_LEVEL': 'MEDIUM', 'CVSS_SCORE': '5.5', 'CVE_URL':
+        'Priority': 'medium', 'CVSS': [{'vector':'CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N',
+        'baseSeverity': 'MEDIUM', 'baseScore': '5.5'}], 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-0543',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543'},
         {'Candidate': 'CVE-2020-12114', 'PublicDate': '2020-05-04 12:15:00 UTC',
-        'Priority': 'medium', 'CVSS': 'CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H',
-        'CVSS_SEVERITY_LEVEL': 'MEDIUM', 'CVSS_SCORE': '4.7', 'CVE_URL':
+        'Priority': 'medium', 'CVSS': [{'vector':'CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H',
+        'baseSeverity': 'MEDIUM', 'baseScore': '4.7'}], 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-12114',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12114'},
         {'Candidate': 'CVE-2020-12464', 'PublicDate': '2020-04-29 18:15:00 UTC',
-        'Priority': 'medium', 'CVSS': 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H',
-        'CVSS_SEVERITY_LEVEL': 'MEDIUM', 'CVSS_SCORE': '6.7', 'CVE_URL':
+        'Priority': 'medium', 'CVSS': [{'vector':'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H',
+        'baseSeverity': 'MEDIUM', 'baseScore': '6.7'}], 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-12464',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12464'},
         {'Candidate': 'CVE-2020-12659', 'PublicDate': '2020-05-05 07:15:00 UTC',
-        'Priority': 'low', 'CVSS': 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H',
-        'CVSS_SEVERITY_LEVEL': 'MEDIUM', 'CVSS_SCORE': '6.7', 'CVE_URL':
+        'Priority': 'low', 'CVSS': [{'vector':'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H',
+        'baseSeverity': 'MEDIUM', 'baseScore': '6.7'}], 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-12659',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12659'},
         {'Candidate': 'CVE-2020-1749', 'PublicDate': '2020-03-04 08:53:00 UTC',
-        'Priority': 'medium', 'CVSS': None, 'CVSS_SEVERITY_LEVEL': None, 'CVSS_SCORE':
-        None, 'CVE_URL':
+        'Priority': 'medium', 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-1749',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1749'}]
 
     invalid_priority_cve_mock = [{'Candidate': 'CVE-2020-0067',
-        'PublicDate': '2020-04-17 19:15:00 UTC', 'Priority': 'untriaged', 'CVSS':
-        'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N', 'CVSS_SEVERITY_LEVEL':
-        'MEDIUM', 'CVSS_SCORE': '4.4', 'CVE_URL':
+        'PublicDate': '2020-04-17 19:15:00 UTC', 'Priority': 'untriaged', 'CVSS':[{
+        'vector': 'CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N', 'baseSeverity':
+        'MEDIUM', 'baseScore': '4.4' }], 'CVE_URL':
         'https://ubuntu.com/security/CVE-2020-0067',
         'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0067'}]
-    invalid_priority_references_mock = """<reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>"""
+    invalid_priority_references_mock = """<reference source="CVE" ref_id="CVE-2020-0067" ref_url="https://ubuntu.com/security/CVE-2020-0067"/>"""
     invalid_priority_ret = """
         <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
             <metadata>
@@ -282,12 +294,13 @@ class TestOvalLibUnit:
                 <affected family="unix">
                     <platform>Ubuntu 18.04 LTS</platform>
                 </affected>
-                <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="USN-4388-1"/>
-                <reference source="CVE" ref_url="https://ubuntu.com/security/CVE-2020-0067" ref_id="CVE-2020-0067"/>
+                <reference source="USN" ref_id="USN-4388-1" ref_url="https://ubuntu.com/security/notices/USN-4388-1"/>
+                <reference source="CVE" ref_id="CVE-2020-0067" ref_url="https://ubuntu.com/security/CVE-2020-0067"/>
                 <description>It was discovered that the F2FS file system implementation in the Linux kernel did not properly perform bounds checking on xattrs in some situations. A local attacker could possibly use this to expose sensitive information (kernel memory). (CVE-2020-0067)  It was discovered that memory contents previously stored in microarchitectural special registers after RDRAND, RDSEED, and SGX EGETKEY read operations on Intel client and Xeon E3 processors may be briefly exposed to processes on the same or different processor cores. A local attacker could use this to expose sensitive information. (CVE-2020-0543)  Piotr Krysiuk discovered that race conditions existed in the file system implementation in the Linux kernel. A local attacker could use this to cause a denial of service (system crash). (CVE-2020-12114)  It was discovered that the USB susbsystem's scatter-gather implementation in the Linux kernel did not properly take data references in some situations, leading to a use-after-free. A physically proximate attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12464)  Bui Quang Minh discovered that the XDP socket implementation in the Linux kernel did not properly validate meta-data passed from user space, leading to an out-of-bounds write vulnerability. A local attacker with the CAP_NET_ADMIN capability could use this to cause a denial of service (system crash) or possibly execute arbitrary code. (CVE-2020-12659)  Xiumei Mu discovered that the IPSec implementation in the Linux kernel did not properly encrypt IPv6 traffic in some situations. An attacker could use this to expose sensitive information. (CVE-2020-1749)  Update Instructions:  Run `sudo pro fix USN-4388-1` to fix the vulnerability. The problem can be corrected by updating your system to the following package versions:  linux-image-5.0.0-1042-gke - 5.0.0-1042.43 No subscription required  linux-image-5.0.0-1059-oem-osp1 - 5.0.0-1059.64 No subscription required</description>
                 <advisory from="security@ubuntu.com">
                     <severity>Medium</severity>
                     <issued date="2020-06-09"/>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
@@ -356,7 +369,7 @@ No subscription required"""
         assert test_ret == release_test_mock
 
     def test_create_release_obj(self):
-        release_obj_mock = """
+        release_obj_mock = r"""
         <ind:textfilecontent54_object id="oval:com.ubuntu.bionic:obj:100" version="1">
             <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
                 <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
@@ -408,11 +421,17 @@ No subscription required"""
                 'Priority': 'high',
                 'PublicDate': '2012-05-25',
                 'Candidate': self.test_cve_file,
-                'CVSS_SCORE': '9.8',
+                'CVSS': [{
+                    'baseScore': '9.8',
+                    'vector': 'CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H',
+                    'baseSeverity': 'CRITICAL',
+                    'source': 'nvd'
+                }],
                 'CVE_URL': 'https://ubuntu.com/security/CVE-TEST',
                 'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-TEST',
-                'CVSS': 'CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H',
-                'CVSS_SEVERITY_LEVEL': 'Critical'
+                'References': ['', 
+                               'http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9999',
+                               'http://www.openwall.com/lists/oss-security/foo']
         }
 
         cve_info = oval_lib.OvalGeneratorUSN.get_cve_info_from_file(
@@ -460,9 +479,10 @@ No subscription required"""
         assert test_urls == self.urls_mock
 
     def test_create_cves_references(self):
-        refs_test = oval_lib.OvalGeneratorUSN.create_cves_references(
+        refs_test, tags_test = oval_lib.OvalGeneratorUSN.create_cves_elements(
             self.oval_gen_mock, self.cves_info_mock)
 
+        assert tags_test == self.cve_tags_mock
         assert refs_test == self.references_mock
 
     @pytest.mark.parametrize("url,url_mock", [(urls_mock, url_ref_mock),
@@ -486,20 +506,20 @@ No subscription required"""
         assert ret_test == mock_ret
 
     @mock.patch("oval_lib.OvalGeneratorUSN.format_cves_info", autospec=True)
-    @mock.patch("oval_lib.OvalGeneratorUSN.create_cves_references",
+    @mock.patch("oval_lib.OvalGeneratorUSN.create_cves_elements",
         autospec=True)
     @mock.patch("oval_lib.OvalGeneratorUSN.create_bug_references",
         autospec=True)
     @mock.patch("oval_lib.OvalGeneratorUSN.get_usn_severity", autospec=True)
-    def test_create_usn_definition(self, get_usn_severity_mock,
-            create_bug_ref_mock, create_cve_ref_mock, format_cves_info_mock):
-        format_cves_info_mock.return_value = (self.urls_mock,
-            self.cves_info_mock)
-        create_cve_ref_mock.return_value = self.references_mock
+    @mock.patch("oval_lib.OvalGeneratorUSN.pocket", create=True)
+    def test_create_usn_definition(self, pocket_mock, get_usn_severity_mock,
+            create_bug_ref_mock, create_cves_elements_mock, format_cves_info_mock):
+        format_cves_info_mock.return_value = (self.urls_mock, self.cves_info_mock)
+        create_cves_elements_mock.return_value = (self.references_mock, self.cve_tags_mock)
         create_bug_ref_mock.return_value = self.url_ref_mock
         get_usn_severity_mock.return_value = self.avg_severity_mock
+        pocket_mock.return_value = self.pocket
 
-        print(self.usn_object_mock)
         definition_ret = oval_lib.OvalGeneratorUSN.create_usn_definition(
             self.oval_gen_mock, self.usn_object_mock, self.usn_mock,
             self.id_base_mock, self.test_refs_mock, rel_test_path,
@@ -507,7 +527,7 @@ No subscription required"""
 
         format_cves_info_mock.assert_called_with(self.oval_gen_mock,
             self.cves_url_both_mock, rel_test_path)
-        create_cve_ref_mock.assert_called_with(self.oval_gen_mock,
+        create_cves_elements_mock.assert_called_with(self.oval_gen_mock,
             self.cves_info_mock)
         get_usn_severity_mock.assert_called_with(self.oval_gen_mock,
             self.cve_severity_mock)
@@ -517,18 +537,21 @@ No subscription required"""
         assert definition_ret == self.definition_mock
 
     @mock.patch("oval_lib.OvalGeneratorUSN.format_cves_info", autospec=True)
-    @mock.patch("oval_lib.OvalGeneratorUSN.create_cves_references",
+    @mock.patch("oval_lib.OvalGeneratorUSN.create_cves_elements",
         autospec=True)
     @mock.patch("oval_lib.OvalGeneratorUSN.create_bug_references",
         autospec=True)
     @mock.patch("oval_lib.OvalGeneratorUSN.get_usn_severity", autospec=True)
-    def test_invalid_priority_usn_definition(self, get_usn_severity_mock,
-            create_bug_ref_mock, create_cve_ref_mock, format_cves_info_mock):
+    @mock.patch("oval_lib.OvalGeneratorUSN.pocket", create=True)
+    def test_invalid_priority_usn_definition(self, pocket_mock, get_usn_severity_mock,
+            create_bug_ref_mock, create_cves_elements_mock, format_cves_info_mock):
         format_cves_info_mock.return_value = (self.urls_mock,
             self.invalid_priority_cve_mock)
-        create_cve_ref_mock.return_value = self.invalid_priority_references_mock
+        create_cves_elements_mock.return_value = (self.invalid_priority_references_mock,
+            '<cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>')
         create_bug_ref_mock.return_value = self.url_ref_mock
         get_usn_severity_mock.return_value = self.avg_severity_mock
+        pocket_mock.return_value = self.pocket
 
         definition_ret = oval_lib.OvalGeneratorUSN.create_usn_definition(
             self.oval_gen_mock, self.usn_object_mock, self.usn_mock,

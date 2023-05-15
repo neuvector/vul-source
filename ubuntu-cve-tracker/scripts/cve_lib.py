@@ -987,7 +987,7 @@ def release_sort(release_list):
     # sort by release version but also append the release name so releases that
     # have the same stamp sort in alphabetical order by name, then pull out just
     # the names
-    return [x[0] for x in sorted(rels, key=lambda x: ("%02.2f" % x[1]) + x[0])]
+    return [x[0] for x in sorted(rels, key=lambda x: ("%05.2f" % x[1]) + x[0])]
 
 
 def release_is_older_than(release_a, release_b):
