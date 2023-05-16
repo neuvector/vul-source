@@ -1683,6 +1683,10 @@
         "description": "Python based plotting system in a style similar to Matlab",
         "title": "Matplotlib"
     },
+    "matrix-synapse": {
+        "description": "Synapse: Matrix homeserver written in Python/Twisted.",
+        "title": "Synapse"
+    },
     "mediainfo": {
         "description": "utilities for reading information from audio/video files",
         "title": "MediaInfo"
