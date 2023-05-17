@@ -1843,6 +1843,10 @@
         "description": "A CSS selector parser",
         "title": "css-what"
     },
+    "node-eventsource": {
+        "description": "EventSource client for Node.js and Browser (polyfill)",
+        "title": "EventSource"
+    },
     "node-thenify": {
         "description": "Promisify a callback-based function",
         "title": "thenify"

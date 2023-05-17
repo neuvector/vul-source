@@ -391,3 +391,15 @@ jammy_nvidia-graphics-drivers-525-server: needs-triage
 kinetic_nvidia-graphics-drivers-525-server: needs-triage
 lunar_nvidia-graphics-drivers-525-server: needs-triage
 devel_nvidia-graphics-drivers-525-server: needs-triage
+
+Patches_nvidia-graphics-drivers-530:
+upstream_nvidia-graphics-drivers-530: needs-triage
+trusty_nvidia-graphics-drivers-530: DNE
+xenial_nvidia-graphics-drivers-530: DNE
+bionic_nvidia-graphics-drivers-530: needs-triage
+focal_nvidia-graphics-drivers-530: needs-triage
+jammy_nvidia-graphics-drivers-530: needs-triage
+kinetic_nvidia-graphics-drivers-530: needs-triage
+lunar_nvidia-graphics-drivers-530: needs-triage
+devel_nvidia-graphics-drivers-530: needs-triage
+

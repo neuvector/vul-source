@@ -273,8 +273,8 @@ def load(data_type='sources', pockets=None, releases=None, skip_eol_releases=Tru
     if data_type == 'sources':
         subproject_lists = load_subprojects_lists(releases=releases)
         for item in subproject_lists:
+            map.setdefault(item, dict())
             for pkg in subproject_lists[item]:
-                map.setdefault(item, dict())
                 map[item].setdefault(pkg, subproject_lists[item][pkg])
 
     # duplicate "devel" into the map for ease of use
