@@ -752,6 +752,7 @@ kernel_glitches = {
     'linux-oem-6.1': {
         'jammy': {
             '~': '6.1.0-1004.4',  # Initial publication
+            '6.1.0-1010.10': '6.1.0-1012.12', # no CVEs, deadlock issue LP: #2018566
         },
     },
     'linux-oracle': {

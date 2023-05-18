@@ -1503,7 +1503,7 @@ class OvalGeneratorCVE:
         mapping = {
             'ns': self.ns,
             'id_base': self.id,
-            'codename': self.release_codename,
+            'codename': cve_lib.product_series(self.release)[1],
             'release_name': self.release_name,
         }
         self.release_applicability_definition_id = \

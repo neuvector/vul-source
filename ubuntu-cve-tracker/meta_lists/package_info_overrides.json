@@ -1847,6 +1847,10 @@
         "description": "EventSource client for Node.js and Browser (polyfill)",
         "title": "EventSource"
     },
+    "node-minimatch": {
+        "description": "A glob matcher in javascript",
+        "title": "minimatch"
+    },
     "node-thenify": {
         "description": "Promisify a callback-based function",
         "title": "thenify"
