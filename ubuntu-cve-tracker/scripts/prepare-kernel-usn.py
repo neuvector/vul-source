@@ -3,7 +3,7 @@
 # Author: Kees Cook <kees@ubuntu.com>
 # Author: Marc Deslauriers <marc.deslauriers@ubuntu.com>
 # Author: Steve Beattie <sbeattie@ubuntu.com>
-# Copyright: 2011,2012,2017 Canonical, Ltd
+# Copyright: 2011-2023 Canonical, Ltd
 # License: GPLv3
 #
 # Walk through the steps to do a standard kernel publication using the
@@ -175,6 +175,7 @@ parser.add_argument('-F', '--force', action='store_true', default=False, help='O
 parser.add_argument('--use-changes', action='store', default=None, help='Use previously downloaded changes files from prior run (sets --keep-changes as well')
 parser.add_argument('--keep-changes', action='store_true', default=False, help='Keep changes files downloaded by sis-changes')
 parser.add_argument("--ignore-released-cves-in-changelog", action='store_true', help="Filter out CVEs already marked as released")
+parser.add_argument("--esm-ppa", action='store', help="Add kernels from ESM PPA if any, can be used when merging ESM with active kernels (sets --include-eol)")
 parser.add_argument('release', action='store', nargs=1,  help='Primary release name (e.g. xenial)')
 parser.add_argument('kernel', action=KernelVersionAction, nargs='+',  help='Kernel source package name and versions; e.g. "linux 4.4.0-42.62. Source package can be a release/name pair"')
 args = parser.parse_args()
@@ -274,9 +275,14 @@ try:
                 cmd.append('--include-eol')
             if args.skip_binary_check:
                 cmd.append('--skip-build-check')
-            cmd += ['--ppa', args.ppa]
-            if args.pocket:
-                cmd+= ['--pocket', args.pocket]
+            if args.esm_ppa and cve_lib.is_active_esm_release(release):
+                cmd += ['--ppa', args.esm_ppa]
+                if not args.include_eol:
+                    cmd.append('--include-eol')
+            else:
+                cmd += ['--ppa', args.ppa]
+                if args.pocket:
+                    cmd += ['--pocket', args.pocket]
             cmd += ['-r', release, '--download', intermediate_changes]
             for kernel in kernels[release]:
                 cmd += [kernel]
