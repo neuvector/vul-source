@@ -9,8 +9,6 @@
 " autocmd BufNewFile,BufRead CVE-[0-9][0-9][0-9][0-9]-[0-9N]\\\{4,\} set syntax=cve
 "
 " TODO:
-" - turn the release names into variables so we only have to update in one
-"   place
 " - maybe do something with URLs
 "
 
@@ -20,13 +18,17 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+let s:supported_releases = ["devel", "upstream", "product", "snap", "bionic", "focal", "jammy", "kinetic", "lunar", "mantic"]
+let s:products = ["precise/esm", "trusty/esm", "esm-infra/xenial", "esm-apps/xenial", "esm-apps/bionic", "esm-apps/focal", "esm-apps/jammy", "fips", "fips-updates", "ros-esm"]
+let s:eol_releases = ["warty", "hoary", "breezy", "dapper", "edgy", "feisty", "gutsy", "hardy", "intrepid", "jaunty", "karmic", "lucid", "maverick", "natty", "oneiric", "precise", "quantal", "raring", "saucy", "trusty", "utopic", "vivid", "vivid/stable-phone-overlay", "vivid/ubuntu-core", "wily", "xenial", "yakkety", "zesty", "artful", "cosmic", "disco", "eoan", "groovy", "hirsute", "impish"]
+let s:all_releases = s:supported_releases + s:eol_releases + s:products
+
 " Should match case except for the keys of each field
 syn case match
 
 " Everything that is not explicitly matched by the rules below
 syn match cveElse "^.*$"
 
-syn match cveRelease "\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)"
 syn match cveSrcPkg contained "[a-z0-9][a-z0-9+.-]\+"
 syn match cveId contained "CVE-[0-9][0-9][0-9][0-9]-[0-9N]\{4,}"
 syn match cveDate contained  "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\( [0-2][0-9]:[0-5][0-9]:[0-5][0-9] \([A-Z][A-Z][A-Z]\|[+-][01][0-9][0-9][0-9]\)\)\?"
@@ -38,22 +40,22 @@ syn match cveKey "^\%(Candidate\|PublicDate\|PublicDateAtUSN\|CRD\|References\|D
 
 " Release/status key
 " <release>_<srcpkg>: <status>
-syn match cveKeyRelease "^\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)_[a-z0-9][a-z0-9+.-]\+: *"
+execute 'syn match cveKeyReleaseEOL "^\%(' . join(s:eol_releases, '\|') . '\)_[a-z0-9][a-z0-9+.-]\+: *"'
+execute 'syn match cveKeyRelease "^\%(' . join(s:supported_releases, '\|') . '\)_[a-z0-9][a-z0-9+.-]\+: *"'
 
 " Product/Release/status key
 " <product>/<release>_<srcpkg>: <status>
-syn match cveKeyProduct "^\(esm-apps/\)\?\%(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)_[a-z0-9][a-z0-9+.-]\+: *"
-
+execute 'syn match cveKeyProduct "^\%(' . join(s:products, '\|') . '\)_[a-z0-9][a-z0-9+.-]\+: *"'
 
 " Priorities key
 " Priority[_<srcpkg>[_<release>]]: <priority>
 syn match cvePriorityValue contained "\(negligible\|low\|medium\|high\|critical\)"
-syn match cvePriorityKey "^Priority\(_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)\)\?\)\?: *"
+execute 'syn match cvePriorityKey "^Priority\(_[a-z0-9][a-z0-9+.-]\+\(_\(' . join(s:all_releases, '\|') . '\)\)\?\)\?: *"'
 
 " Tags key
 " Tags_<srcpkg>[_<release>]: <tag>
 syn match cveTagValue contained "\(apparmor\|fortify-source\|hardlink-restriction\|heap-protector\|not-ue\|pie\|stack-protector\|symlink-restriction\|universe-binary\) *"
-syn match cveTagKey "^Tags_[a-z0-9][a-z0-9+.-]\+\(_\(devel\|upstream\|product\|snap\|warty\|hoary\|breezy\|dapper\|edgy\|feisty\|gutsy\|hardy\|intrepid\|jaunty\|karmic\|lucid\|maverick\|natty\|oneiric\|precise\|precise/esm\|quantal\|raring\|saucy\|trusty\|trusty/esm\|utopic\|vivid\|vivid/stable-phone-overlay\|vivid/ubuntu-core\|wily\|xenial\|yakkety\|zesty\|artful\|bionic\|cosmic\|disco\|eoan\|focal\|groovy\|hirsute\|impish\|jammy\|kinetic\|lunar\)\)\?: *"
+execute 'syn match cveTagsKey "^Tags\(_[a-z0-9][a-z0-9+.-]\+\(_\(' . join(s:all_releases, '\|') . '\)\)\?\)\?: *"'
 
 " Fields where we do strict syntax checking
 syn region cveStrictField start="^Priority" end="$" contains=cvePriorityKey,cvePriorityValue oneline
@@ -61,8 +63,7 @@ syn region cveStrictField start="^Tags" end="$" contains=cveTagKey,cveTagValue o
 syn region cveStrictField start="^Candidate" end="$" contains=cveKey,cveId
 syn region cveStrictField start="^\(PublicDate\|CRD\)" end="$" contains=cveKey,cveDate
 syn region cveStrictField start="^Patches_" end=":$" contains=cveKey,cveSrcPkg oneline
-syn region cveStrictField start="^[a-z/-]\+_" end="$" contains=cveKeyRelease,cveStatus,cveStatusExtra oneline
-syn region cveStrictField start="^[a-z/-]\+_" end="$" contains=cveKeyProduct,cveStatus,cveStatusExtra oneline
+syn region cveStrictField start="^[a-z/-]\+_" end="$" contains=cveKeyRelease,cveKeyReleaseEOL,cveKeyProduct,cveStatus,cveStatusExtra oneline
 
 if version >= 508 || !exists("did_cve_syn_inits")
   command -nargs=+ HiLink hi def link <args>
@@ -71,9 +72,12 @@ if version >= 508 || !exists("did_cve_syn_inits")
   HiLink cvePriorityKey         Keyword
   HiLink cveTagKey              Keyword
   HiLink cveKeyRelease          Keyword
-  HiLink cveKeyProduct          Keyword
+  HiLink cveKeyReleaseEOL       Keyword
+  HiLink cveKeyProduct          Type
   HiLink cveElse                Normal
   HiLink cveStrictField         Error
+  HiLink cveStatus              Identifier
+  HiLink cveStatusExtra         Number
 
   delcommand HiLink
 endif

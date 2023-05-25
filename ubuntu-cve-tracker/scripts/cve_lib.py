@@ -2581,6 +2581,15 @@ def any_universe(map, pkg, releases, cvedata):
             return True
     return False
 
+
+def release_has_partner(rel):
+    try:
+        _,_,_,details = get_subproject_details(rel)
+        return "partner" in details["components"]
+    except (ValueError, KeyError):
+        return False
+
+
 def in_universe(map, pkg, rel, cve, cvedata):
     if pkg in map[rel] and map[rel][pkg]['section'] == 'universe':
         return True

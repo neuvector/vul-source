@@ -247,7 +247,7 @@ def _find_sources_from_apt(pockets=None, releases=None):
         for component in ['partner']:
             # partner doesn't get the devel release treatment until late in
             # the cycle
-            if '%s_%s' % (rel, component) not in saw and not (rel == cve_lib.devel_release):
+            if '%s_%s' % (rel, component) not in saw and not (rel == cve_lib.devel_release) and not cve_lib.release_has_partner(rel):
                 missing += " deb-src http://archive.canonical.com/ubuntu %s %s\n" % (rel, component)
                 errors = True
     if errors:
