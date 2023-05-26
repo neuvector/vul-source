@@ -146,17 +146,15 @@ class OvalGenerator:
     supported_oval_elements = ('definition', 'test', 'object', 'state', 'variable')
     generator_version = '1.1'
     oval_schema_version = '5.11.1'
-    def __init__(self, release, release_name, parent = None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
+    def __init__(self, release, release_name = None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
         self.release = release
         # e.g. codename for trusty/esm should be trusty
-        self.release_codename = parent if parent else self.release.replace('/', '_')
+        self.release_codename = cve_lib.release_progenitor(release) if cve_lib.release_progenitor(release) else self.release.replace('/', '_')
         self.release_name = release_name
         #self.warn = warn_method or self.warn
         self.tmpdir = tempfile.mkdtemp(prefix='oval_lib-')
         self.output_dir = outdir
         self.oval_format = oval_format
-        self.output_filepath = \
-            '{0}com.ubuntu.{1}.cve.oval.xml'.format(prefix, self.release.replace('/', '_'))
         self.ns = 'oval:com.ubuntu.{0}'.format(self.release_codename)
         self.id = 100
         self.host_def_id = self.id
@@ -342,12 +340,13 @@ class OvalGenerator:
         return family_state, state
 
 class CVEPkgRelEntry:
-    def __init__(self, pkg, cve, status, note) -> None:
+    def __init__(self, pkg, release, cve, status, note) -> None:
         self.pkg = pkg
         self.cve = cve
         self.orig_status = status
         self.orig_note = note
-        cve_info = CVEPkgRelEntry.parse_package_status(pkg.rel, pkg.name, status, note, cve.number, None)
+        self.release = release
+        cve_info = CVEPkgRelEntry.parse_package_status(self.release, pkg.name, status, note, cve.number, None)
 
         self.note = cve_info['note']
         self.status = cve_info['status']
@@ -456,9 +455,9 @@ class CVE:
         self.pkg_rel_entries = {}
         self.pkgs = pkgs
 
-    def add_pkg(self, pkg_object, state, note):
-        cve_pkg_entry = CVEPkgRelEntry(pkg_object, self, state, note)
-        self.pkg_rel_entries[Package.get_unique_id(pkg_object.name, pkg_object.rel)] = cve_pkg_entry
+    def add_pkg(self, pkg_object, release, state, note):
+        cve_pkg_entry = CVEPkgRelEntry(pkg_object, release, self, state, note)
+        self.pkg_rel_entries[pkg_object.name] = cve_pkg_entry
         self.pkgs.append(pkg_object)
 
     def __str__(self) -> str:
@@ -492,10 +491,6 @@ class Package:
         self.binaries = binaries if binaries else []
         self.cves = []
 
-    @staticmethod
-    def get_unique_id(name, rel):
-        return f'{name}/{rel}'
-
     def add_cve(self, cve) -> None:
         self.cves.append(cve)
 
@@ -506,8 +501,8 @@ class Package:
         return self.__str__()
 
 class OvalGeneratorPkg(OvalGenerator):
-    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, fixed_only=True, cve_cache=None,  cve_prefix_dir=None, parent=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
-        super().__init__(release, release_name, parent, warn_method, outdir, prefix, oval_format)
+    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, fixed_only=True, cve_cache=None,  cve_prefix_dir=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
+        super().__init__(release, release_name, warn_method, outdir, prefix, oval_format)
         ###
         # ID schema: 2204|00001|0001
         # * The first four digits are the ubuntu release number
@@ -518,6 +513,8 @@ class OvalGeneratorPkg(OvalGenerator):
         self.definition_id = release_code * 10 ** 10
         self.definition_step = 1 * 10 ** 5
         self.criterion_step = 10
+        self.output_filepath = \
+            '{0}com.ubuntu.{1}.pkg.oval.xml'.format(prefix, self.release.replace('/', '_'))
         self.progress = progress
         self.cve_cache = cve_cache
         self.pkg_cache = pkg_cache
@@ -531,11 +528,10 @@ class OvalGeneratorPkg(OvalGenerator):
         component = etree.SubElement(advisory, "component")
         version = etree.SubElement(advisory, "current_version")
 
-        pkg_id = Package.get_unique_id(package.name, self.release)
         for cve in package.cves:
-            if cve.pkg_rel_entries[pkg_id].status == 'not-vulnerable':
+            if cve.pkg_rel_entries[package.name].status == 'not-vulnerable':
                 continue
-            elif self.fixed_only and cve.pkg_rel_entries[pkg_id].status != 'fixed':
+            elif self.fixed_only and cve.pkg_rel_entries[package.name].status != 'fixed':
                 continue
             cve_obj = self._generate_cve_object(cve)
             advisory.append(cve_obj)
@@ -991,7 +987,6 @@ class OvalGeneratorPkg(OvalGenerator):
         return test, object, var, state
 
     def _populate_pkg(self, package, root_element):
-        pkg_id = Package.get_unique_id(package.name, self.release)
         tests = root_element.find("tests")
         objects = root_element.find("objects")
         variables = root_element.find("variables")
@@ -1008,7 +1003,7 @@ class OvalGeneratorPkg(OvalGenerator):
         cve_added = False
 
         for cve in package.cves:
-            pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
+            pkg_rel_entry = cve.pkg_rel_entries[package.name]
             if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
                 cve_added = True
                 if one_time_added_id:
@@ -1052,7 +1047,6 @@ class OvalGeneratorPkg(OvalGenerator):
         self._increase_id(is_definition=True)
 
     def _populate_kernel_pkg(self, package, root_element, running_kernel_id):
-        pkg_id = Package.get_unique_id(package.name, self.release)
         tests = root_element.find("tests")
         objects = root_element.find("objects")
         variables = root_element.find("variables")
@@ -1075,7 +1069,7 @@ class OvalGeneratorPkg(OvalGenerator):
         self._add_to_criteria(definition_element, criteria, operator='AND')
 
         for cve in package.cves:
-            pkg_rel_entry = cve.pkg_rel_entries[pkg_id]
+            pkg_rel_entry = cve.pkg_rel_entries[package.name]
             if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
                 cve_added = True
                 if one_time_added_id:
@@ -1104,6 +1098,22 @@ class OvalGeneratorPkg(OvalGenerator):
             definitions.append(definition_element)
         self._increase_id(is_definition=True)
 
+    def _add_new_package(self, package_name, cve, release, cve_data, packages) -> None:
+        if package_name not in packages:
+            binaries = self.pkg_cache.get_binarypkgs(package_name, release)
+            version = ''
+            if binaries:
+                version = self.pkg_cache.pkgcache[package_name]['Releases'][release]['source_version']
+
+            pkg_obj = Package(package_name, release, binaries, version)
+            packages[package_name] = pkg_obj
+
+        pkg_obj = packages[package_name]
+        if cve not in pkg_obj.cves:
+            pkg_obj.cves.append(cve)
+
+        cve.add_pkg(pkg_obj, release, cve_data['pkgs'][package_name][release][0],cve_data['pkgs'][package_name][release][1])
+
     def _load_pkgs(self, cve_prefix_dir, packages_filter=None) -> None:
         cve_lib.load_external_subprojects()
 
@@ -1118,12 +1128,20 @@ class OvalGeneratorPkg(OvalGenerator):
                  )
 
         packages = {}
-        sources[self.release] = load(releases=[self.release], skip_eol_releases=False)[self.release]
-        orig_name = cve_lib.get_orig_rel_name(self.release)
-        if '/' in orig_name:
-            orig_name = orig_name.split('/', maxsplit=1)[1]
-        source_map_binaries[self.release] = load(data_type='packages',releases=[orig_name], skip_eol_releases=False)[orig_name] \
-            if self.release not in cve_lib.external_releases else {}
+        releases = [self.release]
+        current_release = self.release
+        while(cve_lib.release_parent(current_release)):
+            current_release = cve_lib.release_parent(current_release)
+            releases.append(current_release)
+
+        for release in releases:
+            sources[release] = load(releases=[release], skip_eol_releases=False)[release]
+
+            orig_name = cve_lib.get_orig_rel_name(release)
+            if '/' in orig_name:
+                orig_name = orig_name.split('/', maxsplit=1)[1]
+            source_map_binaries[release] = load(data_type='packages',releases=[orig_name], skip_eol_releases=False)[orig_name] \
+                if release not in cve_lib.external_releases else {}
 
         i = 0
         for cve_path in cves:
@@ -1143,22 +1161,11 @@ class OvalGeneratorPkg(OvalGenerator):
                 if packages_filter and pkg not in packages_filter:
                     continue
 
-                if self.release in info['pkgs'][pkg] and \
-                    info['pkgs'][pkg][self.release][0] != 'DNE' and \
-                    pkg in sources[self.release]:
-                        pkg_id = Package.get_unique_id(pkg, self.release)
-                        if pkg_id not in packages:
-                            binaries = self.pkg_cache.get_binarypkgs(pkg, self.release)
-                            version = ''
-                            if binaries:
-                                version = self.pkg_cache.pkgcache[pkg]['Releases'][self.release]['source_version']
-                            pkg_obj = Package(pkg, self.release, binaries, version)
-                            packages[pkg_id] = pkg_obj
-
-                        pkg_obj = packages[pkg_id]
-                        pkg_obj.cves.append(cve_obj)
-                        # add_pkg (pkg, status, note)
-                        cve_obj.add_pkg(pkg_obj, info['pkgs'][pkg][self.release][0],info['pkgs'][pkg][self.release][1])
+                for release in releases:
+                    if pkg in sources[release] and release in info['pkgs'][pkg] and \
+                        info['pkgs'][pkg][release][0] != 'DNE':
+                            self._add_new_package(pkg, cve_obj, release, info, packages)
+                            break
 
         packages = dict(sorted(packages.items()))
         if self.progress:
@@ -1186,14 +1193,11 @@ class OvalGeneratorPkg(OvalGenerator):
                 self._populate_pkg(self.packages[pkg], root_element)
 
         #etree.indent(xml_tree, level=0) -> only available from Python 3.9
-        filename = f"com.ubuntu.{self.release_codename}.pkg.oval.xml"
         xmlstr = minidom.parseString(etree.tostring(root_element)).toprettyxml(indent="  ")
-        if self.oval_format == 'oci':
-            filename = f'oci.{filename}'
 
-        with open(os.path.join(self.output_dir, filename), 'w') as file:
+        with open(os.path.join(self.output_dir, self.output_filepath), 'w') as file:
             file.write(xmlstr)
-        #xml_tree.write(os.path.join(self.output_dir, filename))
+        #xml_tree.write(os.path.join(self.output_dir, self.output_filepath))
         return
 
 class OvalGeneratorCVE:
