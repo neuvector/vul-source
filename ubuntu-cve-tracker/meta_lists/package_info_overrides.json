@@ -1615,6 +1615,10 @@
         "description": "Linux kernel for TI OMAP4 processors",
         "title": "Linux kernel (OMAP4)"
     },
+    "linux-xilinx-zynqmp": {
+        "description": "Linux kernel for Xilinx ZynqMP processors",
+        "title": "Linux kernel (Xilinx ZynqMP)"
+    },
     "log4net": {
         "description": "Highly configurable logging API for the CLI log4net",
         "title": "Apache Log4net"

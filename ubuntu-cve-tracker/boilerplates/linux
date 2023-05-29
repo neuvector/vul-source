@@ -1106,3 +1106,16 @@ jammy_linux-snapdragon: DNE
 kinetic_linux-snapdragon: DNE
 lunar_linux-snapdragon: DNE
 devel_linux-snapdragon: DNE
+
+Patches_linux-xilinx-zynqmp:
+upstream_linux-xilinx-zynqmp: needs-triage
+trusty_linux-xilinx-zynqmp: DNE
+trusty/esm_linux-xilinx-zynqmp: DNE
+xenial_linux-xilinx-zynqmp: DNE
+esm-infra/xenial_linux-xilinx-zynqmp: DNE
+bionic_linux-xilinx-zynqmp: DNE
+focal_linux-xilinx-zynqmp: needs-triage
+jammy_linux-xilinx-zynqmp: DNE
+kinetic_linux-xilinx-zynqmp: DNE
+lunar_linux-xilinx-zynqmp: DNE
+devel_linux-xilinx-zynqmp: DNE

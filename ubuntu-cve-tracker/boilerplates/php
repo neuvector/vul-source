@@ -83,5 +83,5 @@ focal_php8.1: DNE
 jammy_php8.1: needs-triage
 kinetic_php8.1: needs-triage
 lunar_php8.1: needs-triage
-devel_php8.1: needs-triage
+devel_php8.1: DNE
 

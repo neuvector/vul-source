@@ -1139,6 +1139,7 @@ kernel_srcs = set(['linux',
                    'linux-riscv-5.8',
                    'linux-riscv-5.11',
                    'linux-riscv-5.15',
+                   'linux-xilinx-zynqmp',
                    'linux-5.9'])
 kernel_topic_branches = kernel_srcs.difference(['linux'])
 

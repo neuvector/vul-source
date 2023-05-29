@@ -237,6 +237,7 @@ meta_kernels.add_new_kernel('focal', ['linux-hwe-5.13'], '-5.13.0')
 meta_kernels.add_new_kernel('focal', ['linux-hwe-5.15'], '-5.15.0')
 meta_kernels.add_new_kernel('focal', ['linux-lowlatency-hwe-5.15'], '-5.15.0')
 meta_kernels.add_new_kernel('focal', ['linux-azure-fde-5.15'], '-5.15.0')
+meta_kernels.add_new_kernel('focal', ['linux-xilinx-zynqmp'], '-5.4.0', signed=False)
 meta_kernels.add_new_kernel('groovy', ['linux'], '-5.8.0')
 meta_kernels.add_new_kernel('groovy', ['linux-raspi'], '-5.8.0', signed=False)
 meta_kernels.add_new_kernel('groovy', ['linux-aws'], '-5.8.0', signed=False)
@@ -1072,6 +1073,11 @@ kernel_glitches = {
             '~': '5.19.0-28.29~22.04.1',  # initial publication
         },
     },
+    'linux-xilinx-zynqmp': {
+        'focal': {
+            '~': '5.4.0-1022.26', # initial publication
+        }
+    }
 }
 
 

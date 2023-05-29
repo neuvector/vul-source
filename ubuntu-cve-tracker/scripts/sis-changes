@@ -237,6 +237,7 @@ def load_pkg_details_from_lp(archive, pkgs, binaries, pkg, item):
         else:
             print("Forgetting %s: %s %s (now have %s)" % (rel, pkg, pkgs[pkg][rel]['source']['version'], version), file=sys.stderr)
             pkgs[pkg][rel] = dict()
+            binaries[pkg][rel] = dict()
     pkgs.setdefault(pkg, dict())
     pkgs[pkg].setdefault(rel, dict())
     if opt.debug:
