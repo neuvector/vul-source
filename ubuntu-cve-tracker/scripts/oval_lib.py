@@ -503,24 +503,26 @@ class Package:
 class OvalGeneratorPkg(OvalGenerator):
     def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, fixed_only=True, cve_cache=None,  cve_prefix_dir=None, warn_method=False, outdir='./', prefix='', oval_format='dpkg') -> None:
         super().__init__(release, release_name, warn_method, outdir, prefix, oval_format)
-        ###
-        # ID schema: 2204|00001|0001
-        # * The first four digits are the ubuntu release number
-        # * The next 5 digits is # just a package counter, we increase it for each definition
-        # * The last 4 digits is a counter for the criterion
-        ###
-        release_code = int(release_name.split(' ')[1].replace('.', '')) if release not in cve_lib.external_releases else 1111
-        self.definition_id = release_code * 10 ** 10
-        self.definition_step = 1 * 10 ** 5
-        self.criterion_step = 10
-        self.output_filepath = \
-            '{0}com.ubuntu.{1}.pkg.oval.xml'.format(prefix, self.release.replace('/', '_'))
         self.progress = progress
         self.cve_cache = cve_cache
         self.pkg_cache = pkg_cache
         self.cve_paths = cve_paths
         self.fixed_only = fixed_only
         self.packages = self._load_pkgs(cve_prefix_dir, packages)
+
+    def _reset(self):
+        ###
+        # ID schema: 2204|00001|0001
+        # * The first four digits are the ubuntu release number
+        # * The next 5 digits is # just a package counter, we increase it for each definition
+        # * The last 4 digits is a counter for the criterion
+        ###
+        release_code = int(self.release_name.split(' ')[1].replace('.', '')) if self.release not in cve_lib.external_releases else 1111
+        self.definition_id = release_code * 10 ** 10
+        self.definition_step = 1 * 10 ** 5
+        self.criterion_step = 10
+        self.output_filepath = \
+            '{0}com.ubuntu.{1}.pkg.oval.xml'.format('oci.' if self.oval_format == 'oci' else '', self.release.replace('/', '_'))
 
     def _generate_advisory(self, package: Package) -> etree.Element:
         advisory = etree.Element("advisory")
@@ -1173,6 +1175,7 @@ class OvalGeneratorPkg(OvalGenerator):
         return packages
 
     def generate_oval(self) -> None:
+        self._reset()
         xml_tree, root_element = self._get_root_element("Package")
         self._add_structure(root_element)
 

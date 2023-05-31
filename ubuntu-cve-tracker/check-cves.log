@@ -7571,3 +7571,6 @@
 2023-05-26 17:28:35 UTC - 0 added, 1 ignored, 0 skipped, 1 total - files: ['debian-import_onw5146a.json']
 2023-05-30 16:54:52 UTC - 7 added, 224 ignored, 0 skipped, 231 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-2023.json', 'nvdcve-1.1-recent.json']
 2023-05-30 17:28:39 UTC - 14 added, 0 ignored, 0 skipped, 14 total - files: ['debian-import_m_od4h35.json']
+2023-05-31 19:28:43 UTC - 14 added, 54 ignored, 0 skipped, 68 total - files: ['nvdcve-1.1-recent.json']
+2023-05-31 19:29:42 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['allitems.xml']
+2023-05-31 19:50:10 UTC - 1 added, 0 ignored, 1 skipped, 1 total - files: ['debian-import_ahcy4jd9.json']
