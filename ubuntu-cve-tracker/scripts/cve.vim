@@ -18,9 +18,9 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-let s:supported_releases = ["devel", "upstream", "product", "snap", "bionic", "focal", "jammy", "kinetic", "lunar", "mantic"]
-let s:products = ["precise/esm", "trusty/esm", "esm-infra/xenial", "esm-apps/xenial", "esm-apps/bionic", "esm-apps/focal", "esm-apps/jammy", "fips", "fips-updates", "ros-esm"]
-let s:eol_releases = ["warty", "hoary", "breezy", "dapper", "edgy", "feisty", "gutsy", "hardy", "intrepid", "jaunty", "karmic", "lucid", "maverick", "natty", "oneiric", "precise", "quantal", "raring", "saucy", "trusty", "utopic", "vivid", "vivid/stable-phone-overlay", "vivid/ubuntu-core", "wily", "xenial", "yakkety", "zesty", "artful", "cosmic", "disco", "eoan", "groovy", "hirsute", "impish"]
+let s:supported_releases = ["devel", "upstream", "product", "snap", "focal", "jammy", "kinetic", "lunar", "mantic"]
+let s:products = ["precise/esm", "trusty/esm", "esm-infra/xenial", "esm-apps/xenial", "esm-infra/bionic", "esm-apps/bionic", "esm-apps/focal", "esm-apps/jammy", "fips", "fips-updates", "ros-esm"]
+let s:eol_releases = ["warty", "hoary", "breezy", "dapper", "edgy", "feisty", "gutsy", "hardy", "intrepid", "jaunty", "karmic", "lucid", "maverick", "natty", "oneiric", "precise", "quantal", "raring", "saucy", "trusty", "utopic", "vivid", "vivid/stable-phone-overlay", "vivid/ubuntu-core", "wily", "xenial", "yakkety", "zesty", "artful", "cosmic", "disco", "eoan", "groovy", "hirsute", "impish", "bionic"]
 let s:all_releases = s:supported_releases + s:eol_releases + s:products
 
 " Should match case except for the keys of each field

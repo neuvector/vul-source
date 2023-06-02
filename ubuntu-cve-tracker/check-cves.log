@@ -7574,3 +7574,5 @@
 2023-05-31 19:28:43 UTC - 14 added, 54 ignored, 0 skipped, 68 total - files: ['nvdcve-1.1-recent.json']
 2023-05-31 19:29:42 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['allitems.xml']
 2023-05-31 19:50:10 UTC - 1 added, 0 ignored, 1 skipped, 1 total - files: ['debian-import_ahcy4jd9.json']
+2023-06-02 11:32:09 UTC - 14 added, 129 ignored, 0 skipped, 143 total - files: ['nvdcve-1.1-recent.json']
+2023-06-02 11:41:43 UTC - 2 added, 1 ignored, 0 skipped, 3 total - files: ['debian-import_xjn20h32.json']

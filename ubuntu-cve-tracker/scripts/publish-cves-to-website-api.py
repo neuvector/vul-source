@@ -201,7 +201,7 @@ def add_cve_to_ignore_cache(cve_id):
 OK_REGEX = re.compile(r'^<Response \[2..\]>$')
 security_website_endpoint = "cves.json"
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(
         description="This file loads CVEs to webteam's db, using the endpoint ubuntu.com/security/cve",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
@@ -225,6 +225,12 @@ def main():
         default=25,
     )
     parser.add_argument(
+        "--ignore-filename-check", action="store_false",
+        help="Ignore if the file name isn't in the CVE-YYYY-NNNNN format",
+        dest="filename_check",
+        default=True
+    )
+    parser.add_argument(
         "--endpoint",
         action="store",
         type=str,
@@ -238,12 +244,12 @@ def main():
         nargs="+",
         help="[Required] The path of the CVE file(s) or folder(s)",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     ## if args:
     ## headers = {"Content-type": "application/json"}
     cves = []
-    CVE_filename_regex = re.compile(".*/?CVE-\\d{4}-\\d{4,7}$")
+    CVE_filename_regex = re.compile(".*/?CVE-\\d{4}-\\d{4,7}$" if args.filename_check else ".*")
     NFU_filename_regex = re.compile(".*/not-for-us.txt$")
     ignore_paths = ['experimental', 'subprojects', 'scripts']
     cache_not_for_us_cve_ids = list()
@@ -314,6 +320,8 @@ def main():
 
     for cve_id in cache_not_for_us_cve_ids:
         add_cve_to_ignore_cache(cve_id)
+
+    return cves
 
 def push_chunks(args, url, chunk):
     if args.verbose:
