@@ -26,7 +26,6 @@ Usage: packages_mirror [OPTIONS]
   -V               even more verbose output
   -r RELEASE       only update Ubuntu release
   -A               pull only release pocket for the devel release
-  -p               pull only partner
   -u               pull only ubuntu archive
 EOM
 }
@@ -42,7 +41,6 @@ verbosity_args="-q"
 only_release=
 devel_quick_pockets=
 very_verbose=""
-only_partner="no"
 only_ubuntu="no"
 
 while getopts "AwhftvVpur:" opt
@@ -56,7 +54,6 @@ do
            very_verbose="yes";;
         A) devel_quick_pockets="yes";;
         r) only_release="$OPTARG";;
-        p) only_partner="yes";;
         u) only_ubuntu="yes";;
         h) help ; exit 0;;
         ?) help;;
@@ -73,7 +70,7 @@ debian=${debian:-ftp.debian.org}
 # shellcheck disable=SC1091
 . "$HOME"/.ubuntu-cve-tracker.conf
 
-for var in packages_mirror debian_mirror partner_mirror; do
+for var in packages_mirror debian_mirror; do
   if [ -z "${!var}" ]; then
     echo "'$var' not defined in ~/.ubuntu-cve-tracker.conf" >&2
     exit 1
@@ -86,23 +83,6 @@ mkdir -p "$outPath"
 # shellcheck disable=SC2154
 debianPath=$debian_mirror
 mkdir -p "$debianPath"
-
-# shellcheck disable=SC2154
-partnerPath=$partner_mirror
-mkdir -p "$partnerPath"
-
-partner_dir_excludes=$(PYTHONPATH="${PYTHONPATH:+$PYTHONPATH:}$(dirname "$0")" python3 -c '#
-import cve_lib, sys
-s = ""
-for r in cve_lib.eol_releases + ["breezy", "warty", "hoary"]:
-  if r in ["dapper", "breezy", "warty", "hoary"]: # http://archive.canonical.com/dists/ does not have these any more
-    continue
-  # Dont exclude ESM releases
-  if r in ["trusty", "xenial"]:
-      continue
-  s += "dists/%s*/," % r
-sys.stdout.write(s.rstrip(","))
-')
 
 function compressed_ext()
 {
@@ -286,56 +266,54 @@ function do_use_timestamp() {
     return 1
 }
 
-if [ "$only_partner" = "no" ]; then
-    timestamp="${outPath}.timestamp"
-    if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
-        pull=$(mktemp -t packages-XXXXXX)
-        # shellcheck disable=SC2064
-        trap "rm -f $pull" EXIT HUP INT QUIT TERM
+timestamp="${outPath}.timestamp"
+if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
+    pull=$(mktemp -t packages-XXXXXX)
+    # shellcheck disable=SC2064
+    trap "rm -f $pull" EXIT HUP INT QUIT TERM
 
-        # Sync Packages for non-ports supported arches
-        if [ "$verbosity_args" != "-q" ]; then
-            echo "Generating arch lists"
-        fi
-        # shellcheck disable=SC2129
-        gen_packages trusty   "amd64 i386"               >> "$pull"
-        gen_packages xenial   "amd64 i386"               >> "$pull"
-        gen_packages bionic   "amd64 i386"               >> "$pull"
-        gen_packages focal    "amd64 i386"               >> "$pull"
-        gen_packages jammy    "amd64 i386"               >> "$pull"
-        gen_packages kinetic  "amd64 i386"               >> "$pull"
-        gen_packages lunar    "amd64 i386"               >> "$pull"
-        gen_packages mantic   "amd64 i386"               >> "$pull"
+    # Sync Packages for non-ports supported arches
+    if [ "$verbosity_args" != "-q" ]; then
+        echo "Generating arch lists"
+    fi
+    # shellcheck disable=SC2129
+    gen_packages trusty   "amd64 i386"               >> "$pull"
+    gen_packages xenial   "amd64 i386"               >> "$pull"
+    gen_packages bionic   "amd64 i386"               >> "$pull"
+    gen_packages focal    "amd64 i386"               >> "$pull"
+    gen_packages jammy    "amd64 i386"               >> "$pull"
+    gen_packages kinetic  "amd64 i386"               >> "$pull"
+    gen_packages lunar    "amd64 i386"               >> "$pull"
+    gen_packages mantic   "amd64 i386"               >> "$pull"
 
-        # don't bother to pull duplicates
-        sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
-        pull_packages "$pull" "$server/ubuntu" || echo "FAIL: supported architectures" >&2
-        cat /dev/null > "$pull"
+    # don't bother to pull duplicates
+    sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
+    pull_packages "$pull" "$server/ubuntu" || echo "FAIL: supported architectures" >&2
+    cat /dev/null > "$pull"
 
-        # Sync Packages for ports arches
-        if [ "$verbosity_args" != "-q" ]; then
-            echo "Generating ports arch lists"
-        fi
-        # shellcheck disable=SC2129
-        gen_packages trusty   "powerpc ppc64el armhf arm64"       >> "$pull"
-        gen_packages xenial   "powerpc ppc64el armhf arm64 s390x" >> "$pull"
-        gen_packages bionic   "ppc64el armhf arm64 s390x"         >> "$pull"
-        gen_packages focal    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
-        gen_packages jammy    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
-        gen_packages kinetic  "ppc64el armhf arm64 s390x riscv64" >> "$pull"
-        gen_packages lunar    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
-        gen_packages mantic   "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    # Sync Packages for ports arches
+    if [ "$verbosity_args" != "-q" ]; then
+        echo "Generating ports arch lists"
+    fi
+    # shellcheck disable=SC2129
+    gen_packages trusty   "powerpc ppc64el armhf arm64"       >> "$pull"
+    gen_packages xenial   "powerpc ppc64el armhf arm64 s390x" >> "$pull"
+    gen_packages bionic   "ppc64el armhf arm64 s390x"         >> "$pull"
+    gen_packages focal    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    gen_packages jammy    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    gen_packages kinetic  "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    gen_packages lunar    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    gen_packages mantic   "ppc64el armhf arm64 s390x riscv64" >> "$pull"
 
-        # don't bother to pull duplicates
-        sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
-        pull_packages "$pull" "$ports/ubuntu-ports" || echo "FAIL: ports architectures" >&2
-        cat /dev/null > "$pull"
+    # don't bother to pull duplicates
+    sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
+    pull_packages "$pull" "$ports/ubuntu-ports" || echo "FAIL: ports architectures" >&2
+    cat /dev/null > "$pull"
 
-        if [ "$use_timestamp" = "yes" ]; then
-            touch "$timestamp"
-        else
-            rm -f "$timestamp"
-        fi
+    if [ "$use_timestamp" = "yes" ]; then
+        touch "$timestamp"
+    else
+        rm -f "$timestamp"
     fi
 fi
 
@@ -348,7 +326,7 @@ if [ "$only_ubuntu" = "no" ]; then
     fi
 
     # TODO: add Debian support for -r
-    if [ -z "$only_release" ] && [ "$only_partner" = "no" ]; then
+    if [ -z "$only_release" ]; then
         # Sync Sources from Debian testing
         timestamp="${debianPath}.timestamp"
         if [ ! -e "${debianPath}/dists" ] || do_use_timestamp "$timestamp" 6 ; then
@@ -368,37 +346,9 @@ if [ "$only_ubuntu" = "no" ]; then
             fi
         fi
     fi
-
-    if [ -z "$only_release" ] || [ "$only_partner" = "yes" ]; then
-        # Sync Canonical Partner Repo
-        timestamp="${partnerPath}.timestamp"
-        if [ ! -e "${partnerPath}/dists" ] || do_use_timestamp "$timestamp" 6 ; then
-            cd "$partnerPath"
-            misc_partner_excludes="robots.txt,misc/,project/,icons/,ls-lR.gz"
-            wget $verbosity_args -N -R '*=*' -R 'Contents*' -X "${misc_partner_excludes},${partner_dir_excludes}" -np -r http://archive.canonical.com/dists/
-
-            ln -sf archive.canonical.com/dists dists
-            # remove dangling symlink
-            rm -f archive.canonical.com/dists/dists || true
-
-            # remove dists.[0-9] files
-            rm -f archive.canonical.com/dists.[0-9]*
-
-            if [ "$use_timestamp" = "yes" ]; then
-                touch "$timestamp"
-            else
-                rm -f "$timestamp"
-            fi
-            has_sources=$(find archive.canonical.com/dists -name Sources$)
-            if [ -n "$has_sources" ]; then
-                echo ""
-                echo "WARNING: $partnerPath has Sources files! These should be removed now that -partner uses Sources.gz"
-            fi
-        fi
-    fi
 fi
 
 # generate source package lists for umt grep
-for path in "$outPath" "$debianPath" "$partnerPath"; do
+for path in "$outPath" "$debianPath"; do
   find "$path" -name Sources.gz -exec zgrep '^Package: .*' {} \; | cut -c10- | sort -u > "$path/sources"
 done

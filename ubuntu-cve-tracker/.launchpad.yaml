@@ -59,9 +59,7 @@ jobs:
       # for source_map
       echo plb_authentication=/dev/null > ~/.ubuntu-cve-tracker.conf
       echo "packages_mirror=$HOME/mirrors/ubuntu/" >> ~/.ubuntu-cve-tracker.conf
-      for mirror in debian partner; do
-        echo "${mirror}_mirror=$HOME/mirrors/${mirror}/" >> ~/.ubuntu-cve-tracker.conf
-      done
+      echo "debian_mirror=$HOME/mirrors/debian/" >> ~/.ubuntu-cve-tracker.conf
       echo "Setting up packages-mirror..."
       # use wget for packages-mirror since rsync is not accessible in lp
       # builders - also invoke with -v since this seems to make downloading more

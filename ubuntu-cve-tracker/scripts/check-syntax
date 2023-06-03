@@ -589,10 +589,6 @@ def check_cve(cve):
             # Skip DNE's
             if state == "DNE":
                 if pkg in source[rel]:
-                    # TODO: remove this when partner archive is back in sync
-                    # sigh, partner archive mirrors are out of date since removing sun-java6
-                    if pkg == "sun-java6" and source[rel][pkg]["section"] == "partner":
-                        continue
                     print(
                         "%s: %d: package '%s' DOES exist in '%s'"
                         % (filename, linenum, pkg, rel),
@@ -685,6 +681,7 @@ def check_cve(cve):
                         released = details[1]
                         # XXX 'version' existence check should not be needed
                         if "version" not in source[rel][pkg]:
+                            global esm_warned
                             if not esm_warned:
                                 print(
                                     "%s: %d: unable to lookup source version for %s in %s"

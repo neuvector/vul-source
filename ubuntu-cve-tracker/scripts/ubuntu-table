@@ -232,7 +232,6 @@ for cve in sorted(cves):
         action_needed = False   # A package in any release needs updating
         released = False        # A package in any release has been fixed
         supported = False       # A package in any release is supported and needs to be fixed
-        partner = False         # A package in any release is partner-supplied
         universe = False        # A package in any release is in universe and needs to be fixed
 
         mark = dict()
@@ -271,10 +270,6 @@ for cve in sorted(cves):
                 # Does this package need attention for a supported release?
                 if pkg_rel_supported:
                     supported = True
-
-            # A partner issue?
-            if cve_lib.is_partner(map, pkg, rel):
-                partner = True
 
             if opt.debug:
                 print("%s: %s: %s (%s, released:%d)" % (cve, pkg, table[cve][pkg][rel], rel, released), file=sys.stderr)
@@ -317,9 +312,7 @@ for cve in sorted(cves):
                 print('<td style="font-size: small;"><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=%s">Mitre</a> <a href="https://launchpad.net/bugs/cve/%s">LP</a> <a href="http://security-tracker.debian.org/tracker/%s">Debian</a></td>' % (quote(cve), quote(cve), quote(cve)), end=' ')
                 print('<td>', end=' ')
                 if opt.supported:
-                    if partner:
-                        print('<p>PARTNER</p>', end=' ')
-                    elif supported:
+                    if supported:
                         print('<p>SUPPORTED</p>', end=' ')
                     if universe:
                         print('<p>UNIVERSE</p>', end=' ')
@@ -348,9 +341,7 @@ for cve in sorted(cves):
                 if action_needed and released:
                     print('[out of sync]', end=' ')
                 if opt.supported:
-                    if partner:
-                        print('PARTNER', end=' ')
-                    elif supported:
+                    if supported:
                         print('SUPPORTED', end=' ')
                     if universe:
                         print('UNIVERSE', end=' ')

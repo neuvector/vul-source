@@ -67,7 +67,6 @@ def html_header(title, description, outfd):
         <li class="nav-item"><a class="nav-link" href="..">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="../main.html">Main</a></li>
         <li class="nav-item"><a class="nav-link" href="../universe.html">Universe</a></li>
-        <li class="nav-item"><a class="nav-link" href="../partner.html">Partner</a></li>
       </ul>
     </div><!--/.nav-collapse -->
 </nav>

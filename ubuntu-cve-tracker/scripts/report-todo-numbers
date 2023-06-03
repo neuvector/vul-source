@@ -45,7 +45,7 @@ only_packages = []
 if opt.only_packages:
     only_packages = re.split(',', opt.only_packages)
 
-for category in ['supported','partner','universe']:
+for category in ['supported','universe']:
     item[category] = dict()
     srcpkg_item[category] = dict()
 
@@ -62,9 +62,6 @@ for category in ['supported','partner','universe']:
                 continue
             if 'SUPPORTED' in line:
                 if category != 'supported':
-                    continue
-            elif 'PARTNER' in line:
-                if category != 'partner':
                     continue
             elif category != 'universe':
                 continue
@@ -131,8 +128,6 @@ for category in ['supported','partner','universe']:
     else:
         if category == 'supported':
             print " * For all the supported packages in Ubuntu, there",
-        elif category == 'partner':
-            print " * For all partner packages in Ubuntu, there",
         elif category == 'universe':
             print " * For all community-supported packages in Ubuntu, there",
         if opt.show_unique_sources:

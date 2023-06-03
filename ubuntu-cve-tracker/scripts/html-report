@@ -80,14 +80,11 @@ header() {
     show="$2"
     main_active=""
     universe_active=""
-    partner_active=""
 
     if [ "$show" = "main" ]; then
         main_active="active ";
     elif [ "$show" = "universe" ]; then
         universe_active="active ";
-    elif [ "$show" = "partner" ]; then
-        partner_active="active ";
     fi
 
     cat > "$outfile" <<EOM
@@ -129,7 +126,6 @@ header() {
         <li class="nav-item"><a class="nav-link" href=".">Home</a></li>
         <li class="nav-item"><a class="${main_active}nav-link" href="main.html">Main</a></li>
         <li class="nav-item"><a class="${universe_active}nav-link" href="universe.html">Universe</a></li>
-        <li class="nav-item"><a class="${partner_active}nav-link" href="partner.html">Partner</a></li>
       </ul>
     </div><!--/.nav-collapse -->
 </nav>
@@ -152,7 +148,6 @@ This report is divided into the following sections:</p>
 <ul class="style-none text-left">
   <li><a href="main${suffix}.html">Main</a> (supported by Canonical Ltd)</li>
   <li><a href="universe${suffix}.html">Universe</a> (supported by the Ubuntu community)</li>
-  <li><a href="partner${suffix}.html">Partner</a> (supported by upstream vendor)</li>
 </ul>
 
 <p class="text-left">See <a href="priority.html">Priority Color Key</a> for information about the significance of the colors on this page.</p>
@@ -210,8 +205,8 @@ EOM
 }
 
 OUTPUT=$($ubuntu_table_exe --html --supported --no-retired $table_args)
-#for show in main universe partner index
-for show in main universe partner
+#for show in main universe index
+for show in main universe
 do
     outfile="${tmpdir}/${show}${suffix}.html"
     header "$outfile" "$show"
@@ -224,11 +219,8 @@ do
         echo "<p class='note text-right'>* supported by Canonical Ltd</p>" >> "$outfile"
     elif [ "$show" = "universe" ]; then
         echo "<h3 class=\"text-center\">Universe</h3>" >> "$outfile"
-        echo "$OUTPUT" | egrep '(<table id="cves".*>|</table>|<thead.*>|</thead>|<tbody>|<tbody>|<th>|UNIVERSE)' | egrep -v 'PARTNER' | egrep -v "$embargoed" | sed -r 's#<td>[[:space:]]+(<p>[[:space:]]*[a-zA-Z0-9\-]*[[:space:]]*</p>[[:space:]]+)+</td>[[:space:]]+</tr>$#</tr>#' | sed -r 's#<th>Notes</th></tr>$#</tr>#' >> "$outfile"
+        echo "$OUTPUT" | egrep '(<table id="cves".*>|</table>|<thead.*>|</thead>|<tbody>|<tbody>|<th>|UNIVERSE)' | egrep -v "$embargoed" | sed -r 's#<td>[[:space:]]+(<p>[[:space:]]*[a-zA-Z0-9\-]*[[:space:]]*</p>[[:space:]]+)+</td>[[:space:]]+</tr>$#</tr>#' | sed -r 's#<th>Notes</th></tr>$#</tr>#' >> "$outfile"
         echo "<p class='note text-right'>* supported by Canonical Ltd</p>" >> "$outfile"
-    elif [ "$show" = "partner" ]; then
-        echo "<h3 class=\"text-center\">Partner</h3>" >> "$outfile"
-        echo "$OUTPUT" | egrep '(<table id="cves".*>|</table>|<thead.*>|</thead>|<tbody>|<tbody>|<th>|PARTNER)' | egrep -v "$embargoed"| sed -r 's#<td>[[:space:]]+(<p>[[:space:]]*[a-zA-Z0-9\-]*[[:space:]]*</p>[[:space:]]+)+</td>[[:space:]]+</tr>$#</tr>#' | sed -r 's#<th>Notes</th></tr>$#</tr>#' >> "$outfile"
     fi
 
     footer "$outfile"

@@ -86,7 +86,6 @@ deferred_packages = dict()
 popularity = dict()
 pockets = { 'supported' : dict(),
             'universe' : dict(),
-            'partner' : dict(),
             'only_in_supported_overlay' : dict() }
 
 points = { 'negligible' : 0,
@@ -175,7 +174,6 @@ for cve in sorted(cves):
             continue
 
         supported = False
-        partner = False
         universe = False
         found = False
         overlay = False
@@ -219,18 +217,16 @@ for cve in sorted(cves):
                     found = True
                     if cve_lib.is_supported(map, namemap[pkg][r], r, cveinfo[cve]):
                         supported = True
-                    if cve_lib.is_partner(map, namemap[pkg][r], r):
-                        partner = True
                     if cve_lib.is_universe(map, namemap[pkg][r], r, cveinfo[cve]):
                         universe = True
 
         if not found:
             continue
 
-        if opt.only_supported and not supported and not partner:
+        if opt.only_supported and not supported:
             continue
 
-        if opt.not_supported and (supported or partner):
+        if opt.not_supported and supported:
             continue
 
         if supported:
@@ -245,11 +241,6 @@ for cve in sorted(cves):
                 else:
                     pockets['only_in_supported_overlay'][pkg] = 1
 
-        if partner:
-            if pkg in pockets['partner']:
-                pockets['partner'][pkg] += 1
-            else:
-                pockets['partner'][pkg] = 1
         if universe:
             if pkg in pockets['universe']:
                 pockets['universe'][pkg] += 1
@@ -409,9 +400,7 @@ else:
                     sys.stdout.write(", %s %s" % (str(priorities[p][pkg]), p))
 
         extra_info = []
-        if pkg in pockets['partner']:
-            extra_info.append('PARTNER')
-        elif pkg in pockets['supported']:
+        if pkg in pockets['supported']:
             if pkg in pockets['only_in_supported_overlay']:
                 extra_info.append('SUPPORTED-ONLY-OVERLAY')
             else:

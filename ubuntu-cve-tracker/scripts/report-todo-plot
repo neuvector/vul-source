@@ -13,7 +13,7 @@ TABLE=$(./scripts/ubuntu-table -s "$@")
 for category in ${CATEGORY:-SUPPORTED}
 do
   if [ "x$category" = "xuniverse" ]; then
-    filter="-v '(SUPPORTED|PARTNER)'"
+    filter="-v 'SUPPORTED'"
   else
     filter=$category
   fi

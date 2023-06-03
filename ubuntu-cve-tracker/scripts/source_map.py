@@ -48,10 +48,9 @@ def read_config_file(config_file):
 
 def _find_sources(pockets=None, releases=None, skip_eol_releases=True, arch='amd64'):
     config = read_config_file(os.path.expanduser("~/.ubuntu-cve-tracker.conf"))
-    if 'packages_mirror' in config and 'partner_mirror' in config:
+    if 'packages_mirror' in config:
         cve_lib.check_mirror_timestamp(config)
         return _find_from_mirror(config['packages_mirror'],
-                                 config['partner_mirror'],
                                  'sources',
                                  pockets=pockets,
                                  releases=releases,
@@ -63,10 +62,9 @@ def _find_sources(pockets=None, releases=None, skip_eol_releases=True, arch='amd
 
 def _find_packages(pockets=None, releases=None, skip_eol_releases=True, arch='amd64'):
     config = read_config_file(os.path.expanduser("~/.ubuntu-cve-tracker.conf"))
-    if 'packages_mirror' in config and 'partner_mirror' in config:
+    if 'packages_mirror' in config:
         cve_lib.check_mirror_timestamp(config)
         return _find_from_mirror(config['packages_mirror'],
-                                 config['partner_mirror'],
                                  'packages',
                                  pockets=pockets,
                                  releases=releases,
@@ -102,7 +100,7 @@ def load_debian(basedir, data_type='sources'):
     return debian_sources
 
 
-def _find_from_mirror(ubuntu, canonical, data_type, arch='amd64', pockets=None, releases=None, skip_eol_releases=True):
+def _find_from_mirror(ubuntu, data_type, arch='amd64', pockets=None, releases=None, skip_eol_releases=True):
     if data_type not in ['sources', 'packages']:
         raise ValueError("'data_type' should be either 'sources' or 'packages'")
 
@@ -138,9 +136,6 @@ def _find_from_mirror(ubuntu, canonical, data_type, arch='amd64', pockets=None, 
         # free
         for pocket in pockets:
             for section in sections:
-                if section == 'partner':
-                    # handled separately below
-                    continue
                 if data_type == 'sources':
                     fn = os.path.join(ubuntu, 'dists', series + pocket, section,
                                       'source', 'Sources')
@@ -162,40 +157,6 @@ def _find_from_mirror(ubuntu, canonical, data_type, arch='amd64', pockets=None, 
                     name = ''
 
                 collection += [(fn, rel, name, section)]
-        # partner
-        pocket = ''
-        section = 'partner'
-
-        if data_type == 'sources':
-            fn = os.path.join(canonical, 'dists', series + pocket, section,
-                              'source', 'Sources')
-        else:
-            fn = os.path.join(canonical, 'dists', series + pocket, section,
-                              'binary-%s' % arch, 'Packages')
-
-        found, fn_path = _find_path_with_ext(fn)
-        if not found:
-            # Only warn about missing partner for devel release
-            # FIXME: 2020-04-29: disabled partner warning for dev for now
-            # FIXME: 2021-04-24: disabling for both devel and hirsute;
-            # looks like mirroring on people.c.c stopped?
-            if rel == cve_lib.devel_release or rel in ['hirsute', 'impish', 'jammy', 'kinetic', 'lunar']:
-                prefreeze = os.path.join(canonical, 'dists', '%s-series' % rel[0])
-                prefreeze
-                #if not os.path.isdir(prefreeze):
-                #    print(sys.stderr, "WARNING: missing partner mirror element: %s" % (fn), file=sys.stderr)
-                # else:
-                #    print("WARNING: found prefreeze element: %s" % (prefreeze), file=sys.stderr)
-            else:
-                missing += " %s\n" % (fn)
-                errors = True
-            continue
-        else:
-            fn = fn_path
-
-        if section not in sections:
-            continue
-        collection += [(fn, rel, pocket, section)]
 
     if errors:
         raise NameError("Missing mirror elements:\n" + missing)
@@ -244,12 +205,6 @@ def _find_sources_from_apt(pockets=None, releases=None):
                    not (rel == cve_lib.devel_release and pocket in ['-updates', '-security']):
                     missing += " deb-src http://archive.ubuntu.com/ubuntu %s%s %s\n" % (rel, pocket, ' '.join(cve_lib.components))
                     errors = True
-        for component in ['partner']:
-            # partner doesn't get the devel release treatment until late in
-            # the cycle
-            if '%s_%s' % (rel, component) not in saw and not (rel == cve_lib.devel_release) and not cve_lib.release_has_partner(rel):
-                missing += " deb-src http://archive.canonical.com/ubuntu %s %s\n" % (rel, component)
-                errors = True
     if errors:
         raise NameError("Missing /etc/apt/sources.list lines:\n%s" % (missing))
 

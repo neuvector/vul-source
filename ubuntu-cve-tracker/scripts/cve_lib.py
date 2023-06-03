@@ -277,7 +277,7 @@ subprojects = {
     },
     "ubuntu/warty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 4.10",
         "version": 4.10,
         "codename": "Warty Warthog",
@@ -287,7 +287,7 @@ subprojects = {
     },
     "ubuntu/hoary": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 5.04",
         "version": 5.04,
         "codename": "Hoary Hedgehog",
@@ -297,7 +297,7 @@ subprojects = {
     },
     "ubuntu/breezy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 5.10",
         "version": 5.10,
         "codename": "Breezy Badger",
@@ -307,7 +307,7 @@ subprojects = {
     },
     "ubuntu/dapper": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 6.06 LTS",
         "version": 6.06,
         "codename": "Dapper Drake",
@@ -317,7 +317,7 @@ subprojects = {
     },
     "ubuntu/edgy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 6.10",
         "version": 6.10,
         "codename": "Edgy Eft",
@@ -327,7 +327,7 @@ subprojects = {
     },
     "ubuntu/feisty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 7.04",
         "version": 7.04,
         "codename": "Feisty Fawn",
@@ -337,7 +337,7 @@ subprojects = {
     },
     "ubuntu/gutsy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 7.10",
         "version": 7.10,
         "codename": "Gutsy Gibbon",
@@ -347,7 +347,7 @@ subprojects = {
     },
     "ubuntu/hardy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 8.04 LTS",
         "version": 8.04,
         "codename": "Hardy Heron",
@@ -357,7 +357,7 @@ subprojects = {
     },
     "ubuntu/intrepid": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 8.10",
         "version": 8.10,
         "codename": "Intrepid Ibex",
@@ -367,7 +367,7 @@ subprojects = {
     },
     "ubuntu/jaunty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 9.04",
         "version": 9.04,
         "codename": "Jaunty Jackalope",
@@ -377,7 +377,7 @@ subprojects = {
     },
     "ubuntu/karmic": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 9.10",
         "version": 9.10,
         "codename": "Karmic Koala",
@@ -387,7 +387,7 @@ subprojects = {
     },
     "ubuntu/lucid": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 10.04 LTS",
         "version": 10.04,
         "codename": "Lucid Lynx",
@@ -397,7 +397,7 @@ subprojects = {
     },
     "ubuntu/maverick": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 10.10",
         "version": 10.10,
         "codename": "Maverick Meerkat",
@@ -407,7 +407,7 @@ subprojects = {
     },
     "ubuntu/natty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 11.04",
         "version": 11.04,
         "codename": "Natty Narwhal",
@@ -417,7 +417,7 @@ subprojects = {
     },
     "ubuntu/oneiric": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 11.10",
         "version": 11.10,
         "codename": "Oneiric Ocelot",
@@ -427,7 +427,7 @@ subprojects = {
     },
     "ubuntu/precise": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 12.04 LTS",
         "version": 12.04,
         "codename": "Precise Pangolin",
@@ -437,7 +437,7 @@ subprojects = {
     },
     "ubuntu/quantal": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 12.10",
         "version": 12.10,
         "codename": "Quantal Quetzal",
@@ -447,7 +447,7 @@ subprojects = {
     },
     "ubuntu/raring": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 13.04",
         "version": 13.04,
         "codename": "Raring Ringtail",
@@ -457,7 +457,7 @@ subprojects = {
     },
     "ubuntu/saucy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 13.10",
         "version": 13.10,
         "codename": "Saucy Salamander",
@@ -467,7 +467,7 @@ subprojects = {
     },
     "ubuntu/trusty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 14.04 LTS",
         "version": 14.04,
         "codename": "Trusty Tahr",
@@ -477,7 +477,7 @@ subprojects = {
     },
     "ubuntu/utopic": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 14.10",
         "version": 14.10,
         "codename": "Utopic Unicorn",
@@ -487,7 +487,7 @@ subprojects = {
     },
     "ubuntu/vivid": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 15.04",
         "version": 15.04,
         "codename": "Vivid Vervet",
@@ -497,7 +497,7 @@ subprojects = {
     },
     "ubuntu/wily": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 15.10",
         "version": 15.10,
         "codename": "Wily Werewolf",
@@ -507,7 +507,7 @@ subprojects = {
     },
     "ubuntu/xenial": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 16.04 LTS",
         "version": 16.04,
         "codename": "Xenial Xerus",
@@ -517,7 +517,7 @@ subprojects = {
     },
     "ubuntu/yakkety": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 16.10",
         "version": 16.10,
         "codename": "Yakkety Yak",
@@ -527,7 +527,7 @@ subprojects = {
     },
     "ubuntu/zesty": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 17.04",
         "version": 17.04,
         "codename": "Zesty Zapus",
@@ -537,7 +537,7 @@ subprojects = {
     },
     "ubuntu/artful": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 17.10",
         "version": 17.10,
         "codename": "Artful Aardvark",
@@ -548,7 +548,7 @@ subprojects = {
     "ubuntu/bionic": {
         "eol": True,
         "oval": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 18.04 LTS",
         "version": 18.04,
         "codename": "Bionic Beaver",
@@ -558,7 +558,7 @@ subprojects = {
     },
     "ubuntu/cosmic": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 18.10",
         "version": 18.10,
         "codename": "Cosmic Cuttlefish",
@@ -568,7 +568,7 @@ subprojects = {
     },
     "ubuntu/disco": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 19.04",
         "version": 19.04,
         "codename": "Disco Dingo",
@@ -578,7 +578,7 @@ subprojects = {
     },
     "ubuntu/eoan": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 19.10",
         "version": 19.10,
         "codename": "Eoan Ermine",
@@ -589,7 +589,7 @@ subprojects = {
     "ubuntu/focal": {
         "eol": False,
         "oval": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 20.04 LTS",
         "version": 20.04,
         "codename": "Focal Fossa",
@@ -599,7 +599,7 @@ subprojects = {
     },
     "ubuntu/groovy": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 20.10",
         "version": 20.10,
         "codename": "Groovy Gorilla",
@@ -609,7 +609,7 @@ subprojects = {
     },
     "ubuntu/hirsute": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 21.04",
         "version": 21.04,
         "codename": "Hirsute Hippo",
@@ -619,7 +619,7 @@ subprojects = {
     },
     "ubuntu/impish": {
         "eol": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 21.10",
         "version": 21.10,
         "codename": "Impish Indri",
@@ -630,7 +630,7 @@ subprojects = {
     "ubuntu/jammy": {
         "eol": False,
         "oval": True,
-        "components": ["main", "restricted", "universe", "multiverse", "partner"],
+        "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 22.04 LTS",
         "version": 22.04,
         "codename": "Jammy Jellyfish",
@@ -2572,21 +2572,8 @@ def any_supported(map, pkg, releases, cvedata):
     return False
 
 
-def is_partner(map, pkg, rel):
-    if rel in map and pkg in map[rel] and map[rel][pkg]['section'] == 'partner':
-        return True
-    return False
-
-
-def any_partner(map, pkg, releases):
-    for rel in releases:
-        if is_partner(map, pkg, rel):
-            return True
-    return False
-
-
 def is_universe(map, pkg, rel, cvedata):
-    if is_supported(map, pkg, rel, cvedata) or is_partner(map, pkg, rel):
+    if is_supported(map, pkg, rel, cvedata):
         return False
     return True
 
@@ -2596,14 +2583,6 @@ def any_universe(map, pkg, releases, cvedata):
         if is_universe(map, pkg, rel, cvedata):
             return True
     return False
-
-
-def release_has_partner(rel):
-    try:
-        _,_,_,details = get_subproject_details(rel)
-        return "partner" in details["components"]
-    except (ValueError, KeyError):
-        return False
 
 
 def in_universe(map, pkg, rel, cve, cvedata):
@@ -3008,7 +2987,7 @@ def git_delete_branch(branch, debug=False):
 # cve_lib.check_mirror_timestamp(config)
 # cve_lib.check_mirror_timestamp(config, mirror='packages_mirror')
 def check_mirror_timestamp(config, mirror=None):
-    mirrors = ['packages_mirror', 'partner_mirror']
+    mirrors = ['packages_mirror']
     if mirror is not None:
         mirrors = [mirror]
     for m in mirrors:
@@ -3017,8 +2996,6 @@ def check_mirror_timestamp(config, mirror=None):
         a = config[m]
 
         secs = 86400
-        if m == 'partner_mirror':
-            secs = secs * 7
 
         if os.path.exists(a + ".timestamp") and time.mktime(time.localtime()) - os.stat(a + ".timestamp").st_mtime > secs:
             print("WARNING: '%s' is %1.1f days older than %1.1f day(s). Please run '$UCT/scripts/packages-mirror -t'." %

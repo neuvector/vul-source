@@ -64,7 +64,6 @@ The following values need to be configured in ~/.ubuntu-cve-tracker.conf:
   database (sis-generate-usn).
 - usn_db_copy: path to copy of master USN database, used when creating
   a template for a USN where "N" != 1 (sis-generate-usn).
-- partner_mirror: same as packages_mirror, but for the partner repo.
 - debian_mirror: same as packages_mirror, but for Debian testing repo.
 - mitre_loc: where to download the MITRE CVE database
 - nvd_loc: where to download the NVD database
@@ -441,9 +440,6 @@ Show all active CVEs for supported (main) packages:
 Number of active CVEs that are in main:
 ./scripts/ubuntu-table --supported 2>/dev/null | grep SUPPORTED | wc -l
 
-Show all active CVEs for partner packages:
-./scripts/ubuntu-table --supported 2>/dev/null | grep PARTNER
-
 Show all out-of-sync CVEs for the devel release:
 ./scripts/ubuntu-table --supported | grep 'out of sync' | awk '{if ($8 == "needed*" || $8 == "needs-triage*") { print $0 }}'
 
@@ -477,7 +473,7 @@ See all bugs with priority of medium or higher:
 See a listing of packages with number of CVEs attached to them, weighted by
 CVE priority:
 ./scripts/cve_packages
-./scripts/cve_packages -m       (just supported (main, restricted and partner))
+./scripts/cve_packages -m       (just supported (main and restricted))
 ./scripts/cve_packages -u       (just unsupported (universe and multiverse))
 ./scripts/cve_packages -t	(just totals)
 ./scripts/cve_packages -a	(with assignees)
