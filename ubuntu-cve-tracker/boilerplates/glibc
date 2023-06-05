@@ -29,7 +29,8 @@ trusty_glibc: DNE
 trusty/esm_glibc: DNE
 xenial_glibc: ignored (end of standard support)
 esm-infra/xenial_glibc: needs-triage
-bionic_glibc: needs-triage
+bionic_glibc: ignored (end of standard support)
+esm-infra/bionic_glibc: needs-triage
 focal_glibc: needs-triage
 jammy_glibc: needs-triage
 kinetic_glibc: needs-triage

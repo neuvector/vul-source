@@ -16,7 +16,7 @@ upstream_xserver-xorg-video-openchrome: needs-triage
 trusty_xserver-xorg-video-openchrome: ignored (out of standard support)
 trusty/esm_xserver-xorg-video-openchrome: DNE
 xenial_xserver-xorg-video-openchrome: ignored (end of standard support)
-bionic_xserver-xorg-video-openchrome: needs-triage
+bionic_xserver-xorg-video-openchrome: ignored (end of standard support)
 focal_xserver-xorg-video-openchrome: needs-triage
 jammy_xserver-xorg-video-openchrome: needs-triage
 kinetic_xserver-xorg-video-openchrome: needs-triage

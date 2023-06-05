@@ -18,7 +18,8 @@ trusty_tgt: ignored (out of standard support)
 trusty/esm_tgt: needs-triage
 xenial_tgt: ignored (end of standard support)
 esm-infra/xenial_tgt: needs-triage
-bionic_tgt: needs-triage
+bionic_tgt: ignored (end of standard support)
+esm-infra/bionic_tgt: needs-triage
 focal_tgt: needs-triage
 jammy_tgt: needs-triage
 kinetic_tgt: needs-triage

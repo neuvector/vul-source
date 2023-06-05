@@ -16,7 +16,7 @@ upstream_libmodplug: needs-triage
 trusty_libmodplug: ignored (out of standard support)
 trusty/esm_libmodplug: needs-triage
 xenial_libmodplug: ignored (end of standard support)
-bionic_libmodplug: needs-triage
+bionic_libmodplug: ignored (end of standard support)
 focal_libmodplug: needs-triage
 jammy_libmodplug: needs-triage
 kinetic_libmodplug: needs-triage

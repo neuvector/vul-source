@@ -17,7 +17,7 @@ upstream_libgadu: needs-triage
 trusty_libgadu: ignored (out of standard support)
 trusty/esm_libgadu: DNE
 xenial_libgadu: ignored (end of standard support)
-bionic_libgadu: needs-triage
+bionic_libgadu: ignored (end of standard support)
 focal_libgadu: needs-triage
 jammy_libgadu: needs-triage
 kinetic_libgadu: needs-triage
@@ -29,7 +29,7 @@ upstream_pidgin: needs-triage
 trusty_pidgin: ignored (out of standard support)
 trusty/esm_pidgin: needs-triage
 xenial_pidgin: ignored (end of standard support)
-bionic_pidgin: needs-triage
+bionic_pidgin: ignored (end of standard support)
 focal_pidgin: needs-triage
 jammy_pidgin: needs-triage
 kinetic_pidgin: needs-triage

@@ -18,7 +18,7 @@ upstream_libjpeg6b: needs-triage
 trusty_libjpeg6b: ignored (out of standard support)
 trusty/esm_libjpeg6b: needs-triage
 xenial_libjpeg6b: ignored (end of standard support)
-bionic_libjpeg6b: needs-triage
+bionic_libjpeg6b: ignored (end of standard support)
 focal_libjpeg6b: needs-triage
 jammy_libjpeg6b: needs-triage
 kinetic_libjpeg6b: needs-triage
@@ -31,7 +31,8 @@ trusty_libjpeg-turbo: ignored (out of standard support)
 trusty/esm_libjpeg-turbo: needs-triage
 xenial_libjpeg-turbo: ignored (end of standard support)
 esm-infra/xenial_libjpeg-turbo: needs-triage
-bionic_libjpeg-turbo: needs-triage
+bionic_libjpeg-turbo: ignored (end of standard support)
+esm-infra/bionic_libjpeg-turbo: needs-triage
 focal_libjpeg-turbo: needs-triage
 jammy_libjpeg-turbo: needs-triage
 kinetic_libjpeg-turbo: needs-triage
@@ -43,7 +44,7 @@ upstream_libjpeg9: needs-triage
 trusty_libjpeg9: DNE
 trusty/esm_libjpeg9: DNE
 xenial_libjpeg9: ignored (end of standard support)
-bionic_libjpeg9: needs-triage
+bionic_libjpeg9: ignored (end of standard support)
 focal_libjpeg9: needs-triage
 jammy_libjpeg9: needs-triage
 kinetic_libjpeg9: needs-triage

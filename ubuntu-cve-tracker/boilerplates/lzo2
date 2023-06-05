@@ -24,6 +24,7 @@ trusty/esm_lzo2:
 xenial_lzo2:
 esm-infra/xenial_lzo2:
 bionic_lzo2:
+esm-infra/bionic_lzo2: needs-triage
 focal_lzo2:
 groovy_lzo2:
 hirsute_lzo2:
@@ -55,6 +56,7 @@ trusty/esm_valgrind: DNE
 xenial_valgrind:
 esm-infra/xenial_valgrind:
 bionic_valgrind:
+esm-infra/bionic_valgrind: needs-triage
 focal_valgrind:
 groovy_valgrind:
 hirsute_valgrind:
@@ -71,6 +73,7 @@ trusty/esm_syslinux:
 xenial_syslinux:
 esm-infra/xenial_syslinux:
 bionic_syslinux:
+esm-infra/bionic_syslinux: needs-triage
 focal_syslinux:
 groovy_syslinux:
 hirsute_syslinux:
@@ -117,6 +120,7 @@ trusty/esm_u-boot: DNE
 xenial_u-boot:
 esm-infra/xenial_u-boot:
 bionic_u-boot:
+esm-infra/bionic_u-boot: needs-triage
 focal_u-boot:
 groovy_u-boot:
 hirsute_u-boot:
@@ -193,6 +197,7 @@ trusty/esm_libvncserver: DNE
 xenial_libvncserver:
 esm-infra/xenial_libvncserver:
 bionic_libvncserver:
+esm-infra/bionic_libvncserver: needs-triage
 focal_libvncserver:
 groovy_libvncserver:
 hirsute_libvncserver:
@@ -236,6 +241,7 @@ trusty/esm_qemu:
 xenial_qemu:
 esm-infra/xenial_qemu:
 bionic_qemu:
+esm-infra/bionic_qemu: needs-triage
 focal_qemu:
 groovy_qemu:
 hirsute_qemu:
@@ -252,6 +258,7 @@ trusty/esm_grub2:
 xenial_grub2:
 esm-infra/xenial_grub2:
 bionic_grub2:
+esm-infra/bionic_grub2: needs-triage
 focal_grub2:
 groovy_grub2:
 hirsute_grub2:
@@ -268,6 +275,7 @@ trusty/esm_grub2-signed:
 xenial_grub2-signed:
 esm-infra/xenial_grub2-signed:
 bionic_grub2-signed:
+esm-infra/bionic_grub2-signed: needs-triage
 focal_grub2-signed:
 groovy_grub2-signed:
 hirsute_grub2-signed:

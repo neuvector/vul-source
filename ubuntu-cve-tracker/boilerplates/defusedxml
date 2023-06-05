@@ -19,7 +19,8 @@ trusty_defusedxml: ignored (out of standard support)
 trusty/esm_defusedxml: DNE
 xenial_defusedxml: ignored (end of standard support)
 esm-infra/xenial_defusedxml: needs-triage
-bionic_defusedxml: needs-triage
+bionic_defusedxml: ignored (end of standard support)
+esm-infra/bionic_defusedxml: needs-triage
 focal_defusedxml: needs-triage
 jammy_defusedxml: needs-triage
 kinetic_defusedxml: needs-triage

@@ -19,7 +19,7 @@ upstream_webkitgtk: needs-triage
 trusty_webkitgtk: ignored (out of standard support)
 trusty/esm_webkitgtk: DNE
 xenial_webkitgtk: ignored (end of standard support)
-bionic_webkitgtk: needs-triage
+bionic_webkitgtk: ignored (end of standard support)
 focal_webkitgtk: DNE
 jammy_webkitgtk: DNE
 kinetic_webkitgtk: DNE
@@ -33,6 +33,7 @@ trusty/esm_webkit2gtk: DNE
 xenial_webkit2gtk: deferred
 esm-infra/xenial_webkit2gtk: deferred
 bionic_webkit2gtk: deferred
+esm-infra/bionic_webkit2gtk: deferred
 focal_webkit2gtk: needs-triage
 jammy_webkit2gtk: needs-triage
 kinetic_webkit2gtk: needs-triage
@@ -44,7 +45,7 @@ upstream_qtwebkit-source: needs-triage
 trusty_qtwebkit-source: ignored (out of standard support)
 trusty/esm_qtwebkit-source: DNE
 xenial_qtwebkit-source: ignored (end of standard support)
-bionic_qtwebkit-source: needs-triage
+bionic_qtwebkit-source: ignored (end of standard support)
 focal_qtwebkit-source: DNE
 jammy_qtwebkit-source: DNE
 kinetic_qtwebkit-source: DNE
@@ -57,7 +58,7 @@ trusty_qtwebkit-opensource-src: ignored (out of standard support)
 trusty/esm_qtwebkit-opensource-src: DNE
 xenial_qtwebkit-opensource-src: ignored (end of standard support)
 esm-infra/xenial_qtwebkit-opensource-src: needs-triage
-bionic_qtwebkit-opensource-src: needs-triage
+bionic_qtwebkit-opensource-src: ignored (end of standard support)
 focal_qtwebkit-opensource-src: needs-triage
 jammy_qtwebkit-opensource-src: needs-triage
 kinetic_qtwebkit-opensource-src: needs-triage

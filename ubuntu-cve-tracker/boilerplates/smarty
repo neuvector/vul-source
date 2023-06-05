@@ -16,7 +16,7 @@ upstream_moodle: needs-triage
 trusty_moodle: ignored (out of standard support)
 trusty/esm_moodle: DNE
 xenial_moodle: ignored (end of standard support)
-bionic_moodle: needs-triage
+bionic_moodle: ignored (end of standard support)
 focal_moodle: DNE
 jammy_moodle: DNE
 kinetic_moodle: DNE

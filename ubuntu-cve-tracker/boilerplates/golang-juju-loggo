@@ -18,7 +18,7 @@ trusty_golang-juju-loggo: DNE
 trusty/esm_golang-juju-loggo: DNE
 xenial_golang-juju-loggo: ignored (end of standard support)
 esm-infra/xenial_golang-juju-loggo: needs-triage
-bionic_golang-juju-loggo: needs-triage
+bionic_golang-juju-loggo: ignored (end of standard support)
 focal_golang-juju-loggo: DNE
 jammy_golang-juju-loggo: DNE
 kinetic_golang-juju-loggo: DNE
@@ -30,7 +30,7 @@ upstream_golang-github-juju-loggo: needs-triage
 trusty_golang-github-juju-loggo: DNE
 trusty/esm_golang-github-juju-loggo: DNE
 xenial_golang-github-juju-loggo: ignored (end of standard support)
-bionic_golang-github-juju-loggo: needs-triage
+bionic_golang-github-juju-loggo: ignored (end of standard support)
 focal_golang-github-juju-loggo: needs-triage
 jammy_golang-github-juju-loggo: needs-triage
 kinetic_golang-github-juju-loggo: needs-triage
@@ -43,7 +43,8 @@ trusty_snapd: DNE
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage

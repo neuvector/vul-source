@@ -17,7 +17,7 @@ upstream_golang-github-seccomp-libseccomp-golang: needs-triage
 trusty_golang-github-seccomp-libseccomp-golang: ignored (out of standard support)
 trusty/esm_golang-github-seccomp-libseccomp-golang: DNE
 xenial_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
-bionic_golang-github-seccomp-libseccomp-golang: needs-triage
+bionic_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
 focal_golang-github-seccomp-libseccomp-golang: needs-triage
 jammy_golang-github-seccomp-libseccomp-golang: needs-triage
 kinetic_golang-github-seccomp-libseccomp-golang: needs-triage
@@ -29,7 +29,7 @@ upstream_runc: needs-triage
 trusty_runc: ignored (out of standard support)
 trusty/esm_runc: DNE
 xenial_runc: ignored (end of standard support)
-bionic_runc: needs-triage
+bionic_runc: ignored (end of standard support)
 focal_runc: needs-triage
 jammy_runc: needs-triage
 kinetic_runc: needs-triage

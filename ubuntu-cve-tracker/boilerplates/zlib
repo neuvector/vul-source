@@ -18,7 +18,8 @@ trusty_zlib: ignored (out of standard support)
 trusty/esm_zlib: needs-triage
 xenial_zlib: ignored (end of standard support)
 esm-infra/xenial_zlib: needs-triage
-bionic_zlib: needs-triage
+bionic_zlib: ignored (end of standard support)
+esm-infra/bionic_zlib: needs-triage
 focal_zlib: needs-triage
 jammy_zlib: needs-triage
 kinetic_zlib: needs-triage
@@ -31,7 +32,8 @@ trusty_rsync: ignored (out of standard support)
 trusty/esm_rsync: not-affected (uses system zlib)
 xenial_rsync: ignored (out of standard support)
 esm-infra/xenial_rsync: needed
-bionic_rsync: needed
+bionic_rsync: ignored (end of standard support)
+esm-infra/bionic_rsync: needed
 focal_rsync: needed
 jammy_rsync: not-affected (uses system zlib)
 kinetic_rsync: not-affected (uses system zlib)

@@ -28,7 +28,7 @@ upstream_xemacs21: ignored (reached end-of-life)
 trusty_xemacs21: ignored (out of standard support)
 trusty/esm_xemacs21: DNE
 xenial_xemacs21: ignored (end of standard support)
-bionic_xemacs21: needs-triage
+bionic_xemacs21: ignored (end of standard support)
 focal_xemacs21: needs-triage
 jammy_xemacs21: needs-triage
 kinetic_xemacs21: needs-triage
@@ -40,7 +40,7 @@ upstream_xemacs21-packages: needs-triage
 trusty_xemacs21-packages: ignored (out of standard support)
 trusty/esm_xemacs21-packages: DNE
 xenial_xemacs21-packages: ignored (end of standard support)
-bionic_xemacs21-packages: needs-triage
+bionic_xemacs21-packages: ignored (end of standard support)
 focal_xemacs21-packages: needs-triage
 jammy_xemacs21-packages: needs-triage
 kinetic_xemacs21-packages: needs-triage
@@ -77,7 +77,8 @@ upstream_emacs25: needs-triage
 trusty_emacs25: DNE
 trusty/esm_emacs25: DNE
 xenial_emacs25: DNE
-bionic_emacs25: needs-triage
+bionic_emacs25: ignored (end of standard support)
+esm-infra/bionic_emacs25: needs-triage
 focal_emacs25: DNE
 jammy_emacs25: DNE
 kinetic_emacs25: DNE

@@ -18,7 +18,7 @@ trusty_golang-goprotobuf: DNE
 trusty/esm_golang-goprotobuf: DNE
 xenial_golang-goprotobuf: ignored (end of standard support)
 esm-infra/xenial_golang-goprotobuf: needs-triage
-bionic_golang-goprotobuf: needs-triage
+bionic_golang-goprotobuf: ignored (end of standard support)
 focal_golang-goprotobuf: needs-triage
 jammy_golang-goprotobuf: needs-triage
 kinetic_golang-goprotobuf: needs-triage
@@ -30,7 +30,7 @@ upstream_google-guest-agent: needs-triage
 trusty_google-guest-agent: DNE
 trusty/esm_google-guest-agent: DNE
 xenial_google-guest-agent: ignored (end of standard support)
-bionic_google-guest-agent: needs-triage
+bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage

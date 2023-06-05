@@ -19,7 +19,8 @@ upstream_python-certifi:
 trusty_python-certifi: DNE
 trusty/esm_python-certifi: DNE
 xenial_python-certifi: ignored (end of standard support)
-bionic_python-certifi: needs-triage
+bionic_python-certifi: ignored (end of standard support)
+esm-infra/bionic_python-certifi: needs-triage
 focal_python-certifi: needs-triage
 jammy_python-certifi: needs-triage
 kinetic_python-certifi: needs-triage
@@ -31,7 +32,7 @@ upstream_python-pip:
 trusty_python-pip: ignored (reached end of life)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
-bionic_python-pip: needs-triage
+bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage

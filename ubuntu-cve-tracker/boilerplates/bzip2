@@ -19,7 +19,8 @@ trusty_bzip2: ignored (out of standard support)
 trusty/esm_bzip2: needs-triage
 xenial_bzip2: ignored (end of standard support)
 esm-infra/xenial_bzip2: needs-triage
-bionic_bzip2: needs-triage
+bionic_bzip2: ignored (end of standard support)
+esm-infra/bionic_bzip2: needs-triage
 focal_bzip2: needs-triage
 jammy_bzip2: needs-triage
 kinetic_bzip2: needs-triage
@@ -32,7 +33,8 @@ trusty_clamav: ignored (out of standard support)
 trusty/esm_clamav: needs-triage
 xenial_clamav: ignored (out of standard support)
 esm-infra/xenial_clamav: needed
-bionic_clamav: needed
+bionic_clamav: ignored (end of standard support)
+esm-infra/bionic_clamav: needs-triage
 focal_clamav: needs-triage
 jammy_clamav: needs-triage
 kinetic_clamav: needs-triage

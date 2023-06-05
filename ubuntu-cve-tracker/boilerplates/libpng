@@ -29,7 +29,8 @@ upstream_libpng1.6: needs-triage
 trusty_libpng1.6: DNE
 trusty/esm_libpng1.6: DNE
 xenial_libpng1.6: ignored (end of standard support)
-bionic_libpng1.6: needs-triage
+bionic_libpng1.6: ignored (end of standard support)
+esm-infra/bionic_libpng1.6: needs-triage
 focal_libpng1.6: needs-triage
 jammy_libpng1.6: needs-triage
 kinetic_libpng1.6: needs-triage
@@ -42,7 +43,8 @@ trusty_firefox: ignored (out of standard support)
 trusty/esm_firefox: DNE
 xenial_firefox: ignored (end of standard support)
 esm-infra/xenial_firefox: needs-triage
-bionic_firefox: needs-triage
+bionic_firefox: ignored (end of standard support)
+esm-infra/bionic_firefox: needs-triage
 focal_firefox: needs-triage
 jammy_firefox: needs-triage
 kinetic_firefox: needs-triage
@@ -55,7 +57,8 @@ trusty_thunderbird: ignored (out of standard support)
 trusty/esm_thunderbird: DNE
 xenial_thunderbird: ignored (end of standard support)
 esm-infra/xenial_thunderbird: needs-triage
-bionic_thunderbird: needs-triage
+bionic_thunderbird: ignored (end of standard support)
+esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
 kinetic_thunderbird: needs-triage

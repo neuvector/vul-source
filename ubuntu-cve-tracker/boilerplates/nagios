@@ -17,7 +17,7 @@ trusty_nagios3: ignored (out of standard support)
 trusty/esm_nagios3: DNE
 xenial_nagios3: ignored (end of standard support)
 esm-infra/xenial_nagios3: needs-triage
-bionic_nagios3: needs-triage
+bionic_nagios3: ignored (end of standard support)
 focal_nagios3: DNE
 jammy_nagios3: DNE
 kinetic_nagios3: DNE
@@ -42,7 +42,7 @@ upstream_icinga: needs-triage
 trusty_icinga: ignored (out of standard support)
 trusty/esm_icinga: DNE
 xenial_icinga: ignored (end of standard support)
-bionic_icinga: needs-triage
+bionic_icinga: ignored (end of standard support)
 focal_icinga: DNE
 jammy_icinga: DNE
 kinetic_icinga: DNE

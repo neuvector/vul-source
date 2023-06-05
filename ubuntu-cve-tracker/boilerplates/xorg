@@ -20,7 +20,8 @@ trusty_xorg-server: ignored (out of standard support)
 trusty/esm_xorg-server: needs-triage
 xenial_xorg-server: ignored (end of standard support)
 esm-infra/xenial_xorg-server: needs-triage
-bionic_xorg-server: needs-triage
+bionic_xorg-server: ignored (end of standard support)
+esm-infra/bionic_xorg-server: needs-triage
 focal_xorg-server: needs-triage
 jammy_xorg-server: needs-triage
 kinetic_xorg-server: needs-triage
@@ -57,7 +58,8 @@ upstream_xorg-server-hwe-18.04: needs-triage
 trusty_xorg-server-hwe-18.04: DNE
 trusty/esm_xorg-server-hwe-18.04: DNE
 xenial_xorg-server-hwe-18.04: DNE
-bionic_xorg-server-hwe-18.04: needs-triage
+bionic_xorg-server-hwe-18.04: ignored (end of standard support)
+esm-infra/bionic_xorg-server-hwe-18.04: needs-triage
 focal_xorg-server-hwe-18.04: DNE
 jammy_xorg-server-hwe-18.04: DNE
 kinetic_xorg-server-hwe-18.04: DNE
@@ -71,6 +73,7 @@ trusty/esm_xorg: DNE
 xenial_xorg: not-affected (code not present)
 esm-infra/xenial_xorg: not-affected (code not present)
 bionic_xorg: not-affected (code not present)
+esm-infra/bionic_xorg: not-affected (code not present)
 focal_xorg: not-affected (code not present)
 jammy_xorg: not-affected (code not present)
 kinetic_xorg: not-affected (code not present)
@@ -96,6 +99,7 @@ trusty_xorg-hwe-18.04: DNE
 trusty/esm_xorg-hwe-18.04: DNE
 xenial_xorg-hwe-18.04: DNE
 bionic_xorg-hwe-18.04: not-affected (code not present)
+esm-infra/bionic_xorg-hwe-18.04: not-affected (code not present)
 focal_xorg-hwe-18.04: DNE
 jammy_xorg-hwe-18.04: DNE
 kinetic_xorg-hwe-18.04: DNE

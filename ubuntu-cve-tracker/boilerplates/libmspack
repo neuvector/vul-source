@@ -19,7 +19,8 @@ trusty_libmspack: ignored (out of standard support)
 trusty/esm_libmspack: needs-triage
 xenial_libmspack: ignored (end of standard support)
 esm-infra/xenial_libmspack: needs-triage
-bionic_libmspack: needs-triage
+bionic_libmspack: ignored (end of standard support)
+esm-infra/bionic_libmspack: needs-triage
 focal_libmspack: needs-triage
 jammy_libmspack: needs-triage
 kinetic_libmspack: needs-triage
@@ -33,6 +34,7 @@ trusty/esm_clamav: needs-triage
 xenial_clamav: not-affected (uses system libmspack)
 esm-infra/xenial_clamav: not-affected (uses system libmspack)
 bionic_clamav: not-affected (uses system libmspack)
+esm-infra/bionic_clamav: needs-triage
 focal_clamav: not-affected (uses system libmspack)
 jammy_clamav: not-affected (uses system libmspack)
 kinetic_clamav: not-affected (uses system libmspack)

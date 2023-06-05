@@ -16,7 +16,7 @@ upstream_xpdf: needs-triage
 trusty_xpdf: ignored (out of standard support)
 trusty/esm_xpdf: DNE
 xenial_xpdf: ignored (end of standard support)
-bionic_xpdf: needs-triage
+bionic_xpdf: ignored (end of standard support)
 focal_xpdf: DNE
 jammy_xpdf: needs-triage
 kinetic_xpdf: needs-triage
@@ -28,7 +28,7 @@ upstream_ipe: needs-triage
 trusty_ipe: ignored (out of standard support)
 trusty/esm_ipe: DNE
 xenial_ipe: ignored (end of standard support)
-bionic_ipe: needs-triage
+bionic_ipe: ignored (end of standard support)
 focal_ipe: needs-triage
 jammy_ipe: needs-triage
 kinetic_ipe: needs-triage

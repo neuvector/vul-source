@@ -18,7 +18,7 @@ upstream_libev: needs-triage
 trusty_libev: ignored (out of standard support)
 trusty/esm_libev: needs-triage
 xenial_libev: needs-triage
-bionic_libev: needs-triage
+bionic_libev: ignored (end of standard support)
 focal_libev: needs-triage
 jammy_libev: needs-triage
 kinetic_libev: needs-triage
@@ -30,7 +30,7 @@ upstream_ruby-nio4r: needs-triage
 trusty_ruby-nio4r: ignored (out of standard support)
 trusty/esm_ruby-nio4r: DNE
 xenial_ruby-nio4r: needs-triage
-bionic_ruby-nio4r: needs-triage
+bionic_ruby-nio4r: ignored (end of standard support)
 focal_ruby-nio4r: needs-triage
 jammy_ruby-nio4r: needs-triage
 kinetic_ruby-nio4r: needs-triage

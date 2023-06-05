@@ -20,7 +20,7 @@ trusty_golang-go.crypto: DNE
 trusty/esm_golang-go.crypto: DNE
 xenial_golang-go.crypto: ignored (end of standard support)
 esm-infra/xenial_golang-go.crypto: needs-triage
-bionic_golang-go.crypto: needs-triage
+bionic_golang-go.crypto: ignored (end of standard support)
 focal_golang-go.crypto: needs-triage
 jammy_golang-go.crypto: needs-triage
 kinetic_golang-go.crypto: needs-triage
@@ -33,7 +33,8 @@ trusty_snapd: ignored (out of standard support)
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
@@ -47,7 +48,8 @@ trusty_lxd: DNE
 trusty/esm_lxd: DNE
 xenial_lxd: ignored (end of standard support)
 esm-infra/xenial_lxd: needs-triage
-bionic_lxd: needs-triage
+bionic_lxd: ignored (end of standard support)
+esm-infra/bionic_lxd: needs-triage
 focal_lxd: not-affected (code-not-present)
 jammy_lxd: DNE
 kinetic_lxd: DNE

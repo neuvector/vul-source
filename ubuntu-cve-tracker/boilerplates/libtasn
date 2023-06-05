@@ -29,7 +29,8 @@ trusty_libtasn1-6: ignored (out of standard support)
 trusty/esm_libtasn1-6: needs-triage
 xenial_libtasn1-6: ignored (end of standard support)
 esm-infra/xenial_libtasn1-6: needs-triage
-bionic_libtasn1-6: needs-triage
+bionic_libtasn1-6: ignored (end of standard support)
+esm-infra/bionic_libtasn1-6: needs-triage
 focal_libtasn1-6: needs-triage
 jammy_libtasn1-6: needs-triage
 kinetic_libtasn1-6: needs-triage

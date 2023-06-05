@@ -9,12 +9,8 @@ import importlib
 publish_cves = importlib.import_module("publish-cves-to-website-api")
 
 TEST_DATA_DIR = "test"
-
-PARSE_OKAY_TESTS = [
-    "use_esm_status_for_eol_releases",
-    "use_public_status_for_no_eol_releases",
-    "use_public_status_if_public_release"
-]
+PARSE_OKAY_TESTS = [f for f in os.listdir("test/website_api") \
+        if f.startswith("use_") and not f.endswith(".json")]
 
 class TestWebSiteAPI:
     def __check_simple_okay(self, cve_test_file):

@@ -42,7 +42,8 @@ upstream_php7.2: needs-triage
 trusty_php7.2: DNE
 trusty/esm_php7.2: DNE
 xenial_php7.2: DNE
-bionic_php7.2: needs-triage
+bionic_php7.2: ignored (end of standard support)
+esm-infra/bionic_php7.2: needs-triage
 focal_php7.2: DNE
 jammy_php7.2: DNE
 kinetic_php7.2: DNE

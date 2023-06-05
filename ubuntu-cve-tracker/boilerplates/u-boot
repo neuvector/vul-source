@@ -14,7 +14,8 @@ CVSS:
 Patches_u-boot:
 upstream_u-boot: needs-triage
 esm-infra/xenial_u-boot: needs-triage
-bionic_u-boot: needs-triage
+bionic_u-boot: ignored (end of standard support)
+esm-infra/bionic_u-boot: needs-triage
 focal_u-boot: needs-triage 
 jammy_u-boot: needs-triage
 kinetic_u-boot: needs-triage

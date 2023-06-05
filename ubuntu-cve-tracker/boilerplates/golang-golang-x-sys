@@ -17,7 +17,7 @@ upstream_golang-golang-x-sys: needs-triage
 trusty_golang-golang-x-sys: DNE
 trusty/esm_golang-golang-x-sys: DNE
 xenial_golang-golang-x-sys: ignored (end of standard support)
-bionic_golang-golang-x-sys: needs-triage
+bionic_golang-golang-x-sys: ignored (end of standard support)
 focal_golang-golang-x-sys: needs-triage
 jammy_golang-golang-x-sys: needs-triage
 kinetic_golang-golang-x-sys: needs-triage
@@ -29,7 +29,7 @@ upstream_google-guest-agent: needs-triage
 trusty_google-guest-agent: DNE
 trusty/esm_google-guest-agent: DNE
 xenial_google-guest-agent: ignored (end of standard support)
-bionic_google-guest-agent: needs-triage
+bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage

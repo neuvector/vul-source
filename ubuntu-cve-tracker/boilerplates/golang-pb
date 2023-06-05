@@ -17,7 +17,7 @@ upstream_golang-gopkg-cheggaaa-pb.v1: needs-triage
 trusty_golang-gopkg-cheggaaa-pb.v1: ignored (out of standard support)
 trusty/esm_golang-gopkg-cheggaaa-pb.v1: DNE
 xenial_golang-gopkg-cheggaaa-pb.v1: DNE
-bionic_golang-gopkg-cheggaaa-pb.v1: needs-triage
+bionic_golang-gopkg-cheggaaa-pb.v1: ignored (end of standard support)
 focal_golang-gopkg-cheggaaa-pb.v1: needs-triage
 jammy_golang-gopkg-cheggaaa-pb.v1: needs-triage
 kinetic_golang-gopkg-cheggaaa-pb.v1: needs-triage
@@ -42,7 +42,7 @@ trusty_golang-pb: ignored (out of standard support)
 trusty/esm_golang-pb: DNE
 xenial_golang-pb: ignored (end of standard support)
 esm-infra/xenial_golang-pb: needs-triage
-bionic_golang-pb: needs-triage
+bionic_golang-pb: ignored (end of standard support)
 focal_golang-pb: DNE
 jammy_golang-pb: DNE
 kinetic_golang-pb: DNE
@@ -55,7 +55,8 @@ trusty_snapd: DNE
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage

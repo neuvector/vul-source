@@ -20,7 +20,8 @@ trusty_chardet: ignored (reached end of life)
 trusty/esm_chardet: needs-triage
 xenial_chardet: ignored (end of standard support)
 esm-infra/xenial_chardet: needs-triage
-bionic_chardet: needs-triage
+bionic_chardet: ignored (end of standard support)
+esm-infra/bionic_chardet: needs-triage
 focal_chardet: needs-triage
 jammy_chardet: needs-triage
 kinetic_chardet: needs-triage
@@ -32,7 +33,7 @@ upstream_python-pip:
 trusty_python-pip: ignored (reached end of life)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
-bionic_python-pip: needs-triage
+bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage

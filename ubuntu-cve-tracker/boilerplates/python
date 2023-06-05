@@ -17,7 +17,8 @@ trusty_python2.7: ignored (out of standard support)
 trusty/esm_python2.7: needs-triage
 xenial_python2.7: ignored (end of standard support)
 esm-infra/xenial_python2.7: needs-triage
-bionic_python2.7: needs-triage
+bionic_python2.7: ignored (end of standard support)
+esm-infra/bionic_python2.7: needs-triage
 focal_python2.7: needs-triage
 jammy_python2.7: needs-triage
 kinetic_python2.7: needs-triage
@@ -54,7 +55,8 @@ upstream_python3.6: needs-triage
 trusty_python3.6: DNE
 trusty/esm_python3.6: DNE
 xenial_python3.6: DNE
-bionic_python3.6: needs-triage
+bionic_python3.6: ignored (end of standard support)
+esm-infra/bionic_python3.6: needs-triage
 focal_python3.6: DNE
 jammy_python3.6: DNE
 kinetic_python3.6: DNE
@@ -66,7 +68,7 @@ upstream_python3.7: needs-triage
 trusty_python3.7: DNE
 trusty/esm_python3.7: DNE
 xenial_python3.7: DNE
-bionic_python3.7: needs-triage
+bionic_python3.7: ignored (end of standard support)
 focal_python3.7: DNE
 jammy_python3.7: DNE
 kinetic_python3.7: DNE
@@ -78,7 +80,7 @@ upstream_python3.8: needs-triage
 trusty_python3.8: DNE
 trusty/esm_python3.8: DNE
 xenial_python3.8: DNE
-bionic_python3.8: needs-triage
+bionic_python3.8: ignored (end of standard support)
 focal_python3.8: needs-triage
 jammy_python3.8: DNE
 kinetic_python3.8: DNE

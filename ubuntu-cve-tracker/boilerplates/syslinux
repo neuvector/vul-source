@@ -17,7 +17,8 @@ trusty_syslinux: ignored (out of standard support)
 trusty/esm_syslinux: needs-triage
 xenial_syslinux: ignored (end of standard support)
 esm-infra/xenial_syslinux: needs-triage
-bionic_syslinux: needs-triage
+bionic_syslinux: ignored (end of standard support)
+esm-infra/bionic_syslinux: needs-triage
 focal_syslinux: needs-triage
 jammy_syslinux: needs-triage
 kinetic_syslinux: needs-triage
@@ -30,7 +31,8 @@ trusty_syslinux-legacy: ignored (out of standard support)
 trusty/esm_syslinux-legacy: DNE
 xenial_syslinux-legacy: ignored (end of standard support)
 esm-infra/xenial_syslinux-legacy: needs-triage
-bionic_syslinux-legacy: needs-triage
+bionic_syslinux-legacy: ignored (end of standard support)
+esm-infra/bionic_syslinux-legacy: needs-triage
 focal_syslinux-legacy: needs-triage
 jammy_syslinux-legacy: DNE
 kinetic_syslinux-legacy: DNE

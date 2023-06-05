@@ -18,7 +18,7 @@ upstream_rails: needs-triage
 trusty_rails: ignored (out of standard support)
 trusty/esm_rails: DNE
 xenial_rails: ignored (end of standard support)
-bionic_rails: needs-triage
+bionic_rails: ignored (end of standard support)
 focal_rails: needs-triage
 jammy_rails: needs-triage
 kinetic_rails: needs-triage

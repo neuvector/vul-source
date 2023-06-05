@@ -28,7 +28,7 @@ upstream_firebird3.0: needs-triage
 trusty_firebird3.0: DNE
 trusty/esm_firebird3.0: DNE
 xenial_firebird3.0: DNE
-bionic_firebird3.0: needs-triage
+bionic_firebird3.0: ignored (end of standard support)
 focal_firebird3.0: needs-triage
 jammy_firebird3.0: needs-triage
 kinetic_firebird3.0: needs-triage

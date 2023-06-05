@@ -17,7 +17,7 @@ trusty_lzma: ignored (out of standard support)
 trusty/esm_lzma: DNE
 xenial_lzma: ignored (end of standard support)
 esm-infra/xenial_lzma: needs-triage
-bionic_lzma: needs-triage
+bionic_lzma: ignored (end of standard support)
 focal_lzma: needs-triage
 jammy_lzma: needs-triage
 kinetic_lzma: needs-triage
@@ -41,7 +41,7 @@ upstream_edk2: needs-triage
 trusty_edk2: ignored (out of standard support)
 trusty/esm_edk2: DNE
 xenial_edk2: ignored (end of standard support)
-bionic_edk2: needs-triage
+bionic_edk2: ignored (end of standard support)
 focal_edk2: needs-triage
 jammy_edk2: needs-triage
 kinetic_edk2: needs-triage
@@ -53,7 +53,7 @@ upstream_virtualbox: needs-triage
 trusty_virtualbox: ignored (out of standard support)
 trusty/esm_virtualbox: DNE
 xenial_virtualbox: ignored (end of standard support)
-bionic_virtualbox: needs-triage
+bionic_virtualbox: ignored (end of standard support)
 focal_virtualbox: needs-triage
 jammy_virtualbox: needs-triage
 kinetic_virtualbox: needs-triage
@@ -65,7 +65,7 @@ upstream_virtualbox-hwe: needs-triage
 trusty_virtualbox-hwe: DNE
 trusty/esm_virtualbox-hwe: DNE
 xenial_virtualbox-hwe: ignored (end of standard support)
-bionic_virtualbox-hwe: needs-triage
+bionic_virtualbox-hwe: ignored (end of standard support)
 focal_virtualbox-hwe: needs-triage
 jammy_virtualbox-hwe: needs-triage
 kinetic_virtualbox-hwe: needs-triage

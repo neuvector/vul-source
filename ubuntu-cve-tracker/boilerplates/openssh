@@ -22,7 +22,8 @@ xenial_openssh: ignored (out of standard support)
 esm-infra/xenial_openssh: needs-triage
 fips/xenial_openssh: needs-triage
 fips-updates/xenial_openssh: needs-triage
-bionic_openssh: needs-triage
+bionic_openssh: ignored (end of standard support)
+esm-infra/bionic_openssh: needs-triage
 fips/bionic_openssh: needs-triage
 fips-updates/bionic_openssh: needs-triage
 focal_openssh: needs-triage
@@ -38,7 +39,7 @@ upstream_openssh-ssh1: ignored (frozen on openssh 7.5p)
 trusty_openssh-ssh1: DNE
 trusty/esm_openssh-ssh1: DNE
 xenial_openssh-ssh1: DNE
-bionic_openssh-ssh1: needs-triage
+bionic_openssh-ssh1: ignored (end of standard support)
 focal_openssh-ssh1: needs-triage
 jammy_openssh-ssh1: needs-triage
 kinetic_openssh-ssh1: needs-triage

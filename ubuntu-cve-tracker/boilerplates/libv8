@@ -16,7 +16,7 @@ upstream_libv8-3.14: needs-triage
 trusty_libv8-3.14: ignored (out of standard support)
 trusty/esm_libv8-3.14: DNE
 xenial_libv8-3.14: ignored (end of standard support)
-bionic_libv8-3.14: needs-triage
+bionic_libv8-3.14: ignored (end of standard support)
 focal_libv8-3.14: DNE
 jammy_libv8-3.14: DNE
 kinetic_libv8-3.14: DNE

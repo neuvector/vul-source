@@ -16,7 +16,7 @@ upstream_telepathy-qt: needs-triage
 trusty_telepathy-qt: ignored (out of standard support)
 trusty/esm_telepathy-qt: DNE
 xenial_telepathy-qt: ignored (end of standard support)
-bionic_telepathy-qt: needs-triage
+bionic_telepathy-qt: ignored (end of standard support)
 focal_telepathy-qt: needs-triage
 jammy_telepathy-qt: needs-triage
 kinetic_telepathy-qt: needs-triage

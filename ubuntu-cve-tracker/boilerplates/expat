@@ -29,7 +29,8 @@ trusty_expat: ignored (out of standard support)
 trusty/esm_expat: needs-triage
 xenial_expat: ignored (end of standard support)
 esm-infra/xenial_expat: needs-triage
-bionic_expat: needs-triage
+bionic_expat: ignored (end of standard support)
+esm-infra/bionic_expat: needs-triage
 focal_expat: needs-triage
 jammy_expat: needs-triage
 kinetic_expat: needs-triage
@@ -43,6 +44,7 @@ trusty/esm_apache2: not-affected (uses system expat)
 xenial_apache2: not-affected (uses system expat)
 esm-infra/xenial_apache2: not-affected (uses system expat)
 bionic_apache2: not-affected (uses system expat)
+esm-infra/bionic_apache2: not-affected (uses system expat)
 focal_apache2: not-affected (uses system expat)
 jammy_apache2: not-affected (uses system expat)
 kinetic_apache2: not-affected (uses system expat)
@@ -56,6 +58,7 @@ trusty/esm_apr-util: not-affected (uses system expat)
 xenial_apr-util: not-affected (uses system expat)
 esm-infra/xenial_apr-util: not-affected (uses system expat)
 bionic_apr-util: not-affected (uses system expat)
+esm-infra/bionic_apr-util: not-affected (uses system expat)
 focal_apr-util: not-affected (uses system expat)
 jammy_apr-util: not-affected (uses system expat)
 kinetic_apr-util: not-affected (uses system expat)
@@ -69,6 +72,7 @@ trusty/esm_cmake: DNE
 xenial_cmake: not-affected (uses system expat)
 esm-infra/xenial_cmake: not-affected (uses system expat)
 bionic_cmake: not-affected (uses system expat)
+esm-infra/bionic_cmake: not-affected (uses system expat)
 focal_cmake: not-affected (uses system expat)
 jammy_cmake: not-affected (uses system expat)
 kinetic_cmake: not-affected (uses system expat)
@@ -82,6 +86,7 @@ trusty/esm_ghostscript: DNE
 xenial_ghostscript: not-affected (uses system expat)
 esm-infra/xenial_ghostscript: not-affected (uses system expat)
 bionic_ghostscript: not-affected (uses system expat)
+esm-infra/bionic_ghostscript: not-affected (uses system expat)
 focal_ghostscript: not-affected (uses system expat)
 jammy_ghostscript: not-affected (uses system expat)
 kinetic_ghostscript: not-affected (uses system expat)
@@ -95,6 +100,7 @@ trusty/esm_texlive-bin: DNE
 xenial_texlive-bin: not-affected (code-not-compiled)
 esm-infra/xenial_texlive-bin: not-affected (code-not-compiled)
 bionic_texlive-bin: not-affected (code-not-compiled)
+esm-infra/bionic_texlive-bin: not-affected (code-not-compiled)
 focal_texlive-bin: not-affected (code-not-compiled)
 jammy_texlive-bin: not-affected (code-not-compiled)
 kinetic_texlive-bin: not-affected (code-not-compiled)
@@ -106,7 +112,7 @@ upstream_xmlrpc-c: needs-triage
 trusty_xmlrpc-c: ignored (out of standard support)
 trusty/esm_xmlrpc-c: needs-triage
 xenial_xmlrpc-c: ignored (end of standard support)
-bionic_xmlrpc-c: needs-triage
+bionic_xmlrpc-c: ignored (end of standard support)
 focal_xmlrpc-c: needs-triage
 jammy_xmlrpc-c: needs-triage
 kinetic_xmlrpc-c: needs-triage
@@ -118,7 +124,7 @@ upstream_vnc4: needs-triage
 trusty_vnc4: ignored (out of standard support)
 trusty/esm_vnc4: needs-triage
 xenial_vnc4: ignored (end of standard support)
-bionic_vnc4: needs-triage
+bionic_vnc4: ignored (end of standard support)
 focal_vnc4: DNE
 jammy_vnc4: DNE
 kinetic_vnc4: DNE
@@ -130,7 +136,7 @@ upstream_wbxml2: needs-triage
 trusty_wbxml2: ignored (out of standard support)
 trusty/esm_wbxml2: DNE
 xenial_wbxml2: ignored (end of standard support)
-bionic_wbxml2: needs-triage
+bionic_wbxml2: ignored (end of standard support)
 focal_wbxml2: needs-triage
 jammy_wbxml2: needs-triage
 kinetic_wbxml2: needs-triage
@@ -142,7 +148,7 @@ upstream_swish-e: needs-triage
 trusty_swish-e: ignored (out of standard support)
 trusty/esm_swish-e: DNE
 xenial_swish-e: ignored (end of standard support)
-bionic_swish-e: needs-triage
+bionic_swish-e: ignored (end of standard support)
 focal_swish-e: needs-triage
 jammy_swish-e: needs-triage
 kinetic_swish-e: needs-triage
@@ -166,7 +172,7 @@ upstream_insighttoolkit4: needs-triage
 trusty_insighttoolkit4: ignored (out of standard support)
 trusty/esm_insighttoolkit4: DNE
 xenial_insighttoolkit4: ignored (end of standard support)
-bionic_insighttoolkit4: needs-triage
+bionic_insighttoolkit4: ignored (end of standard support)
 focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 kinetic_insighttoolkit4: needs-triage
@@ -178,7 +184,7 @@ upstream_cadaver: needs-triage
 trusty_cadaver: ignored (out of standard support)
 trusty/esm_cadaver: DNE
 xenial_cadaver: ignored (end of standard support)
-bionic_cadaver: needs-triage
+bionic_cadaver: ignored (end of standard support)
 focal_cadaver: needs-triage
 jammy_cadaver: needs-triage
 kinetic_cadaver: needs-triage
@@ -226,7 +232,7 @@ upstream_coin3: needs-triage
 trusty_coin3: ignored (out of standard support)
 trusty/esm_coin3: needs-triage
 xenial_coin3: ignored (end of standard support)
-bionic_coin3: needs-triage
+bionic_coin3: ignored (end of standard support)
 focal_coin3: not-affected (uses system expat)
 jammy_coin3: not-affected (uses system expat)
 kinetic_coin3: not-affected (uses system expat)
@@ -238,7 +244,7 @@ upstream_matanza: needs-triage
 trusty_matanza: ignored (out of standard support)
 trusty/esm_matanza: DNE
 xenial_matanza: ignored (end of standard support)
-bionic_matanza: needs-triage
+bionic_matanza: ignored (end of standard support)
 focal_matanza: needs-triage
 jammy_matanza: needs-triage
 kinetic_matanza: needs-triage
@@ -250,7 +256,7 @@ upstream_tdom: needs-triage
 trusty_tdom: ignored (out of standard support)
 trusty/esm_tdom: DNE
 xenial_tdom: ignored (end of standard support)
-bionic_tdom: needs-triage
+bionic_tdom: ignored (end of standard support)
 focal_tdom: needs-triage
 jammy_tdom: needs-triage
 kinetic_tdom: needs-triage
@@ -287,7 +293,8 @@ trusty_firefox: ignored (out of standard support)
 trusty/esm_firefox: DNE
 xenial_firefox: ignored (end of standard support)
 esm-infra/xenial_firefox: needs-triage
-bionic_firefox: needs-triage
+bionic_firefox: ignored (end of standard support)
+esm-infra/bionic_firefox: needs-triage
 focal_firefox: needs-triage
 jammy_firefox: needs-triage
 kinetic_firefox: needs-triage
@@ -300,7 +307,8 @@ trusty_thunderbird: ignored (out of standard support)
 trusty/esm_thunderbird: DNE
 xenial_thunderbird: ignored (end of standard support)
 esm-infra/xenial_thunderbird: needs-triage
-bionic_thunderbird: needs-triage
+bionic_thunderbird: ignored (end of standard support)
+esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
 kinetic_thunderbird: needs-triage
@@ -312,7 +320,7 @@ upstream_libxmltok: needs-triage
 trusty_libxmltok: ignored (out of standard support)
 trusty/esm_libxmltok: DNE
 xenial_libxmltok: ignored (end of standard support)
-bionic_libxmltok: needs-triage
+bionic_libxmltok: ignored (end of standard support)
 focal_libxmltok: needs-triage
 jammy_libxmltok: needs-triage
 kinetic_libxmltok: needs-triage

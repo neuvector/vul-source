@@ -19,7 +19,8 @@ upstream_python-msgpack:
 trusty_python-msgpack: DNE
 trusty/esm_python-msgpack: DNE
 xenial_python-msgpack: DNE
-bionic_python-msgpack: needs-triage
+bionic_python-msgpack: ignored (end of standard support)
+esm-infra/bionic_python-msgpack: needs-triage
 focal_python-msgpack: needs-triage
 jammy_python-msgpack: needs-triage
 kinetic_python-msgpack: needs-triage
@@ -31,7 +32,7 @@ upstream_python-pip:
 trusty_python-pip: ignored (reached end of life)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
-bionic_python-pip: needs-triage
+bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage

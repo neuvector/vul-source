@@ -19,7 +19,7 @@ trusty_yui3: ignored (out of standard support)
 trusty/esm_yui3: DNE
 xenial_yui3: ignored (end of standard support)
 esm-infra/xenial_yui3: needs-triage
-bionic_yui3: needs-triage
+bionic_yui3: ignored (end of standard support)
 focal_yui3: needs-triage
 jammy_yui3: DNE
 kinetic_yui3: DNE
@@ -44,7 +44,8 @@ trusty_maas: ignored (out of standard support)
 trusty/esm_maas: DNE
 xenial_maas: ignored (end of standard support)
 esm-infra/xenial_maas: needs-triage
-bionic_maas: needs-triage
+bionic_maas: ignored (end of standard support)
+esm-infra/bionic_maas: needs-triage
 focal_maas: needs-triage
 jammy_maas: DNE
 kinetic_maas: DNE

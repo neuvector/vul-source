@@ -17,7 +17,8 @@ trusty_pillow: ignored (out of standard support)
 trusty/esm_pillow: needs-triage
 xenial_pillow: ignored (end of standard support)
 esm-infra/xenial_pillow: needs-triage
-bionic_pillow: needs-triage
+bionic_pillow: ignored (end of standard support)
+esm-infra/bionic_pillow: needs-triage
 focal_pillow: needs-triage
 jammy_pillow: needs-triage
 kinetic_pillow: needs-triage

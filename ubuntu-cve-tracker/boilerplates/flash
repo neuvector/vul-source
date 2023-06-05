@@ -17,7 +17,7 @@ upstream_flashplugin-nonfree: needs-triage
 trusty_flashplugin-nonfree: ignored (out of standard support)
 trusty/esm_flashplugin-nonfree: DNE
 xenial_flashplugin-nonfree: ignored (end of standard support)
-bionic_flashplugin-nonfree: needs-triage
+bionic_flashplugin-nonfree: ignored (end of standard support)
 focal_flashplugin-nonfree: needs-triage
 jammy_flashplugin-nonfree: DNE
 kinetic_flashplugin-nonfree: DNE
@@ -29,7 +29,7 @@ upstream_adobe-flashplugin: needs-triage
 trusty_adobe-flashplugin: ignored (out of standard support)
 trusty/esm_adobe-flashplugin: DNE
 xenial_adobe-flashplugin: ignored (end of standard support)
-bionic_adobe-flashplugin: needs-triage
+bionic_adobe-flashplugin: ignored (end of standard support)
 focal_adobe-flashplugin: needs-triage
 jammy_adobe-flashplugin: DNE
 kinetic_adobe-flashplugin: DNE

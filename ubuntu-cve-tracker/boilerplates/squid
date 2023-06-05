@@ -17,7 +17,8 @@ trusty_squid3: ignored (out of standard support)
 trusty/esm_squid3: DNE
 xenial_squid3: ignored (end of standard support)
 esm-infra/xenial_squid3: needs-triage
-bionic_squid3: needs-triage
+bionic_squid3: ignored (end of standard support)
+esm-infra/bionic_squid3: needs-triage
 focal_squid3: DNE
 jammy_squid3: DNE
 kinetic_squid3: DNE

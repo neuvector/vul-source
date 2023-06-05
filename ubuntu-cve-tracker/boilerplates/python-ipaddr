@@ -20,7 +20,8 @@ trusty_python-ipaddr: ignored (reached end-of-life)
 trusty/esm_python-ipaddr: DNE
 xenial_python-ipaddr: ignored (end of standard support)
 esm-infra/xenial_python-ipaddr: needs-triage
-bionic_python-ipaddr: needs-triage
+bionic_python-ipaddr: ignored (end of standard support)
+esm-infra/bionic_python-ipaddr: needs-triage
 focal_python-ipaddr: needs-triage
 jammy_python-ipaddr: DNE
 kinetic_python-ipaddr: DNE
@@ -32,7 +33,7 @@ upstream_python-pip:
 trusty_python-pip: ignored (reached end of life)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
-bionic_python-pip: needs-triage
+bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage

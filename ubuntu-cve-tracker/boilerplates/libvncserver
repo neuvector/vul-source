@@ -17,7 +17,8 @@ trusty_libvncserver: ignored (out of standard support)
 trusty/esm_libvncserver: DNE
 xenial_libvncserver: ignored (end of standard support)
 esm-infra/xenial_libvncserver: needs-triage
-bionic_libvncserver: needs-triage
+bionic_libvncserver: ignored (end of standard support)
+esm-infra/bionic_libvncserver: needs-triage
 focal_libvncserver: needs-triage
 jammy_libvncserver: needs-triage
 kinetic_libvncserver: needs-triage
@@ -30,7 +31,8 @@ trusty_vino: ignored (out of standard support)
 trusty/esm_vino: DNE
 xenial_vino: ignored (end of standard support)
 esm-infra/xenial_vino: needs-triage
-bionic_vino: needs-triage
+bionic_vino: ignored (end of standard support)
+esm-infra/bionic_vino: needs-triage
 focal_vino: needs-triage
 jammy_vino: needs-triage
 kinetic_vino: needs-triage
@@ -42,7 +44,7 @@ upstream_x11vnc: needs-triage
 trusty_x11vnc: ignored (out of standard support)
 trusty/esm_x11vnc: needs-triage
 xenial_x11vnc: ignored (end of standard support)
-bionic_x11vnc: needs-triage
+bionic_x11vnc: ignored (end of standard support)
 focal_x11vnc: needs-triage
 jammy_x11vnc: needs-triage
 kinetic_x11vnc: needs-triage
@@ -66,7 +68,7 @@ upstream_italc: needs-triage
 trusty_italc: ignored (reached end-of-life)
 trusty/esm_italc: DNE (trusty was needs-triage)
 xenial_italc: ignored (end of standard support)
-bionic_italc: needs-triage
+bionic_italc: ignored (end of standard support)
 focal_italc: DNE
 jammy_italc: DNE
 kinetic_italc: DNE
@@ -78,7 +80,7 @@ upstream_tightvnc: needs-triage
 trusty_tightvnc: ignored (reached end-of-life)
 trusty/esm_tightvnc: needs-triage
 xenial_tightvnc: ignored (end of standard support)
-bionic_tightvnc: needs-triage
+bionic_tightvnc: ignored (end of standard support)
 focal_tightvnc: needs-triage
 jammy_tightvnc: needs-triage
 kinetic_tightvnc: needs-triage

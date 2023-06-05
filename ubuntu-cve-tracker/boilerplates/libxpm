@@ -20,7 +20,8 @@ trusty_libxpm: ignored (out of standard support)
 trusty/esm_libxpm: needs-triage
 xenial_libxpm: ignored (out of standard support)
 esm-infra/xenial_libxpm: needs-triage
-bionic_libxpm: needs-triage
+bionic_libxpm: ignored (end of standard support)
+esm-infra/bionic_libxpm: needs-triage
 focal_libxpm: needs-triage
 jammy_libxpm: needs-triage
 kinetic_libxpm: needs-triage
@@ -31,7 +32,7 @@ Patches_motif:
 upstream_motif: needs-triage
 trusty_motif: ignored (out of standard support)
 xenial_motif: ignored (out of standard support)
-bionic_motif: needs-triage
+bionic_motif: ignored (end of standard support)
 focal_motif: needs-triage
 jammy_motif: needs-triage
 kinetic_motif: needs-triage

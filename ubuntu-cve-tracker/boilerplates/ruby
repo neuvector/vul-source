@@ -53,7 +53,8 @@ upstream_ruby2.5: needs-triage
 trusty_ruby2.5: DNE
 trusty/esm_ruby2.5: DNE
 xenial_ruby2.5: DNE
-bionic_ruby2.5: needs-triage
+bionic_ruby2.5: ignored (end of standard support)
+esm-infra/bionic_ruby2.5: needs-triage
 focal_ruby2.5: DNE
 jammy_ruby2.5: DNE
 kinetic_ruby2.5: DNE
@@ -101,7 +102,7 @@ upstream_jruby: needs-triage
 trusty_jruby: ignored (out of standard support)
 trusty/esm_jruby: needs-triage
 xenial_jruby: ignored (end of standard support)
-bionic_jruby: needs-triage
+bionic_jruby: ignored (end of standard support)
 focal_jruby: needs-triage
 jammy_jruby: DNE
 kinetic_jruby: DNE

@@ -16,7 +16,7 @@ upstream_openjpeg2: needs-triage
 trusty_openjpeg2: DNE
 trusty/esm_openjpeg2: DNE
 xenial_openjpeg2: ignored (end of standard support)
-bionic_openjpeg2: needs-triage
+bionic_openjpeg2: ignored (end of standard support)
 focal_openjpeg2: needs-triage
 jammy_openjpeg2: needs-triage
 kinetic_openjpeg2: needs-triage
@@ -28,7 +28,7 @@ upstream_insighttoolkit4: needs-triage
 trusty_insighttoolkit4: ignored (out of standard support)
 trusty/esm_insighttoolkit4: DNE
 xenial_insighttoolkit4: ignored (end of standard support)
-bionic_insighttoolkit4: needs-triage
+bionic_insighttoolkit4: ignored (end of standard support)
 focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 kinetic_insighttoolkit4: needs-triage
@@ -40,7 +40,7 @@ upstream_qtwebengine-opensource-src: needs-triage
 trusty_qtwebengine-opensource-src: DNE
 trusty/esm_qtwebengine-opensource-src: DNE
 xenial_qtwebengine-opensource-src: DNE
-bionic_qtwebengine-opensource-src: needs-triage
+bionic_qtwebengine-opensource-src: ignored (end of standard support)
 focal_qtwebengine-opensource-src: needs-triage
 jammy_qtwebengine-opensource-src: needs-triage
 kinetic_qtwebengine-opensource-src: needs-triage
@@ -52,7 +52,7 @@ upstream_blender: needs-triage
 trusty_blender: ignored (out of standard support)
 trusty/esm_blender: DNE
 xenial_blender: ignored (end of standard support)
-bionic_blender: needs-triage
+bionic_blender: ignored (end of standard support)
 focal_blender: needs-triage
 jammy_blender: needs-triage
 kinetic_blender: needs-triage
@@ -64,7 +64,7 @@ upstream_texmaker: needs-triage
 trusty_texmaker: ignored (out of standard support)
 trusty/esm_texmaker: DNE
 xenial_texmaker: ignored (end of standard support)
-bionic_texmaker: needs-triage
+bionic_texmaker: ignored (end of standard support)
 focal_texmaker: needs-triage
 jammy_texmaker: needs-triage
 kinetic_texmaker: needs-triage
@@ -77,7 +77,8 @@ trusty_ghostscript: ignored (out of standard support)
 trusty/esm_ghostscript: DNE
 xenial_ghostscript: ignored (end of standard support)
 esm-infra/xenial_ghostscript: needs-triage
-bionic_ghostscript: needs-triage
+bionic_ghostscript: ignored (end of standard support)
+esm-infra/bionic_ghostscript: needs-triage
 focal_ghostscript: not-affected (uses system openjpeg2)
 jammy_ghostscript: not-affected (uses system openjpeg2)
 kinetic_ghostscript: not-affected (uses system openjpeg2)

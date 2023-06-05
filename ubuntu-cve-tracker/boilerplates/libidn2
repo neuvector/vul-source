@@ -16,7 +16,8 @@ upstream_libidn2: needs-triage
 trusty_libidn2: ignored (out of standard support)
 trusty/esm_libidn2: DNE
 xenial_libidn2: DNE
-bionic_libidn2: needs-triage
+bionic_libidn2: ignored (end of standard support)
+esm-infra/bionic_libidn2: needs-triage
 focal_libidn2: needs-triage
 jammy_libidn2: needs-triage
 kinetic_libidn2: needs-triage

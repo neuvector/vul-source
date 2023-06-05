@@ -45,7 +45,7 @@ upstream_golang-1.8: needs-triage
 trusty_golang-1.8: DNE
 trusty/esm_golang-1.8: DNE
 xenial_golang-1.8: DNE
-bionic_golang-1.8: needs-triage
+bionic_golang-1.8: ignored (end of standard support)
 focal_golang-1.8: DNE
 jammy_golang-1.8: DNE
 kinetic_golang-1.8: DNE
@@ -57,7 +57,7 @@ upstream_golang-1.9: needs-triage
 trusty_golang-1.9: DNE
 trusty/esm_golang-1.9: DNE
 xenial_golang-1.9: DNE
-bionic_golang-1.9: needs-triage
+bionic_golang-1.9: ignored (end of standard support)
 focal_golang-1.9: DNE
 jammy_golang-1.9: DNE
 kinetic_golang-1.9: DNE
@@ -70,7 +70,8 @@ trusty_golang-1.10: ignored (out of standard support)
 trusty/esm_golang-1.10: needs-triage
 xenial_golang-1.10: ignored (end of standard support)
 esm-infra/xenial_golang-1.10: needs-triage
-bionic_golang-1.10: needs-triage
+bionic_golang-1.10: ignored (end of standard support)
+esm-infra/bionic_golang-1.10: needs-triage
 focal_golang-1.10: DNE
 jammy_golang-1.10: DNE
 kinetic_golang-1.10: DNE
@@ -82,7 +83,7 @@ upstream_golang-1.13: needs-triage
 trusty_golang-1.13: DNE
 trusty/esm_golang-1.13: DNE
 xenial_golang-1.13: ignored (end of standard support)
-bionic_golang-1.13: needs-triage
+bionic_golang-1.13: ignored (end of standard support)
 focal_golang-1.13: needs-triage
 jammy_golang-1.13: needs-triage
 kinetic_golang-1.13: needs-triage
@@ -114,7 +115,7 @@ upstream_golang-1.16: needs-triage
 trusty_golang-1.16: ignored (out of standard support)
 trusty/esm_golang-1.16: DNE
 xenial_golang-1.16: ignored (out of standard support)
-bionic_golang-1.16: needs-triage
+bionic_golang-1.16: ignored (end of standard support)
 focal_golang-1.16: needs-triage
 jammy_golang-1.16: DNE
 kinetic_golang-1.16: DNE
@@ -138,7 +139,7 @@ upstream_golang-1.18: needs-triage
 trusty_golang-1.18: ignored (out of standard support)
 trusty/esm_golang-1.18: DNE
 xenial_golang-1.18: ignored (out of standard support)
-bionic_golang-1.18: needs-triage
+bionic_golang-1.18: ignored (end of standard support)
 focal_golang-1.18: needs-triage
 jammy_golang-1.18: needs-triage
 kinetic_golang-1.18: DNE

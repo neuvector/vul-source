@@ -19,7 +19,8 @@ trusty_libyaml: ignored (out of standard support)
 trusty/esm_libyaml: needs-triage
 xenial_libyaml: ignored (end of standard support)
 esm-infra/xenial_libyaml: needs-triage
-bionic_libyaml: needs-triage
+bionic_libyaml: ignored (end of standard support)
+esm-infra/bionic_libyaml: needs-triage
 focal_libyaml: needs-triage
 jammy_libyaml: needs-triage
 kinetic_libyaml: needs-triage
@@ -32,7 +33,8 @@ trusty_libyaml-libyaml-perl: ignored (out of standard support)
 trusty/esm_libyaml-libyaml-perl: DNE
 xenial_libyaml-libyaml-perl: ignored (end of standard support)
 esm-infra/xenial_libyaml-libyaml-perl: needs-triage
-bionic_libyaml-libyaml-perl: needs-triage
+bionic_libyaml-libyaml-perl: ignored (end of standard support)
+esm-infra/bionic_libyaml-libyaml-perl: needs-triage
 focal_libyaml-libyaml-perl: needs-triage
 jammy_libyaml-libyaml-perl: needs-triage
 kinetic_libyaml-libyaml-perl: needs-triage
@@ -57,7 +59,7 @@ trusty_golang-yaml.v2: ignored (out of standard support)
 trusty/esm_golang-yaml.v2: DNE
 xenial_golang-yaml.v2: ignored (end of standard support)
 esm-infra/xenial_golang-yaml.v2: needs-triage
-bionic_golang-yaml.v2: needs-triage
+bionic_golang-yaml.v2: ignored (end of standard support)
 focal_golang-yaml.v2: needs-triage
 jammy_golang-yaml.v2: needs-triage
 kinetic_golang-yaml.v2: needs-triage

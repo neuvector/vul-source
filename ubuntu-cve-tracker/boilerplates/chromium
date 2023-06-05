@@ -20,7 +20,7 @@ upstream_chromium-browser: released
 trusty_chromium-browser: ignored (out of standard support)
 trusty/esm_chromium-browser: DNE
 xenial_chromium-browser: ignored (out of standard support)
-bionic_chromium-browser: needed
+bionic_chromium-browser: ignored (end of standard support)
 focal_chromium-browser: not-affected (code not present)
 jammy_chromium-browser: not-affected (code not present)
 kinetic_chromium-browser: not-affected (code not present)

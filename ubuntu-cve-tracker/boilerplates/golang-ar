@@ -17,7 +17,7 @@ upstream_golang-ar: needs-triage
 trusty_golang-ar: DNE
 trusty/esm_golang-ar: DNE
 xenial_golang-ar: ignored (end of standard support)
-bionic_golang-ar: needs-triage
+bionic_golang-ar: ignored (end of standard support)
 focal_golang-ar: needs-triage
 jammy_golang-ar: needs-triage
 kinetic_golang-ar: needs-triage
@@ -30,7 +30,8 @@ trusty_snapd: DNE
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage

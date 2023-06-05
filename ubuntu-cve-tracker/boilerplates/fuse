@@ -17,7 +17,8 @@ trusty_fuse: ignored (reached end-of-life)
 trusty/esm_fuse: needs-triage
 xenial_fuse: ignored (end of standard support)
 esm-infra/xenial_fuse: needs-triage
-bionic_fuse: needs-triage
+bionic_fuse: ignored (end of standard support)
+esm-infra/bionic_fuse: needs-triage
 focal_fuse: needs-triage
 jammy_fuse: needs-triage
 kinetic_fuse: needs-triage

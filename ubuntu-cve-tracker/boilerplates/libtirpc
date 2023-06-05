@@ -18,7 +18,8 @@ trusty_libtirpc: ignored (out of standard support)
 trusty/esm_libtirpc: needs-triage
 xenial_libtirpc: ignored (end of standard support)
 esm-infra/xenial_libtirpc: needs-triage
-bionic_libtirpc: needs-triage
+bionic_libtirpc: ignored (end of standard support)
+esm-infra/bionic_libtirpc: needs-triage
 focal_libtirpc: needs-triage
 jammy_libtirpc: needs-triage
 kinetic_libtirpc: needs-triage
@@ -30,7 +31,7 @@ upstream_ntirpc: needs-triage
 trusty_ntirpc: ignored (out of standard support)
 trusty/esm_ntirpc: DNE
 xenial_ntirpc: ignored (end of standard support)
-bionic_ntirpc: needs-triage
+bionic_ntirpc: ignored (end of standard support)
 focal_ntirpc: needs-triage
 jammy_ntirpc: needs-triage
 kinetic_ntirpc: needs-triage

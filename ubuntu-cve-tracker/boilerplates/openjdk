@@ -17,7 +17,7 @@ trusty_openjdk-8: DNE
 trusty/esm_openjdk-8: DNE
 xenial_openjdk-8: ignored (end of standard support)
 esm-infra/xenial_openjdk-8: needs-triage
-bionic_openjdk-8: needs-triage
+bionic_openjdk-8: ignored (end of standard support)
 focal_openjdk-8: needs-triage
 jammy_openjdk-8: needs-triage
 kinetic_openjdk-8: needs-triage
@@ -42,7 +42,8 @@ upstream_openjdk-lts: needs-triage
 trusty_openjdk-lts: DNE
 trusty/esm_openjdk-lts: DNE
 xenial_openjdk-lts: DNE
-bionic_openjdk-lts: needs-triage
+bionic_openjdk-lts: ignored (end of standard support)
+esm-infra/bionic_openjdk-lts: needs-triage
 focal_openjdk-lts: needs-triage
 jammy_openjdk-lts: needs-triage
 kinetic_openjdk-lts: needs-triage
@@ -80,7 +81,7 @@ upstream_openjdk-17: needs-triage
 trusty_openjdk-17: DNE
 trusty/esm_openjdk-17: DNE
 xenial_openjdk-17: DNE
-bionic_openjdk-17: needs-triage
+bionic_openjdk-17: ignored (end of standard support)
 focal_openjdk-17: needs-triage
 jammy_openjdk-17: needs-triage
 kinetic_openjdk-17: needs-triage

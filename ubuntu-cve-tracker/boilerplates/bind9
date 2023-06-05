@@ -18,7 +18,8 @@ trusty_bind9: needs-triage
 trusty/esm_bind9: needs-triage
 xenial_bind9: needs-triage
 esm-infra/xenial_bind9: needs-triage
-bionic_bind9: needs-triage
+bionic_bind9: ignored (end of standard support)
+esm-infra/bionic_bind9: needs-triage
 focal_bind9: needs-triage
 jammy_bind9: needs-triage
 kinetic_bind9: needs-triage
@@ -32,6 +33,7 @@ trusty/esm_isc-dhcp: not-affected (code not present)
 xenial_isc-dhcp: not-affected (code not present)
 esm-infra/xenial_isc-dhcp: not-affected (code not present)
 bionic_isc-dhcp: not-affected (code not present)
+esm-infra/bionic_isc-dhcp: needs-triage
 focal_isc-dhcp: not-affected (code not present)
 jammy_isc-dhcp: not-affected (code not present)
 kinetic_isc-dhcp: needs-triage

@@ -18,7 +18,8 @@ trusty_libcroco: ignored (out of standard support)
 trusty/esm_libcroco: needs-triage
 xenial_libcroco: ignored (end of standard support)
 esm-infra/xenial_libcroco: needs-triage
-bionic_libcroco: needs-triage
+bionic_libcroco: ignored (end of standard support)
+esm-infra/bionic_libcroco: needs-triage
 focal_libcroco: needs-triage
 jammy_libcroco: DNE
 kinetic_libcroco: DNE
@@ -30,7 +31,8 @@ upstream_gnome-shell: needs-triage
 trusty_gnome-shell: ignored (out of standard support)
 trusty/esm_gnome-shell: DNE
 xenial_gnome-shell: ignored (end of standard support)
-bionic_gnome-shell: needs-triage
+bionic_gnome-shell: ignored (end of standard support)
+esm-infra/bionic_gnome-shell: needs-triage
 focal_gnome-shell: needs-triage
 jammy_gnome-shell: needs-triage
 kinetic_gnome-shell: needs-triage

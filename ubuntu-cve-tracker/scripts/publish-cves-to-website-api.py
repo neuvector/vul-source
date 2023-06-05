@@ -119,14 +119,16 @@ def post_single_cve(cve_filename):
             if codename in cve_data["pkgs"][pkg]:
                 status = cve_data["pkgs"][pkg][codename]
 
-            # If the release is EOL or there is an ESM update for it use ESM status
             if status and status[0] != "released" and codename in cve_lib.get_active_releases_with_esm():
+                # Check for possible product statuses
                 for release in [codename + "/esm", "esm-infra/" + codename,
                         "esm-apps/" + codename, "ros-esm/" + codename, codename]:
-                    if release in cve_data["pkgs"][pkg] and \
-                            (codename in cve_lib.eol_releases or cve_data["pkgs"][pkg][release] == "released"):
-                        status = cve_data["pkgs"][pkg][release]
-                        break
+                    if release in cve_data["pkgs"][pkg]:
+                        esm_status = cve_data["pkgs"][pkg][release]
+                        # Use the ESM status if there is an ESM release or release is EOL
+                        if esm_status[0] == "released" or codename in cve_lib.eol_releases:
+                            status = esm_status
+                            break
 
             if status:
                 statuses.append(

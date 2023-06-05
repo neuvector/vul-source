@@ -16,7 +16,7 @@ upstream_lldpd: needs-triage
 trusty_lldpd: ignored (out of standard support)
 trusty/esm_lldpd: DNE
 xenial_lldpd: ignored (end of standard support)
-bionic_lldpd: needs-triage
+bionic_lldpd: ignored (end of standard support)
 focal_lldpd: needs-triage
 jammy_lldpd: needs-triage
 kinetic_lldpd: needs-triage
@@ -29,7 +29,8 @@ trusty_openvswitch:ignored (out of standard support)
 trusty/esm_openvswitch: DNE
 xenial_openvswitch: ignored (end of standard support)
 esm-infra/xenial_openvswitch: needs-triage
-bionic_openvswitch: needs-triage
+bionic_openvswitch: ignored (end of standard support)
+esm-infra/bionic_openvswitch: needs-triage
 focal_openvswitch: needs-triage
 jammy_openvswitch: needs-triage
 kinetic_openvswitch: needs-triage

@@ -30,7 +30,7 @@ upstream_google-guest-agent: needs-triage
 trusty_google-guest-agent: DNE
 trusty/esm_google-guest-agent: DNE
 xenial_google-guest-agent: ignored (end of standard support)
-bionic_google-guest-agent: needs-triage
+bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage
@@ -42,7 +42,7 @@ upstream_containerd: needs-triage
 trusty_containerd: ignored (out of standard support)
 xenial_containerd: ignored (out of standard support)
 esm-apps/xenial_containerd: needs-triage
-bionic_containerd: needs-triage
+bionic_containerd: ignored (end of standard support)
 esm-apps/bionic_containerd: needs-triage
 focal_containerd: needs-triage
 jammy_containerd: needs-triage

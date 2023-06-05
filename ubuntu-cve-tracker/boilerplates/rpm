@@ -19,7 +19,7 @@ upstream_rpm: needs-triage
 trusty_rpm: ignored (reached end of life)
 trusty/esm_rpm: needs-triage
 xenial_rpm: ignored (end of standard support)
-bionic_rpm: needs-triage
+bionic_rpm: ignored (end of standard support)
 focal_rpm: needs-triage
 jammy_rpm: needs-triage
 kinetic_rpm: needs-triage

@@ -231,7 +231,7 @@ upstream_nvidia-graphics-drivers-450-server: needs-triage
 trusty_nvidia-graphics-drivers-450-server: DNE
 trusty/esm_nvidia-graphics-drivers-450-server: DNE
 xenial_nvidia-graphics-drivers-450-server: DNE
-bionic_nvidia-graphics-drivers-450-server: needs-triage
+bionic_nvidia-graphics-drivers-450-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-450-server: needs-triage
 jammy_nvidia-graphics-drivers-450-server: needs-triage
 kinetic_nvidia-graphics-drivers-450-server: needs-triage
@@ -279,7 +279,7 @@ upstream_nvidia-graphics-drivers-470: needs-triage
 trusty_nvidia-graphics-drivers-470: DNE
 trusty/esm_nvidia-graphics-drivers-470: DNE
 xenial_nvidia-graphics-drivers-470: DNE
-bionic_nvidia-graphics-drivers-470: needs-triage
+bionic_nvidia-graphics-drivers-470: ignored (end of standard support)
 focal_nvidia-graphics-drivers-470: needs-triage
 jammy_nvidia-graphics-drivers-470: needs-triage
 kinetic_nvidia-graphics-drivers-470: needs-triage
@@ -291,7 +291,7 @@ upstream_nvidia-graphics-drivers-470-server: needs-triage
 trusty_nvidia-graphics-drivers-470-server: DNE
 trusty/esm_nvidia-graphics-drivers-470-server: DNE
 xenial_nvidia-graphics-drivers-470-server: DNE
-bionic_nvidia-graphics-drivers-470-server: needs-triage
+bionic_nvidia-graphics-drivers-470-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-470-server: needs-triage
 jammy_nvidia-graphics-drivers-470-server: needs-triage
 kinetic_nvidia-graphics-drivers-470-server: needs-triage
@@ -339,7 +339,7 @@ upstream_nvidia-graphics-drivers-515: needs-triage
 trusty_nvidia-graphics-drivers-515: DNE
 trusty/esm_nvidia-graphics-drivers-515: DNE
 xenial_nvidia-graphics-drivers-515: DNE
-bionic_nvidia-graphics-drivers-515: needs-triage
+bionic_nvidia-graphics-drivers-515: ignored (end of standard support)
 focal_nvidia-graphics-drivers-515: needs-triage
 jammy_nvidia-graphics-drivers-515: needs-triage
 kinetic_nvidia-graphics-drivers-515: needs-triage
@@ -351,7 +351,7 @@ upstream_nvidia-graphics-drivers-515-server: needs-triage
 trusty_nvidia-graphics-drivers-515-server: DNE
 trusty/esm_nvidia-graphics-drivers-515-server: DNE
 xenial_nvidia-graphics-drivers-515-server: DNE
-bionic_nvidia-graphics-drivers-515-server: needs-triage
+bionic_nvidia-graphics-drivers-515-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-515-server: needs-triage
 jammy_nvidia-graphics-drivers-515-server: needs-triage
 kinetic_nvidia-graphics-drivers-515-server: needs-triage
@@ -374,7 +374,7 @@ Patches_nvidia-graphics-drivers-525:
 upstream_nvidia-graphics-drivers-525: needs-triage
 trusty_nvidia-graphics-drivers-525: DNE
 xenial_nvidia-graphics-drivers-525: DNE
-bionic_nvidia-graphics-drivers-525: needs-triage
+bionic_nvidia-graphics-drivers-525: ignored (end of standard support)
 focal_nvidia-graphics-drivers-525: needs-triage
 jammy_nvidia-graphics-drivers-525: needs-triage
 kinetic_nvidia-graphics-drivers-525: needs-triage
@@ -385,7 +385,7 @@ Patches_nvidia-graphics-drivers-525-server:
 upstream_nvidia-graphics-drivers-525-server: needs-triage
 trusty_nvidia-graphics-drivers-525-server: DNE
 xenial_nvidia-graphics-drivers-525-server: DNE
-bionic_nvidia-graphics-drivers-525-server: needs-triage
+bionic_nvidia-graphics-drivers-525-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-525-server: needs-triage
 jammy_nvidia-graphics-drivers-525-server: needs-triage
 kinetic_nvidia-graphics-drivers-525-server: needs-triage
@@ -396,7 +396,7 @@ Patches_nvidia-graphics-drivers-530:
 upstream_nvidia-graphics-drivers-530: needs-triage
 trusty_nvidia-graphics-drivers-530: DNE
 xenial_nvidia-graphics-drivers-530: DNE
-bionic_nvidia-graphics-drivers-530: needs-triage
+bionic_nvidia-graphics-drivers-530: ignored (end of standard support)
 focal_nvidia-graphics-drivers-530: needs-triage
 jammy_nvidia-graphics-drivers-530: needs-triage
 kinetic_nvidia-graphics-drivers-530: needs-triage

@@ -18,7 +18,7 @@ upstream_oath-toolkit: needs-triage
 trusty_oath-toolkit: ignored (out of standard support)
 trusty/esm_oath-toolkit: DNE
 xenial_oath-toolkit: ignored (end of standard support)
-bionic_oath-toolkit: needs-triage
+bionic_oath-toolkit: ignored (end of standard support)
 focal_oath-toolkit: needs-triage
 jammy_oath-toolkit: needs-triage
 kinetic_oath-toolkit: needs-triage

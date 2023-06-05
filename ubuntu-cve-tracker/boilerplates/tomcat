@@ -28,7 +28,7 @@ upstream_tomcat7: needs-triage
 trusty_tomcat7: ignored (out of standard support)
 trusty/esm_tomcat7: needs-triage
 xenial_tomcat7: ignored (end of standard support)
-bionic_tomcat7: needs-triage
+bionic_tomcat7: ignored (end of standard support)
 focal_tomcat7: DNE
 jammy_tomcat7: DNE
 kinetic_tomcat7: DNE
@@ -41,7 +41,7 @@ trusty_tomcat8: DNE
 trusty/esm_tomcat8: DNE
 xenial_tomcat8: ignored (end of standard support)
 esm-infra/xenial_tomcat8: needs-triage
-bionic_tomcat8: needs-triage
+bionic_tomcat8: ignored (end of standard support)
 focal_tomcat8: DNE
 jammy_tomcat8: DNE
 kinetic_tomcat8: DNE
@@ -53,7 +53,7 @@ upstream_tomcat9: needs-triage
 trusty_tomcat9: DNE
 trusty/esm_tomcat9: DNE
 xenial_tomcat9: DNE
-bionic_tomcat9: needs-triage
+bionic_tomcat9: ignored (end of standard support)
 focal_tomcat9: needs-triage
 jammy_tomcat9: needs-triage
 kinetic_tomcat9: needs-triage

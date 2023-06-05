@@ -19,7 +19,8 @@ xenial_openssl: ignored (out of standard support)
 esm-infra/xenial_openssl: needs-triage
 fips/xenial_openssl: needs-triage
 fips-updates/xenial_openssl: needs-triage
-bionic_openssl: needs-triage
+bionic_openssl: ignored (end of standard support)
+esm-infra/bionic_openssl: needs-triage
 fips/bionic_openssl: needs-triage
 fips-updates/bionic_openssl: needs-triage
 focal_openssl: needs-triage
@@ -35,7 +36,8 @@ upstream_openssl1.0: needs-triage
 trusty_openssl1.0: DNE
 trusty/esm_openssl1.0: DNE
 xenial_openssl1.0: DNE
-bionic_openssl1.0: needs-triage
+bionic_openssl1.0: ignored (end of standard support)
+esm-infra/bionic_openssl1.0: needs-triage
 focal_openssl1.0: DNE
 jammy_openssl1.0: DNE
 kinetic_openssl1.0: DNE
@@ -59,7 +61,7 @@ upstream_edk2: needs-triage
 trusty_edk2: ignored (out of standard support)
 trusty/esm_edk2: DNE
 xenial_edk2: ignored (end of standard support)
-bionic_edk2: needs-triage
+bionic_edk2: ignored (end of standard support)
 focal_edk2: needs-triage
 jammy_edk2: needs-triage
 kinetic_edk2: needs-triage

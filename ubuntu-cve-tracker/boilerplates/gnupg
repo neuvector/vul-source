@@ -30,7 +30,8 @@ trusty_gnupg2: ignored (out of standard support)
 trusty/esm_gnupg2: DNE
 xenial_gnupg2: ignored (end of standard support)
 esm-infra/xenial_gnupg2: needs-triage
-bionic_gnupg2: needs-triage
+bionic_gnupg2: ignored (end of standard support)
+esm-infra/bionic_gnupg2: needs-triage
 focal_gnupg2: needs-triage
 jammy_gnupg2: needs-triage
 kinetic_gnupg2: needs-triage

@@ -19,7 +19,8 @@ trusty_potrace: ignored (out of standard support)
 trusty/esm_potrace: DNE
 xenial_potrace: ignored (end of standard support)
 esm-infra/xenial_potrace: needs-triage
-bionic_potrace: needs-triage
+bionic_potrace: ignored (end of standard support)
+esm-infra/bionic_potrace: needs-triage
 focal_potrace: needs-triage
 jammy_potrace: needs-triage
 kinetic_potrace: needs-triage

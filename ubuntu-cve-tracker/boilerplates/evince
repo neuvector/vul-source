@@ -17,7 +17,8 @@ trusty_evince: ignored (out of standard support)
 trusty/esm_evince: DNE
 xenial_evince: ignored (end of standard support)
 esm-infra/xenial_evince: needs-triage
-bionic_evince: needs-triage
+bionic_evince: ignored (end of standard support)
+esm-infra/bionic_evince: needs-triage
 focal_evince: needs-triage
 jammy_evince: needs-triage
 kinetic_evince: needs-triage
@@ -29,7 +30,7 @@ upstream_atril: needs-triage
 trusty_atril: DNE
 trusty/esm_atril: DNE
 xenial_atril: ignored (end of standard support)
-bionic_atril: needs-triage
+bionic_atril: ignored (end of standard support)
 focal_atril: needs-triage
 jammy_atril: needs-triage
 kinetic_atril: needs-triage

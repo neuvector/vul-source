@@ -41,7 +41,8 @@ trusty_db5.3: ignored (out of standard support)
 trusty/esm_db5.3: needs-triage
 xenial_db5.3: ignored (end of standard support)
 esm-infra/xenial_db5.3: needs-triage
-bionic_db5.3: needs-triage
+bionic_db5.3: ignored (end of standard support)
+esm-infra/bionic_db5.3: needs-triage
 focal_db5.3: needs-triage
 jammy_db5.3: needs-triage
 kinetic_db5.3: needs-triage

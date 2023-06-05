@@ -18,7 +18,7 @@ trusty_golang-go-flags: ignored (out of standard support)
 trusty/esm_golang-go-flags: DNE
 xenial_golang-go-flags: ignored (end of standard support)
 esm-infra/xenial_golang-go-flags: needs-triage
-bionic_golang-go-flags: needs-triage
+bionic_golang-go-flags: ignored (end of standard support)
 focal_golang-go-flags: needs-triage
 jammy_golang-go-flags: needs-triage
 kinetic_golang-go-flags: needs-triage
@@ -31,7 +31,8 @@ trusty_snapd: DNE
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage

@@ -16,7 +16,7 @@ upstream_sqlite: needs-triage
 trusty_sqlite: ignored (out of standard support)
 trusty/esm_sqlite: needs-triage
 xenial_sqlite: ignored (end of standard support)
-bionic_sqlite: needs-triage
+bionic_sqlite: ignored (end of standard support)
 focal_sqlite: needs-triage
 jammy_sqlite: needs-triage
 kinetic_sqlite: needs-triage
@@ -29,7 +29,8 @@ trusty_sqlite3: ignored (out of standard support)
 trusty/esm_sqlite3: needs-triage
 xenial_sqlite3: ignored (end of standard support)
 esm-infra/xenial_sqlite3: needs-triage
-bionic_sqlite3: needs-triage
+bionic_sqlite3: ignored (end of standard support)
+esm-infra/bionic_sqlite3: needs-triage
 focal_sqlite3: needs-triage
 jammy_sqlite3: needs-triage
 kinetic_sqlite3: needs-triage

@@ -17,7 +17,7 @@ upstream_golang-google-cloud: needs-triage
 trusty_golang-google-cloud: DNE
 trusty/esm_golang-google-cloud: DNE
 xenial_golang-google-cloud: ignored (end of standard support)
-bionic_golang-google-cloud: needs-triage
+bionic_golang-google-cloud: ignored (end of standard support)
 focal_golang-google-cloud: needs-triage
 jammy_golang-google-cloud: needs-triage
 kinetic_golang-google-cloud: needs-triage
@@ -29,7 +29,7 @@ upstream_google-guest-agent: needs-triage
 trusty_google-guest-agent: DNE
 trusty/esm_google-guest-agent: DNE
 xenial_google-guest-agent: ignored (end of standard support)
-bionic_google-guest-agent: needs-triage
+bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 kinetic_google-guest-agent: needs-triage

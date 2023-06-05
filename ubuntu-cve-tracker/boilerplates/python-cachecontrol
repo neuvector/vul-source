@@ -19,7 +19,7 @@ upstream_python-cachecontrol:
 trusty_python-cachecontrol: DNE
 trusty/esm_python-cachecontrol: DNE
 xenial_python-cachecontrol: ignored (end of standard support)
-bionic_python-cachecontrol: needs-triage
+bionic_python-cachecontrol: ignored (end of standard support)
 focal_python-cachecontrol: needs-triage
 jammy_python-cachecontrol: needs-triage
 kinetic_python-cachecontrol: needs-triage
@@ -31,7 +31,7 @@ upstream_python-pip:
 trusty_python-pip: ignored (reached end of life)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
-bionic_python-pip: needs-triage
+bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 kinetic_python-pip: needs-triage

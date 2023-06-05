@@ -17,7 +17,8 @@ trusty_libxfont: ignored (out of standard support)
 trusty/esm_libxfont: needs-triage
 xenial_libxfont: ignored (end of standard support)
 esm-infra/xenial_libxfont: needs-triage
-bionic_libxfont: needs-triage
+bionic_libxfont: ignored (end of standard support)
+esm-infra/bionic_libxfont: needs-triage
 focal_libxfont: needs-triage
 jammy_libxfont: needs-triage
 kinetic_libxfont: needs-triage

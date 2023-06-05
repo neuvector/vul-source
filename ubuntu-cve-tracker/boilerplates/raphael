@@ -17,7 +17,7 @@ upstream_raphael: needs-triage
 trusty_raphael: ignored (out of standard support)
 trusty/esm_raphael: needs-triage
 xenial_raphael: ignored (end of standard support)
-bionic_raphael: needs-triage
+bionic_raphael: ignored (end of standard support)
 focal_raphael: needs-triage
 jammy_raphael: needs-triage
 kinetic_raphael: needs-triage
@@ -30,7 +30,8 @@ trusty_maas: ignored (out of standard support)
 trusty/esm_maas: DNE
 xenial_maas: ignored (end of standard support)
 esm-infra/xenial_maas: needs-triage
-bionic_maas: needs-triage
+bionic_maas: ignored (end of standard support)
+esm-infra/bionic_maas: needs-triage
 focal_maas: needs-triage
 jammy_maas: DNE
 kinetic_maas: DNE

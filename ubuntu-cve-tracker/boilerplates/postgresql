@@ -54,7 +54,8 @@ upstream_postgresql-10: needs-triage
 trusty_postgresql-10: DNE
 trusty/esm_postgresql-10: DNE
 xenial_postgresql-10: DNE
-bionic_postgresql-10: needs-triage
+bionic_postgresql-10: ignored (end of standard support)
+esm-infra/bionic_postgresql-10: needs-triage
 focal_postgresql-10: DNE
 jammy_postgresql-10: DNE
 kinetic_postgresql-10: DNE

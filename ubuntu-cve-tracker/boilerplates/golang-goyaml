@@ -30,7 +30,7 @@ trusty_golang-yaml.v2: ignored (out of standard support)
 trusty/esm_golang-yaml.v2: DNE
 xenial_golang-yaml.v2: ignored (end of standard support)
 esm-infra/xenial_golang-yaml.v2: needs-triage
-bionic_golang-yaml.v2: needs-triage
+bionic_golang-yaml.v2: ignored (end of standard support)
 focal_golang-yaml.v2: needs-triage
 jammy_golang-yaml.v2: needs-triage
 kinetic_golang-yaml.v2: needs-triage
@@ -56,7 +56,8 @@ trusty_snapd: DNE
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage
-bionic_snapd: needs-triage
+bionic_snapd: ignored (end of standard support)
+esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage

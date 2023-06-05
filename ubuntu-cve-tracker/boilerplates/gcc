@@ -17,7 +17,7 @@ upstream_gcc-3.3: needs-triage
 trusty_gcc-3.3: ignored (out of standard support)
 trusty/esm_gcc-3.3: needs-triage
 xenial_gcc-3.3: ignored (end of standard support)
-bionic_gcc-3.3: needs-triage
+bionic_gcc-3.3: ignored (end of standard support)
 focal_gcc-3.3: needs-triage
 jammy_gcc-3.3: needs-triage
 kinetic_gcc-3.3: needs-triage
@@ -65,7 +65,7 @@ upstream_gcc-4.8: needs-triage
 trusty_gcc-4.8: ignored (out of standard support)
 trusty/esm_gcc-4.8: needs-triage
 xenial_gcc-4.8: ignored (end of standard support)
-bionic_gcc-4.8: needs-triage
+bionic_gcc-4.8: ignored (end of standard support)
 focal_gcc-4.8: DNE
 jammy_gcc-4.8: DNE
 kinetic_gcc-4.8: DNE
@@ -90,7 +90,7 @@ trusty_gcc-5: DNE
 trusty/esm_gcc-5: DNE
 xenial_gcc-5: ignored (end of standard support)
 esm-infra/xenial_gcc-5: needs-triage
-bionic_gcc-5: needs-triage
+bionic_gcc-5: ignored (end of standard support)
 focal_gcc-5: DNE
 jammy_gcc-5: DNE
 kinetic_gcc-5: DNE
@@ -102,7 +102,7 @@ upstream_gcc-6: needs-triage
 trusty_gcc-6: DNE
 trusty/esm_gcc-6: DNE
 xenial_gcc-6: DNE
-bionic_gcc-6: needs-triage
+bionic_gcc-6: ignored (end of standard support)
 focal_gcc-6: DNE
 jammy_gcc-6: DNE
 kinetic_gcc-6: DNE
@@ -114,7 +114,8 @@ upstream_gcc-7: needs-triage
 trusty_gcc-7: DNE
 trusty/esm_gcc-7: DNE
 xenial_gcc-7: DNE
-bionic_gcc-7: needs-triage
+bionic_gcc-7: ignored (end of standard support)
+esm-infra/bionic_gcc-7: needs-triage
 focal_gcc-7: needs-triage
 jammy_gcc-7: DNE
 kinetic_gcc-7: DNE
@@ -126,7 +127,8 @@ upstream_gcc-8: needs-triage
 trusty_gcc-8: DNE
 trusty/esm_gcc-8: DNE
 xenial_gcc-8: DNE
-bionic_gcc-8: needs-triage
+bionic_gcc-8: ignored (end of standard support)
+esm-infra/bionic_gcc-8: needs-triage
 focal_gcc-8: needs-triage
 jammy_gcc-8: DNE
 kinetic_gcc-8: DNE
@@ -175,7 +177,7 @@ trusty_gcc-5-cross: DNE
 trusty/esm_gcc-5-cross: DNE
 xenial_gcc-5-cross: ignored (end of standard support)
 esm-infra/xenial_gcc-5-cross: needs-triage
-bionic_gcc-5-cross: needs-triage
+bionic_gcc-5-cross: ignored (end of standard support)
 focal_gcc-5-cross: DNE
 jammy_gcc-5-cross: DNE
 kinetic_gcc-5-cross: DNE
@@ -187,7 +189,7 @@ upstream_gcc-6-cross: needs-triage
 trusty_gcc-6-cross: DNE
 trusty/esm_gcc-6-cross: DNE
 xenial_gcc-6-cross: DNE
-bionic_gcc-6-cross: needs-triage
+bionic_gcc-6-cross: ignored (end of standard support)
 focal_gcc-6-cross: DNE
 jammy_gcc-6-cross: DNE
 kinetic_gcc-6-cross: DNE
@@ -199,7 +201,7 @@ upstream_gcc-6-cross-ports: needs-triage
 trusty_gcc-6-cross-ports: DNE
 trusty/esm_gcc-6-cross-ports: DNE
 xenial_gcc-6-cross-ports: DNE
-bionic_gcc-6-cross-ports: needs-triage
+bionic_gcc-6-cross-ports: ignored (end of standard support)
 focal_gcc-6-cross-ports: DNE
 jammy_gcc-6-cross-ports: DNE
 kinetic_gcc-6-cross-ports: DNE
@@ -211,7 +213,8 @@ upstream_gcc-7-cross: needs-triage
 trusty_gcc-7-cross: DNE
 trusty/esm_gcc-7-cross: DNE
 xenial_gcc-7-cross: DNE
-bionic_gcc-7-cross: needs-triage
+bionic_gcc-7-cross: ignored (end of standard support)
+esm-infra/bionic_gcc-7-cross: needs-triage
 focal_gcc-7-cross: DNE
 jammy_gcc-7-cross: DNE
 kinetic_gcc-7-cross: DNE
@@ -223,7 +226,7 @@ upstream_gcc-7-cross-ports: needs-triage
 trusty_gcc-7-cross-ports: DNE
 trusty/esm_gcc-7-cross-ports: DNE
 xenial_gcc-7-cross-ports: DNE
-bionic_gcc-7-cross-ports: needs-triage
+bionic_gcc-7-cross-ports: ignored (end of standard support)
 focal_gcc-7-cross-ports: DNE
 jammy_gcc-7-cross-ports: DNE
 kinetic_gcc-7-cross-ports: DNE
@@ -235,7 +238,8 @@ upstream_gcc-8-cross: needs-triage
 trusty_gcc-8-cross: DNE
 trusty/esm_gcc-8-cross: DNE
 xenial_gcc-8-cross: DNE
-bionic_gcc-8-cross: needs-triage
+bionic_gcc-8-cross: ignored (end of standard support)
+esm-infra/bionic_gcc-8-cross: needs-triage
 focal_gcc-8-cross: needs-triage
 jammy_gcc-8-cross: DNE
 kinetic_gcc-8-cross: DNE
@@ -247,7 +251,7 @@ upstream_gcc-8-cross-ports: needs-triage
 trusty_gcc-8-cross-ports: DNE
 trusty/esm_gcc-8-cross-ports: DNE
 xenial_gcc-8-cross-ports: DNE
-bionic_gcc-8-cross-ports: needs-triage
+bionic_gcc-8-cross-ports: ignored (end of standard support)
 focal_gcc-8-cross-ports: needs-triage
 jammy_gcc-8-cross-ports: DNE
 kinetic_gcc-8-cross-ports: DNE
@@ -283,7 +287,7 @@ upstream_gcc-snapshot: needs-triage
 trusty_gcc-snapshot: ignored (out of standard support)
 trusty/esm_gcc-snapshot: DNE
 xenial_gcc-snapshot: ignored (end of standard support)
-bionic_gcc-snapshot: needs-triage
+bionic_gcc-snapshot: ignored (end of standard support)
 focal_gcc-snapshot: needs-triage
 jammy_gcc-snapshot: needs-triage
 kinetic_gcc-snapshot: needs-triage
@@ -395,7 +399,7 @@ upstream_gcc-arm-none-eabi: needs-triage
 trusty_gcc-arm-none-eabi: ignored (out of standard support)
 trusty/esm_gcc-arm-none-eabi: DNE
 xenial_gcc-arm-none-eabi: ignored (end of standard support)
-bionic_gcc-arm-none-eabi: needs-triage
+bionic_gcc-arm-none-eabi: ignored (end of standard support)
 focal_gcc-arm-none-eabi: needs-triage
 jammy_gcc-arm-none-eabi: needs-triage
 kinetic_gcc-arm-none-eabi: needs-triage
@@ -407,7 +411,7 @@ upstream_gcc-avr: needs-triage
 trusty_gcc-avr: ignored (out of standard support)
 trusty/esm_gcc-avr: DNE
 xenial_gcc-avr: ignored (end of standard support)
-bionic_gcc-avr: needs-triage
+bionic_gcc-avr: ignored (end of standard support)
 focal_gcc-avr: needs-triage
 jammy_gcc-avr: needs-triage
 kinetic_gcc-avr: needs-triage
@@ -420,7 +424,8 @@ trusty_gcc-defaults: ignored (out of standard support)
 trusty/esm_gcc-defaults: needs-triage
 xenial_gcc-defaults: ignored (end of standard support)
 esm-infra/xenial_gcc-defaults: needs-triage
-bionic_gcc-defaults: needs-triage
+bionic_gcc-defaults: ignored (end of standard support)
+esm-infra/bionic_gcc-defaults: needs-triage
 focal_gcc-defaults: needs-triage
 jammy_gcc-defaults: needs-triage
 kinetic_gcc-defaults: needs-triage
@@ -492,7 +497,7 @@ upstream_gcc-h8300-hms: needs-triage
 trusty_gcc-h8300-hms: ignored (out of standard support)
 trusty/esm_gcc-h8300-hms: DNE
 xenial_gcc-h8300-hms: ignored (end of standard support)
-bionic_gcc-h8300-hms: needs-triage
+bionic_gcc-h8300-hms: ignored (end of standard support)
 focal_gcc-h8300-hms: needs-triage
 jammy_gcc-h8300-hms: needs-triage
 kinetic_gcc-h8300-hms: needs-triage
@@ -504,7 +509,7 @@ upstream_gcc-m68hc1x: needs-triage
 trusty_gcc-m68hc1x: ignored (out of standard support)
 trusty/esm_gcc-m68hc1x: DNE
 xenial_gcc-m68hc1x: ignored (end of standard support)
-bionic_gcc-m68hc1x: needs-triage
+bionic_gcc-m68hc1x: ignored (end of standard support)
 focal_gcc-m68hc1x: needs-triage
 jammy_gcc-m68hc1x: needs-triage
 kinetic_gcc-m68hc1x: needs-triage
@@ -516,7 +521,7 @@ upstream_gcc-mingw-w64: needs-triage
 trusty_gcc-mingw-w64: ignored (out of standard support)
 trusty/esm_gcc-mingw-w64: needs-triage
 xenial_gcc-mingw-w64: ignored (end of standard support)
-bionic_gcc-mingw-w64: needs-triage
+bionic_gcc-mingw-w64: ignored (end of standard support)
 focal_gcc-mingw-w64: needs-triage
 jammy_gcc-mingw-w64: needs-triage
 kinetic_gcc-mingw-w64: needs-triage
@@ -528,7 +533,7 @@ upstream_gcc-msp430: needs-triage
 trusty_gcc-msp430: ignored (out of standard support)
 trusty/esm_gcc-msp430: DNE
 xenial_gcc-msp430: ignored (end of standard support)
-bionic_gcc-msp430: needs-triage
+bionic_gcc-msp430: ignored (end of standard support)
 focal_gcc-msp430: needs-triage
 jammy_gcc-msp430: needs-triage
 kinetic_gcc-msp430: needs-triage
@@ -540,7 +545,7 @@ upstream_gcc-opt: needs-triage
 trusty_gcc-opt: ignored (out of standard support)
 trusty/esm_gcc-opt: DNE
 xenial_gcc-opt: ignored (end of standard support)
-bionic_gcc-opt: needs-triage
+bionic_gcc-opt: ignored (end of standard support)
 focal_gcc-opt: needs-triage
 jammy_gcc-opt: needs-triage
 kinetic_gcc-opt: needs-triage
