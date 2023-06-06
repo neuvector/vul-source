@@ -39,11 +39,16 @@ pkgs = source_map.load()
 cves = glob.glob('%s/CVE-*' % cve_lib.active_dir)
 cves += glob.glob('%s/CVE-*' % cve_lib.retired_dir)
 cves += glob.glob('%s/CVE-*' % cve_lib.ignored_dir)
+cves += glob.glob('%s/*' % cve_lib.boilerplates_dir)
 if os.path.islink(cve_lib.embargoed_dir):
     cves += glob.glob('%s/CVE-*' % cve_lib.embargoed_dir)
     cves += glob.glob('%s/EMB-*' % cve_lib.embargoed_dir)
 
 for filename in cves:
+    # we don't want to edit symlinks as that will cause them to become
+    # unsymlinked
+    if os.path.islink(filename):
+        continue;
     cve = os.path.basename(filename)
     cvedir = os.path.basename(os.path.dirname(filename))
     try:

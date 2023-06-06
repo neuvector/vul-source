@@ -121,9 +121,9 @@ def _find_from_mirror(ubuntu, data_type, arch='amd64', pockets=None, releases=No
         if skip_eol_releases and rel in cve_lib.eol_releases:
             continue
         _, product, series, details = cve_lib.get_subproject_details(rel)
-        # for esm-apps and external_releases avoid loading info from packages_mirror
-        # and instead read supported.txt file only
-        if product not in [cve_lib.PRODUCT_UBUNTU, "esm-infra", "esm"]:
+        # for esm-apps/esm-infra and external_releases avoid loading info
+        # from packages_mirror and instead read supported.txt file only
+        if product not in [cve_lib.PRODUCT_UBUNTU]:
             continue
         if details is None:
             print("Failed to load details for %s" % rel)

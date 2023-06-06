@@ -1867,6 +1867,10 @@
         "description": "open-source RSS/Atom feed reader for text terminals",
         "title": "Newsbeuter"
     },
+    "nghttp2": {
+        "description": "HTTP/2 C Library and tools",
+        "title": "nghttp2"
+    },
     "nltk": {
         "description": "Natural Language Toolkit",
         "title": "NLTK"

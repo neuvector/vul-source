@@ -47,6 +47,7 @@ if opt.whole:
 pkgs = source_map.load(releases=[opt.release], skip_eol_releases=False)
 
 cves = glob.glob('%s/CVE-*' % cve_lib.active_dir)
+cves += glob.glob('%s/*' % cve_lib.boilerplates_dir)
 
 if os.path.islink('embargoed'):
     cves += glob.glob('embargoed/CVE-*')

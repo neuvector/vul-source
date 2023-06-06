@@ -36,7 +36,7 @@ jobs:
       rm -f embargoed
       mkdir embargoed
       echo "Running unit tests..."
-      pytest-3 ./scripts/test_cve_lib.py ./scripts/test_kernel_lib.py ./scripts/test_usn_lib.py ./scripts/test_publish-cves-to-website-api.py ./test/test_oval_lib_unit.py
+      pytest-3 ./scripts/test_cve_lib.py ./scripts/test_kernel_lib.py ./scripts/test_usn_lib.py ./scripts/test_source_map.py ./scripts/test_publish-cves-to-website-api.py ./test/test_oval_lib_unit.py
       # ideally we would also run ./scripts/check-cves --test here as well as it
       # is more of a unit test but it requires packages-mirror so run it as part
       # of check-syntax below
