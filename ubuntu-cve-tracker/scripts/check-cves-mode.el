@@ -74,13 +74,14 @@
     table))
 
 ;;;###autoload
-(defun check-cves-mode-next (arg)
+(defun check-cves-mode-next (arg &optional no-recenter)
   "Jump to the next CVE.
 The prefix argument ARG specifies how many CVEs to move.
-A negative argument means move backward that many keywords."
+A negative argument means move backward that many keywords.
+NO-RECENTER specifies whether to not recenter the window after moving."
   (interactive "p")
   (if (< arg 0)
-      (check-cves-mode-previous (- arg))
+      (check-cves-mode-previous (- arg) no-recenter)
     (while (and (> arg 0)
                 (not (eobp))
                 (let ((case-fold-search nil))
@@ -89,16 +90,19 @@ A negative argument means move backward that many keywords."
                   (or (re-search-forward check-cves-mode-cve-id-regexp nil t)
                       (user-error "No more matches"))))
       (goto-char (match-beginning 0))
-      (cl-decf arg))))
+      (cl-decf arg))
+    (unless no-recenter
+      (recenter))))
 
 ;;;###autoload
-(defun check-cves-mode-previous (arg)
+(defun check-cves-mode-previous (arg &optional no-recenter)
   "Jump to the previous CVE.
 The prefix argument ARG specifies how many keywords to move.
-A negative argument means move forward that many keywords."
+A negative argument means move forward that many keywords.
+NO-RECENTER specifies whether to not recenter the window after moving."
   (interactive "p")
   (if (< arg 0)
-      (check-cves-mode-next (- arg))
+      (check-cves-mode-next (- arg) no-recenter)
     (while (and (> arg 0)
                 (not (bobp))
                 (let ((case-fold-search nil)
@@ -109,7 +113,9 @@ A negative argument means move forward that many keywords."
                       (progn (goto-char start)
                              (user-error "No more matches")))))
       (goto-char (match-beginning 0))
-      (cl-decf arg))))
+      (cl-decf arg))
+    (unless no-recenter
+      (recenter))))
 
 ;;;###autoload
 (defun check-cves-mode-modify (action)
@@ -205,7 +211,7 @@ A negative argument means move forward that many keywords."
         (details nil))
     (save-excursion
       (save-excursion
-        (check-cves-mode-previous 1)
+        (check-cves-mode-previous 1 t)
         (if (re-search-forward
              (concat check-cves-mode-cve-id-regexp "\\(.*\\)$") end t)
             (setq details (match-string 2))
