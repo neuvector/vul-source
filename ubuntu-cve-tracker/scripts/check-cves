@@ -786,8 +786,10 @@ class CVEHandler(xml.sax.handler.ContentHandler):
         '''Try to find a reasonable suggestion for the user.'''
         suggestion = ""
 
+        # remove any whitespace
+        rev_text = text.strip()
         # strip out the added mailing list stuff (locate_cves.py importing)
-        rev_text = re.sub(r'^ML-Date: .* ML-Subject: ', '', text)
+        rev_text = re.sub(r'^ML-Date: .* ML-Subject: ', '', rev_text)
         rev_text = re.sub(r'^(|Re: )CVE (r|R)equest: ', '', rev_text)
 
         first_sentence = re.split(r'\. ', rev_text)[0]
@@ -800,6 +802,16 @@ class CVEHandler(xml.sax.handler.ContentHandler):
                 if marker in module:
                     module = module.split(marker)[0]
             return "%s %s for %s" % (module, match.group(2), match.group(3))
+
+        # hunt for a description of a thing written in a language
+        match = re.search(r'(.*) is a (?:.*) written in (?:.*)', first_sentence)
+        if match:
+            return match.group(1)
+
+        # hunt for a product on a platform
+        match = re.search(r'.* for (Windows|Linux|Mac OS|iOS|Android|iPhone|iPad|BlackBerry|Symbian)', first_sentence)
+        if match:
+            return match.group(0)
 
         # drop commas-extensions
         if ',' in first_sentence:
@@ -1525,6 +1537,18 @@ class CheckCVETest(unittest.TestCase):
         self.assertEqual("browserless-chrome", h.get_ignore_suggestion('''This affects all versions of package browserless-chrome. User input flowing from the workspace endpoint gets used to create a file path filePath and this is fetched and then sent back to a user. This can be escaped to fetch arbitrary files from a server.'''))
         self.assertEqual("@absolunet/kafe", h.get_ignore_suggestion('''This affects the package @absolunet/kafe before 3.2.10. It allows cause a denial of service when validating crafted invalid emails.'''))
         self.assertEqual("Magneticlab Sàrl Homepage Pop-up plugin", h.get_ignore_suggestion('''Cross-Site Request Forgery (CSRF) vulnerability in Magneticlab Sàrl Homepage Pop-up plugin <= 1.2.5 versions.'''))
+
+        # handle odd whitespace
+        self.assertEqual("PTC Vuforia Studio does not require a token.", h.get_ignore_suggestion('''
+
+
+
+
+ PTC Vuforia Studio does not require a token.
+                                                                  '''))
+        self.assertEqual("zxcvbn-ts", h.get_ignore_suggestion('''zxcvbn-ts is a password strength estimator written in typescript.'''))
+        self.assertEqual("VMware Tools for Windows", h.get_ignore_suggestion('''VMware Tools for Windows (10.x.y prior to 10.3.10, 11.x.y prior to 11.1.5) contains a denial-of-service vulnerability due to NULL pointer dereference in vm3dmp driver. Successful exploitation of this issue may allow attackers with normal user privileges to create a denial-of-service condition on the guest machine where VMware Tools is installed.'''))
+
 
 ignored_notforus_path = 'ignored/not-for-us.txt'
 if destdir != './' and destdir != '.':

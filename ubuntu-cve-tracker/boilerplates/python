@@ -122,3 +122,15 @@ jammy_python3.11: needs-triage
 kinetic_python3.11: needs-triage
 lunar_python3.11: needs-triage
 devel_python3.11: needs-triage
+
+Patches_python3.12:
+upstream_python3.12: needs-triage
+trusty_python3.12: DNE
+trusty/esm_python3.12: DNE
+xenial_python3.12: DNE
+bionic_python3.12: DNE
+focal_python3.12: DNE
+jammy_python3.12: DNE
+kinetic_python3.12: DNE
+lunar_python3.12: DNE
+devel_python3.12: needs-triage
