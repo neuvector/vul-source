@@ -1883,6 +1883,10 @@
         "description": "EventSource client for Node.js and Browser (polyfill)",
         "title": "EventSource"
     },
+    "node-fetch": {
+        "description": "A light-weight module that brings the Fetch API to Node.js",
+        "title": "Node Fetch"
+    },
     "node-hawk": {
         "description": "HTTP Holder-Of-Key Authentication Scheme",
         "title": "hawk"
