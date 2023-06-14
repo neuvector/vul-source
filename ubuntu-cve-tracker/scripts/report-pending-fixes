@@ -67,7 +67,7 @@ for name in cves:
         if opt.states:
             report += " %s %s %s %s" % (opt.pkg, rel, state, version)
             if state != 'pending':
-                report += "\n[== WARNING state %s is not pending ==]" % (state)
+                report += "\n[== WARNING state %s is not pending WARNING ==]" % (state)
 
         if opt.fixes:
             pkg = 'linux' if opt.pkg in cve_lib.kernel_srcs else opt.pkg

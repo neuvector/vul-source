@@ -812,8 +812,8 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 :title('mm: Fix TLB flush for not-first PFNMAP mappings in unmap_region()', ['local-CVE-2022-39188-fix-2'])
 
 # CVE-2021-20320
-:title('SAUCE: s390/bpf: Fix optimizing out zero-extensions', ['local-CVE-2021-20320-fix-1'])
-:title('SAUCE: s390/bpf: Fix 64-bit subtraction of the -0x80000000 constant', ['local-CVE-2021-20320-fix-2'])
+:title('UBUNTU: SAUCE: s390/bpf: Fix optimizing out zero-extensions', ['local-CVE-2021-20320-fix-1'])
+:title('UBUNTU: SAUCE: s390/bpf: Fix 64-bit subtraction of the -0x80000000 constant', ['local-CVE-2021-20320-fix-2'])
 
 # CVE-2023-0461
 :title('UBUNTU: SAUCE: Fix inet_csk_listen_start after CVE-2023-0461', ['local-CVE-2023-0461-regression-1'])

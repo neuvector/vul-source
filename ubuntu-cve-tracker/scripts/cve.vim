@@ -19,7 +19,7 @@ elseif exists("b:current_syntax")
 endif
 
 let s:supported_releases = ["devel", "upstream", "product", "snap", "focal", "jammy", "kinetic", "lunar", "mantic"]
-let s:products = ["precise/esm", "trusty/esm", "esm-infra/xenial", "esm-apps/xenial", "esm-infra/bionic", "esm-apps/bionic", "esm-apps/focal", "esm-apps/jammy", "fips", "fips-updates", "ros-esm"]
+let s:products = ["precise/esm", "trusty/esm", "esm-infra/xenial", "esm-apps/xenial", "esm-infra/bionic", "esm-apps/bionic", "esm-apps/focal", "esm-apps/jammy", "fips/xenial", "fips/bionic", "fips/focal", "fips-updates/xenial", "fips-updates/bionic", "fips-updates/focal", "ros-esm/xenial", "ros-esm/bionic"]
 let s:eol_releases = ["warty", "hoary", "breezy", "dapper", "edgy", "feisty", "gutsy", "hardy", "intrepid", "jaunty", "karmic", "lucid", "maverick", "natty", "oneiric", "precise", "quantal", "raring", "saucy", "trusty", "utopic", "vivid", "vivid/stable-phone-overlay", "vivid/ubuntu-core", "wily", "xenial", "yakkety", "zesty", "artful", "cosmic", "disco", "eoan", "groovy", "hirsute", "impish", "bionic"]
 let s:all_releases = s:supported_releases + s:eol_releases + s:products
 

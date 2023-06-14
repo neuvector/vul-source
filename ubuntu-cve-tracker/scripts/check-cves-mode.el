@@ -359,8 +359,14 @@ identifier (XXXX-YYYY) via `format'.")
            :command  "apt-file search %s"
            :downcase t
            :mode  compilation-mode)
-    (:name "codesearch-cli"
+    (:name "Debian codesearch"
            :command  "codesearch-cli -q -- \"%s\""
+           :mode codesearch-cli-mode)
+    (:name "Ubuntu package codesearch"
+           :command  "DCS_API_HOST_URI=http://10.132.59.180/api/v1 codesearch-cli -q -- \"%s\""
+           :mode codesearch-cli-mode)
+    (:name "Ubuntu kernel codesearch"
+           :command  "DCS_API_HOST_URI=http://10.132.59.17/api/v1 codesearch-cli -q -- \"%s\""
            :mode codesearch-cli-mode)
     (:name "rmadison"
            :command  "rmadison %s"
@@ -392,9 +398,16 @@ identifier (XXXX-YYYY) via `format'.")
   "Regular expression alist to match against for results from codesearch-cli.")
 
 (defun codesearch-cli-mode-bug-reference-url-format ()
-  "Format results from codesearch-cli as links to sources.debian.org."
-  (format "https://sources.debian.org/src/%s/%s/%s/"
-          (match-string 2) (match-string 3) (match-string 4)))
+  "Format results from codesearch-cli as links to sources.debian.org.
+
+We also support https://git.launchpad.net/ubuntu/+source for Ubuntu codesearch."
+   (if (save-match-data (string-match "Ubuntu" (buffer-name)))
+       (format "https://git.launchpad.net/ubuntu/+source/%s/tree/%s?h=import/%s"
+               (match-string 2) (match-string 4)
+               ;; need to replace any epoch : with % then URL encode
+               (url-hexify-string (string-replace ":" "%"(match-string 3))))
+     (format "https://sources.debian.org/src/%s/%s/%s/"
+             (match-string 2) (match-string 3) (match-string 4))))
 
 (defun codesearch-cli-mode-copy-source-packages ()
   "Get the source packages listed in the current buffer."
