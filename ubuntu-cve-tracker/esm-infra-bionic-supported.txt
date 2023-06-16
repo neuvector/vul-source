@@ -1462,6 +1462,7 @@ linux-azure-5.4
 linux-azure-edge
 linux-base
 linux-firmware
+linux-firmware-raspi2
 linux-gcp
 linux-gcp-4.15
 linux-gcp-5.3
@@ -1509,6 +1510,7 @@ linux-oracle
 linux-oracle-5.0
 linux-oracle-5.3
 linux-oracle-5.4
+linux-raspi-5.4
 linux-restricted-modules
 linux-restricted-modules-aws
 linux-restricted-modules-aws-5.0

@@ -9,9 +9,10 @@
 set -e
 
 db="$1"
+dbtype="$2"
 
 if [ -z "$db" ]; then
-    echo "Must specify a db. Eg 'database.pickle.bz2'" >&2
+    echo "Must specify a db. Eg 'database.pickle.bz2' or 'jammy-pkg-cache.bz2'" >&2
     exit 1
 fi
 
@@ -20,7 +21,14 @@ for i in "$db" "$db".sha256 ; do
     # Fetch from people, instead of usn.ubuntu.com, because the version of the
     # USN database on usn.ubuntu.com isn't updated until the Jenkins deployment
     # job is executed to redeploy the site
-    wget -N https://people.canonical.com/~ubuntu-security/usn/"$i"
+    if [ -z "$dbtype" ]  || [ "$dbtype" = "usn" ]; then
+        wget -N https://people.canonical.com/~ubuntu-security/usn/"$i"
+    elif [ "$dbtype" = "pkg-cache" ]; then
+        wget -N https://security-metadata.canonical.com/pkg-cache/"$i"
+    else
+        echo "The types of db accepted are either 'usn' or 'pkg-cache'"
+        exit 1
+    fi
 done
 
 echo "= Verifiying $i ="

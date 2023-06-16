@@ -109,9 +109,9 @@ def process_kernel_binaries(binaries, oval_format):
         version = ''.join(values)
         values = sorted(set(map(lambda x: x[1], parts)))
         flavours = '|'.join(values)
-        regex =  version + '\d+(' + flavours + ')'
+        regex = version + '\d+(' + flavours + ')'
         if oval_format == 'oci':
-            regex = 'linux-image-(?:unsigned-)?' + regex
+            regex = 'linux-image-(?:unsigned-)?' + version + '\d+(?:' + flavours + ')'
         return regex
 
     return None
@@ -457,8 +457,13 @@ class CVE:
 
     def add_pkg(self, pkg_object, release, state, note):
         cve_pkg_entry = CVEPkgRelEntry(pkg_object, release, self, state, note)
+
+        if cve_pkg_entry.status in ['not-vulnerable', 'not-applicable']:
+            return
+
         self.pkg_rel_entries[pkg_object.name] = cve_pkg_entry
         self.pkgs.append(pkg_object)
+        pkg_object.cves.append(self)
 
     def __str__(self) -> str:
         return self.number
@@ -531,9 +536,7 @@ class OvalGeneratorPkg(OvalGenerator):
         version = etree.SubElement(advisory, "current_version")
 
         for cve in package.cves:
-            if cve.pkg_rel_entries[package.name].status == 'not-vulnerable':
-                continue
-            elif self.fixed_only and cve.pkg_rel_entries[package.name].status != 'fixed':
+            if self.fixed_only and cve.pkg_rel_entries[package.name].status != 'fixed':
                 continue
             cve_obj = self._generate_cve_object(cve)
             advisory.append(cve_obj)
@@ -739,20 +742,17 @@ class OvalGeneratorPkg(OvalGenerator):
     def _add_running_kernel_checks(self, root_element):
         objects = root_element.find("objects")
         variables = root_element.find("variables")
-        states = root_element.find("states")
 
         variable_local_kernel_check = self._generate_local_variable_kernel(self.definition_id, "Kernel version in evr format", self.definition_id)
         obj_running_kernel = self._generate_uname_object_element(self.definition_id)
-        state_kernel_version = self._generate_state_kernel_element("Kernel check", self.definition_id, self.definition_id)
 
         objects.append(obj_running_kernel)
         variables.append(variable_local_kernel_check)
-        states.append(state_kernel_version)
 
     def _generate_local_variable_kernel(self, id, comment, uname_obj_id):
         var = etree.Element("local_variable",
             attrib={
-                'id' : f"{self.ns}:var:{id}",
+                'id': f"{self.ns}:var:{id}",
                 'version': "1",
                 "datatype": "debian_evr_string",
                 "comment": comment
@@ -798,20 +798,6 @@ class OvalGeneratorPkg(OvalGenerator):
 
         return object
 
-    def _generate_variable_kernel_version(self, comment, id, version):
-        var = etree.Element("constant_variable",
-            attrib={
-                'id' : f"{self.ns}:var:{id}",
-                'version': "1",
-                "datatype": "debian_evr_string",
-                "comment": comment
-            })
-
-        item = etree.SubElement(var, "value")
-        item.text = f"0:{version.rsplit('.', 1)[0]}"
-
-        return var
-
     def _generate_test_element_running_kernel(self, id, comment, obj_id):
         test = etree.Element("unix-def:uname_test", attrib={
             "id": f"{self.ns}:tst:{id}",
@@ -846,7 +832,13 @@ class OvalGeneratorPkg(OvalGenerator):
 
         return object
 
-    def _generate_state_kernel_element(self, comment, id, var_id) -> None:
+    def _generate_state_kernel_element(self, comment, id, version) -> None:
+        patched = re.search('([\d|\.]+-\d+)[\.|\d]+', version)
+        if patched:
+            patched = patched.group(1)
+        else:
+            patched = version
+
         state = etree.Element("ind-def:variable_state",
             attrib={
                 'id' : f"{self.ns}:ste:{id}",
@@ -854,13 +846,12 @@ class OvalGeneratorPkg(OvalGenerator):
                 "comment": comment
             })
 
-        etree.SubElement(state, "ind-def:value", attrib={
+        value = etree.SubElement(state, "ind-def:value", attrib={
             "datatype": "debian_evr_string",
-            "operation": "greater than",
-            "var_check": "at least one",
-            "var_ref": f"{self.ns}:var:{var_id}"
+            "operation": "less than",
         })
 
+        value.text = f"0:{patched}"
         return state
 
     def _generate_kernel_package_elements(self, package: Package, root_element, running_kernel_check_id) -> etree.Element:
@@ -884,23 +875,29 @@ class OvalGeneratorPkg(OvalGenerator):
     def _add_fixed_kernel_elements(self, cve: CVE, package: Package, package_rel_entry:CVEPkgRelEntry, root_element, running_kernel_id, fixed_versions) -> etree.Element:
         tests = root_element.find("tests")
         objects = root_element.find("objects")
-        variables = root_element.find("variables")
+        states = root_element.find("states")
 
-        comment_version = f'Kernel {package.name} version comparison ({package_rel_entry.fixed_version})'
+        comment_version = f'Kernel {package.name} version comparison'
         comment_criterion = f'({cve.number}) {package.name} {package_rel_entry.note}'
 
         if package_rel_entry.fixed_version in fixed_versions:
             criterion_version = self._generate_criterion_element(comment_criterion, fixed_versions[package_rel_entry.fixed_version])
         else:
-            criterion_version = self._generate_criterion_element(comment_criterion, self.definition_id)
-            test_kernel_version = self._generate_test_element(comment_version, self.definition_id, True, 'kernel', state_id=running_kernel_id)
+            create_state = False
 
-            obj_kernel_version = self._generate_kernel_version_object_element(self.definition_id, self.definition_id)
-            var_version_kernel = self._generate_variable_kernel_version(comment_version, self.definition_id, package_rel_entry.fixed_version)
+            if package_rel_entry.fixed_version:
+                create_state = True
+                ste_kernel_version = self._generate_state_kernel_element("Kernel check", self.definition_id, package_rel_entry.fixed_version)
+                states.append(ste_kernel_version)
+
+            obj_kernel_version = self._generate_kernel_version_object_element(self.definition_id, running_kernel_id)
+
+            test_kernel_version = self._generate_test_element(comment_version, self.definition_id, create_state, 'kernel', self.definition_id)
+
+            criterion_version = self._generate_criterion_element(comment_criterion, self.definition_id)
 
             tests.append(test_kernel_version)
             objects.append(obj_kernel_version)
-            variables.append(var_version_kernel)
 
             fixed_versions[package_rel_entry.fixed_version] = self.definition_id
 
@@ -941,17 +938,19 @@ class OvalGeneratorPkg(OvalGenerator):
         if not obj_id:
             object = self._generate_object_object(object_note, self.definition_id, self.definition_id)
 
-            binaries = package.binaries
-            if self.oval_format == 'oci':
-                if is_kernel_binaries(package.binaries):
-                    regex = process_kernel_binaries(package.binaries, 'oci')
-                    binaries = [f'^{regex}(?::\w+|)\s+(.*)$\s+(.*)']
-                else:
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)'
+            bins = package.binaries
+            if is_kernel_binaries(package.binaries):
+                regex = process_kernel_binaries(package.binaries, 'oci')
+                bins = [f'{regex}']
 
-                    binaries = []
-                    for binary in package.binaries:
-                        binaries.append(f'^{binary}{variable_values}')
+            binaries = []
+            if self.oval_format == 'oci':
+                variable_values = '(?::\w+|)\s+(.*)$'
+                for binary in bins:
+                    binaries.append(f'^{binary}{variable_values}')
+            else:
+                binaries = bins
+
             var = self._generate_var_object(object_note, self.definition_id, binaries)
         else:
             object = None
@@ -972,9 +971,9 @@ class OvalGeneratorPkg(OvalGenerator):
             if self.oval_format == 'oci':
                 if is_kernel_binaries(package.binaries):
                     regex = process_kernel_binaries(package.binaries, 'oci')
-                    binaries = [f'^{regex}(?::\w+|)\s+(.*)$\s+(.*)']
+                    binaries = [f'^{regex}(?::\w+|)\s+(.*)$']
                 else:
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)'
+                    variable_values = '(?::\w+|)\s+(.*)$'
 
                     binaries = []
                     for binary in package.binaries:
@@ -1049,18 +1048,12 @@ class OvalGeneratorPkg(OvalGenerator):
         self._increase_id(is_definition=True)
 
     def _populate_kernel_pkg(self, package, root_element, running_kernel_id):
-        tests = root_element.find("tests")
-        objects = root_element.find("objects")
-        variables = root_element.find("variables")
-
         # Add package definition
         definitions = root_element.find("definitions")
         definition_element = self._generate_definition_object(package)
 
         # Control/cache variables
-        one_time_added_id = None
         fixed_versions = {}
-        binaries_id = None
         cve_added = False
 
         # Generate one-time elements
@@ -1072,29 +1065,11 @@ class OvalGeneratorPkg(OvalGenerator):
 
         for cve in package.cves:
             pkg_rel_entry = cve.pkg_rel_entries[package.name]
-            if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
-                cve_added = True
-                if one_time_added_id:
-                    self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element, depth=3)
-                else:
-                    self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element, depth=3)
+            cve_added = True
 
-                    test, object, var = self._generate_vulnerable_elements(package, binaries_id)
-                    tests.append(test)
-                    objects.append(object)
-
-                    if not binaries_id:
-                        variables.append(var)
-                        binaries_id = self.definition_id
-
-                    one_time_added_id = self.definition_id
-                    self._increase_id(is_definition=False)
-            elif pkg_rel_entry.status == 'fixed':
-                cve_added = True
-
-                kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id, fixed_versions)
-                self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)
-                self._increase_id(is_definition=False)
+            kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id, fixed_versions)
+            self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)
+            self._increase_id(is_definition=False)
 
         if cve_added:
             definitions.append(definition_element)
@@ -1111,9 +1086,6 @@ class OvalGeneratorPkg(OvalGenerator):
             packages[package_name] = pkg_obj
 
         pkg_obj = packages[package_name]
-        if cve not in pkg_obj.cves:
-            pkg_obj.cves.append(cve)
-
         cve.add_pkg(pkg_obj, release, cve_data['pkgs'][package_name][release][0],cve_data['pkgs'][package_name][release][1])
 
     def _load_pkgs(self, cve_prefix_dir, packages_filter=None) -> None:
@@ -1262,7 +1234,7 @@ class OvalGeneratorCVE:
                             'id_base': id_base + len(test_refs),
                             'source-note': header['Source-note']
                         }
-                        if is_kernel_binaries(pkg['binaries']) and pkg['fix-version']:
+                        if is_kernel_binaries(pkg['binaries']):
                             test_ref = self.get_running_kernel_testref(pkg)
                             if test_ref:
                                 test_refs = test_refs + test_ref
@@ -1324,7 +1296,7 @@ class OvalGeneratorCVE:
                         '        <criterion test_ref="{0}" comment="{1}" {2}/>'.format(
                             test_ref['id'],
                             escape(test_ref['comment']), negation_attribute))
-                    criteria.append('  </criteria>')
+                    criteria.append('    </criteria>')
                 else:
                     negation_attribute = 'negate = "true" ' \
                         if 'negate' in test_ref and test_ref['negate'] else ''
@@ -1401,45 +1373,63 @@ class OvalGeneratorCVE:
                 </criteria>
             </definition>\n""".format(**mapping))
 
-    def get_running_kernel_testref(self, package):
-        uname_regex = process_kernel_binaries(package['binaries'], self.oval_format)
-        if uname_regex:
-            if self.oval_format == 'dpkg':
-                (var_id, var_id_2) = self.get_running_kernel_variable_id(
-                    uname_regex,
-                    package['id_base'],
-                    package['fix-version'])
-                (ste_id, ste_id_2) = self.get_running_kernel_state_id(
-                    uname_regex,
-                    package['id_base'],
-                    var_id)
-                (obj_id, obj_id_2) = self.get_running_kernel_object_id(
-                    package['id_base'], var_id_2)
-                (test_id, test_id_2) = self.get_running_kernel_test_id(
-                    uname_regex, package['id_base'], package['name'],
-                    obj_id, ste_id, obj_id_2, ste_id_2)
-                return [{'id': test_id,
-                         'comment': 'Is kernel {0} running'.format(package['name']),
-                         'kernel': uname_regex, 'var_id': var_id},
-                        {'id': test_id_2, 'comment': 'kernel version comparison',
-                         'kernelobj': True}]
-            else:  # OCI
-                object_id = self.get_package_object_id(package['name'],
-                                                       [uname_regex],
-                                                       package['id_base'])
-                state_id = self.get_package_version_state_id(package['id_base'],
-                                                             package['fix-version'])
-                test_title = "Does the '{0}' package exist and is the version less than '{1}'?".format(package['name'],
-                                                                                                       package['fix-version'])
-                test_id = self.get_package_test_id(package['name'],
-                                                   package['id_base'],
-                                                   test_title,
-                                                   object_id,
-                                                   state_id)
-                package['note'] = package['name'] + package['note']
-                return [{'id': test_id, 'comment': package['note']}]
+    # TODO: xml lib
+    def add_release_applicability_definition(self):
+        """ add platform/release applicability OVAL definition for codename """
 
-        return None
+        mapping = {
+            'ns': self.ns,
+            'id_base': self.id,
+            'codename': cve_lib.product_series(self.release)[1],
+            'release_name': self.release_name,
+        }
+        self.release_applicability_definition_id = \
+            '{ns}:def:{id_base}0'.format(**mapping)
+
+        if self.oval_format == 'dpkg':
+            self.queue_element('definition', """
+                <definition class="inventory" id="{ns}:def:{id_base}0" version="1">
+                    <metadata>
+                        <title>Check that {release_name} ({codename}) is installed.</title>
+                        <description></description>
+                    </metadata>
+                    <criteria>
+                        <criterion test_ref="{ns}:tst:{id_base}0" comment="The host is part of the unix family." />
+                        <criterion test_ref="{ns}:tst:{id_base}1" comment="The host is running Ubuntu {codename}." />
+                    </criteria>
+                </definition>\n""".format(**mapping))
+
+            self.queue_element('test', """
+                <ind-def:family_test id="{ns}:tst:{id_base}0" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host part of the unix family?">
+                    <ind-def:object object_ref="{ns}:obj:{id_base}0"/>
+                    <ind-def:state state_ref="{ns}:ste:{id_base}0"/>
+                </ind-def:family_test>
+
+                <ind-def:textfilecontent54_test id="{ns}:tst:{id_base}1" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host running Ubuntu {codename}?">
+                    <ind-def:object object_ref="{ns}:obj:{id_base}1"/>
+                    <ind-def:state state_ref="{ns}:ste:{id_base}1"/>
+                </ind-def:textfilecontent54_test>\n""".format(**mapping))
+
+            # /etc/lsb-release has to be a single path, due to some
+            # environments (namely snaps) not being allowed to list the
+            # content of /etc/
+            self.queue_element('object', """
+                <ind-def:family_object id="{ns}:obj:{id_base}0" version="1" comment="The singleton family object."/>
+
+                <ind-def:textfilecontent54_object id="{ns}:obj:{id_base}1" version="1" comment="The singleton release codename object.">
+                    <ind-def:filepath>/etc/lsb-release</ind-def:filepath>
+                    <ind-def:pattern operation="pattern match">^[\\s\\S]*DISTRIB_CODENAME=([a-z]+)$</ind-def:pattern>
+                    <ind-def:instance datatype="int">1</ind-def:instance>
+                </ind-def:textfilecontent54_object>\n""".format(**mapping))
+
+            self.queue_element('state', """
+                <ind-def:family_state id="{ns}:ste:{id_base}0" version="1" comment="The singleton family object.">
+                    <ind-def:family>unix</ind-def:family>
+                </ind-def:family_state>
+
+                <ind-def:textfilecontent54_state id="{ns}:ste:{id_base}1" version="1" comment="{release_name}">
+                    <ind-def:subexpression>{codename}</ind-def:subexpression>
+                </ind-def:textfilecontent54_state>\n""".format(**mapping))
 
     def get_oval_test_for_package(self, package):
         """ create OVAL test and dependent objects for this package status
@@ -1504,64 +1494,6 @@ class OvalGeneratorCVE:
             return {'id': self.id_unknown_test, 'comment': package['note']}
 
     # TODO: xml lib
-    def add_release_applicability_definition(self):
-        """ add platform/release applicability OVAL definition for codename """
-
-        mapping = {
-            'ns': self.ns,
-            'id_base': self.id,
-            'codename': cve_lib.product_series(self.release)[1],
-            'release_name': self.release_name,
-        }
-        self.release_applicability_definition_id = \
-            '{ns}:def:{id_base}0'.format(**mapping)
-
-        if self.oval_format == 'dpkg':
-            self.queue_element('definition', """
-                <definition class="inventory" id="{ns}:def:{id_base}0" version="1">
-                    <metadata>
-                        <title>Check that {release_name} ({codename}) is installed.</title>
-                        <description></description>
-                    </metadata>
-                    <criteria>
-                        <criterion test_ref="{ns}:tst:{id_base}0" comment="The host is part of the unix family." />
-                        <criterion test_ref="{ns}:tst:{id_base}1" comment="The host is running Ubuntu {codename}." />
-                    </criteria>
-                </definition>\n""".format(**mapping))
-
-            self.queue_element('test', """
-                <ind-def:family_test id="{ns}:tst:{id_base}0" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host part of the unix family?">
-                    <ind-def:object object_ref="{ns}:obj:{id_base}0"/>
-                    <ind-def:state state_ref="{ns}:ste:{id_base}0"/>
-                </ind-def:family_test>
-
-                <ind-def:textfilecontent54_test id="{ns}:tst:{id_base}1" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host running Ubuntu {codename}?">
-                    <ind-def:object object_ref="{ns}:obj:{id_base}1"/>
-                    <ind-def:state state_ref="{ns}:ste:{id_base}1"/>
-                </ind-def:textfilecontent54_test>\n""".format(**mapping))
-
-            # /etc/lsb-release has to be a single path, due to some
-            # environments (namely snaps) not being allowed to list the
-            # content of /etc/
-            self.queue_element('object', """
-                <ind-def:family_object id="{ns}:obj:{id_base}0" version="1" comment="The singleton family object."/>
-
-                <ind-def:textfilecontent54_object id="{ns}:obj:{id_base}1" version="1" comment="The singleton release codename object.">
-                    <ind-def:filepath>/etc/lsb-release</ind-def:filepath>
-                    <ind-def:pattern operation="pattern match">^[\\s\\S]*DISTRIB_CODENAME=([a-z]+)$</ind-def:pattern>
-                    <ind-def:instance datatype="int">1</ind-def:instance>
-                </ind-def:textfilecontent54_object>\n""".format(**mapping))
-
-            self.queue_element('state', """
-                <ind-def:family_state id="{ns}:ste:{id_base}0" version="1" comment="The singleton family object.">
-                    <ind-def:family>unix</ind-def:family>
-                </ind-def:family_state>
-
-                <ind-def:textfilecontent54_state id="{ns}:ste:{id_base}1" version="1" comment="{release_name}">
-                    <ind-def:subexpression>{codename}</ind-def:subexpression>
-                </ind-def:textfilecontent54_state>\n""".format(**mapping))
-
-    # TODO: xml lib
     def get_package_object_id(self, name, bin_pkgs, id_base, version=1):
         """ create unique object for each package and return its OVAL id """
         if not hasattr(self, 'package_objects'):
@@ -1589,10 +1521,10 @@ class OvalGeneratorCVE:
                         </linux-def:dpkginfo_object>\n""".format(object_id, version, name, variable_id))
 
                 else:
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                            <value>^'.join(bin_pkgs)
+                    variable_values = '(?::\w+|)\s+(.*)$</value>\n                            <value>^'.join(bin_pkgs)
                     self.queue_element('variable', """
                         <constant_variable id="{0}" version="{1}" datatype="string" comment="'{2}' package binaries">
-                            <value>^{3}(?::\w+|)\s+(.*)$\s+(.*)</value>
+                            <value>^{3}(?::\w+|)\s+(.*)$</value>
                         </constant_variable>\n""".format(variable_id, version, name, variable_values))
 
                     # create an object that references the variable
@@ -1613,10 +1545,10 @@ class OvalGeneratorCVE:
                         </linux-def:dpkginfo_object>\n""".format(object_id, version, name, bin_pkgs[0]))
                 else:
                     variable_id = '{0}:var:{1}0'.format(self.ns, id_base)
-                    variable_values = '(?::\w+|)\s+(.*)$\s+(.*)</value>\n                            <value>^'.join(bin_pkgs)
+                    variable_values = '(?::\w+|)\s+(.*)$</value>\n                            <value>^'.join(bin_pkgs)
                     self.queue_element('variable', """
                         <constant_variable id="{0}" version="{1}" datatype="string" comment="'{2}' package binaries">
-                            <value>^{3}(?::\w+|)\s+(.*)$\s+(.*)</value>
+                            <value>^{3}(?::\w+|)\s+(.*)$</value>
                         </constant_variable>\n""".format(variable_id, version, name, variable_values))
                     self.queue_element('object', """
                         <ind-def:textfilecontent54_object id="{0}" version="{1}" comment="The '{2}' package binary.">
@@ -1679,8 +1611,80 @@ class OvalGeneratorCVE:
 
         return self.package_tests[key]
 
+    def get_running_kernel_testref(self, package):
+        if package['status'] == 'not-applicable':
+            # if the package status is not-applicable, skip it!
+            return
+        elif package['status'] == 'not-vulnerable':
+            # if the packaget status is not-vulnerable, skip it!
+            return
+
+        testref = []
+        uname_regex = process_kernel_binaries(package['binaries'], self.oval_format)
+        if uname_regex:
+            if self.oval_format == 'dpkg':
+                var_id = self.get_running_kernel_variable_id(
+                    uname_regex,
+                    package['id_base'])
+                ste_id = self.get_running_kernel_state_id(
+                    uname_regex,
+                    package['id_base'],
+                    var_id)
+                obj_id = self.get_running_kernel_object_id(
+                    package['id_base'])
+                test_id = self.get_running_kernel_test_id(
+                    uname_regex, package['id_base'], package['name'],
+                    obj_id, ste_id)
+                testref.append({'id': test_id,
+                                'comment': 'Is kernel {0} running'.format(package['name']),
+                                'kernel': uname_regex,
+                                'var_id': var_id,
+                                }
+                               )
+
+                # even if a cve was not fixed, we should add the test and object
+                # but not the state as there won't be a fixed version to compare
+                # with
+                ste_id = None
+                if package['fix-version']:
+                    ste_id = self.get_patched_kernel_state_id(
+                        package['id_base'],
+                        package['fix-version']
+                    )
+
+                obj_id = self.get_patched_kernel_object_id(package['id_base'],
+                                                           var_id)
+                test_id = self.get_patched_kernel_test_id(
+                    package['id_base'],
+                    package['fix-version'],
+                    obj_id, ste_id
+                )
+                testref.append({'id': test_id,
+                                'comment': 'kernel version comparison',
+                                'kernelobj': True})
+            else:  # OCI
+                object_id = self.get_package_object_id(package['name'],
+                                                       [uname_regex],
+                                                       package['id_base'])
+                state_id = None
+                test_title = "Does the '{0}' package exist?".format(package['name'])
+                if package['fix-version']:
+                    state_id = self.get_package_version_state_id(package['id_base'],
+                                                                 package['fix-version'])
+                    test_title = "Does the '{0}' package exist and is the version less than '{1}'?".format(package['name'],
+                                                                                                           package['fix-version'])
+                test_id = self.get_package_test_id(package['name'],
+                                                   package['id_base'],
+                                                   test_title,
+                                                   object_id,
+                                                   state_id)
+                package['note'] = package['name'] + package['note']
+                return [{'id': test_id, 'comment': package['note']}]
+
+        return testref
+
     # TODO: xml lib
-    def get_running_kernel_object_id(self, id_base, var_id, version=1):
+    def get_running_kernel_object_id(self, id_base, version=1):
         """ creates a uname_object so we can use the value from uname -r for
             mainly two things:
             1. compare with the return uname is of the same version and flavour
@@ -1702,15 +1706,7 @@ class OvalGeneratorCVE:
 
             self.kernel_uname_obj_id = object_id
 
-        object_id_2 = '{0}:obj:{1}0'.format(self.ns, id_base + 1)
-
-        self.queue_element('object', """
-                <ind-def:variable_object id="{0}" version="{1}">
-                    <ind-def:var_ref>{2}</ind-def:var_ref>
-                </ind-def:variable_object>\n""".format(object_id_2, version, var_id))
-
-
-        return (self.kernel_uname_obj_id, object_id_2)
+        return self.kernel_uname_obj_id
 
     # TODO: xml lib
     def get_running_kernel_state_id(self, uname_regex, id_base, var_id, version=1):
@@ -1722,9 +1718,6 @@ class OvalGeneratorCVE:
         if not hasattr(self, 'uname_states'):
             self.uname_states = {}
 
-        if not hasattr(self, 'kernel_state_id'):
-            self.kernel_state_id = None
-
         if uname_regex not in self.uname_states:
             state_id = '{0}:ste:{1}0'.format(self.ns, id_base)
             self.queue_element('state', """
@@ -1734,19 +1727,10 @@ class OvalGeneratorCVE:
 
             self.uname_states[uname_regex] = state_id
 
-        if not self.kernel_state_id:
-            state_id_2 = '{0}:ste:{1}0'.format(self.ns, id_base + 1)
-            self.queue_element('state', """
-                    <ind-def:variable_state id="{0}" version="{1}">
-                        <ind-def:value operation="greater than" datatype="debian_evr_string" var_ref="{2}" var_check="at least one" />
-                    </ind-def:variable_state>\n""".format(state_id_2, version, var_id))
-
-            self.kernel_state_id = state_id_2
-
-        return (self.uname_states[uname_regex], self.kernel_state_id)
+        return self.uname_states[uname_regex]
 
     # TODO: xml lib
-    def get_running_kernel_variable_id(self, uname_regex, id_base, fixed_version, version=1):
+    def get_running_kernel_variable_id(self, uname_regex, id_base, version=1):
         """ creates a local variable to store running kernel version in devian evr string"""
         if not hasattr(self, 'uname_variables'):
             self.uname_variables = {}
@@ -1765,21 +1749,10 @@ class OvalGeneratorCVE:
 
             self.uname_variables['local_variable'] = var_id
 
-        var_id_2 = '{0}:var:{1}0'.format(self.ns, id_base + 1)
-        patched = re.search('([\d|\.]+-\d+)[\.|\d]+', fixed_version)
-        if patched:
-            patched = patched.group(1)
-        else:
-            patched = fixed_version
-        self.queue_element('variable', """
-                 <constant_variable id="{0}" version="{1}" datatype="debian_evr_string" comment="patched kernel">
-                     <value>0:{2}</value>
-                 </constant_variable>""".format(var_id_2, version, patched))
-
-        return (self.uname_variables['local_variable'], var_id_2)
+        return self.uname_variables['local_variable']
 
     # TODO: xml lib
-    def get_running_kernel_test_id(self, uname_regex, id_base, name, object_id, state_id, object_id_2, state_id_2, version=1):
+    def get_running_kernel_test_id(self, uname_regex, id_base, name, object_id, state_id, version=1):
         """ create uname test and return its OVAL id """
         if not hasattr(self, 'uname_tests'):
             self.uname_tests = {}
@@ -1794,16 +1767,94 @@ class OvalGeneratorCVE:
 
             self.uname_tests[uname_regex] = test_id
 
-        test_id_2 = '{0}:tst:{1}0'.format(self.ns, id_base + 1)
+        return self.uname_tests[uname_regex]
 
-        self.queue_element('test', """
+    def get_patched_kernel_variable_id(self, id_base, fixed_version, version=1):
+        """ creates a local variable to store the patched kernel version """
+        if not hasattr(self, 'patched_kernel_variables'):
+            self.patched_kernel_variables = {}
+
+        patched = re.search('([\d|\.]+-\d+)[\.|\d]+', fixed_version)
+        if patched:
+            patched = patched.group(1)
+        else:
+            patched = fixed_version
+
+        if patched not in self.patched_kernel_variables:
+            var_id = '{0}:var:{1}0'.format(self.ns, id_base + 1)
+
+            self.queue_element('variable', """
+                 <constant_variable id="{0}" version="{1}" datatype="debian_evr_string" comment="patched kernel">
+                     <value>0:{2}</value>
+                 </constant_variable>""".format(var_id, version, patched))
+
+            self.patched_kernel_variables[patched] = var_id
+
+        return self.patched_kernel_variables[patched]
+
+    def get_patched_kernel_object_id(self, id_base, var_id, version=1):
+        """ create variable object that points to kernel version
+            in evr format in local_variable
+        """
+
+        object_id = '{0}:obj:{1}0'.format(self.ns, id_base + 1)
+
+        self.queue_element('object', """
+                <ind-def:variable_object id="{0}" version="{1}">
+                    <ind-def:var_ref>{2}</ind-def:var_ref>
+                </ind-def:variable_object>\n""".format(object_id, version, var_id))
+
+        return object_id
+
+    # TODO: xml lib
+    def get_patched_kernel_state_id(self, id_base, fixed_version, version=1):
+        """ create state to compare to the running kernel
+            Return its OVAL id
+        """
+        if not hasattr(self, 'patched_kernel_states'):
+            self.patched_kernel_states = {}
+
+        patched = re.search('([\d|\.]+-\d+)[\.|\d]+', fixed_version)
+        if patched:
+            patched = patched.group(1)
+        else:
+            patched = fixed_version
+
+        if patched not in self.patched_kernel_states:
+            state_id = '{0}:ste:{1}0'.format(self.ns, id_base + 1)
+
+            self.queue_element('state', """
+                    <ind-def:variable_state id="{0}" version="{1}">
+                        <ind-def:value datatype="debian_evr_string" operation="less than">{2}</ind-def:value>
+                    </ind-def:variable_state>\n""".format(state_id, version, patched))
+
+            self.patched_kernel_states[patched] = state_id
+
+        return self.patched_kernel_states[patched]
+
+    def get_patched_kernel_test_id(self, id_base, fixed_version, object_id, state_id, version=1):
+        """ create patched kernel test and return its OVAL id """
+        if not hasattr(self, 'patched_kernel_tests'):
+            self.patched_kernel_tests = {}
+
+        if fixed_version not in self.patched_kernel_tests:
+            test_id = '{0}:tst:{1}0'.format(self.ns, id_base + 1)
+
+            if state_id:
+                self.queue_element('test', """
                 <ind-def:variable_test id="{0}" version="1" check="all" check_existence="all_exist" comment="kernel version comparison">
                     <ind-def:object object_ref="{1}"/>
                     <ind-def:state state_ref="{2}"/>
-                </ind-def:variable_test>\n""".format(test_id_2, object_id_2, state_id_2))
+                </ind-def:variable_test>\n""".format(test_id, object_id, state_id))
+            else:
+                self.queue_element('test', """
+                <ind-def:variable_test id="{0}" version="1" check="all" check_existence="all_exist" comment="kernel version comparison">
+                    <ind-def:object object_ref="{1}"/>
+                </ind-def:variable_test>\n""".format(test_id, object_id))
 
+            self.patched_kernel_tests[fixed_version] = test_id
 
-        return (self.uname_tests[uname_regex], test_id_2)
+        return self.patched_kernel_tests[fixed_version]
 
     def queue_element(self, element, xml):
         """ add an OVAL element to an output queue file """
@@ -2247,11 +2298,12 @@ class OvalGeneratorUSN():
         <unix:uname_object id="{ns}:obj:{id}" version="1"/>""".format(**mapping)
 
             elif 'kernelobj' in test_ref:
+                mapping['varid'] = test_ref['kernelobj']
 
                 _object = \
         """
         <ind:variable_object id="{ns}:obj:{id}" version="1">
-            <ind:var_ref>{ns}:var:{id}</ind:var_ref>
+            <ind:var_ref>{ns}:var:{varid}</ind:var_ref>
         </ind:variable_object>""".format(**mapping)
 
             elif self.pocket == "livepatch":
@@ -2309,11 +2361,14 @@ class OvalGeneratorUSN():
         </unix:uname_state>""".format(**mapping)
 
             elif 'kernelobj' in test_ref:
-                mapping['varid'] = test_ref['kernelobj']
+                binary_version = test_ref['version']
+                binary_version = re.search('([\d|\.]+-\d+)[\.|\d]+', binary_version)
+                mapping['bversion'] = "0:" + binary_version.group(1)
+
                 state = \
         """
         <ind:variable_state id="{ns}:ste:{id}" version="1">
-            <ind:value operation="greater than" datatype="debian_evr_string" var_ref="{ns}:var:{varid}" var_check="at least one" />
+            <ind:value datatype="debian_evr_string" operation="less than">{bversion}</ind:value>
         </ind:variable_state>""".format(**mapping)
 
             elif self.pocket == "livepatch":
@@ -2374,21 +2429,10 @@ class OvalGeneratorUSN():
                 </regex_capture>
             </concat>
         </local_variable>""".format(**mapping)
-
                 return variable
 
             elif 'kernelobj' in test_ref:
-                binary_version = test_ref['version']
-                binary_version = re.search('([\d|\.]+-\d+)[\.|\d]+', binary_version)
-                mapping['bversion'] = "0:" + binary_version.group(1)
-
-                variable = \
-            """
-        <constant_variable id="{ns}:var:{id}" version="1" datatype="debian_evr_string" comment="patched kernel">
-            <value>{bversion}</value>
-        </constant_variable>""".format(**mapping)
-
-                return variable
+                return
 
             else:
                 for binary in binaries_list:

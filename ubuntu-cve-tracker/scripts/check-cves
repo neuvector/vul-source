@@ -55,8 +55,7 @@ parser.add_option("--mbox", help="Process untriaged CVEs from mbox file", metava
 parser.add_option("--rhel8oval", help="Process untriaged RHEL8 CVEs", metavar="FILE")
 parser.add_option("--import-missing-debian", help="Process missing Debian CVEs", action="store_true")
 parser.add_option("--debug", help="Report debugging information", action="store_true")
-parser.add_option("--cve", help="Check only the listed comma-separated CVEs and ignore others", action="store",
-                  default="")
+parser.add_option("--cve", help="Check only the listed comma-separated CVEs and ignore others", action="store")
 parser.add_option("--mistriaged", help="Process the specified number of possible mistriaged CVEs compared to Debian\n"
                   "Implies --import-missing-debian",
                   action="store", type=int, default=0)
@@ -1601,16 +1600,17 @@ if opt.test:
 
 # if has specified to triage only specific CVEs, check these are not
 # ignored
-specific_cves = set()
-for cve in opt.cve.split(","):
-    # ignore empty CVE
-    if cve.strip() == "":
-        continue
-    # error out if is ignored
-    if cve in CVEIgnoreList:
-        print("%s already exists in UCT - please remove it then retriage." % cve)
-        sys.exit(1)
-    specific_cves.add(cve)
+if opt.cve:
+    specific_cves = set()
+    for cve in opt.cve.split(","):
+        # ignore empty CVE
+        if cve.strip() == "":
+            continue
+        # error out if is ignored
+        if cve in CVEIgnoreList:
+            print("%s already exists in UCT - please remove it then retriage." % cve)
+            sys.exit(1)
+        specific_cves.add(cve)
 
 untriaged_json = ""
 if opt.untriaged:
@@ -1753,7 +1753,7 @@ if experimental:
     handler.display_command_file_usage(fout, '# ')
 
 for cve in new_cves:
-    if len(specific_cves) > 0 and cve not in specific_cves:
+    if opt.cve and cve not in specific_cves:
         # ignore this cve
         continue
     # if this got marked as mistriaged, probablistically choose it for

@@ -1142,7 +1142,7 @@ xenial_linux-xilinx-zynqmp: DNE
 esm-infra/xenial_linux-xilinx-zynqmp: DNE
 bionic_linux-xilinx-zynqmp: DNE
 focal_linux-xilinx-zynqmp: needs-triage
-jammy_linux-xilinx-zynqmp: DNE
+jammy_linux-xilinx-zynqmp: needs-triage
 kinetic_linux-xilinx-zynqmp: DNE
 lunar_linux-xilinx-zynqmp: DNE
 devel_linux-xilinx-zynqmp: DNE
