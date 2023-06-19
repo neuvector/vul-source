@@ -887,6 +887,10 @@
         "description": "Suite of data-processing tools for Java",
         "title": "Jackson"
     },
+    "libjettison-java": {
+        "description": "A Java library for converting XML to JSON and vice-versa",
+        "title": "Jettison"
+    },
     "libjpeg-turbo": {
         "description": "library for handling JPEG files",
         "title": "libjpeg-turbo"
