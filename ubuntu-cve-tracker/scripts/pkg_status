@@ -11,6 +11,9 @@
 set -e
 set -o pipefail
 
+# finding ubuntu-cve-tracker
+UCT_DIR="$( dirname $( dirname "${BASH_SOURCE[0]}" ))"
+
 #
 # Usage:
 # ./scripts/pkg_status pkgname1 pkgname2 ...
@@ -54,10 +57,10 @@ for p in "$@"; do
 	pkgs="${pkgs} -p ${p}"
 done
 if [ "$showfull" = "yes" ]; then
-	CVES=$(./scripts/ubuntu-table $only_release $skip_esm $subproject $assigned $released_info --supported $nvd $pkgs 2>/dev/null | sort -k 2 | grep -v '^ ' | awk '{print $1}')
-	echo "$CVES" | xargs ./scripts/cve_status -f
+	CVES=$(${UCT_DIR}/scripts/ubuntu-table $only_release $skip_esm $subproject $assigned $released_info --supported $nvd $pkgs 2>/dev/null | sort -k 2 | grep -v '^ ' | awk '{print $1}')
+	echo "$CVES" | xargs ${UCT_DIR}/scripts/cve_status -f
 else
-	REPORT=$(./scripts/ubuntu-table $only_release $skip_esm $subproject $assigned $released_info --supported $nvd $pkgs 2>/dev/null)
+	REPORT=$(${UCT_DIR}/scripts/ubuntu-table $only_release $skip_esm $subproject $assigned $released_info --supported $nvd $pkgs 2>/dev/null)
 	if [ -n "$REPORT" ]; then
 		echo "$REPORT" | head -n1
 		echo "$REPORT" | tail -n +2 | sort -n

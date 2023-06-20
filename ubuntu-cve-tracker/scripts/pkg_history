@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Author: Jamie Strandboge <jamie@ubuntu.com>
 # Copyright (C) 2013 Canonical Ltd.
@@ -8,6 +8,9 @@
 # for details.
 
 set -e
+
+# finding ubuntu-cve-tracker
+UCT_DIR="$( dirname $( dirname "${BASH_SOURCE[0]}" ))"
 
 showfull="no"
 release=
@@ -59,17 +62,19 @@ for pkg in "$@"; do
     	dirs="active"
     fi
     for d in ${dirs} ; do
-        for cve in `grep "$pattern" ./$d/CVE-* | \
+        for cve in `grep "$pattern" "${UCT_DIR}/${d}/CVE-"* | \
             cut -d ':' -f 1 | \
-            cut -d '/' -f 3 | \
+            rev | \
+            cut -d '/' -f 1 | \
+            rev | \
             sort -u` ; do
             if [ "$showfull" = "yes" ]; then
                 echo ""
-                cat "./$d/$cve"
+                cat "${UCT_DIR}/$d/$cve"
                 echo ""
             else
                 if [ "$showstatus" = "yes" ]; then
-                    status=$(grep "^$pattern" "./${d}/${cve}" | cut -d ':' -f 2-)
+                    status=$(grep "^$pattern" "${UCT_DIR}/${d}/${cve}" | cut -d ':' -f 2-)
                     echo "${cve}${status}"
                 else
                     echo "$cve"
