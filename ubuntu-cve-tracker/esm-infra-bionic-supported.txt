@@ -1504,7 +1504,6 @@ linux-meta-oracle
 linux-meta-oracle-5.0
 linux-meta-oracle-5.3
 linux-meta-oracle-5.4
-linux-meta-snapdragon
 linux-oem
 linux-oracle
 linux-oracle-5.0
@@ -1564,7 +1563,6 @@ linux-signed-oracle
 linux-signed-oracle-5.0
 linux-signed-oracle-5.3
 linux-signed-oracle-5.4
-linux-snapdragon
 lirc
 live-build
 live-installer

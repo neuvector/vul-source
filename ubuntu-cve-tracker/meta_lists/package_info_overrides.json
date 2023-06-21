@@ -2271,6 +2271,10 @@
         "description": "A collection of various utility classes to ease working with strings, files, command lines, XML and more",
         "title": "Plexus Common utilities"
     },
+    "pngcheck": {
+        "description": "Verifies the integrity of PNG, JNG and MNG files",
+        "title": "pngcheck"
+    },
     "poppler": {
         "description": "PDF rendering library",
         "title": "poppler"
