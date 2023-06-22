@@ -114,6 +114,7 @@ def post_single_cve(cve_filename):
 
         for codename in cve_lib.releases + ["upstream"]:
             status = None
+            pocket = "security"
 
             # Set the public release first
             if codename in cve_data["pkgs"][pkg]:
@@ -121,12 +122,19 @@ def post_single_cve(cve_filename):
 
             if status and status[0] != "released" and codename in cve_lib.get_active_releases_with_esm():
                 # Check for possible product statuses
-                for release in [codename + "/esm", "esm-infra/" + codename,
-                        "esm-apps/" + codename, "ros-esm/" + codename, codename]:
+                for release in [
+                        codename + "/esm",
+                        "esm-infra/" + codename,
+                        "esm-apps/" + codename,
+                        "ros-esm/" + codename,
+                        codename]:
                     if release in cve_data["pkgs"][pkg]:
                         esm_status = cve_data["pkgs"][pkg][release]
                         # Use the ESM status if there is an ESM release or release is EOL
                         if esm_status[0] == "released" or codename in cve_lib.eol_releases:
+                            if esm_status[0] == "released" and "esm" in release:
+                                pocket = "esm-infra" if codename == "trusty" \
+                                        else release.split("/")[0]
                             status = esm_status
                             break
 
@@ -136,6 +144,7 @@ def post_single_cve(cve_filename):
                         "release_codename": codename,
                         "status": status[0],
                         "description": status[1],
+                        "pocket": pocket,
                     }
                 )
         package = {

@@ -18,6 +18,8 @@ CVSS:
 
 Patches_package:
 upstream_package: needs-triage
+trusty_package: needs-triage
+trusty/esm_package: released (1.0.0~esm1)
 focal_package: needs-triage
 esm-apps/focal_package: released (1.2.3~esm1)
 jammy_package: needed
