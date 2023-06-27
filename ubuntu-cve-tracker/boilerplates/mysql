@@ -15,7 +15,7 @@ CVSS:
 
 Patches_mysql-5.5:
 upstream_mysql-5.5: needs-triage
-trusty_mysql-5.5: ignored (out of standard support)
+trusty_mysql-5.5: ignored (end of standard support)
 trusty/esm_mysql-5.5: ignored
 vivid_mysql-5.5: DNE
 xenial_mysql-5.5: DNE
@@ -28,7 +28,7 @@ devel_mysql-5.5: DNE
 
 Patches_mysql-5.6:
 upstream_mysql-5.6: needs-triage
-trusty_mysql-5.6: ignored (out of standard support)
+trusty_mysql-5.6: ignored (end of standard support)
 trusty/esm_mysql-5.6: DNE
 xenial_mysql-5.6: DNE
 bionic_mysql-5.6: DNE
@@ -66,7 +66,7 @@ devel_mysql-8.0: needs-triage
 
 Patches_mariadb-5.5:
 upstream_mariadb-5.5: needs-triage
-trusty_mariadb-5.5: ignored (out of standard support)
+trusty_mariadb-5.5: ignored (end of standard support)
 trusty/esm_mariadb-5.5: DNE
 xenial_mariadb-5.5: DNE
 bionic_mariadb-5.5: DNE
@@ -126,7 +126,7 @@ devel_mariadb-10.6: needs-triage
 
 Patches_percona-xtradb-cluster-5.5:
 upstream_percona-xtradb-cluster-5.5: needs-triage
-trusty_percona-xtradb-cluster-5.5: ignored (out of standard support)
+trusty_percona-xtradb-cluster-5.5: ignored (end of standard support)
 trusty/esm_percona-xtradb-cluster-5.5: DNE
 xenial_percona-xtradb-cluster-5.5: DNE
 bionic_percona-xtradb-cluster-5.5: DNE

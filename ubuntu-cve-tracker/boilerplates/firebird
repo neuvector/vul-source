@@ -13,7 +13,7 @@ CVSS:
 
 Patches_firebird2.5:
 upstream_firebird2.5: needs-triage
-trusty_firebird2.5: ignored (out of standard support)
+trusty_firebird2.5: ignored (end of standard support)
 trusty/esm_firebird2.5: needs-triage
 xenial_firebird2.5: ignored (end of standard support)
 bionic_firebird2.5: DNE

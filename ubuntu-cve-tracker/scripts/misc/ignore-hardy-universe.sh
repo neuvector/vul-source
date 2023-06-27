@@ -6,7 +6,7 @@
 # - needed or needs-triage
 # - low priority (by) default
 #
-# Then use mass-cve-edit to mark them 'ignored (reached end-of-life)'
+# Then use mass-cve-edit to mark them 'ignored (end of life)'
 #
 # It would be nice if this was less of a hack and checked Assigned, so it
 # could be used without worry.
@@ -76,5 +76,5 @@ cat "$infile" | while read cve pkg ; do
     #fi
 
     #echo "CVE: $cve, PKG: $pkg, status: $hardy_status, priority=$priority, hardy_priority=$hardy_priority, pkg_priority=$pkg_priority"
-    ./scripts/mass-cve-edit -r hardy -p $pkg -s 'ignored (reached end-of-life)' $cve
+    ./scripts/mass-cve-edit -r hardy -p $pkg -s 'ignored (end of life)' $cve
 done

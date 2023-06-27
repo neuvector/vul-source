@@ -14,7 +14,7 @@ CVSS:
 
 Patches_libtirpc:
 upstream_libtirpc: needs-triage
-trusty_libtirpc: ignored (out of standard support)
+trusty_libtirpc: ignored (end of standard support)
 trusty/esm_libtirpc: needs-triage
 xenial_libtirpc: ignored (end of standard support)
 esm-infra/xenial_libtirpc: needs-triage
@@ -28,7 +28,7 @@ devel_libtirpc: needs-triage
 
 Patches_ntirpc:
 upstream_ntirpc: needs-triage
-trusty_ntirpc: ignored (out of standard support)
+trusty_ntirpc: ignored (end of standard support)
 trusty/esm_ntirpc: DNE
 xenial_ntirpc: ignored (end of standard support)
 bionic_ntirpc: ignored (end of standard support)

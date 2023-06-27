@@ -13,7 +13,7 @@ CVSS:
 
 Patches_lzma:
 upstream_lzma: needs-triage
-trusty_lzma: ignored (out of standard support)
+trusty_lzma: ignored (end of standard support)
 trusty/esm_lzma: DNE
 xenial_lzma: ignored (end of standard support)
 esm-infra/xenial_lzma: needs-triage
@@ -38,7 +38,7 @@ devel_uefitool: needs-triage
 
 Patches_edk2:
 upstream_edk2: needs-triage
-trusty_edk2: ignored (out of standard support)
+trusty_edk2: ignored (end of standard support)
 trusty/esm_edk2: DNE
 xenial_edk2: ignored (end of standard support)
 bionic_edk2: ignored (end of standard support)
@@ -50,7 +50,7 @@ devel_edk2: needs-triage
 
 Patches_virtualbox:
 upstream_virtualbox: needs-triage
-trusty_virtualbox: ignored (out of standard support)
+trusty_virtualbox: ignored (end of standard support)
 trusty/esm_virtualbox: DNE
 xenial_virtualbox: ignored (end of standard support)
 bionic_virtualbox: ignored (end of standard support)
@@ -74,7 +74,7 @@ devel_virtualbox-hwe: needs-triage
 
 Patches_virtualbox-lts-vivid:
 upstream_virtualbox-lts-vivid: needs-triage
-trusty_virtualbox-lts-vivid: ignored (out of standard support)
+trusty_virtualbox-lts-vivid: ignored (end of standard support)
 trusty/esm_virtualbox-lts-vivid: DNE
 xenial_virtualbox-lts-vivid: DNE
 bionic_virtualbox-lts-vivid: DNE
@@ -86,7 +86,7 @@ devel_virtualbox-lts-vivid: DNE
 
 Patches_virtualbox-lts-wily:
 upstream_virtualbox-lts-wily: needs-triage
-trusty_virtualbox-lts-wily: ignored (out of standard support)
+trusty_virtualbox-lts-wily: ignored (end of standard support)
 trusty/esm_virtualbox-lts-wily: DNE
 xenial_virtualbox-lts-wily: DNE
 bionic_virtualbox-lts-wily: DNE
@@ -98,7 +98,7 @@ devel_virtualbox-lts-wily: DNE
 
 Patches_virtualbox-lts-xenial:
 upstream_virtualbox-lts-xenial: needs-triage
-trusty_virtualbox-lts-xenial: ignored (out of standard support)
+trusty_virtualbox-lts-xenial: ignored (end of standard support)
 trusty/esm_virtualbox-lts-xenial: DNE
 xenial_virtualbox-lts-xenial: DNE
 bionic_virtualbox-lts-xenial: DNE

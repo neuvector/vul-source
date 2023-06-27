@@ -15,7 +15,7 @@ CVSS:
 
 Patches_oath-toolkit:
 upstream_oath-toolkit: needs-triage
-trusty_oath-toolkit: ignored (out of standard support)
+trusty_oath-toolkit: ignored (end of standard support)
 trusty/esm_oath-toolkit: DNE
 xenial_oath-toolkit: ignored (end of standard support)
 bionic_oath-toolkit: ignored (end of standard support)

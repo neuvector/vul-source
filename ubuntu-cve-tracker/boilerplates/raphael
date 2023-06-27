@@ -14,7 +14,7 @@ CVSS:
 
 Patches_raphael:
 upstream_raphael: needs-triage
-trusty_raphael: ignored (out of standard support)
+trusty_raphael: ignored (end of standard support)
 trusty/esm_raphael: needs-triage
 xenial_raphael: ignored (end of standard support)
 bionic_raphael: ignored (end of standard support)
@@ -26,7 +26,7 @@ devel_raphael: needs-triage
 
 Patches_maas:
 upstream_maas: needs-triage
-trusty_maas: ignored (out of standard support)
+trusty_maas: ignored (end of standard support)
 trusty/esm_maas: DNE
 xenial_maas: ignored (end of standard support)
 esm-infra/xenial_maas: needs-triage

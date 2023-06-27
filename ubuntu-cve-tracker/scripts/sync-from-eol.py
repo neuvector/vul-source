@@ -74,7 +74,7 @@ for filename in cves:
 
             if opt.universe or opt.whole or not cve_lib.is_supported(pkgs, src, opt.release):
 
-                print('%s: %s reached end-of-standard-support (%s)' % (cve, src, opt.release))
+                print('%s: %s reached end of standard support (%s)' % (cve, src, opt.release))
 
                 if opt.update:
                     if (
@@ -93,4 +93,4 @@ for filename in cves:
                         else:
                             cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of standard support, was %s' % (status[0]))
                     else:
-                        cve_lib.update_state(filename, src, opt.release, 'ignored', 'reached end-of-life')
+                        cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of life')

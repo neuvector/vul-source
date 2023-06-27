@@ -25,7 +25,7 @@ devel_libtasn1-3: DNE
 
 Patches_libtasn1-6:
 upstream_libtasn1-6: needs-triage
-trusty_libtasn1-6: ignored (out of standard support)
+trusty_libtasn1-6: ignored (end of standard support)
 trusty/esm_libtasn1-6: needs-triage
 xenial_libtasn1-6: ignored (end of standard support)
 esm-infra/xenial_libtasn1-6: needs-triage

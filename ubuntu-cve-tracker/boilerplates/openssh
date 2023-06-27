@@ -16,9 +16,9 @@ CVSS:
 
 Patches_openssh:
 upstream_openssh: needs-triage
-trusty_openssh: ignored (out of standard support)
+trusty_openssh: ignored (end of standard support)
 trusty/esm_openssh: needs-triage
-xenial_openssh: ignored (out of standard support)
+xenial_openssh: ignored (end of standard support)
 esm-infra/xenial_openssh: needs-triage
 fips/xenial_openssh: needs-triage
 fips-updates/xenial_openssh: needs-triage

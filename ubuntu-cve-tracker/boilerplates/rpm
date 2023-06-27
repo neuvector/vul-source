@@ -16,7 +16,7 @@ CVSS:
 
 Patches_rpm:
 upstream_rpm: needs-triage
-trusty_rpm: ignored (reached end of life)
+trusty_rpm: ignored (end of standard support)
 trusty/esm_rpm: needs-triage
 xenial_rpm: ignored (end of standard support)
 bionic_rpm: ignored (end of standard support)

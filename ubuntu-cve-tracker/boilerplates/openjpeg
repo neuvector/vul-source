@@ -1,1 +1,98 @@
-openjpeg2
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS: 
+
+Patches_openjpeg2:
+upstream_openjpeg2: needs-triage
+trusty_openjpeg2: DNE
+trusty/esm_openjpeg2: DNE
+xenial_openjpeg2: ignored (end of standard support)
+bionic_openjpeg2: ignored (end of standard support)
+focal_openjpeg2: needs-triage
+jammy_openjpeg2: needs-triage
+kinetic_openjpeg2: needs-triage
+lunar_openjpeg2: needs-triage
+devel_openjpeg2: needs-triage
+
+Patches_insighttoolkit4:
+upstream_insighttoolkit4: needs-triage
+trusty_insighttoolkit4: ignored (end of standard support)
+trusty/esm_insighttoolkit4: DNE
+xenial_insighttoolkit4: ignored (end of standard support)
+bionic_insighttoolkit4: ignored (end of standard support)
+focal_insighttoolkit4: needs-triage
+jammy_insighttoolkit4: needs-triage
+kinetic_insighttoolkit4: needs-triage
+lunar_insighttoolkit4: needs-triage
+devel_insighttoolkit4: needs-triage
+
+Patches_qtwebengine-opensource-src:
+upstream_qtwebengine-opensource-src: needs-triage
+trusty_qtwebengine-opensource-src: DNE
+trusty/esm_qtwebengine-opensource-src: DNE
+xenial_qtwebengine-opensource-src: DNE
+bionic_qtwebengine-opensource-src: ignored (end of standard support)
+focal_qtwebengine-opensource-src: needs-triage
+jammy_qtwebengine-opensource-src: needs-triage
+kinetic_qtwebengine-opensource-src: needs-triage
+lunar_qtwebengine-opensource-src: needs-triage
+devel_qtwebengine-opensource-src: needs-triage
+
+Patches_blender:
+upstream_blender: needs-triage
+trusty_blender: ignored (end of standard support)
+trusty/esm_blender: DNE
+xenial_blender: ignored (end of standard support)
+bionic_blender: ignored (end of standard support)
+focal_blender: needs-triage
+jammy_blender: needs-triage
+kinetic_blender: needs-triage
+lunar_blender: needs-triage
+devel_blender: needs-triage
+
+Patches_texmaker:
+upstream_texmaker: needs-triage
+trusty_texmaker: ignored (end of standard support)
+trusty/esm_texmaker: DNE
+xenial_texmaker: ignored (end of standard support)
+bionic_texmaker: ignored (end of standard support)
+focal_texmaker: needs-triage
+jammy_texmaker: needs-triage
+kinetic_texmaker: needs-triage
+lunar_texmaker: needs-triage
+devel_texmaker: needs-triage
+
+Patches_ghostscript:
+upstream_ghostscript: needs-triage
+trusty_ghostscript: ignored (end of standard support)
+trusty/esm_ghostscript: DNE
+xenial_ghostscript: ignored (end of standard support)
+esm-infra/xenial_ghostscript: needs-triage
+bionic_ghostscript: ignored (end of standard support)
+esm-infra/bionic_ghostscript: needs-triage
+focal_ghostscript: not-affected (uses system openjpeg2)
+jammy_ghostscript: not-affected (uses system openjpeg2)
+kinetic_ghostscript: not-affected (uses system openjpeg2)
+lunar_ghostscript: not-affected (uses system openjpeg2)
+devel_ghostscript: not-affected (uses system openjpeg2)
+
+Patches_openjpeg:
+upstream_openjpeg: needs-triage
+trusty_openjpeg: ignored (end of standard support)
+trusty/esm_openjpeg: needs-triage
+xenial_openjpeg: ignored (end of standard support)
+bionic_openjpeg: DNE
+focal_openjpeg: DNE
+jammy_openjpeg: DNE
+kinetic_openjpeg: DNE
+lunar_openjpeg: DNE
+devel_openjpeg: DNE

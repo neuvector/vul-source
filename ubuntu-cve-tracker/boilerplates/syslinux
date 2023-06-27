@@ -13,7 +13,7 @@ CVSS:
 
 Patches_syslinux:
 upstream_syslinux: needs-triage
-trusty_syslinux: ignored (out of standard support)
+trusty_syslinux: ignored (end of standard support)
 trusty/esm_syslinux: needs-triage
 xenial_syslinux: ignored (end of standard support)
 esm-infra/xenial_syslinux: needs-triage
@@ -27,7 +27,7 @@ devel_syslinux: needs-triage
 
 Patches_syslinux-legacy:
 upstream_syslinux-legacy: needs-triage
-trusty_syslinux-legacy: ignored (out of standard support)
+trusty_syslinux-legacy: ignored (end of standard support)
 trusty/esm_syslinux-legacy: DNE
 xenial_syslinux-legacy: ignored (end of standard support)
 esm-infra/xenial_syslinux-legacy: needs-triage

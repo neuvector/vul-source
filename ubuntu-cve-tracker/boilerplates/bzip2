@@ -15,7 +15,7 @@ CVSS:
 
 Patches_bzip2:
 upstream_bzip2: needs-triage
-trusty_bzip2: ignored (out of standard support)
+trusty_bzip2: ignored (end of standard support)
 trusty/esm_bzip2: needs-triage
 xenial_bzip2: ignored (end of standard support)
 esm-infra/xenial_bzip2: needs-triage
@@ -29,9 +29,9 @@ devel_bzip2: needs-triage
 
 Patches_clamav:
 upstream_clamav: needs-triage
-trusty_clamav: ignored (out of standard support)
+trusty_clamav: ignored (end of standard support)
 trusty/esm_clamav: needs-triage
-xenial_clamav: ignored (out of standard support)
+xenial_clamav: ignored (end of standard support)
 esm-infra/xenial_clamav: needed
 bionic_clamav: ignored (end of standard support)
 esm-infra/bionic_clamav: needs-triage

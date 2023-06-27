@@ -64,15 +64,15 @@ if opt.all and len(args) > 0:
     print("ERROR: do not specify packages with --all", file=sys.stderr)
     sys.exit(1)
 
-pmap = source_map.load(data_type='packages')
-releases = cve_lib.releases
-
-for eol in cve_lib.eol_releases:
-    if eol in releases:
-        releases.remove(eol)
 
 if opt.release:
     releases = [opt.release]
+else:
+    releases = set(cve_lib.releases) - set(cve_lib.eol_releases)
+    releases.update(cve_lib.get_active_esm_releases())
+    releases.update(cve_lib.get_active_releases_with_esm())
+
+pmap = source_map.load(releases=releases, skip_eol_releases=False, data_type='packages')
 
 built_using = source_map.load_built_using_collection(pmap,
                                                      releases=releases,

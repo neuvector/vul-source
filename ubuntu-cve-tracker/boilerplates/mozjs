@@ -13,7 +13,7 @@ CVSS:
 
 Patches_mozjs:
 upstream_mozjs: needs-triage
-trusty_mozjs: ignored (out of standard support)
+trusty_mozjs: ignored (end of standard support)
 trusty/esm_mozjs: DNE
 xenial_mozjs: ignored (end of standard support)
 bionic_mozjs: DNE
@@ -25,7 +25,7 @@ devel_mozjs: DNE
 
 Patches_mozjs17:
 upstream_mozjs17: needs-triage
-trusty_mozjs17: ignored (out of standard support)
+trusty_mozjs17: ignored (end of standard support)
 trusty/esm_mozjs17: DNE
 xenial_mozjs17: DNE
 bionic_mozjs17: DNE
@@ -37,7 +37,7 @@ devel_mozjs17: DNE
 
 Patches_mozjs24:
 upstream_mozjs24: needs-triage
-trusty_mozjs24: ignored (out of standard support)
+trusty_mozjs24: ignored (end of standard support)
 trusty/esm_mozjs24: DNE
 xenial_mozjs24: ignored (end of standard support)
 bionic_mozjs24: DNE

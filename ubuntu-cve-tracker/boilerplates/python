@@ -13,7 +13,7 @@ CVSS:
 
 Patches_python2.7:
 upstream_python2.7: needs-triage
-trusty_python2.7: ignored (out of standard support)
+trusty_python2.7: ignored (end of standard support)
 trusty/esm_python2.7: needs-triage
 xenial_python2.7: ignored (end of standard support)
 esm-infra/xenial_python2.7: needs-triage
@@ -27,7 +27,7 @@ devel_python2.7: DNE
 
 Patches_python3.4:
 upstream_python3.4: needs-triage
-trusty_python3.4: ignored (out of standard support)
+trusty_python3.4: ignored (end of standard support)
 trusty/esm_python3.4: needs-triage
 xenial_python3.4: DNE
 bionic_python3.4: DNE
@@ -39,7 +39,7 @@ devel_python3.4: DNE
 
 Patches_python3.5:
 upstream_python3.5: needs-triage
-trusty_python3.5: ignored (out of standard support)
+trusty_python3.5: ignored (end of standard support)
 trusty/esm_python3.5: needs-triage
 xenial_python3.5: ignored (end of standard support)
 esm-infra/xenial_python3.5: needs-triage

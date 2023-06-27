@@ -13,7 +13,7 @@ CVSS:
 
 Patches_drupal7:
 upstream_drupal7: needs-triage
-trusty_drupal7: ignored (out of standard support)
+trusty_drupal7: ignored (end of standard support)
 trusty/esm_drupal7: needs-triage
 xenial_drupal7: ignored (end of standard support)
 bionic_drupal7: DNE

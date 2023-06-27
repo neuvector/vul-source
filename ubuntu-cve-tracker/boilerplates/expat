@@ -25,7 +25,7 @@ CVSS:
 
 Patches_expat:
 upstream_expat: needs-triage
-trusty_expat: ignored (out of standard support)
+trusty_expat: ignored (end of standard support)
 trusty/esm_expat: needs-triage
 xenial_expat: ignored (end of standard support)
 esm-infra/xenial_expat: needs-triage
@@ -39,7 +39,7 @@ devel_expat: needs-triage
 
 Patches_apache2:
 upstream_apache2: needs-triage
-trusty_apache2: ignored (out of standard support)
+trusty_apache2: ignored (end of standard support)
 trusty/esm_apache2: not-affected (uses system expat)
 xenial_apache2: not-affected (uses system expat)
 esm-infra/xenial_apache2: not-affected (uses system expat)
@@ -53,7 +53,7 @@ devel_apache2: not-affected (uses system expat)
 
 Patches_apr-util:
 upstream_apr-util: needs-triage
-trusty_apr-util: ignored (out of standard support)
+trusty_apr-util: ignored (end of standard support)
 trusty/esm_apr-util: not-affected (uses system expat)
 xenial_apr-util: not-affected (uses system expat)
 esm-infra/xenial_apr-util: not-affected (uses system expat)
@@ -67,7 +67,7 @@ devel_apr-util: not-affected (uses system expat)
 
 Patches_cmake:
 upstream_cmake: needs-triage
-trusty_cmake: ignored (out of standard support)
+trusty_cmake: ignored (end of standard support)
 trusty/esm_cmake: DNE
 xenial_cmake: not-affected (uses system expat)
 esm-infra/xenial_cmake: not-affected (uses system expat)
@@ -81,7 +81,7 @@ devel_cmake: not-affected (uses system expat)
 
 Patches_ghostscript:
 upstream_ghostscript: needs-triage
-trusty_ghostscript: ignored (out of standard support)
+trusty_ghostscript: ignored (end of standard support)
 trusty/esm_ghostscript: DNE
 xenial_ghostscript: not-affected (uses system expat)
 esm-infra/xenial_ghostscript: not-affected (uses system expat)
@@ -95,7 +95,7 @@ devel_ghostscript: not-affected (uses system expat)
 
 Patches_texlive-bin:
 upstream_texlive-bin: needs-triage
-trusty_texlive-bin: ignored (out of standard support)
+trusty_texlive-bin: ignored (end of standard support)
 trusty/esm_texlive-bin: DNE
 xenial_texlive-bin: not-affected (code-not-compiled)
 esm-infra/xenial_texlive-bin: not-affected (code-not-compiled)
@@ -109,7 +109,7 @@ devel_texlive-bin: not-affected (code-not-compiled)
 
 Patches_xmlrpc-c:
 upstream_xmlrpc-c: needs-triage
-trusty_xmlrpc-c: ignored (out of standard support)
+trusty_xmlrpc-c: ignored (end of standard support)
 trusty/esm_xmlrpc-c: needs-triage
 xenial_xmlrpc-c: ignored (end of standard support)
 bionic_xmlrpc-c: ignored (end of standard support)
@@ -121,7 +121,7 @@ devel_xmlrpc-c: needs-triage
 
 Patches_vnc4:
 upstream_vnc4: needs-triage
-trusty_vnc4: ignored (out of standard support)
+trusty_vnc4: ignored (end of standard support)
 trusty/esm_vnc4: needs-triage
 xenial_vnc4: ignored (end of standard support)
 bionic_vnc4: ignored (end of standard support)
@@ -133,7 +133,7 @@ devel_vnc4: DNE
 
 Patches_wbxml2:
 upstream_wbxml2: needs-triage
-trusty_wbxml2: ignored (out of standard support)
+trusty_wbxml2: ignored (end of standard support)
 trusty/esm_wbxml2: DNE
 xenial_wbxml2: ignored (end of standard support)
 bionic_wbxml2: ignored (end of standard support)
@@ -145,7 +145,7 @@ devel_wbxml2: needs-triage
 
 Patches_swish-e:
 upstream_swish-e: needs-triage
-trusty_swish-e: ignored (out of standard support)
+trusty_swish-e: ignored (end of standard support)
 trusty/esm_swish-e: DNE
 xenial_swish-e: ignored (end of standard support)
 bionic_swish-e: ignored (end of standard support)
@@ -157,7 +157,7 @@ devel_swish-e: needs-triage
 
 Patches_insighttoolkit:
 upstream_insighttoolkit: needs-triage
-trusty_insighttoolkit: ignored (out of standard support)
+trusty_insighttoolkit: ignored (end of standard support)
 trusty/esm_insighttoolkit: DNE
 xenial_insighttoolkit: ignored (end of standard support)
 bionic_insighttoolkit: DNE
@@ -169,7 +169,7 @@ devel_insighttoolkit: DNE
 
 Patches_insighttoolkit4:
 upstream_insighttoolkit4: needs-triage
-trusty_insighttoolkit4: ignored (out of standard support)
+trusty_insighttoolkit4: ignored (end of standard support)
 trusty/esm_insighttoolkit4: DNE
 xenial_insighttoolkit4: ignored (end of standard support)
 bionic_insighttoolkit4: ignored (end of standard support)
@@ -181,7 +181,7 @@ devel_insighttoolkit4: needs-triage
 
 Patches_cadaver:
 upstream_cadaver: needs-triage
-trusty_cadaver: ignored (out of standard support)
+trusty_cadaver: ignored (end of standard support)
 trusty/esm_cadaver: DNE
 xenial_cadaver: ignored (end of standard support)
 bionic_cadaver: ignored (end of standard support)
@@ -193,7 +193,7 @@ devel_cadaver: needs-triage
 
 Patches_gdcm:
 upstream_gdcm: needs-triage
-trusty_gdcm: ignored (out of standard support)
+trusty_gdcm: ignored (end of standard support)
 trusty/esm_gdcm: not-affected (uses system expat)
 xenial_gdcm: not-affected (uses system expat)
 bionic_gdcm: not-affected (uses system expat)
@@ -205,7 +205,7 @@ devel_gdcm: not-affected (uses system expat)
 
 Patches_ayttm:
 upstream_ayttm: needs-triage
-trusty_ayttm: ignored (out of standard support)
+trusty_ayttm: ignored (end of standard support)
 trusty/esm_ayttm: DNE
 xenial_ayttm: ignored (end of standard support)
 bionic_ayttm: DNE
@@ -217,7 +217,7 @@ devel_ayttm: DNE
 
 Patches_cableswig:
 upstream_cableswig: needs-triage
-trusty_cableswig: ignored (out of standard support)
+trusty_cableswig: ignored (end of standard support)
 trusty/esm_cableswig: DNE
 xenial_cableswig: ignored (end of standard support)
 bionic_cableswig: DNE
@@ -229,7 +229,7 @@ devel_cableswig: DNE
 
 Patches_coin3:
 upstream_coin3: needs-triage
-trusty_coin3: ignored (out of standard support)
+trusty_coin3: ignored (end of standard support)
 trusty/esm_coin3: needs-triage
 xenial_coin3: ignored (end of standard support)
 bionic_coin3: ignored (end of standard support)
@@ -241,7 +241,7 @@ devel_coin3: not-affected (uses system expat)
 
 Patches_matanza:
 upstream_matanza: needs-triage
-trusty_matanza: ignored (out of standard support)
+trusty_matanza: ignored (end of standard support)
 trusty/esm_matanza: DNE
 xenial_matanza: ignored (end of standard support)
 bionic_matanza: ignored (end of standard support)
@@ -253,7 +253,7 @@ devel_matanza: needs-triage
 
 Patches_tdom:
 upstream_tdom: needs-triage
-trusty_tdom: ignored (out of standard support)
+trusty_tdom: ignored (end of standard support)
 trusty/esm_tdom: DNE
 xenial_tdom: ignored (end of standard support)
 bionic_tdom: ignored (end of standard support)
@@ -265,7 +265,7 @@ devel_tdom: needs-triage
 
 Patches_vtk:
 upstream_vtk: needs-triage
-trusty_vtk: ignored (out of standard support)
+trusty_vtk: ignored (end of standard support)
 trusty/esm_vtk: needs-triage
 xenial_vtk: ignored (end of standard support)
 bionic_vtk: DNE
@@ -277,7 +277,7 @@ devel_vtk: DNE
 
 Patches_smart:
 upstream_smart: needs-triage
-trusty_smart: ignored (out of standard support)
+trusty_smart: ignored (end of standard support)
 trusty/esm_smart: DNE
 xenial_smart: not-affected (code-not-compiled)
 bionic_smart: not-affected (code-not-compiled)
@@ -289,7 +289,7 @@ devel_smart: DNE
 
 Patches_firefox:
 upstream_firefox: needs-triage
-trusty_firefox: ignored (out of standard support)
+trusty_firefox: ignored (end of standard support)
 trusty/esm_firefox: DNE
 xenial_firefox: ignored (end of standard support)
 esm-infra/xenial_firefox: needs-triage
@@ -303,7 +303,7 @@ devel_firefox: needs-triage
 
 Patches_thunderbird:
 upstream_thunderbird: needs-triage
-trusty_thunderbird: ignored (out of standard support)
+trusty_thunderbird: ignored (end of standard support)
 trusty/esm_thunderbird: DNE
 xenial_thunderbird: ignored (end of standard support)
 esm-infra/xenial_thunderbird: needs-triage
@@ -317,7 +317,7 @@ devel_thunderbird: needs-triage
 
 Patches_libxmltok:
 upstream_libxmltok: needs-triage
-trusty_libxmltok: ignored (out of standard support)
+trusty_libxmltok: ignored (end of standard support)
 trusty/esm_libxmltok: DNE
 xenial_libxmltok: ignored (end of standard support)
 bionic_libxmltok: ignored (end of standard support)

@@ -13,7 +13,7 @@ CVSS:
  
 Patches_libmodplug:
 upstream_libmodplug: needs-triage
-trusty_libmodplug: ignored (out of standard support)
+trusty_libmodplug: ignored (end of standard support)
 trusty/esm_libmodplug: needs-triage
 xenial_libmodplug: ignored (end of standard support)
 bionic_libmodplug: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_libmodplug: needs-triage
 
 Patches_gst-plugins-bad0.10:
 upstream_gst-plugins-bad0.10: needs-triage
-trusty_gst-plugins-bad0.10: ignored (out of standard support)
+trusty_gst-plugins-bad0.10: ignored (end of standard support)
 trusty/esm_gst-plugins-bad0.10: needs-triage
 xenial_gst-plugins-bad0.10: DNE
 bionic_gst-plugins-bad0.10: DNE

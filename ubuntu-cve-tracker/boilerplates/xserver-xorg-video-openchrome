@@ -13,7 +13,7 @@ CVSS:
 
 Patches_xserver-xorg-video-openchrome:
 upstream_xserver-xorg-video-openchrome: needs-triage
-trusty_xserver-xorg-video-openchrome: ignored (out of standard support)
+trusty_xserver-xorg-video-openchrome: ignored (end of standard support)
 trusty/esm_xserver-xorg-video-openchrome: DNE
 xenial_xserver-xorg-video-openchrome: ignored (end of standard support)
 bionic_xserver-xorg-video-openchrome: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_xserver-xorg-video-openchrome: needs-triage
 
 Patches_xserver-xorg-video-openchrome-lts-utopic:
 upstream_xserver-xorg-video-openchrome-lts-utopic: needs-triage
-trusty_xserver-xorg-video-openchrome-lts-utopic: ignored (out of standard support)
+trusty_xserver-xorg-video-openchrome-lts-utopic: ignored (end of standard support)
 trusty/esm_xserver-xorg-video-openchrome-lts-utopic: DNE
 xenial_xserver-xorg-video-openchrome-lts-utopic: DNE
 bionic_xserver-xorg-video-openchrome-lts-utopic: DNE
@@ -37,7 +37,7 @@ devel_xserver-xorg-video-openchrome-lts-utopic: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-vivid:
 upstream_xserver-xorg-video-openchrome-lts-vivid: needs-triage
-trusty_xserver-xorg-video-openchrome-lts-vivid: ignored (out of standard support)
+trusty_xserver-xorg-video-openchrome-lts-vivid: ignored (end of standard support)
 trusty/esm_xserver-xorg-video-openchrome-lts-vivid: DNE
 xenial_xserver-xorg-video-openchrome-lts-vivid: DNE
 bionic_xserver-xorg-video-openchrome-lts-vivid: DNE
@@ -49,7 +49,7 @@ devel_xserver-xorg-video-openchrome-lts-vivid: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-wily:
 upstream_xserver-xorg-video-openchrome-lts-wily: needs-triage
-trusty_xserver-xorg-video-openchrome-lts-wily: ignored (out of standard support)
+trusty_xserver-xorg-video-openchrome-lts-wily: ignored (end of standard support)
 trusty/esm_xserver-xorg-video-openchrome-lts-wily: DNE
 xenial_xserver-xorg-video-openchrome-lts-wily: DNE
 bionic_xserver-xorg-video-openchrome-lts-wily: DNE
@@ -61,7 +61,7 @@ devel_xserver-xorg-video-openchrome-lts-wily: DNE
 
 Patches_xserver-xorg-video-openchrome-lts-xenial:
 upstream_xserver-xorg-video-openchrome-lts-xenial: needs-triage
-trusty_xserver-xorg-video-openchrome-lts-xenial: ignored (out of standard support)
+trusty_xserver-xorg-video-openchrome-lts-xenial: ignored (end of standard support)
 trusty/esm_xserver-xorg-video-openchrome-lts-xenial: DNE
 xenial_xserver-xorg-video-openchrome-lts-xenial: DNE
 bionic_xserver-xorg-video-openchrome-lts-xenial: DNE

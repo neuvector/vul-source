@@ -14,16 +14,16 @@ CVSS:
 
 Patches_device-tree-compiler:
 upstream_device-tree-compiler:
-trusty_device-tree-compiler:
+trusty_device-tree-compiler: ignored (end of standard support, was needs-triage)
 trusty/esm_device-tree-compiler:
-xenial_device-tree-compiler:
+xenial_device-tree-compiler: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_device-tree-compiler:
-bionic_device-tree-compiler:
+bionic_device-tree-compiler: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_device-tree-compiler:
 focal_device-tree-compiler:
-groovy_device-tree-compiler:
-hirsute_device-tree-compiler:
-impish_device-tree-compiler:
+groovy_device-tree-compiler: ignored (end of life, was needs-triage)
+hirsute_device-tree-compiler: ignored (end of life, was needs-triage)
+impish_device-tree-compiler: ignored (end of life, was needs-triage)
 jammy_device-tree-compiler:
 kinetic_device-tree-compiler:
 lunar_device-tree-compiler:
@@ -36,9 +36,9 @@ trusty/esm_opensbi: DNE
 xenial_opensbi: DNE
 bionic_opensbi: DNE
 focal_opensbi:
-groovy_opensbi:
-hirsute_opensbi:
-impish_opensbi:
+groovy_opensbi: ignored (end of life, was needs-triage)
+hirsute_opensbi: ignored (end of life, was needs-triage)
+impish_opensbi: ignored (end of life, was needs-triage)
 jammy_opensbi:
 kinetic_opensbi:
 lunar_opensbi:

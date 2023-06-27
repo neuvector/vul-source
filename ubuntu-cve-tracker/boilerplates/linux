@@ -13,7 +13,7 @@ CVSS:
 
 Patches_linux:
 upstream_linux: needs-triage
-trusty_linux: ignored (out of standard support)
+trusty_linux: ignored (end of standard support)
 trusty/esm_linux: needs-triage
 xenial_linux: ignored (end of standard support)
 esm-infra/xenial_linux: needs-triage
@@ -31,7 +31,7 @@ trusty_linux-hwe: DNE
 trusty/esm_linux-hwe: DNE
 xenial_linux-hwe: ignored (end of standard support)
 esm-infra/xenial_linux-hwe: needs-triage
-bionic_linux-hwe: ignored (replaced by linux-hwe-5.4)
+bionic_linux-hwe: ignored (end of standard support)
 esm-infra/bionic_linux-hwe: needs-triage
 focal_linux-hwe: DNE
 jammy_linux-hwe: DNE
@@ -120,9 +120,9 @@ Patches_linux-hwe-edge:
 upstream_linux-hwe-edge: needs-triage
 trusty_linux-hwe-edge: DNE
 trusty/esm_linux-hwe-edge: DNE
-xenial_linux-hwe-edge: ignored (superseded by linux-hwe)
+xenial_linux-hwe-edge: ignored (end of standard support)
 esm-infra/xenial_linux-hwe-edge: ignored (superseded by linux-hwe)
-bionic_linux-hwe-edge: ignored (superseded by linux-hwe-5.4)
+bionic_linux-hwe-edge: ignored (end of standard support)
 esm-infra/bionic_linux-hwe-edge: ignored (superseded by linux-hwe-5.4)
 focal_linux-hwe-edge: DNE
 jammy_linux-hwe-edge: DNE
@@ -132,7 +132,7 @@ devel_linux-hwe-edge: DNE
 
 Patches_linux-lts-xenial:
 upstream_linux-lts-xenial: needs-triage
-trusty_linux-lts-xenial: ignored (out of standard support)
+trusty_linux-lts-xenial: ignored (end of standard support)
 trusty/esm_linux-lts-xenial: needs-triage
 xenial_linux-lts-xenial: DNE
 bionic_linux-lts-xenial: DNE
@@ -158,7 +158,7 @@ devel_linux-kvm: needs-triage
 
 Patches_linux-aws:
 upstream_linux-aws: needs-triage
-trusty_linux-aws: ignored (out of standard support)
+trusty_linux-aws: ignored (end of standard support)
 trusty/esm_linux-aws: needs-triage
 xenial_linux-aws: ignored (end of standard support)
 esm-infra/xenial_linux-aws: needs-triage
@@ -175,7 +175,7 @@ upstream_linux-aws-5.0: needs-triage
 trusty_linux-aws-5.0: DNE
 trusty/esm_linux-aws-5.0: DNE
 xenial_linux-aws-5.0: DNE
-bionic_linux-aws-5.0: ignored (superseded by linux-aws-5.3)
+bionic_linux-aws-5.0: ignored (end of standard support)
 esm-infra/bionic_linux-aws-5.0: ignored (superseded by linux-hwe-5.3)
 focal_linux-aws-5.0: DNE
 jammy_linux-aws-5.0: DNE
@@ -188,7 +188,7 @@ upstream_linux-aws-5.3: ignored (superseded by linux-aws-5.4)
 trusty_linux-aws-5.3: DNE
 trusty/esm_linux-aws-5.3: DNE
 xenial_linux-aws-5.3: DNE
-bionic_linux-aws-5.3: ignored (superseded by linux-aws-5.4)
+bionic_linux-aws-5.3: ignored (end of standard support)
 esm-infra/bionic_linux-aws-5.3: ignored (superseded by linux-hwe-5.4)
 focal_linux-aws-5.3: DNE
 jammy_linux-aws-5.3: DNE
@@ -276,11 +276,11 @@ devel_linux-aws-hwe: DNE
 
 Patches_linux-azure:
 upstream_linux-azure: needs-triage
-trusty_linux-azure: ignored (out of standard support)
+trusty_linux-azure: ignored (end of standard support)
 trusty/esm_linux-azure: needs-triage
 xenial_linux-azure: ignored (end of standard support)
 esm-infra/xenial_linux-azure: needs-triage
-bionic_linux-azure: ignored (superseded by linux-azure-5.3)
+bionic_linux-azure: ignored (end of standard support)
 esm-infra/bionic_linux-azure: ignored (superseded by linux-azure-5.3)
 focal_linux-azure: needs-triage
 jammy_linux-azure: needs-triage
@@ -306,7 +306,7 @@ upstream_linux-azure-5.3: ignored (superseded by linux-azure-5.4)
 trusty_linux-azure-5.3: DNE
 trusty/esm_linux-azure-5.3: DNE
 xenial_linux-azure-5.3: DNE
-bionic_linux-azure-5.3: ignored (superseded by linux-azure-5.4)
+bionic_linux-azure-5.3: ignored (end of standard support)
 esm-infra/bionic_linux-azure-5.3: ignored (superseded by linux-azure-5.4)
 focal_linux-azure-5.3: DNE
 jammy_linux-azure-5.3: DNE
@@ -457,7 +457,7 @@ upstream_linux-azure-edge: needs-triage
 trusty_linux-azure-edge: DNE
 trusty/esm_linux-azure-edge: DNE
 xenial_linux-azure-edge: DNE
-bionic_linux-azure-edge: ignored (superseded by linux-azure-5.3)
+bionic_linux-azure-edge: ignored (end of standard support)
 esm-infra/bionic_linux-azure-edge: ignored (superseded by linux-azure-5.3)
 focal_linux-azure-edge: DNE
 jammy_linux-azure-edge: DNE
@@ -467,9 +467,9 @@ devel_linux-azure-edge: DNE
 
 Patches_linux-fips:
 upstream_linux-fips: needs-triage
-trusty_linux-fips: ignored (out of standard support)
+trusty_linux-fips: ignored (end of standard support)
 trusty/esm_linux-fips: DNE
-xenial_linux-fips: ignored (out of standard support)
+xenial_linux-fips: ignored (end of standard support)
 fips/xenial_linux-fips: needs-triage
 fips-updates/xenial_linux-fips: needs-triage
 bionic_linux-fips: DNE
@@ -490,7 +490,7 @@ trusty_linux-gcp: DNE
 trusty/esm_linux-gcp: DNE
 xenial_linux-gcp: ignored (end of standard support)
 esm-infra/xenial_linux-gcp: needs-triage
-bionic_linux-gcp: ignored (superseded by linux-gcp-5.3)
+bionic_linux-gcp: ignored (end of standard support)
 esm-infra/bionic_linux-gcp: ignored (superseded by linux-gcp-5.3)
 focal_linux-gcp: needs-triage
 jammy_linux-gcp: needs-triage
@@ -516,7 +516,7 @@ upstream_linux-gcp-5.3: ignored (superseded by linux-gcp-5.4)
 trusty_linux-gcp-5.3: DNE
 trusty/esm_linux-gcp-5.3: DNE
 xenial_linux-gcp-5.3: DNE
-bionic_linux-gcp-5.3: ignored (superseded by linux-gcp-5.4)
+bionic_linux-gcp-5.3: ignored (end of standard support)
 esm-infra/bionic_linux-gcp-5.3: ignored (superseded by linux-gcp-5.4)
 focal_linux-gcp-5.3: DNE
 jammy_linux-gcp-5.3: DNE
@@ -593,7 +593,7 @@ Patches_linux-gke:
 upstream_linux-gke: needs-triage
 trusty_linux-gke: DNE
 trusty/esm_linux-gke: DNE
-xenial_linux-gke: ignored (reached end of standard support)
+xenial_linux-gke: ignored (end of standard support)
 bionic_linux-gke: DNE
 focal_linux-gke: needs-triage
 jammy_linux-gke: needs-triage
@@ -619,7 +619,7 @@ upstream_linux-gke-5.0: needs-triage
 trusty_linux-gke-5.0: DNE
 trusty/esm_linux-gke-5.0: DNE
 xenial_linux-gke-5.0: DNE
-bionic_linux-gke-5.0: ignored (superseded by linux-gke-5.3)
+bionic_linux-gke-5.0: ignored (end of standard support)
 focal_linux-gke-5.0: DNE
 jammy_linux-gke-5.0: DNE
 kinetic_linux-gke-5.0: DNE
@@ -631,7 +631,7 @@ upstream_linux-gke-5.3: ignored (superseded by linux-gke-5.4)
 trusty_linux-gke-5.3: DNE
 trusty/esm_linux-gke-5.3: DNE
 xenial_linux-gke-5.3: DNE
-bionic_linux-gke-5.3: ignored (superseded by linux-gke-5.4)
+bionic_linux-gke-5.3: ignored (end of standard support)
 focal_linux-gke-5.3: DNE
 jammy_linux-gke-5.3: DNE
 kinetic_linux-gke-5.3: DNE
@@ -824,7 +824,7 @@ upstream_linux-oracle-5.0: needs-triage
 trusty_linux-oracle-5.0: DNE
 trusty/esm_linux-oracle-5.0: DNE
 xenial_linux-oracle-5.0: DNE
-bionic_linux-oracle-5.0: ignored (superseded by linux-oracle-5.3)
+bionic_linux-oracle-5.0: ignored (end of standard support)
 esm-infra/bionic_linux-oracle-5.0: ignored (superseded by linux-oracle-5.3)
 focal_linux-oracle-5.0: DNE
 jammy_linux-oracle-5.0: DNE
@@ -837,7 +837,7 @@ upstream_linux-oracle-5.3: ignored (superseded by linux-oracle-5.4)
 trusty_linux-oracle-5.3: DNE
 trusty/esm_linux-oracle-5.3: DNE
 xenial_linux-oracle-5.3: DNE
-bionic_linux-oracle-5.3: ignored (superseded by linux-oracle-5.4)
+bionic_linux-oracle-5.3: ignored (end of standard support)
 esm-infra/bionic_linux-oracle-5.3: ignored (superseded by linux-oracle-5.4)
 focal_linux-oracle-5.3: DNE
 jammy_linux-oracle-5.3: DNE
@@ -914,7 +914,7 @@ Patches_linux-oem:
 upstream_linux-oem: needs-triage
 trusty_linux-oem: DNE
 trusty/esm_linux-oem: DNE
-xenial_linux-oem: ignored (superseded by linux-hwe)
+xenial_linux-oem: ignored (end of standard support)
 bionic_linux-oem: ignored (end of standard support)
 esm-infra/bionic_linux-oem: needs-triage
 focal_linux-oem: DNE
@@ -1051,7 +1051,7 @@ upstream_linux-raspi2-5.3: ignored (superseded by linux-raspi2-5.4)
 trusty_linux-raspi2-5.3: DNE
 trusty/esm_linux-raspi2-5.3: DNE
 xenial_linux-raspi2-5.3: DNE
-bionic_linux-raspi2-5.3: ignored (superseded by linux-raspi-5.4)
+bionic_linux-raspi2-5.3: ignored (end of standard support)
 focal_linux-raspi2-5.3: DNE
 jammy_linux-raspi2-5.3: DNE
 kinetic_linux-raspi2-5.3: DNE

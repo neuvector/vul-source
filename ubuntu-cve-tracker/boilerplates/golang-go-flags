@@ -14,7 +14,7 @@ CVSS:
 
 Patches_golang-go-flags:
 upstream_golang-go-flags: needs-triage
-trusty_golang-go-flags: ignored (out of standard support)
+trusty_golang-go-flags: ignored (end of standard support)
 trusty/esm_golang-go-flags: DNE
 xenial_golang-go-flags: ignored (end of standard support)
 esm-infra/xenial_golang-go-flags: needs-triage

@@ -1,1 +1,88 @@
-libvncserver
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS: 
+
+Patches_libvncserver:
+upstream_libvncserver: needs-triage
+trusty_libvncserver: ignored (end of standard support)
+trusty/esm_libvncserver: DNE
+xenial_libvncserver: ignored (end of standard support)
+esm-infra/xenial_libvncserver: needs-triage
+bionic_libvncserver: ignored (end of standard support)
+esm-infra/bionic_libvncserver: needs-triage
+focal_libvncserver: needs-triage
+jammy_libvncserver: needs-triage
+kinetic_libvncserver: needs-triage
+lunar_libvncserver: needs-triage
+devel_libvncserver: needs-triage
+
+Patches_vino:
+upstream_vino: needs-triage
+trusty_vino: ignored (end of standard support)
+trusty/esm_vino: DNE
+xenial_vino: ignored (end of standard support)
+esm-infra/xenial_vino: needs-triage
+bionic_vino: ignored (end of standard support)
+esm-infra/bionic_vino: needs-triage
+focal_vino: needs-triage
+jammy_vino: needs-triage
+kinetic_vino: needs-triage
+lunar_vino: needs-triage
+devel_vino: needs-triage
+
+Patches_x11vnc:
+upstream_x11vnc: needs-triage
+trusty_x11vnc: ignored (end of standard support)
+trusty/esm_x11vnc: needs-triage
+xenial_x11vnc: ignored (end of standard support)
+bionic_x11vnc: ignored (end of standard support)
+focal_x11vnc: needs-triage
+jammy_x11vnc: needs-triage
+kinetic_x11vnc: needs-triage
+lunar_x11vnc: needs-triage
+devel_x11vnc: needs-triage
+
+Patches_veyon:
+upstream_veyon: needs-triage
+trusty_veyon: DNE
+trusty/esm_veyon: DNE
+xenial_veyon: DNE
+bionic_veyon: DNE
+focal_veyon: needs-triage
+jammy_veyon: needs-triage
+kinetic_veyon: needs-triage
+lunar_veyon: needs-triage
+devel_veyon: needs-triage
+
+Patches_italc:
+upstream_italc: needs-triage
+trusty_italc: ignored (end of standard support)
+trusty/esm_italc: DNE (trusty was needs-triage)
+xenial_italc: ignored (end of standard support)
+bionic_italc: ignored (end of standard support)
+focal_italc: DNE
+jammy_italc: DNE
+kinetic_italc: DNE
+lunar_italc: DNE
+devel_italc: DNE
+
+Patches_tightvnc:
+upstream_tightvnc: needs-triage
+trusty_tightvnc: ignored (end of standard support)
+trusty/esm_tightvnc: needs-triage
+xenial_tightvnc: ignored (end of standard support)
+bionic_tightvnc: ignored (end of standard support)
+focal_tightvnc: needs-triage
+jammy_tightvnc: needs-triage
+kinetic_tightvnc: needs-triage
+lunar_tightvnc: needs-triage
+devel_tightvnc: needs-triage

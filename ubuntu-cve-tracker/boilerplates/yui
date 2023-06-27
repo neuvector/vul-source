@@ -15,7 +15,7 @@ CVSS:
 
 Patches_yui3:
 upstream_yui3: needs-triage
-trusty_yui3: ignored (out of standard support)
+trusty_yui3: ignored (end of standard support)
 trusty/esm_yui3: DNE
 xenial_yui3: ignored (end of standard support)
 esm-infra/xenial_yui3: needs-triage
@@ -27,8 +27,8 @@ lunar_yui3: DNE
 devel_yui3: DNE
 
 Patches_yui:
-upstream_yui: ignored (reached end-of-life)
-trusty_yui: ignored (out of standard support)
+upstream_yui: ignored (end of life)
+trusty_yui: ignored (end of standard support)
 trusty/esm_yui: DNE
 xenial_yui: ignored (end of standard support)
 bionic_yui: DNE
@@ -40,7 +40,7 @@ devel_yui: DNE
 
 Patches_maas:
 upstream_maas: needs-triage
-trusty_maas: ignored (out of standard support)
+trusty_maas: ignored (end of standard support)
 trusty/esm_maas: DNE
 xenial_maas: ignored (end of standard support)
 esm-infra/xenial_maas: needs-triage

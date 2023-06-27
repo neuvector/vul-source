@@ -13,7 +13,7 @@ CVSS:
 
 Patches_db:
 upstream_db: needs-triage
-trusty_db: ignored (out of standard support)
+trusty_db: ignored (end of standard support)
 trusty/esm_db: DNE
 xenial_db: DNE
 bionic_db: DNE
@@ -37,7 +37,7 @@ devel_db4.8: DNE
 
 Patches_db5.3:
 upstream_db5.3: needs-triage
-trusty_db5.3: ignored (out of standard support)
+trusty_db5.3: ignored (end of standard support)
 trusty/esm_db5.3: needs-triage
 xenial_db5.3: ignored (end of standard support)
 esm-infra/xenial_db5.3: needs-triage
@@ -51,7 +51,7 @@ devel_db5.3: needs-triage
 
 Patches_db6.0:
 upstream_db6.0: needs-triage
-trusty_db6.0: ignored (out of standard support)
+trusty_db6.0: ignored (end of standard support)
 trusty/esm_db6.0: DNE
 xenial_db6.0: DNE
 bionic_db6.0: DNE

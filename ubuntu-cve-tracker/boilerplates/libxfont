@@ -13,7 +13,7 @@ CVSS:
 
 Patches_libxfont:
 upstream_libxfont: needs-triage 
-trusty_libxfont: ignored (out of standard support)
+trusty_libxfont: ignored (end of standard support)
 trusty/esm_libxfont: needs-triage
 xenial_libxfont: ignored (end of standard support)
 esm-infra/xenial_libxfont: needs-triage

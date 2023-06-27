@@ -18,7 +18,7 @@ CVSS:
 Patches_ppp:
 upstream_ppp: needs-triage
 precise/esm_ppp: needed
-trusty_ppp: ignored (out of standard support)
+trusty_ppp: ignored (end of standard support)
 trusty/esm_ppp: needed
 xenial_ppp: released (2.4.7-1+2ubuntu1.16.04.3)
 bionic_ppp: released (2.4.7-2+2ubuntu1.3)

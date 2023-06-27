@@ -19,16 +19,16 @@ CVSS:
 
 Patches_lzo2:
 upstream_lzo2:
-trusty_lzo2:
+trusty_lzo2: ignored (end of standard support, was needs-triage)
 trusty/esm_lzo2:
-xenial_lzo2:
+xenial_lzo2: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_lzo2:
-bionic_lzo2:
+bionic_lzo2: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_lzo2: needs-triage
 focal_lzo2:
-groovy_lzo2:
-hirsute_lzo2:
-impish_lzo2:
+groovy_lzo2: ignored (end of life, was needs-triage)
+hirsute_lzo2: ignored (end of life, was needs-triage)
+impish_lzo2: ignored (end of life, was needs-triage)
 jammy_lzo2:
 kinetic_lzo2:
 lunar_lzo2:
@@ -36,14 +36,14 @@ devel_lzo2:
 
 Patches_samhain:
 upstream_samhain:
-trusty_samhain:
+trusty_samhain: ignored (end of standard support, was needs-triage)
 trusty/esm_samhain: DNE
-xenial_samhain:
-bionic_samhain:
+xenial_samhain: ignored (end of standard support, was needs-triage)
+bionic_samhain: ignored (end of standard support, was needs-triage)
 focal_samhain:
-groovy_samhain:
-hirsute_samhain:
-impish_samhain:
+groovy_samhain: ignored (end of life, was needs-triage)
+hirsute_samhain: ignored (end of life, was needs-triage)
+impish_samhain: ignored (end of life, was needs-triage)
 jammy_samhain:
 kinetic_samhain:
 lunar_samhain:
@@ -51,16 +51,16 @@ devel_samhain:
 
 Patches_valgrind:
 upstream_valgrind:
-trusty_valgrind:
+trusty_valgrind: ignored (end of standard support, was needs-triage)
 trusty/esm_valgrind: DNE
-xenial_valgrind:
+xenial_valgrind: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_valgrind:
-bionic_valgrind:
+bionic_valgrind: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_valgrind: needs-triage
 focal_valgrind:
-groovy_valgrind:
-hirsute_valgrind:
-impish_valgrind:
+groovy_valgrind: ignored (end of life, was needs-triage)
+hirsute_valgrind: ignored (end of life, was needs-triage)
+impish_valgrind: ignored (end of life, was needs-triage)
 jammy_valgrind:
 kinetic_valgrind:
 lunar_valgrind:
@@ -68,16 +68,16 @@ devel_valgrind:
 
 Patches_syslinux:
 upstream_syslinux:
-trusty_syslinux:
+trusty_syslinux: ignored (end of standard support, was needs-triage)
 trusty/esm_syslinux:
-xenial_syslinux:
+xenial_syslinux: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_syslinux:
-bionic_syslinux:
+bionic_syslinux: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_syslinux: needs-triage
 focal_syslinux:
-groovy_syslinux:
-hirsute_syslinux:
-impish_syslinux:
+groovy_syslinux: ignored (end of life, was needs-triage)
+hirsute_syslinux: ignored (end of life, was needs-triage)
+impish_syslinux: ignored (end of life, was needs-triage)
 jammy_syslinux:
 kinetic_syslinux:
 lunar_syslinux:
@@ -85,14 +85,14 @@ devel_syslinux:
 
 Patches_distcc:
 upstream_distcc:
-trusty_distcc:
+trusty_distcc: ignored (end of standard support, was needs-triage)
 trusty/esm_distcc:
-xenial_distcc:
-bionic_distcc:
+xenial_distcc: ignored (end of standard support, was needs-triage)
+bionic_distcc: ignored (end of standard support, was needs-triage)
 focal_distcc:
-groovy_distcc:
-hirsute_distcc:
-impish_distcc:
+groovy_distcc: ignored (end of life, was needs-triage)
+hirsute_distcc: ignored (end of life, was needs-triage)
+impish_distcc: ignored (end of life, was needs-triage)
 jammy_distcc:
 kinetic_distcc:
 lunar_distcc:
@@ -100,14 +100,14 @@ devel_distcc:
 
 Patches_bb:
 upstream_bb:
-trusty_bb:
+trusty_bb: ignored (end of standard support, was needs-triage)
 trusty/esm_bb: DNE
-xenial_bb:
-bionic_bb:
+xenial_bb: ignored (end of standard support, was needs-triage)
+bionic_bb: ignored (end of standard support, was needs-triage)
 focal_bb:
-groovy_bb:
-hirsute_bb:
-impish_bb:
+groovy_bb: ignored (end of life, was needs-triage)
+hirsute_bb: ignored (end of life, was needs-triage)
+impish_bb: ignored (end of life, was needs-triage)
 jammy_bb:
 kinetic_bb:
 lunar_bb:
@@ -115,16 +115,16 @@ devel_bb:
 
 Patches_u-boot:
 upstream_u-boot:
-trusty_u-boot:
+trusty_u-boot: ignored (end of standard support, was needs-triage)
 trusty/esm_u-boot: DNE
-xenial_u-boot:
+xenial_u-boot: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_u-boot:
-bionic_u-boot:
+bionic_u-boot: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_u-boot: needs-triage
 focal_u-boot:
-groovy_u-boot:
-hirsute_u-boot:
-impish_u-boot:
+groovy_u-boot: ignored (end of life, was needs-triage)
+hirsute_u-boot: ignored (end of life, was needs-triage)
+impish_u-boot: ignored (end of life, was needs-triage)
 jammy_u-boot:
 kinetic_u-boot:
 lunar_u-boot:
@@ -132,14 +132,14 @@ devel_u-boot:
 
 Patches_refind:
 upstream_refind:
-trusty_refind:
+trusty_refind: ignored (end of standard support, was needs-triage)
 trusty/esm_refind: DNE
 xenial_refind: DNE
-bionic_refind:
+bionic_refind: ignored (end of standard support, was needs-triage)
 focal_refind:
-groovy_refind:
-hirsute_refind:
-impish_refind:
+groovy_refind: ignored (end of life, was needs-triage)
+hirsute_refind: ignored (end of life, was needs-triage)
+impish_refind: ignored (end of life, was needs-triage)
 jammy_refind:
 kinetic_refind:
 lunar_refind:
@@ -147,14 +147,14 @@ devel_refind:
 
 Patches_blender:
 upstream_blender:
-trusty_blender:
+trusty_blender: ignored (end of standard support, was needs-triage)
 trusty/esm_blender: DNE
-xenial_blender:
-bionic_blender:
+xenial_blender: ignored (end of standard support, was needs-triage)
+bionic_blender: ignored (end of standard support, was needs-triage)
 focal_blender:
-groovy_blender:
-hirsute_blender:
-impish_blender:
+groovy_blender: ignored (end of life, was needs-triage)
+hirsute_blender: ignored (end of life, was needs-triage)
+impish_blender: ignored (end of life, was needs-triage)
 jammy_blender:
 kinetic_blender:
 lunar_blender:
@@ -162,14 +162,14 @@ devel_blender:
 
 Patches_n2n:
 upstream_n2n:
-trusty_n2n:
+trusty_n2n: ignored (end of standard support, was needs-triage)
 trusty/esm_n2n: DNE
-xenial_n2n:
-bionic_n2n:
+xenial_n2n: ignored (end of standard support, was needs-triage)
+bionic_n2n: ignored (end of standard support, was needs-triage)
 focal_n2n:
-groovy_n2n:
-hirsute_n2n:
-impish_n2n:
+groovy_n2n: ignored (end of life, was needs-triage)
+hirsute_n2n: ignored (end of life, was needs-triage)
+impish_n2n: ignored (end of life, was needs-triage)
 jammy_n2n:
 kinetic_n2n:
 lunar_n2n:
@@ -177,14 +177,14 @@ devel_n2n:
 
 Patches_nfdump:
 upstream_nfdump:
-trusty_nfdump:
+trusty_nfdump: ignored (end of standard support, was needs-triage)
 trusty/esm_nfdump: DNE
-xenial_nfdump:
-bionic_nfdump:
+xenial_nfdump: ignored (end of standard support, was needs-triage)
+bionic_nfdump: ignored (end of standard support, was needs-triage)
 focal_nfdump:
-groovy_nfdump:
-hirsute_nfdump:
-impish_nfdump:
+groovy_nfdump: ignored (end of life, was needs-triage)
+hirsute_nfdump: ignored (end of life, was needs-triage)
+impish_nfdump: ignored (end of life, was needs-triage)
 jammy_nfdump:
 kinetic_nfdump:
 lunar_nfdump:
@@ -192,16 +192,16 @@ devel_nfdump:
 
 Patches_libvncserver:
 upstream_libvncserver:
-trusty_libvncserver:
+trusty_libvncserver: ignored (end of standard support, was needs-triage)
 trusty/esm_libvncserver: DNE
-xenial_libvncserver:
+xenial_libvncserver: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_libvncserver:
-bionic_libvncserver:
+bionic_libvncserver: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_libvncserver: needs-triage
 focal_libvncserver:
-groovy_libvncserver:
-hirsute_libvncserver:
-impish_libvncserver:
+groovy_libvncserver: ignored (end of life, was needs-triage)
+hirsute_libvncserver: ignored (end of life, was needs-triage)
+impish_libvncserver: ignored (end of life, was needs-triage)
 jammy_libvncserver:
 kinetic_libvncserver:
 lunar_libvncserver:
@@ -209,14 +209,14 @@ devel_libvncserver:
 
 Patches_ht:
 upstream_ht:
-trusty_ht:
+trusty_ht: ignored (end of standard support, was needs-triage)
 trusty/esm_ht: DNE
-xenial_ht:
-bionic_ht:
+xenial_ht: ignored (end of standard support, was needs-triage)
+bionic_ht: ignored (end of standard support, was needs-triage)
 focal_ht:
-groovy_ht:
-hirsute_ht:
-impish_ht:
+groovy_ht: ignored (end of life, was needs-triage)
+hirsute_ht: ignored (end of life, was needs-triage)
+impish_ht: ignored (end of life, was needs-triage)
 jammy_ht:
 kinetic_ht:
 lunar_ht:
@@ -224,7 +224,7 @@ devel_ht:
 
 Patches_medafen:
 upstream_medafen:
-trusty_medafen:
+trusty_medafen: ignored (end of standard support, was needs-triage)
 trusty/esm_medafen: DNE
 xenial_medafen: DNE
 bionic_medafen: DNE
@@ -236,16 +236,16 @@ devel_medafen: DNE
 
 Patches_qemu:
 upstream_qemu:
-trusty_qemu:
+trusty_qemu: ignored (end of standard support, was needs-triage)
 trusty/esm_qemu:
-xenial_qemu:
+xenial_qemu: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_qemu:
-bionic_qemu:
+bionic_qemu: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_qemu: needs-triage
 focal_qemu:
-groovy_qemu:
-hirsute_qemu:
-impish_qemu:
+groovy_qemu: ignored (end of life, was needs-triage)
+hirsute_qemu: ignored (end of life, was needs-triage)
+impish_qemu: ignored (end of life, was needs-triage)
 jammy_qemu:
 kinetic_qemu:
 lunar_qemu:
@@ -253,16 +253,16 @@ devel_qemu:
 
 Patches_grub2:
 upstream_grub2:
-trusty_grub2:
+trusty_grub2: ignored (end of standard support, was needs-triage)
 trusty/esm_grub2:
-xenial_grub2:
+xenial_grub2: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_grub2:
-bionic_grub2:
+bionic_grub2: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_grub2: needs-triage
 focal_grub2:
-groovy_grub2:
-hirsute_grub2:
-impish_grub2:
+groovy_grub2: ignored (end of life, was needs-triage)
+hirsute_grub2: ignored (end of life, was needs-triage)
+impish_grub2: ignored (end of life, was needs-triage)
 jammy_grub2:
 kinetic_grub2:
 lunar_grub2:
@@ -270,16 +270,16 @@ devel_grub2:
 
 Patches_grub2-signed:
 upstream_grub2-signed:
-trusty_grub2-signed:
+trusty_grub2-signed: ignored (end of standard support, was needs-triage)
 trusty/esm_grub2-signed:
-xenial_grub2-signed:
+xenial_grub2-signed: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_grub2-signed:
-bionic_grub2-signed:
+bionic_grub2-signed: ignored (end of standard support, was needs-triage)
 esm-infra/bionic_grub2-signed: needs-triage
 focal_grub2-signed:
-groovy_grub2-signed:
-hirsute_grub2-signed:
-impish_grub2-signed:
+groovy_grub2-signed: ignored (end of life, was needs-triage)
+hirsute_grub2-signed: ignored (end of life, was needs-triage)
+impish_grub2-signed: ignored (end of life, was needs-triage)
 jammy_grub2-signed:
 kinetic_grub2-signed:
 lunar_grub2-signed:

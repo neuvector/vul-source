@@ -15,7 +15,7 @@ CVSS:
 
 Patches_defusedxml:
 upstream_defusedxml: needs-triage
-trusty_defusedxml: ignored (out of standard support)
+trusty_defusedxml: ignored (end of standard support)
 trusty/esm_defusedxml: DNE
 xenial_defusedxml: ignored (end of standard support)
 esm-infra/xenial_defusedxml: needs-triage

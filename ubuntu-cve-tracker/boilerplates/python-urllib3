@@ -16,7 +16,7 @@ CVSS:
 
 Patches_python-urllib3:
 upstream_python-urllib3: 
-trusty_python-urllib3: ignored (reached end-of-life)
+trusty_python-urllib3: ignored (end of standard support)
 trusty/esm_python-urllib3: needs-triage
 xenial_python-urllib3: ignored (end of standard support)
 esm-infra/xenial_python-urllib3: needs-triage
@@ -30,7 +30,7 @@ devel_python-urllib3: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)

@@ -14,9 +14,9 @@ CVSS:
 
 Patches_bind9:
 upstream_bind9: needs-triage
-trusty_bind9: needs-triage
+trusty_bind9: ignored (end of standard support, was needs-triage)
 trusty/esm_bind9: needs-triage
-xenial_bind9: needs-triage
+xenial_bind9: ignored (end of standard support, was needs-triage)
 esm-infra/xenial_bind9: needs-triage
 bionic_bind9: ignored (end of standard support)
 esm-infra/bionic_bind9: needs-triage

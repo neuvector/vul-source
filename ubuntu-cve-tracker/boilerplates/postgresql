@@ -39,7 +39,7 @@ devel_postgresql-13: DNE
 
 Patches_postgresql-12:
 upstream_postgresql-12: needs-triage
-trusty_postgresql-12: ignored (out of standard support)
+trusty_postgresql-12: ignored (end of standard support)
 trusty/esm_postgresql-12: DNE
 xenial_postgresql-12: DNE
 bionic_postgresql-12: DNE
@@ -77,7 +77,7 @@ devel_postgresql-9.5: DNE
 
 Patches_postgresql-9.3:
 upstream_postgresql-9.3: needs-triage
-trusty_postgresql-9.3: ignored (out of standard support)
+trusty_postgresql-9.3: ignored (end of standard support)
 trusty/esm_postgresql-9.3: deferred (2019-08-23)
 xenial_postgresql-9.3: DNE
 bionic_postgresql-9.3: DNE
@@ -89,7 +89,7 @@ devel_postgresql-9.3: DNE
 
 Patches_postgresql-9.1:
 upstream_postgresql-9.1: needs-triage
-trusty_postgresql-9.1: ignored (out of standard support)
+trusty_postgresql-9.1: ignored (end of standard support)
 trusty/esm_postgresql-9.1: DNE
 xenial_postgresql-9.1: DNE
 bionic_postgresql-9.1: DNE

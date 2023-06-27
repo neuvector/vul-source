@@ -16,7 +16,7 @@ CVSS:
 
 Patches_distlib:
 upstream_distlib: 
-trusty_distlib: ignored (reached end of life)
+trusty_distlib: ignored (end of standard support)
 trusty/esm_distlib: needs-triage
 xenial_distlib: ignored (end of standard support)
 bionic_distlib: ignored (end of standard support)
@@ -28,7 +28,7 @@ devel_distlib: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)

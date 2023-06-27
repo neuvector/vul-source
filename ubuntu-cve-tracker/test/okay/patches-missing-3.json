@@ -29,7 +29,7 @@
       ],
       "trusty": [
         "ignored",
-        "out of standard support"
+        "end of standard support"
       ],
       "trusty/esm": [
         "needed",
@@ -63,7 +63,7 @@
       ],
       "trusty": [
         "ignored",
-        "out of standard support"
+        "end of standard support"
       ],
       "trusty/esm": [
         "not-affected",

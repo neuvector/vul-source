@@ -452,8 +452,10 @@ def check_cve(cve):
 
         # Check aliases
         for rel in all_required_releases:
-            if rel in cve_lib.external_releases and 'boilerplates' in cvepath:
-                continue
+            if rel in cve_lib.external_releases:
+                # for external releases skip boilerplates and embargoed CVEs
+                if 'boilerplates' in cvepath or is_embargoed(cve):
+                    continue
 
             if rel in source:
                 skip_aliases_generics = False
@@ -566,12 +568,23 @@ def check_cve(cve):
             if rel == "upstream":
                 continue
 
-            # Don't syntax check end-of-lifed releases
-            if rel in cve_lib.eol_releases:
-                continue
-
             details = data["pkgs"][pkg][release]
             state = details[0]
+
+            if not cve_lib.is_active_release(release):
+                if 'superseded by' not in details[1] and 'replaced by' not in details[1]:
+                    old_state = details[1].split(' ')[-1]
+                    if state not in ['released', 'not-affected', 'DNE', 'ignored'] or \
+                        (state == 'ignored' and \
+                            ((cve_lib.is_active_esm_release(release) and details[1] not in cve_lib.EOL_ESM_STATUS.format(state=old_state)) or \
+                            (not cve_lib.is_active_esm_release(release) and details[1] not in cve_lib.EOL_STATUS.format(state=old_state)))):
+                        print(
+                            "%s: %d: %s unknown status '%s' in '%s'"
+                            % (filename, linenum, pkg, state, rel),
+                            file=sys.stderr,
+                        )
+                        cve_okay = False
+                continue
 
             # Skip devel checks on retired CVEs
             if release == "devel":

@@ -13,7 +13,7 @@ CVSS:
 
 Patches_php-zend-code:
 upstream_php-zend-code: needs-triage
-trusty_php-zend-code: ignored (out of standard support)
+trusty_php-zend-code: ignored (end of standard support)
 trusty/esm_php-zend-code: DNE
 xenial_php-zend-code: ignored (end of standard support)
 bionic_php-zend-code: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_php-zend-code: needs-triage
 
 Patches_php-zend-db:
 upstream_php-zend-db: needs-triage
-trusty_php-zend-db: ignored (out of standard support)
+trusty_php-zend-db: ignored (end of standard support)
 trusty/esm_php-zend-db: DNE
 xenial_php-zend-db: ignored (end of standard support)
 bionic_php-zend-db: ignored (end of standard support)
@@ -37,7 +37,7 @@ devel_php-zend-db: DNE
 
 Patches_php-zend-eventmanager:
 upstream_php-zend-eventmanager: needs-triage
-trusty_php-zend-eventmanager: ignored (out of standard support)
+trusty_php-zend-eventmanager: ignored (end of standard support)
 trusty/esm_php-zend-eventmanager: DNE
 xenial_php-zend-eventmanager: ignored (end of standard support)
 bionic_php-zend-eventmanager: ignored (end of standard support)
@@ -49,7 +49,7 @@ devel_php-zend-eventmanager: needs-triage
 
 Patches_php-zend-stdlib:
 upstream_php-zend-stdlib: needs-triage
-trusty_php-zend-stdlib: ignored (out of standard support)
+trusty_php-zend-stdlib: ignored (end of standard support)
 trusty/esm_php-zend-stdlib: DNE
 xenial_php-zend-stdlib: ignored (end of standard support)
 bionic_php-zend-stdlib: ignored (end of standard support)
@@ -61,7 +61,7 @@ devel_php-zend-stdlib: needs-triage
 
 Patches_zend-framework:
 upstream_zend-framework: needs-triage
-trusty_zend-framework: ignored (out of standard support)
+trusty_zend-framework: ignored (end of standard support)
 trusty/esm_zend-framework: DNE
 xenial_zend-framework: ignored (end of standard support)
 bionic_zend-framework: DNE

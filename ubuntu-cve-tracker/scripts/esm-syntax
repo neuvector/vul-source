@@ -9,7 +9,7 @@ os.chdir(os.environ['UCT'])
 # Fix check-syntax warnings about packages marked as DNE
 # but who are in the trusty-esm-supported.txt list.
 # Also fix for those packages trusty's state from 'end-of-life'
-# to 'out of standard support'
+# to 'end of standard support'
 chk_syn = subprocess.Popen('./scripts/check-syntax',
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
@@ -30,7 +30,7 @@ while True:
         state, notes = cve['pkgs'][pkg]['trusty']
         if 'end-of-life' in notes:
             cve_lib.update_state(cve_file, pkg, 'trusty', state,
-                                 'out of standard support')
+                                 'end of standard support')
         # git mv retired CVE to active
         if 'retired' in cve_file and state in ['needs-triage', 'needed']:
             unretire_cves.append(cve_file)
@@ -51,7 +51,7 @@ for cve_file in set(unretire_cves):
 
 
 # Fix trusty CVEs (active and retired) that are marked as
-# 'end-of-life' to 'out of standard support'
+# 'end-of-life' to 'end of standard support'
 (cves, uems, rcves) = cve_lib.get_cve_list_and_retired()
 table = cve_lib.load_all(cves, uems, rcves)
 
@@ -64,4 +64,4 @@ for cve in sorted(cves):
                     cvef = cve_lib.load_cve(cve_file)
                     state, notes = cvef['pkgs'][pkg]['trusty']
                     cve_lib.update_state(cve_file, pkg, 'trusty', state,
-                                         'out of standard support')
+                                         'end of standard support')

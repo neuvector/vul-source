@@ -86,6 +86,9 @@ def get_pkg_rel_from_msg(msg):
     elif 'unknown package' in msg:
         pkg = parts[2].replace("'", "")
         rel = parts[-1].replace("'", "")
+    elif 'unknown status' in msg:
+        pkg = parts[0].replace("'", "")
+        rel = parts[-1].replace("'", "")
     else:
         pkg = parts[0]
         rel = parts[-1].replace("'", "")
@@ -159,7 +162,7 @@ for line in args.infile:
                 status = status + " (" + note + ")"
             # if parent reached EOL then we are likely the new alive
             # release so ignore their status in that case
-            if "reached end-of-life" in status or "out of standard support" in status:
+            if "end of life" in status or "end of standard support" in status:
                 status = 'needs-triage'
         except (KeyError, ValueError, TypeError):
             pass
@@ -188,7 +191,7 @@ for line in args.infile:
         insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
         modified.append(cve)
 
-    elif "unknown package" in msg or "not in" in msg or "unknown release" in msg:
+    elif "unknown package" in msg or "not in" in msg or "unknown release" in msg or "unknown status":
         pkg, rel = get_pkg_rel_from_msg(msg)
 
         # remove this hard-coded hack one-day...
@@ -204,10 +207,18 @@ for line in args.infile:
         # delete this line since
         delete_from_file(cve, linenum, args.dry_run, args.verbose)
 
-        #if release is devel, we should add DNE instead of removing
+        #if release is devel or EOL, we should add the proper status instead of removing
         if rel == cve_lib.devel_release:
             rel = "devel"
             fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status="DNE")
+            insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
+        elif not cve_lib.is_active_release(rel):
+            state = msg.split(' ')[3].replace("'", "")
+            if cve_lib.is_active_esm_release(rel):
+                fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status=cve_lib.EOL_ESM_STATUS.format(state=state))
+            else:
+                fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status=cve_lib.EOL_STATUS.format(state=state))
+
             insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
 
         modified.append(cve)

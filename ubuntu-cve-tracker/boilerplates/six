@@ -16,7 +16,7 @@ CVSS:
 
 Patches_six:
 upstream_six: 
-trusty_six: ignored (reached end of life)
+trusty_six: ignored (end of standard support)
 trusty/esm_six: needs-triage
 xenial_six: ignored (end of standard support)
 esm-infra/xenial_six: needs-triage
@@ -30,7 +30,7 @@ devel_six: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)

@@ -16,7 +16,7 @@ CVSS:
 
 Patches_spice-gtk:
 upstream_spice-gtk: needs-triage
-trusty_spice-gtk: ignored (out of standard support)
+trusty_spice-gtk: ignored (end of standard support)
 trusty/esm_spice-gtk: DNE
 xenial_spice-gtk: ignored (end of standard support)
 bionic_spice-gtk: ignored (end of standard support)
@@ -28,7 +28,7 @@ devel_spice-gtk: needs-triage
 
 Patches_spice:
 upstream_spice: needs-triage
-trusty_spice: ignored (out of standard support)
+trusty_spice: ignored (end of standard support)
 trusty/esm_spice: needs-triage
 xenial_spice: ignored (end of standard support)
 esm-infra/xenial_spice: needs-triage
@@ -42,7 +42,7 @@ devel_spice: needs-triage
 
 Patches_spice-protocol:
 upstream_spice-protocol: needs-triage
-trusty_spice-protocol: ignored (out of standard support)
+trusty_spice-protocol: ignored (end of standard support)
 trusty/esm_spice-protocol: DNE
 xenial_spice-protocol: ignored (end of standard support)
 esm-infra/xenial_spice-protocol: needs-triage

@@ -13,7 +13,7 @@ CVSS:
 
 Patches_libpng:
 upstream_libpng: needs-triage
-trusty_libpng: ignored (out of standard support)
+trusty_libpng: ignored (end of standard support)
 trusty/esm_libpng: needs-triage
 xenial_libpng: ignored (end of standard support)
 esm-infra/xenial_libpng: needs-triage
@@ -39,7 +39,7 @@ devel_libpng1.6: needs-triage
 
 Patches_firefox:
 upstream_firefox: needs-triage
-trusty_firefox: ignored (out of standard support)
+trusty_firefox: ignored (end of standard support)
 trusty/esm_firefox: DNE
 xenial_firefox: ignored (end of standard support)
 esm-infra/xenial_firefox: needs-triage
@@ -53,7 +53,7 @@ devel_firefox: needs-triage
 
 Patches_thunderbird:
 upstream_thunderbird: needs-triage
-trusty_thunderbird: ignored (out of standard support)
+trusty_thunderbird: ignored (end of standard support)
 trusty/esm_thunderbird: DNE
 xenial_thunderbird: ignored (end of standard support)
 esm-infra/xenial_thunderbird: needs-triage
@@ -67,7 +67,7 @@ devel_thunderbird: needs-triage
 
 Patches_chromium-browser:
 upstream_chromium-browser: needs-triage
-trusty_chromium-browser: ignored (out of standard support)
+trusty_chromium-browser: ignored (end of standard support)
 trusty/esm_chromium-browser: DNE
 xenial_chromium-browser: not-affected (uses system libpng)
 bionic_chromium-browser: not-affected (uses system libpng)

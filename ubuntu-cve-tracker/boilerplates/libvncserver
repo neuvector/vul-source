@@ -13,7 +13,7 @@ CVSS:
 
 Patches_libvncserver:
 upstream_libvncserver: needs-triage
-trusty_libvncserver: ignored (out of standard support)
+trusty_libvncserver: ignored (end of standard support)
 trusty/esm_libvncserver: DNE
 xenial_libvncserver: ignored (end of standard support)
 esm-infra/xenial_libvncserver: needs-triage
@@ -27,7 +27,7 @@ devel_libvncserver: needs-triage
 
 Patches_vino:
 upstream_vino: needs-triage
-trusty_vino: ignored (out of standard support)
+trusty_vino: ignored (end of standard support)
 trusty/esm_vino: DNE
 xenial_vino: ignored (end of standard support)
 esm-infra/xenial_vino: needs-triage
@@ -41,7 +41,7 @@ devel_vino: needs-triage
 
 Patches_x11vnc:
 upstream_x11vnc: needs-triage
-trusty_x11vnc: ignored (out of standard support)
+trusty_x11vnc: ignored (end of standard support)
 trusty/esm_x11vnc: needs-triage
 xenial_x11vnc: ignored (end of standard support)
 bionic_x11vnc: ignored (end of standard support)
@@ -65,7 +65,7 @@ devel_veyon: needs-triage
 
 Patches_italc:
 upstream_italc: needs-triage
-trusty_italc: ignored (reached end-of-life)
+trusty_italc: ignored (end of standard support)
 trusty/esm_italc: DNE (trusty was needs-triage)
 xenial_italc: ignored (end of standard support)
 bionic_italc: ignored (end of standard support)
@@ -77,7 +77,7 @@ devel_italc: DNE
 
 Patches_tightvnc:
 upstream_tightvnc: needs-triage
-trusty_tightvnc: ignored (reached end-of-life)
+trusty_tightvnc: ignored (end of standard support)
 trusty/esm_tightvnc: needs-triage
 xenial_tightvnc: ignored (end of standard support)
 bionic_tightvnc: ignored (end of standard support)

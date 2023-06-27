@@ -13,7 +13,7 @@ CVSS:
 
 Patches_pillow:
 upstream_pillow: needs-triage
-trusty_pillow: ignored (out of standard support)
+trusty_pillow: ignored (end of standard support)
 trusty/esm_pillow: needs-triage
 xenial_pillow: ignored (end of standard support)
 esm-infra/xenial_pillow: needs-triage

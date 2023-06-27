@@ -13,7 +13,7 @@ CVSS:
 
 Patches_nagios3:
 upstream_nagios3: needs-triage
-trusty_nagios3: ignored (out of standard support)
+trusty_nagios3: ignored (end of standard support)
 trusty/esm_nagios3: DNE
 xenial_nagios3: ignored (end of standard support)
 esm-infra/xenial_nagios3: needs-triage
@@ -39,7 +39,7 @@ devel_nagios4: needs-triage
 
 Patches_icinga:
 upstream_icinga: needs-triage
-trusty_icinga: ignored (out of standard support)
+trusty_icinga: ignored (end of standard support)
 trusty/esm_icinga: DNE
 xenial_icinga: ignored (end of standard support)
 bionic_icinga: ignored (end of standard support)

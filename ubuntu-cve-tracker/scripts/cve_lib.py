@@ -1453,6 +1453,11 @@ status_closed = set(['released', 'not-affected', 'ignored', 'DNE'])
 # Possible CVE priorities
 priorities = ['negligible', 'low', 'medium', 'high', 'critical']
 
+# For LTS releases going into ESM -> ignored (end of standard support, was xxxxxx)
+# For interim releases or releases after the 10-year period -> ignored (end of life, was xxxxxxx)
+EOL_ESM_STATUS = "ignored (end of standard support, was {state})"
+EOL_STATUS = "ignored (end of life, was {state})"
+
 CVE_RE = re.compile(r'^CVE-\d\d\d\d-[N\d]{4,7}$')
 
 NOTE_RE = re.compile(r'^\s+([A-Za-z0-9-]+)([>|]) *(.*)$')

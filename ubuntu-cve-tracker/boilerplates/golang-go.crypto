@@ -29,7 +29,7 @@ devel_golang-go.crypto: needs-triage
 
 Patches_snapd:
 upstream_snapd: needs-triage
-trusty_snapd: ignored (out of standard support)
+trusty_snapd: ignored (end of standard support)
 trusty/esm_snapd: DNE
 xenial_snapd: ignored (end of standard support)
 esm-infra/xenial_snapd: needs-triage

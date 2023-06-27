@@ -13,7 +13,7 @@ CVSS:
 
 Patches_telepathy-qt:
 upstream_telepathy-qt: needs-triage
-trusty_telepathy-qt: ignored (out of standard support)
+trusty_telepathy-qt: ignored (end of standard support)
 trusty/esm_telepathy-qt: DNE
 xenial_telepathy-qt: ignored (end of standard support)
 bionic_telepathy-qt: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_telepathy-qt: needs-triage
 
 Patches_telepathy-qt5:
 upstream_telepathy-qt5: needs-triage
-trusty_telepathy-qt5: ignored (out of standard support)
+trusty_telepathy-qt5: ignored (end of standard support)
 trusty/esm_telepathy-qt5: DNE
 xenial_telepathy-qt5: ignored (end of standard support)
 bionic_telepathy-qt5: DNE

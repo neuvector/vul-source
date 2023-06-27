@@ -13,7 +13,7 @@ CVSS:
 
 Patches_evince:
 upstream_evince: needs-triage
-trusty_evince: ignored (out of standard support)
+trusty_evince: ignored (end of standard support)
 trusty/esm_evince: DNE
 xenial_evince: ignored (end of standard support)
 esm-infra/xenial_evince: needs-triage

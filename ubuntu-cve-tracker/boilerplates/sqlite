@@ -13,7 +13,7 @@ CVSS:
 
 Patches_sqlite:
 upstream_sqlite: needs-triage
-trusty_sqlite: ignored (out of standard support)
+trusty_sqlite: ignored (end of standard support)
 trusty/esm_sqlite: needs-triage
 xenial_sqlite: ignored (end of standard support)
 bionic_sqlite: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_sqlite: needs-triage
 
 Patches_sqlite3:
 upstream_sqlite3: needs-triage
-trusty_sqlite3: ignored (out of standard support)
+trusty_sqlite3: ignored (end of standard support)
 trusty/esm_sqlite3: needs-triage
 xenial_sqlite3: ignored (end of standard support)
 esm-infra/xenial_sqlite3: needs-triage

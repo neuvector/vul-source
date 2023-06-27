@@ -13,7 +13,7 @@ CVSS:
 
 Patches_fuse:
 upstream_fuse: needs-triage
-trusty_fuse: ignored (reached end-of-life)
+trusty_fuse: ignored (end of standard support)
 trusty/esm_fuse: needs-triage
 xenial_fuse: ignored (end of standard support)
 esm-infra/xenial_fuse: needs-triage

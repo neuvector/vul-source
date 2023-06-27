@@ -13,7 +13,7 @@ CVSS:
 
 Patches_libv8-3.14:
 upstream_libv8-3.14: needs-triage
-trusty_libv8-3.14: ignored (out of standard support)
+trusty_libv8-3.14: ignored (end of standard support)
 trusty/esm_libv8-3.14: DNE
 xenial_libv8-3.14: ignored (end of standard support)
 bionic_libv8-3.14: ignored (end of standard support)

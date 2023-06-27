@@ -14,7 +14,7 @@ CVSS:
 
 Patches_tgt:
 upstream_tgt:  needs-triage
-trusty_tgt: ignored (out of standard support)
+trusty_tgt: ignored (end of standard support)
 trusty/esm_tgt: needs-triage
 xenial_tgt: ignored (end of standard support)
 esm-infra/xenial_tgt: needs-triage
@@ -28,7 +28,7 @@ devel_tgt: needs-triage
 
 Patches_iscsitarget:
 upstream_iscsitarget: needs-triage
-trusty_iscsitarget: ignored (out of standard support)
+trusty_iscsitarget: ignored (end of standard support)
 trusty/esm_iscsitarget: DNE
 xenial_iscsitarget: ignored (end of standard support)
 bionic_iscsitarget: DNE

@@ -15,7 +15,7 @@ CVSS:
 
 Patches_potrace:
 upstream_potrace: needs-triage
-trusty_potrace: ignored (out of standard support)
+trusty_potrace: ignored (end of standard support)
 trusty/esm_potrace: DNE
 xenial_potrace: ignored (end of standard support)
 esm-infra/xenial_potrace: needs-triage
@@ -29,7 +29,7 @@ devel_potrace: needs-triage
 
 Patches_inkscape:
 upstream_inkscape: needs-triage
-trusty_inkscape: ignored (out of standard support)
+trusty_inkscape: ignored (end of standard support)
 trusty/esm_inkscape: DNE
 xenial_inkscape: ignored (end of standard support)
 esm-infra/xenial_inkscape: needs-triage

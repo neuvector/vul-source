@@ -14,7 +14,7 @@ CVSS:
 
 Patches_golang-gopkg-cheggaaa-pb.v1:
 upstream_golang-gopkg-cheggaaa-pb.v1: needs-triage
-trusty_golang-gopkg-cheggaaa-pb.v1: ignored (out of standard support)
+trusty_golang-gopkg-cheggaaa-pb.v1: ignored (end of standard support)
 trusty/esm_golang-gopkg-cheggaaa-pb.v1: DNE
 xenial_golang-gopkg-cheggaaa-pb.v1: DNE
 bionic_golang-gopkg-cheggaaa-pb.v1: ignored (end of standard support)
@@ -26,7 +26,7 @@ devel_golang-gopkg-cheggaaa-pb.v1: needs-triage
 
 Patches_golang-gopkg-cheggaaa-pb.v2:
 upstream_golang-gopkg-cheggaaa-pb.v2: needs-triage
-trusty_golang-gopkg-cheggaaa-pb.v2: ignored (out of standard support)
+trusty_golang-gopkg-cheggaaa-pb.v2: ignored (end of standard support)
 trusty/esm_golang-gopkg-cheggaaa-pb.v2: DNE
 xenial_golang-gopkg-cheggaaa-pb.v2: DNE
 bionic_golang-gopkg-cheggaaa-pb.v2: DNE
@@ -38,7 +38,7 @@ devel_golang-gopkg-cheggaaa-pb.v2: needs-triage
 
 Patches_golang-pb:
 upstream_golang-pb: needs-triage
-trusty_golang-pb: ignored (out of standard support)
+trusty_golang-pb: ignored (end of standard support)
 trusty/esm_golang-pb: DNE
 xenial_golang-pb: ignored (end of standard support)
 esm-infra/xenial_golang-pb: needs-triage

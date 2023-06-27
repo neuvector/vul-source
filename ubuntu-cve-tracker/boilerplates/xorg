@@ -16,7 +16,7 @@ CVSS:
 
 Patches_xorg-server:
 upstream_xorg-server: needs-triage
-trusty_xorg-server: ignored (out of standard support)
+trusty_xorg-server: ignored (end of standard support)
 trusty/esm_xorg-server: needs-triage
 xenial_xorg-server: ignored (end of standard support)
 esm-infra/xenial_xorg-server: needs-triage
@@ -68,7 +68,7 @@ devel_xorg-server-hwe-18.04: DNE
 
 Patches_xorg:
 upstream_xorg: not-affected
-trusty_xorg: ignored (out of standard support)
+trusty_xorg: ignored (end of standard support)
 trusty/esm_xorg: DNE
 xenial_xorg: not-affected (code not present)
 esm-infra/xenial_xorg: not-affected (code not present)
@@ -108,7 +108,7 @@ devel_xorg-hwe-18.04: DNE
 
 Patches_xorg-server-lts-utopic:
 upstream_xorg-server-lts-utopic: needs-triage
-trusty_xorg-server-lts-utopic: ignored (out of standard support)
+trusty_xorg-server-lts-utopic: ignored (end of standard support)
 trusty/esm_xorg-server-lts-utopic: DNE
 xenial_xorg-server-lts-utopic: DNE
 bionic_xorg-server-lts-utopic: DNE
@@ -120,7 +120,7 @@ devel_xorg-server-lts-utopic: DNE
 
 Patches_xorg-server-lts-vivid:
 upstream_xorg-server-lts-vivid: needs-triage
-trusty_xorg-server-lts-vivid: ignored (out of standard support)
+trusty_xorg-server-lts-vivid: ignored (end of standard support)
 trusty/esm_xorg-server-lts-vivid: DNE
 xenial_xorg-server-lts-vivid: DNE
 bionic_xorg-server-lts-vivid: DNE
@@ -132,7 +132,7 @@ devel_xorg-server-lts-vivid: DNE
 
 Patches_xorg-server-lts-wily:
 upstream_xorg-server-lts-wily: needs-triage
-trusty_xorg-server-lts-wily: ignored (out of standard support)
+trusty_xorg-server-lts-wily: ignored (end of standard support)
 trusty/esm_xorg-server-lts-wily: DNE
 xenial_xorg-server-lts-wily: DNE
 bionic_xorg-server-lts-wily: DNE
@@ -144,7 +144,7 @@ devel_xorg-server-lts-wily: DNE
 
 Patches_xorg-server-lts-xenial:
 upstream_xorg-server-lts-xenial: needs-triage
-trusty_xorg-server-lts-xenial: ignored (out of standard support)
+trusty_xorg-server-lts-xenial: ignored (end of standard support)
 trusty/esm_xorg-server-lts-xenial: DNE
 xenial_xorg-server-lts-xenial: DNE
 bionic_xorg-server-lts-xenial: DNE

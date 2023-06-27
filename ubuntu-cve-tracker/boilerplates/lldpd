@@ -13,7 +13,7 @@ CVSS:
 
 Patches_lldpd:
 upstream_lldpd: needs-triage
-trusty_lldpd: ignored (out of standard support)
+trusty_lldpd: ignored (end of standard support)
 trusty/esm_lldpd: DNE
 xenial_lldpd: ignored (end of standard support)
 bionic_lldpd: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_lldpd: needs-triage
 
 Patches_openvswitch:
 upstream_openvswitch: needs-triage
-trusty_openvswitch:ignored (out of standard support)
+trusty_openvswitch: ignored (end of standard support)
 trusty/esm_openvswitch: DNE
 xenial_openvswitch: ignored (end of standard support)
 esm-infra/xenial_openvswitch: needs-triage

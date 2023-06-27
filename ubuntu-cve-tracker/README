@@ -246,7 +246,7 @@ for packages that exist in a previous release, but that release has reached End
 of Life. Eg:
 
 upstream_foo: released (1.2.3)
-lucid_foo: ignored (reached end-of-life)
+lucid_foo: ignored (end of life)
 precise_foo: released (1.2.2-1ubuntu1.2)
 trusty_foo: not-affected (1.2.3-1)
 utopic_foo: not-affected (1.3.0-1)
@@ -337,7 +337,7 @@ For a given CVE, the package and release with status is encoded as:
 		has been withdrawn, or because fixing the issue would break
 		other functionality.
 		The reason for decision should be recorded in brackets, e.g.:
-		ignored (out of standard support)
+		ignored (end of standard support)
 		ignored (fix would unavoidably negatively impact other 
 			packages)
 		ignored (vulnerabilty has been disputed by upstream 
@@ -394,10 +394,10 @@ supported packages:
 1. CVEs in community supported packages for EOL released should follow the EOL
 for the release (ie desktop/universe is 18 months for non-LTS, 3 years for LTS,
 5 years for server). If based on the above the release is EOL, then the status
-of the CVE should be 'ignored (reached end-of-life). See 'End of Life' section
+of the CVE should be 'ignored (end of life). See 'End of Life' section
 for more information. Eg:
 upstream_foo: released (1.2.3)
-lucid_foo: ignored (reached end-of-life)
+lucid_foo: ignored (end of life)
 ...
 
 2. Look carefully at MITRE versions. If it has a 'fixed in' or 'less than',
@@ -508,7 +508,7 @@ Retiring items:
 git mv $(./scripts/cve_need_retire -p) ./retired/
 
 Ignore open CVEs for a certain release:
-./scripts/pkg_status webkit | cut -f1 -d' ' | xargs -I{} ./scripts/mass-cve-edit -p webkit -r trusty -s ignored -v 'reached end-of-life' {}
+./scripts/pkg_status webkit | cut -f1 -d' ' | xargs -I{} ./scripts/mass-cve-edit -p webkit -r trusty -s ignored -v 'end of life' {}
 
 Mark CVEs as "released" from known USNs:
 wget -N http://usn.ubuntu.com/usn-db/database.pickle
@@ -644,7 +644,7 @@ Here is how:
    scripts/cve_lib.py
 
 2. update the CVEs:
-$ sed -i 's/^<release>_\(.*\): \(needed\|needs\-triage\)/<release>_\1: \2 (reached end-of-life)/g' ./active/CVE-*
+$ sed -i 's/^<release>_\(.*\): \(needed\|needs\-triage\)/<release>_\1: \2 (end of life)/g' ./active/CVE-*
 
 3. retire the CVEs (see 'Retiring items', above)
 

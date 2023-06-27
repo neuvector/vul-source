@@ -16,7 +16,7 @@ CVSS:
 
 Patches_webkitgtk:
 upstream_webkitgtk: needs-triage
-trusty_webkitgtk: ignored (out of standard support)
+trusty_webkitgtk: ignored (end of standard support)
 trusty/esm_webkitgtk: DNE
 xenial_webkitgtk: ignored (end of standard support)
 bionic_webkitgtk: ignored (end of standard support)
@@ -30,9 +30,9 @@ Patches_webkit2gtk:
 upstream_webkit2gtk: needs-triage
 trusty_webkit2gtk: DNE
 trusty/esm_webkit2gtk: DNE
-xenial_webkit2gtk: deferred
+xenial_webkit2gtk: ignored (end of standard support, was deferred)
 esm-infra/xenial_webkit2gtk: deferred
-bionic_webkit2gtk: deferred
+bionic_webkit2gtk: ignored (end of standard support, was deferred)
 esm-infra/bionic_webkit2gtk: deferred
 focal_webkit2gtk: needs-triage
 jammy_webkit2gtk: needs-triage
@@ -42,7 +42,7 @@ devel_webkit2gtk: needs-triage
 
 Patches_qtwebkit-source:
 upstream_qtwebkit-source: needs-triage
-trusty_qtwebkit-source: ignored (out of standard support)
+trusty_qtwebkit-source: ignored (end of standard support)
 trusty/esm_qtwebkit-source: DNE
 xenial_qtwebkit-source: ignored (end of standard support)
 bionic_qtwebkit-source: ignored (end of standard support)
@@ -54,7 +54,7 @@ devel_qtwebkit-source: DNE
 
 Patches_qtwebkit-opensource-src:
 upstream_qtwebkit-opensource-src: needs-triage
-trusty_qtwebkit-opensource-src: ignored (out of standard support)
+trusty_qtwebkit-opensource-src: ignored (end of standard support)
 trusty/esm_qtwebkit-opensource-src: DNE
 xenial_qtwebkit-opensource-src: ignored (end of standard support)
 esm-infra/xenial_qtwebkit-opensource-src: needs-triage
@@ -67,7 +67,7 @@ devel_qtwebkit-opensource-src: needs-triage
 
 Patches_wpewebkit:
 upstream_wpewebkit: needs-triage
-trusty_wpewebkit: ignored (out of standard support)
+trusty_wpewebkit: ignored (end of standard support)
 trusty/esm_wpewebkit: DNE
 xenial_wpewebkit: DNE
 bionic_wpewebkit: DNE

@@ -18,5 +18,5 @@ CVSS:
 
 Patches_package:
 upstream_package: needs-triage
-trusty_package: ignored (out of standard support)
+trusty_package: ignored (end of standard support)
 trusty/esm_package: needed

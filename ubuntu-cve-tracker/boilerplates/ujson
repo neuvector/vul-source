@@ -22,7 +22,7 @@ Patches_ujson:
 upstream_ujson: needs-triage
 trusty_ujson: DNE
 xenial_ujson: ignored (end of standard support)
-bionic_ujson: needs-triage
+bionic_ujson: ignored (end of standard support, was needs-triage)
 focal_ujson: needs-triage
 jammy_ujson: needs-triage
 kinetic_ujson: needs-triage
@@ -34,7 +34,7 @@ upstream_pandas: needs-triage
 trusty/esm_pandas: needs-triage
 trusty_pandas: ignored (end of standard support)
 xenial_pandas: ignored (end of standard support)
-bionic_pandas: needs-triage
+bionic_pandas: ignored (end of standard support, was needs-triage)
 focal_pandas: needs-triage
 jammy_pandas: needs-triage
 kinetic_pandas: needs-triage
@@ -45,7 +45,7 @@ Patches_collada2gltf:
 upstream_collada2gltf: needs-triage
 trusty_collada2gltf: DNE
 xenial_collada2gltf: ignored (end of standard support)
-bionic_collada2gltf: needs-triage
+bionic_collada2gltf: ignored (end of standard support, was needs-triage)
 focal_collada2gltf: DNE
 jammy_collada2gltf: needs-triage
 kinetic_collada2gltf: needs-triage

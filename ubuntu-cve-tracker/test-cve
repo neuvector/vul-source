@@ -29,7 +29,7 @@ Patches_foo:
  patch: http://www.example.com/patch
  debdiff: http://www.example.com/debdiff
 upstream_foo: released (1.0, 1.1)
-hardy_foo: ignored (reached end-of-life)
+hardy_foo: ignored (end of life)
 intrepid_foo: DNE
 lucid_foo: needs-triage
 natty_foo: pending
@@ -49,7 +49,7 @@ Patches_malfor"med:
  patch: http://www.example.com/patch
  debdiff: http://www.example.com/debdiff
 upstream_malformed: relased (1.0, 1.1)
-hardy_malformed: ignored reached end-of-life)
+hardy_malformed: ignored end of life)
 lucid_malfor'med: needs-triage
 natty_malformed: non-existant
 oneiric_malformed: not-affected (code-not-compiled

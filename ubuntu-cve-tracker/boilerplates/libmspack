@@ -15,7 +15,7 @@ CVSS:
 
 Patches_libmspack:
 upstream_libmspack: needs-triage
-trusty_libmspack: ignored (out of standard support)
+trusty_libmspack: ignored (end of standard support)
 trusty/esm_libmspack: needs-triage
 xenial_libmspack: ignored (end of standard support)
 esm-infra/xenial_libmspack: needs-triage
@@ -29,7 +29,7 @@ devel_libmspack: needs-triage
 
 Patches_clamav:
 upstream_clamav: needs-triage
-trusty_clamav: ignored (out of standard support)
+trusty_clamav: ignored (end of standard support)
 trusty/esm_clamav: needs-triage
 xenial_clamav: not-affected (uses system libmspack)
 esm-infra/xenial_clamav: not-affected (uses system libmspack)

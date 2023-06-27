@@ -109,7 +109,7 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
         elif rel in cve_lib.eol_releases and not cve_lib.is_active_esm_release(rel):
             continue
         elif cve_lib.is_active_esm_release(rel):
-            state = "ignored (out of standard support)"
+            state = cve_lib.EOL_ESM_STATUS.split(',')[0] + ')'
         elif rel == 'upstream' and fixed_in is not None:
             state = "released (%s)" % fixed_in
         elif fixed_in_release_version and rel == fixed_in_release:

@@ -25,7 +25,7 @@ devel_openjpeg2: needs-triage
 
 Patches_insighttoolkit4:
 upstream_insighttoolkit4: needs-triage
-trusty_insighttoolkit4: ignored (out of standard support)
+trusty_insighttoolkit4: ignored (end of standard support)
 trusty/esm_insighttoolkit4: DNE
 xenial_insighttoolkit4: ignored (end of standard support)
 bionic_insighttoolkit4: ignored (end of standard support)
@@ -49,7 +49,7 @@ devel_qtwebengine-opensource-src: needs-triage
 
 Patches_blender:
 upstream_blender: needs-triage
-trusty_blender: ignored (out of standard support)
+trusty_blender: ignored (end of standard support)
 trusty/esm_blender: DNE
 xenial_blender: ignored (end of standard support)
 bionic_blender: ignored (end of standard support)
@@ -61,7 +61,7 @@ devel_blender: needs-triage
 
 Patches_texmaker:
 upstream_texmaker: needs-triage
-trusty_texmaker: ignored (out of standard support)
+trusty_texmaker: ignored (end of standard support)
 trusty/esm_texmaker: DNE
 xenial_texmaker: ignored (end of standard support)
 bionic_texmaker: ignored (end of standard support)
@@ -73,7 +73,7 @@ devel_texmaker: needs-triage
 
 Patches_ghostscript:
 upstream_ghostscript: needs-triage
-trusty_ghostscript: ignored (out of standard support)
+trusty_ghostscript: ignored (end of standard support)
 trusty/esm_ghostscript: DNE
 xenial_ghostscript: ignored (end of standard support)
 esm-infra/xenial_ghostscript: needs-triage
@@ -87,7 +87,7 @@ devel_ghostscript: not-affected (uses system openjpeg2)
 
 Patches_openjpeg:
 upstream_openjpeg: needs-triage
-trusty_openjpeg: ignored (out of standard support)
+trusty_openjpeg: ignored (end of standard support)
 trusty/esm_openjpeg: needs-triage
 xenial_openjpeg: ignored (end of standard support)
 bionic_openjpeg: DNE

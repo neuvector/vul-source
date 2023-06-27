@@ -15,7 +15,7 @@ CVSS:
 
 Patches_libyaml:
 upstream_libyaml: needs-triage
-trusty_libyaml: ignored (out of standard support)
+trusty_libyaml: ignored (end of standard support)
 trusty/esm_libyaml: needs-triage
 xenial_libyaml: ignored (end of standard support)
 esm-infra/xenial_libyaml: needs-triage
@@ -29,7 +29,7 @@ devel_libyaml: needs-triage
 
 Patches_libyaml-libyaml-perl:
 upstream_libyaml-libyaml-perl: needs-triage
-trusty_libyaml-libyaml-perl: ignored (out of standard support)
+trusty_libyaml-libyaml-perl: ignored (end of standard support)
 trusty/esm_libyaml-libyaml-perl: DNE
 xenial_libyaml-libyaml-perl: ignored (end of standard support)
 esm-infra/xenial_libyaml-libyaml-perl: needs-triage
@@ -43,7 +43,7 @@ devel_libyaml-libyaml-perl: needs-triage
 
 Patches_golang-goyaml:
 upstream_golang-goyaml: needs-triage
-trusty_golang-goyaml: ignored (out of standard support)
+trusty_golang-goyaml: ignored (end of standard support)
 trusty/esm_golang-goyaml: DNE
 xenial_golang-goyaml: ignored (end of standard support)
 bionic_golang-goyaml: DNE
@@ -55,7 +55,7 @@ devel_golang-goyaml: DNE
 
 Patches_golang-yaml.v2:
 upstream_golang-yaml.v2: needs-triage
-trusty_golang-yaml.v2: ignored (out of standard support)
+trusty_golang-yaml.v2: ignored (end of standard support)
 trusty/esm_golang-yaml.v2: DNE
 xenial_golang-yaml.v2: ignored (end of standard support)
 esm-infra/xenial_golang-yaml.v2: needs-triage

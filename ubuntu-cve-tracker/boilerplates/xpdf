@@ -13,7 +13,7 @@ CVSS:
 
 Patches_xpdf:
 upstream_xpdf: needs-triage
-trusty_xpdf: ignored (out of standard support)
+trusty_xpdf: ignored (end of standard support)
 trusty/esm_xpdf: DNE
 xenial_xpdf: ignored (end of standard support)
 bionic_xpdf: ignored (end of standard support)
@@ -25,7 +25,7 @@ devel_xpdf: needs-triage
 
 Patches_ipe:
 upstream_ipe: needs-triage
-trusty_ipe: ignored (out of standard support)
+trusty_ipe: ignored (end of standard support)
 trusty/esm_ipe: DNE
 xenial_ipe: ignored (end of standard support)
 bionic_ipe: ignored (end of standard support)

@@ -16,7 +16,7 @@ CVSS:
 
 Patches_python-colorama:
 upstream_python-colorama: 
-trusty_python-colorama: ignored (reached end of life)
+trusty_python-colorama: ignored (end of standard support)
 trusty/esm_python-colorama: needs-triage
 xenial_python-colorama: ignored (end of standard support)
 bionic_python-colorama: ignored (end of standard support)
@@ -29,7 +29,7 @@ devel_python-colorama: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)

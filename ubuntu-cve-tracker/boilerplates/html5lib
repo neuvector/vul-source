@@ -16,7 +16,7 @@ CVSS:
 
 Patches_html5lib:
 upstream_html5lib: 
-trusty_html5lib: ignored (reached end of life)
+trusty_html5lib: ignored (end of standard support)
 trusty/esm_html5lib: DNE
 xenial_html5lib: ignored (end of standard support)
 esm-infra/xenial_html5lib: needs-triage
@@ -30,7 +30,7 @@ devel_html5lib: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)

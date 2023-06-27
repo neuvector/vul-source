@@ -14,7 +14,7 @@ CVSS:
 
 Patches_golang-github-seccomp-libseccomp-golang:
 upstream_golang-github-seccomp-libseccomp-golang: needs-triage
-trusty_golang-github-seccomp-libseccomp-golang: ignored (out of standard support)
+trusty_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
 trusty/esm_golang-github-seccomp-libseccomp-golang: DNE
 xenial_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
 bionic_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
@@ -26,7 +26,7 @@ devel_golang-github-seccomp-libseccomp-golang: needs-triage
 
 Patches_runc:
 upstream_runc: needs-triage
-trusty_runc: ignored (out of standard support)
+trusty_runc: ignored (end of standard support)
 trusty/esm_runc: DNE
 xenial_runc: ignored (end of standard support)
 bionic_runc: ignored (end of standard support)

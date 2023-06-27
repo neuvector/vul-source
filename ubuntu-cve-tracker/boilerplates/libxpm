@@ -16,9 +16,9 @@ CVSS:
 
 Patches_libxpm:
 upstream_libxpm: needs-triage
-trusty_libxpm: ignored (out of standard support)
+trusty_libxpm: ignored (end of standard support)
 trusty/esm_libxpm: needs-triage
-xenial_libxpm: ignored (out of standard support)
+xenial_libxpm: ignored (end of standard support)
 esm-infra/xenial_libxpm: needs-triage
 bionic_libxpm: ignored (end of standard support)
 esm-infra/bionic_libxpm: needs-triage
@@ -30,8 +30,8 @@ devel_libxpm: needs-triage
 
 Patches_motif:
 upstream_motif: needs-triage
-trusty_motif: ignored (out of standard support)
-xenial_motif: ignored (out of standard support)
+trusty_motif: ignored (end of standard support)
+xenial_motif: ignored (end of standard support)
 bionic_motif: ignored (end of standard support)
 focal_motif: needs-triage
 jammy_motif: needs-triage

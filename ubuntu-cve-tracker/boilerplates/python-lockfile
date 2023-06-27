@@ -16,7 +16,7 @@ CVSS:
 
 Patches_python-lockfile:
 upstream_python-lockfile: 
-trusty_python-lockfile: ignored (reached end-of-life)
+trusty_python-lockfile: ignored (end of standard support)
 trusty/esm_python-lockfile: needs-triage
 xenial_python-lockfile: ignored (end of standard support)
 esm-infra/xenial_python-lockfile: needs-triage
@@ -30,7 +30,7 @@ devel_python-lockfile: needs-triage
 
 Patches_python-pip:
 upstream_python-pip: 
-trusty_python-pip: ignored (reached end of life)
+trusty_python-pip: ignored (end of standard support)
 trusty/esm_python-pip: needs-triage
 xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
