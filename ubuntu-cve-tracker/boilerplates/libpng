@@ -46,10 +46,10 @@ esm-infra/xenial_firefox: needs-triage
 bionic_firefox: ignored (end of standard support)
 esm-infra/bionic_firefox: needs-triage
 focal_firefox: needs-triage
-jammy_firefox: needs-triage
-kinetic_firefox: needs-triage
-lunar_firefox: needs-triage
-devel_firefox: needs-triage
+jammy_firefox: not-affected (code not present)
+kinetic_firefox: not-affected (code not present)
+lunar_firefox: not-affected (code not present)
+devel_firefox: not-affected (code not present)
 
 Patches_thunderbird:
 upstream_thunderbird: needs-triage

@@ -1148,6 +1148,7 @@ trusty_linux-raspi-5.4: DNE
 trusty/esm_linux-raspi-5.4: DNE
 xenial_linux-raspi-5.4: DNE
 bionic_linux-raspi-5.4: ignored (end of standard support)
+esm-infra/bionic_linux-raspi-5.4: needs-triage
 focal_linux-raspi-5.4: DNE
 jammy_linux-raspi-5.4: DNE
 kinetic_linux-raspi-5.4: DNE
@@ -1225,7 +1226,6 @@ trusty_linux-snapdragon: DNE
 trusty/esm_linux-snapdragon: DNE
 xenial_linux-snapdragon: ignored (end of standard support)
 bionic_linux-snapdragon: ignored (end of standard support)
-esm-infra/bionic_linux-snapdragon: needs-triage
 focal_linux-snapdragon: DNE
 jammy_linux-snapdragon: DNE
 kinetic_linux-snapdragon: DNE
