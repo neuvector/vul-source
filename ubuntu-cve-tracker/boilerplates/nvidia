@@ -403,3 +403,13 @@ kinetic_nvidia-graphics-drivers-530: needs-triage
 lunar_nvidia-graphics-drivers-530: needs-triage
 devel_nvidia-graphics-drivers-530: needs-triage
 
+Patches_nvidia-graphics-drivers-535:
+upstream_nvidia-graphics-drivers-535: needs-triage
+trusty_nvidia-graphics-drivers-535: DNE
+xenial_nvidia-graphics-drivers-535: DNE
+focal_nvidia-graphics-drivers-535: needs-triage
+jammy_nvidia-graphics-drivers-535: needs-triage
+kinetic_nvidia-graphics-drivers-535: needs-triage
+lunar_nvidia-graphics-drivers-535: needs-triage
+devel_nvidia-graphics-drivers-535: needs-triage
+

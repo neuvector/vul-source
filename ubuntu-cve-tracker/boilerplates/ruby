@@ -82,8 +82,8 @@ bionic_ruby3.0: DNE
 focal_ruby3.0: DNE
 jammy_ruby3.0: needs-triage
 kinetic_ruby3.0: needs-triage
-lunar_ruby3.0: needs-triage
-devel_ruby3.0: needs-triage
+lunar_ruby3.0: DNE
+devel_ruby3.0: DNE
 
 Patches_ruby3.1:
 upstream_ruby3.1: needs-triage
