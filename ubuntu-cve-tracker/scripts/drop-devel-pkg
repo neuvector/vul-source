@@ -3,4 +3,7 @@
 # TODO: replace with invocation of mass-cve-edit
 for pkg in "$@"; do
     perl -pi -e 's/^(devel_'"$pkg"':).*/$1 DNE/;' active/CVE-*
+    # search through the boilerplates to remove devel entries, but make
+    # sure only to touch actual files and not symlinks
+    find boilerplates/ -maxdepth 1 -type f -print0 | xargs -0 perl -pi -e 's/^(devel_'"$pkg"':).*/$1 DNE/;'
 done
