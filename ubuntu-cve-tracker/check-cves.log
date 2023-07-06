@@ -7630,3 +7630,7 @@
 2023-07-05 14:14:27 UTC - 4 added, 0 ignored, 0 skipped, 4 total - files: ['rhel8oval-import_dczbv5vc.json']
 2023-07-05 14:14:36 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-07-05 14:25:21 UTC - 0 added, 2 ignored, 0 skipped, 2 total - files: ['mbox-import_r_pop72d.out.json']
+2023-07-06 14:29:52 UTC - 7 added, 97 ignored, 2 skipped, 104 total - files: ['nvdcve-1.1-recent.json']
+2023-07-06 14:38:51 UTC - 0 added, 0 ignored, 3 skipped, 0 total - files: ['debian-import_gjsi354u.json']
+2023-07-06 16:08:32 UTC - 0 added, 26 ignored, 0 skipped, 26 total - files: ['nvdcve-1.1-recent.json']
+2023-07-06 16:18:54 UTC - 1 added, 0 ignored, 1 skipped, 1 total - files: ['debian-import_k8srct9n.json']
