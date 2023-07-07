@@ -313,7 +313,7 @@ try:
         cmd += ['--ignore-cves', ','.join(args.ignore)]
 
     if len(cves) == 0:
-        if not args.regression or not args.embargoed:
+        if not args.regression and not args.embargoed:
             print("INFO no cves found, is this a regression or an embargoed update?")
     else:
         cmd += ['--cves', ','.join(cves)]

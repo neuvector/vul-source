@@ -439,6 +439,10 @@
         "description": "GNOME Display Manager",
         "title": "GDM"
     },
+    "gerbv": {
+        "description": "Gerber file viewer for PCB design",
+        "title": "Gerbv"
+    },
     "ghostscript": {
         "description": "PostScript and PDF interpreter",
         "title": "Ghostscript"
