@@ -1,0 +1,39 @@
+Candidate:
+PublicDate: 
+References: 
+Description:
+Ubuntu-Description:
+Notes:
+ 0xnishit> dwarves-dfsg embedded statically linked copy of libbpf 0.4
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to: 
+CVSS: 
+
+Patches_libbpf:
+upstream_libbpf: needs-triage
+trusty_libbpf: DNE
+xenial_libbpf: DNE
+bionic_libbpf: DNE
+focal_libbpf: needs-triage
+esm-apps/focal_libbpf: needs-triage
+jammy_libbpf: needs-triage
+kinetic_libbpf: needs-triage
+lunar_libbpf: needs-triage
+devel_libbpf: needs-triage
+
+Patches_dwarves-dfsg:
+upstream_dwarves-dfsg: needs-triage
+trusty_dwarves-dfsg: ignored (end of standard support)
+xenial_dwarves-dfsg: ignored (end of standard support)
+esm-apps/xenial_dwarves-dfsg: needs-triage
+bionic_dwarves-dfsg: ignored (end of standard support)
+esm-apps/bionic_dwarves-dfsg: needs-triage
+focal_dwarves-dfsg: needs-triage
+esm-apps/focal_dwarves-dfsg: needs-triage
+jammy_dwarves-dfsg: DNE
+kinetic_dwarves-dfsg: DNE
+lunar_dwarves-dfsg: DNE
+devel_dwarves-dfsg: DNE
