@@ -11,7 +11,7 @@
   "Notes": [],
   "Mitigation": "",
   "Bugs": "",
-  "Priority": "medium",
+  "Priority": ["medium"],
   "Discovered-by": "",
   "Assigned-to": "",
   "CVSS": [],

@@ -198,8 +198,8 @@ def check_cve_priority(cve):
         print("ERROR: {} does not exist in UCT in either {}".format(cve, state),
               file=sys.stderr)
         sys.exit(1)
-    if cve_data['Priority'] in ['untriaged', 'not-for-us']:
-        print("ERROR: {} has Priority {}".format(cve, cve_data['Priority']),
+    if cve_data['Priority'][0] in ['untriaged', 'not-for-us']:
+        print("ERROR: {} has Priority {}".format(cve, cve_data['Priority'][0]),
               file=sys.stderr)
         sys.exit(1)
 

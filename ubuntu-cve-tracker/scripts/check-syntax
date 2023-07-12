@@ -764,7 +764,7 @@ def check_cve(cve):
     if (
         len(supported)
         and (is_active(cve) or is_embargoed(cve))
-        and ("Priority" not in data or data["Priority"] not in cve_lib.priorities)
+        and ("Priority" not in data or data["Priority"][0] not in cve_lib.priorities)
     ):
         filename = srcmap["Priority"][0] if "Priority" in srcmap else cvepath
         linenum = srcmap["Priority"][1] if "Priority" in srcmap else 1

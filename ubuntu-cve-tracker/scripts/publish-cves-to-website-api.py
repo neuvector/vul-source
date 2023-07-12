@@ -166,7 +166,7 @@ def post_single_cve(cve_filename):
     for [author, note] in cve_data["Notes"]:
         notes.append({"author": author, "note": note})
 
-    priority = cve_data["Priority"]
+    priority = cve_data["Priority"][0]
 
     if priority == "untriaged":
         priority = "unknown"

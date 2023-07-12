@@ -253,9 +253,9 @@ for cve in sorted(cves):
             if cveinfo[cve]['CVSS']:
                 p = cveinfo[cve]['CVSS'][0]['baseSeverity'].lower()
             else:
-                p = priority[cve]['default']
+                p = priority[cve]['default'][0]
         else:
-            p = priority[cve]['default']
+            p = priority[cve]['default'][0]
 
         if pkg in packages:
             packages[pkg] += 1
@@ -263,7 +263,7 @@ for cve in sorted(cves):
             packages[pkg] = 1
 
         if pkg in priority[cve]:
-            p = priority[cve][pkg]
+            p = priority[cve][pkg][0]
 
         if pkg in priorities[p]:
             priorities[p][pkg] += 1

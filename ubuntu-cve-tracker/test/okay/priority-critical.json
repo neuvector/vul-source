@@ -13,7 +13,7 @@
   "Notes": [],
   "Mitigation": "",
   "Bugs": "",
-  "Priority": "critical",
+  "Priority": ["critical", "reason for being critial"],
   "Discovered-by": "",
   "Assigned-to": "",
   "CVSS": [],

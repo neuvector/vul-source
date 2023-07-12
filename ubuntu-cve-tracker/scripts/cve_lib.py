@@ -64,6 +64,8 @@ else:
     boilerplates_dir = "boilerplates"
 
 PRODUCT_UBUNTU = "ubuntu"
+PRIORITY_REASON_REQUIRED = ["low", "high", "critical"]
+PRIORITY_REASON_DATE_START = "2023-07-11"
 
 # common to all scripts
 # these get populated by the contents of subprojects defined below
@@ -1856,8 +1858,8 @@ def contextual_priority(cveinfo, pkg=None, rel=None):
             if rel_p in cveinfo:
                 return 2, cveinfo[rel_p]
         if pkg_p in cveinfo:
-            return 1, cveinfo[pkg_p]
-    return 0, cveinfo.get('Priority', 'untriaged')
+            return 1, cveinfo[pkg_p][0]
+    return 0, cveinfo['Priority'][0] if 'Priority' in cveinfo else 'untriaged'
 
 
 def find_cve(cve):
@@ -2095,6 +2097,7 @@ def load_cve(cve, strict=False, srcmap=None):
         raise ValueError("File does not exist: '%s'" % (cve))
     linenum = 0
     notes_parser = NotesParser()
+    priority_reason = {}
     cvss_entries = []
     with codecs.open(cve, encoding="utf-8") as inF:
         lines = inF.readlines()
@@ -2112,6 +2115,12 @@ def load_cve(cve, strict=False, srcmap=None):
                     code, newmsg = notes_parser.parse_line(cve, line, linenum, code)
                     if code != EXIT_OKAY:
                         msg += newmsg
+                elif lastfield.startswith('Priority'):
+                    priority_part = lastfield.split('_')[1] if '_' in lastfield else None
+                    if priority_part in priority_reason:
+                        priority_reason[priority_part].append(line.strip())
+                    else:
+                        priority_reason[priority_part] = [line.strip()]
                 elif 'Patches_' in lastfield:
                     try:
                         _, pkg = lastfield.split('_', 1)
@@ -2186,7 +2195,7 @@ def load_cve(cve, strict=False, srcmap=None):
                     msg += "%s: %d: bad field with 'Priority_': '%s'\n" % (cve, linenum, field)
                     code = EXIT_FAIL
                     continue
-            data.setdefault(field, value)
+            data.setdefault(field, [value])
             srcmap.setdefault(field, (cve, linenum))
             if value not in ['untriaged', 'not-for-us'] + priorities:
                 msg += "%s: %d: unknown Priority '%s'\n" % (cve, linenum, value)
@@ -2265,7 +2274,7 @@ def load_cve(cve, strict=False, srcmap=None):
 
     # Fill in defaults for missing fields
     if 'Priority' not in data:
-        data.setdefault('Priority', 'untriaged')
+        data.setdefault('Priority', ['untriaged'])
         srcmap.setdefault('Priority', (cve, 1))
     # Perform override fields
     if 'PublicDateAtUSN' in data:
@@ -2276,6 +2285,14 @@ def load_cve(cve, strict=False, srcmap=None):
             print("%s: %d: adjusting PublicDate to use CRD: %s" % (cve, linenum, data['CRD']), file=sys.stderr)
         data['PublicDate'] = data['CRD']
         srcmap['PublicDate'] = srcmap['CRD']
+
+    if data["PublicDate"] > PRIORITY_REASON_DATE_START and \
+            data["Priority"][0] in PRIORITY_REASON_REQUIRED and not priority_reason:
+        msg += "%s: %d: needs a reason for being '%s'\n" % (cve, linenum, data["Priority"][0])
+        code = EXIT_FAIL
+    for item in priority_reason:
+        field = 'Priority' if not item else 'Priority_' + item
+        data[field].append(' '.join(priority_reason[item]))
 
     # entries need an upstream entry if any entries are from the internal
     # list of subprojects
@@ -2339,7 +2356,7 @@ def load_table(cves, uems, opt=None, rcves=[], icves=[]):
         # Allow for Priority overrides
         priority[cve]['default'] = 'untriaged'
         try:
-            priority[cve]['default'] = info['Priority']
+            priority[cve]['default'] = info['Priority'][0]
         except KeyError:
             priority[cve]['default'] = 'untriaged'
 

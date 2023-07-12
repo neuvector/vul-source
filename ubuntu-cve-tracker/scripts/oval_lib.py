@@ -1266,7 +1266,7 @@ class OvalGeneratorCVE:
             'cve_title': escape(header['Candidate']),
             'description': escape('{0} {1}'.format(header['Description'],
                                   header['Ubuntu-Description']).strip() + instruction),
-            'priority': escape(header['Priority']),
+            'priority': escape(header['Priority'][0]),
             'criteria': '',
             'references': '',
             'notes': ''
@@ -1316,7 +1316,7 @@ class OvalGeneratorCVE:
         # convert additional data <advisory> metadata elements
         advisory = []
         advisory.append('<severity>{0}</severity>'.format(
-            escape(header['Priority'].title())))
+            escape(header['Priority'][0].title())))
         advisory.append(
             '<rights>Copyright (C) {0}Canonical Ltd.</rights>'.format(escape(
                 header['PublicDate'].split('-', 1)[0] + ' '
@@ -2471,7 +2471,7 @@ class OvalGeneratorUSN():
             return None
 
         public_date = cve_object['PublicDate']
-        priority = cve_object['Priority']
+        priority = cve_object['Priority'][0]
         references = cve_object['References']
         # TODO: deal with multiple CVSS?
         cve_info = {

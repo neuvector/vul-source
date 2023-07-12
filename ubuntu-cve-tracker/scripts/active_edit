@@ -232,7 +232,10 @@ def create_or_update_cve(cve, packages, priority=None, bug_urls=None, ref_urls=N
             print('Bugs:', file=fp)
             for url in (bug_urls if bug_urls else []):
                 print(" %s" % url, file=fp)
-            print('Priority: %s' % (priority if priority else "untriaged"), file=fp)
+            priority_text = priority if priority else "untriaged"
+            if priority in cve_lib.PRIORITY_REASON_REQUIRED:
+                priority_text += "\n XXX-Reason-XXX"
+            print('Priority: %s' % priority_text, file=fp)
             print('Discovered-by:', file=fp)
             print('Assigned-to:', file=fp)
             print('CVSS:', file=fp)

@@ -78,9 +78,9 @@ for priority in ['untriaged'] + cve_lib.priorities:
                     continue
 
                 # Only report if we have a matching priority
-                this_priority = info[cve]['Priority']
+                this_priority = info[cve]['Priority'][0]
                 if info[cve].has_key('Priority_%s' % (pkg)):
-                    this_priority = info[cve]['Priority_%s' % (pkg)]
+                    this_priority = info[cve]['Priority_%s' % (pkg)][0]
                 if this_priority == priority:
                     pkglist.add(pkg)
 
