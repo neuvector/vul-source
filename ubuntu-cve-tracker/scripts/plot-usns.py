@@ -86,7 +86,7 @@ for usn in sorted(db.keys()):
                         print >> sys.stderr, "Skipping %s: %s" % (cve, str(e))
                         continue
                 months[when]['total'] += 1
-                months[when][cves[cve]['Priority']] += 1
+                months[when][cves[cve]['Priority'][0]] += 1
         else:
             for rel in db[usn]['releases']:
                 if opt.release and rel != opt.release:

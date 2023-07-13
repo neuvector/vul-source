@@ -445,7 +445,7 @@ class CVE:
     def __init__(self, number, info, pkgs=[]) -> None:
         self.number = number
         self.description = info['Description']
-        self.severity = info['Priority']
+        self.severity = info['Priority'][0]
         self.public_date = info['PublicDate']
         self.cvss = info['CVSS']
         self.usns = []
@@ -1266,7 +1266,7 @@ class OvalGeneratorCVE:
             'cve_title': escape(header['Candidate']),
             'description': escape('{0} {1}'.format(header['Description'],
                                   header['Ubuntu-Description']).strip() + instruction),
-            'priority': escape(header['Priority'][0]),
+            'priority': escape(header['Priority']),
             'criteria': '',
             'references': '',
             'notes': ''
@@ -1316,7 +1316,7 @@ class OvalGeneratorCVE:
         # convert additional data <advisory> metadata elements
         advisory = []
         advisory.append('<severity>{0}</severity>'.format(
-            escape(header['Priority'][0].title())))
+            escape(header['Priority'].title())))
         advisory.append(
             '<rights>Copyright (C) {0}Canonical Ltd.</rights>'.format(escape(
                 header['PublicDate'].split('-', 1)[0] + ' '

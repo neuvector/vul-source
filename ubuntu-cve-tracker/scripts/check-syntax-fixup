@@ -89,6 +89,9 @@ def get_pkg_rel_from_msg(msg):
     elif 'unknown status' in msg:
         pkg = parts[0].replace("'", "")
         rel = parts[-1].replace("'", "")
+    elif 'incorrect ignored detail' in msg:
+        pkg = parts[0].replace("'", "")
+        rel = msg.split(', try')[0].split(' ')[-1].replace("'", "")
     else:
         pkg = parts[0]
         rel = parts[-1].replace("'", "")
@@ -191,7 +194,9 @@ for line in args.infile:
         insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
         modified.append(cve)
 
-    elif "unknown package" in msg or "not in" in msg or "unknown release" in msg or "unknown status":
+    elif "unknown package" in msg or "not in" in msg \
+        or "unknown release" in msg or "unknown status"\
+        or "incorrect ignored detail" in msg:
         pkg, rel = get_pkg_rel_from_msg(msg)
 
         # remove this hard-coded hack one-day...
@@ -213,12 +218,16 @@ for line in args.infile:
             fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status="DNE")
             insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
         elif not cve_lib.is_active_release(rel):
-            state = msg.split(' ')[3].replace("'", "")
-            if cve_lib.is_active_esm_release(rel):
-                fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status=cve_lib.EOL_ESM_STATUS.format(state=state))
+            if 'incorrect ignored detail' in msg:
+                status = msg.split("try '")[1].replace("'", "")
             else:
-                fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status=cve_lib.EOL_STATUS.format(state=state))
+                state = msg.split(' ')[3].replace("'", "")
+                if cve_lib.is_active_esm_release(rel):
+                    status = cve_lib.EOL_ESM_STATUS.format(state=state)
+                else:
+                    status = cve_lib.EOL_STATUS.format(state=state)
 
+            fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status=status)
             insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
 
         modified.append(cve)

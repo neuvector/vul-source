@@ -64,6 +64,18 @@ kinetic_mysql-8.0: needs-triage
 lunar_mysql-8.0: needs-triage
 devel_mysql-8.0: needs-triage
 
+Patches_mariadb:
+upstream_mariadb: needs-triage
+trusty_mariadb: DNE
+trusty/esm_mariadb: DNE
+xenial_mariadb: DNE
+bionic_mariadb: DNE
+focal_mariadb: DNE
+jammy_mariadb: DNE
+kinetic_mariadb: DNE
+lunar_mariadb: needs-triage
+devel_mariadb: needs-triage
+
 Patches_mariadb-5.5:
 upstream_mariadb-5.5: needs-triage
 trusty_mariadb-5.5: ignored (end of standard support)

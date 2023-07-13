@@ -2399,7 +2399,7 @@ def load_table(cves, uems, opt=None, rcves=[], icves=[]):
 
             field = 'Priority_' + pkg
             if field in info:
-                priority[cve][pkg] = info[field]
+                priority[cve][pkg] = info[field][0]
             if opt and opt.debug:
                 print("Loaded '%s'" % (pkg), file=sys.stderr)
 
