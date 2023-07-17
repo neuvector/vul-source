@@ -165,7 +165,7 @@ trusty/esm_golang-1.20: DNE
 xenial_golang-1.20: ignored (end of standard support)
 bionic_golang-1.20: DNE
 focal_golang-1.20: DNE
-jammy_golang-1.20: DNE
+jammy_golang-1.20: needs-triage
 kinetic_golang-1.20: DNE
 lunar_golang-1.20: needs-triage
 devel_golang-1.20: needs-triage
