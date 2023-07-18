@@ -802,13 +802,24 @@ class CVEHandler(xml.sax.handler.ContentHandler):
         first_sentence = re.split(r'\. ', rev_text)[0]
 
         # hunt for module/component
-        match = re.search(r'(?: in t|^T)he (.*) (library|templates?|components?|modules?|[Pp]lug-?ins?|extension|application|[Tt]hemes?) (?:.* )?for (Joomla!|Drupal|WordPress|TYPO3|Mambo|Android|jQuery)', first_sentence)
+        nouns = ["library", "templates?", "components?", "modules?", "[Pp]lug-?ins?", "extension", "application", "[Tt]hemes?"]
+        products = ["Joomla!", "Drupal", "WordPress", "TYPO3", "Mambo", "Android", "jQuery"]
+        match = re.search(r'(?: in t|^T)he (.*) (%s) (?:.* )?for (%s)' % ("|".join(nouns), "|".join(products)),
+                          first_sentence)
+        preposition = "for"
+        if not match:
+            # try swapping order of product and noun in which case there is no preposition
+            match = re.search(r'(?: in t|^T)he (.*) (%s) (%s) (?:.* )' % ("|".join(products), "|".join(nouns)),
+                              first_sentence)
+            preposition = None
         if match:
             module = match.group(1)
+            noun = match.group(2)
+            product = match.group(3)
             for marker in [" module", " ("]:
                 if marker in module:
                     module = module.split(marker)[0]
-            return "%s %s for %s" % (module, match.group(2), match.group(3))
+            return " ".join(filter(lambda x: x is not None, [module, noun, preposition, product]))
 
         # hunt for a description of a thing written in a language
         match = re.search(r'(.*) is a (?:.*) written in (?:.*)', first_sentence)
@@ -1559,6 +1570,7 @@ class CheckCVETest(unittest.TestCase):
         self.assertEqual("zxcvbn-ts", h.get_ignore_suggestion('''zxcvbn-ts is a password strength estimator written in typescript.'''))
         self.assertEqual("VMware Tools for Windows", h.get_ignore_suggestion('''VMware Tools for Windows (10.x.y prior to 10.3.10, 11.x.y prior to 11.1.5) contains a denial-of-service vulnerability due to NULL pointer dereference in vm3dmp driver. Successful exploitation of this issue may allow attackers with normal user privileges to create a denial-of-service condition on the guest machine where VMware Tools is installed.'''))
 
+        self.assertEqual("3DPrint WordPress plugin", h.get_ignore_suggestion("The 3DPrint WordPress plugin before 3.5.6.9 does not protect against CSRF attacks in the modified version of Tiny File Manager included with the plugin, allowing an attacker to craft a malicious request that will create an archive of any files or directories on the target server by tricking a logged in admin into submitting a form."))
 
 ignored_notforus_path = 'ignored/not-for-us.txt'
 if destdir != './' and destdir != '.':

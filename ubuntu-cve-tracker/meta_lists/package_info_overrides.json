@@ -2999,6 +2999,10 @@
         "description": "XZ-format compression utilities",
         "title": "XZ Utils"
     },
+    "yajl": {
+        "description": "Yet Another JSON Library",
+        "title": "YAJL"
+    },
     "yaws": {
         "description": "High performance HTTP 1.1 webserver written in Erlang",
         "title": "Yaws"
