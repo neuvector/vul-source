@@ -797,6 +797,20 @@ def check_cve(cve):
         )
         cve_okay = False
 
+    # Check the priority reason is not the placeholder of XXX-Reason-XXX
+    if "Priority" in data and "XXX-Reason-XXX" in data["Priority"][1]:
+        filename = srcmap["Priority"][0] if "Priority" in srcmap else cvepath
+        linenum = srcmap["Priority"][1] if "Priority" in srcmap else 1
+        print(
+            "%s: %d: Priority reason is XXX-Reason-XXX"
+            % (
+                filename,
+                linenum,
+            ),
+            file=sys.stderr,
+        )
+        cve_okay = False
+        
     # Verify per-package and per-package-release priorities
     for pkg_priority in [x for x in data if "Priority_" in x]:
         filename = srcmap[pkg_priority][0]

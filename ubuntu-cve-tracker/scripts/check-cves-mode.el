@@ -404,20 +404,20 @@ Set to nil to not specify a maximum and use the default from codesearch-cli.")
   "List of tools to search with and the mode to display the results.")
 
 (defvar codesearch-cli-results-regexp-alist
-  '("^path: \\(\\([^_]+\\)_\\([^/]+\\)/\\(.*\\)\\)" 4)
+  '("^path: \\(\\([^_]+\\)_\\([^/]+\\)/\\(.*\\)\\)" 4 nil nil 1)
   "Regular expression alist to match against for results from codesearch-cli.")
 
 (defun codesearch-cli-mode-bug-reference-url-format ()
   "Format results from codesearch-cli as links to sources.debian.org.
 
 We also support https://git.launchpad.net/ubuntu/+source for Ubuntu codesearch."
-   (if (save-match-data (string-match "Ubuntu" (buffer-name)))
-       (format "https://git.launchpad.net/ubuntu/+source/%s/tree/%s?h=import/%s"
-               (match-string 2) (match-string 4)
-               ;; need to replace any epoch : with % then URL encode
-               (url-hexify-string (string-replace ":" "%"(match-string 3))))
-     (format "https://sources.debian.org/src/%s/%s/%s/"
-             (match-string 2) (match-string 3) (match-string 4))))
+  (if (save-match-data (string-match "Ubuntu" (buffer-name)))
+      (format "https://git.launchpad.net/ubuntu/+source/%s/tree/%s?h=import/%s"
+              (match-string 2) (match-string 4)
+              ;; need to replace any epoch : with % then URL encode
+              (url-hexify-string (string-replace ":" "%"(match-string 3))))
+    (format "https://sources.debian.org/src/%s/%s/%s/"
+            (match-string 2) (match-string 3) (match-string 4))))
 
 (defun codesearch-cli-mode-copy-source-packages ()
   "Get the source packages listed in the current buffer."

@@ -136,3 +136,16 @@ jammy_openjdk-21: DNE
 kinetic_openjdk-21: DNE
 lunar_openjdk-21: needs-triage
 devel_openjdk-21: needs-triage
+
+Patches_openjdk-22:
+upstream_openjdk-22: needs-triage
+trusty_openjdk-22: DNE
+trusty/esm_openjdk-22: DNE
+xenial_openjdk-22: DNE
+bionic_openjdk-22: DNE
+focal_openjdk-22: DNE
+jammy_openjdk-22: DNE
+kinetic_openjdk-22: DNE
+lunar_openjdk-22: DNE
+devel_openjdk-22: needs-triage
+ 

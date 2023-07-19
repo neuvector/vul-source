@@ -1,3 +1,4 @@
+*~
 *.pyc
 .*.swp
 allitems.xml*
@@ -70,3 +71,4 @@ ignore_package_regexes.txt
 .coverage
 /subprojects
 /pkg_cache.json
+

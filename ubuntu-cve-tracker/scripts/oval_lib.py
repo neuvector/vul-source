@@ -455,9 +455,7 @@ class CVE:
         self.pkg_rel_entries = {}
         self.pkgs = pkgs
 
-    def add_pkg(self, pkg_object, release, state, note):
-        cve_pkg_entry = CVEPkgRelEntry(pkg_object, release, self, state, note)
-
+    def add_pkg(self, pkg_object, cve_pkg_entry):
         if cve_pkg_entry.status in ['not-vulnerable', 'not-applicable']:
             return
 
@@ -1005,7 +1003,7 @@ class OvalGeneratorPkg(OvalGenerator):
 
         for cve in package.cves:
             pkg_rel_entry = cve.pkg_rel_entries[package.name]
-            if pkg_rel_entry.status == 'vulnerable' and not self.fixed_only:
+            if pkg_rel_entry.status == 'vulnerable':
                 cve_added = True
                 if one_time_added_id:
                     self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element)
@@ -1086,7 +1084,12 @@ class OvalGeneratorPkg(OvalGenerator):
             packages[package_name] = pkg_obj
 
         pkg_obj = packages[package_name]
-        cve.add_pkg(pkg_obj, release, cve_data['pkgs'][package_name][release][0],cve_data['pkgs'][package_name][release][1])
+        cve_pkg_entry = CVEPkgRelEntry(pkg_obj, release, cve, cve_data['pkgs'][package_name][release][0], cve_data['pkgs'][package_name][release][1])
+
+        if cve_pkg_entry.status != 'fixed' and self.fixed_only:
+            return
+
+        cve.add_pkg(pkg_obj, cve_pkg_entry)
 
     def _load_pkgs(self, cve_prefix_dir, packages_filter=None) -> None:
         cve_lib.load_external_subprojects()

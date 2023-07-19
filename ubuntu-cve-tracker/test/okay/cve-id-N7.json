@@ -13,7 +13,7 @@
   "Notes": [],
   "Mitigation": "",
   "Bugs": "",
-  "Priority": ["negligible"],
+  "Priority": ["negligible", ""],
   "Discovered-by": "",
   "Assigned-to": "",
   "CVSS": [],
