@@ -295,6 +295,10 @@
         "description": "fully-featured content management framework",
         "title": "Drupal"
     },
+    "ecdsautils": {
+        "description": "ECDSA elliptic curve cryptography command line tools",
+        "title": "ECDSA Util"
+    },
     "ecryptfs-utils": {
         "description": "eCryptfs cryptographic filesystem utilities",
         "title": "eCryptfs"
@@ -786,6 +790,10 @@
     "leptonlib": {
         "description": "Leptonica image processing library",
         "title": "Leptonica"
+    },
+    "lib3mf": {
+        "description": "Lib3MF is a C++ implementation of the 3D Manufacturing Format",
+        "title": "lib3mf"
     },
     "libapache2-mod-auth-mellon": {
         "description": "SAML 2.0 authentication module for Apache",

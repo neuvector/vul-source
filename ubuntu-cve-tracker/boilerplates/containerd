@@ -1,0 +1,42 @@
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+ alexmurray> Since Ubuntu 23.10 (mantic) the containerd source package
+  contains only the library whilst the containerd application itself is
+  contained in the containerd-app package
+Mitigation:
+Bugs:
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS:
+
+Patches_containerd:
+upstream_containerd: needs-triage
+trusty_containerd: ignored (end of standard support)
+trusty/esm_containerd: DNE
+xenial_containerd: ignored (end of standard support)
+esm-infra/xenial_containerd: needs-triage
+bionic_containerd: ignored (end of standard support)
+esm-apps/bionic_containerd: needs-triage
+focal_containerd: needs-triage
+jammy_containerd: needs-triage
+kinetic_containerd: needs-triage
+lunar_containerd: needs-triage
+devel_containerd: needs-triage
+
+Patches_containerd-app:
+upstream_containerd-app: needs-triage
+trusty_containerd-app: ignored (end of standard support)
+trusty/esm_containerd-app: DNE
+xenial_containerd-app: DNE
+bionic_containerd-app: DNE
+focal_containerd-app: DNE
+jammy_containerd-app: DNE
+kinetic_containerd-app: DNE
+lunar_containerd-app: DNE
+devel_containerd-app: needs-triage
+
