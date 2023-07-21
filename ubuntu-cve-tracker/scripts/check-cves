@@ -831,6 +831,11 @@ class CVEHandler(xml.sax.handler.ContentHandler):
         if match:
             return match.group(0)
 
+        # look for common pattern
+        match = re.search(r'A vulnerability(?:, which was)? classified as (?:.*),? was found in (.*)', first_sentence)
+        if match:
+            return match.group(1)
+
         # drop commas-extensions
         if ',' in first_sentence:
             first_sentence = re.split(r',', first_sentence)[0]
@@ -1573,6 +1578,8 @@ class CheckCVETest(unittest.TestCase):
         self.assertEqual("3DPrint WordPress plugin", h.get_ignore_suggestion("The 3DPrint WordPress plugin before 3.5.6.9 does not protect against CSRF attacks in the modified version of Tiny File Manager included with the plugin, allowing an attacker to craft a malicious request that will create an archive of any files or directories on the target server by tricking a logged in admin into submitting a form."))
 
         self.assertEqual("Feathersjs", h.get_ignore_suggestion('''Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript.'''))
+
+        self.assertEqual("PaulPrinting CMS 2018", h.get_ignore_suggestion("A vulnerability, which was classified as problematic, was found in PaulPrinting CMS 2018"))
         
 ignored_notforus_path = 'ignored/not-for-us.txt'
 if destdir != './' and destdir != '.':

@@ -714,7 +714,7 @@ embargoed tree."
 ;;;autoload
 (defun uct-process-cves (&optional arg)
   "Run ./scripts/process_cves from UCT with ARG."
-  (interactive)
+  (interactive "sArgs: ")
   (let ((compilation-buffer-name-function #'(lambda (_) "*uct-process-cves*"))
         (default-directory uct-base-path))
     (compile (concat (expand-file-name "process_cves"
