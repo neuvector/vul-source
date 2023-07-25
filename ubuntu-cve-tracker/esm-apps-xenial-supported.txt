@@ -238,7 +238,6 @@ amarok
 amavisd-milter
 amb-plugins
 ambdec
-amd64-microcode
 amide
 amideco
 amiga-fdisk

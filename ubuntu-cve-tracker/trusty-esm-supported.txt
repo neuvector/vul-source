@@ -170,7 +170,6 @@ groff
 grub
 grub2
 grub2-signed
-grub2-unsigned
 grub-gfxpayload-lists
 gsfonts
 gzip
