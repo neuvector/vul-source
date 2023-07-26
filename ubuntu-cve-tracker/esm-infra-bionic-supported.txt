@@ -1475,6 +1475,7 @@ linux-hwe
 linux-hwe-5.0
 linux-hwe-5.4
 linux-hwe-edge
+linux-ibm-5.4
 linux-kvm
 linux-meta
 linux-meta-aws
@@ -1498,6 +1499,7 @@ linux-meta-hwe
 linux-meta-hwe-5.0
 linux-meta-hwe-5.4
 linux-meta-hwe-edge
+linux-meta-ibm-5.4
 linux-meta-kvm
 linux-meta-oem
 linux-meta-oracle
@@ -1558,6 +1560,7 @@ linux-signed-hwe
 linux-signed-hwe-5.0
 linux-signed-hwe-5.4
 linux-signed-hwe-edge
+linux-signed-ibm-5.4
 linux-signed-oem
 linux-signed-oracle
 linux-signed-oracle-5.0
