@@ -20,7 +20,6 @@ xenial_flashplugin-nonfree: ignored (end of standard support)
 bionic_flashplugin-nonfree: ignored (end of standard support)
 focal_flashplugin-nonfree: needs-triage
 jammy_flashplugin-nonfree: DNE
-kinetic_flashplugin-nonfree: DNE
 lunar_flashplugin-nonfree: DNE
 devel_flashplugin-nonfree: DNE
 
@@ -32,6 +31,5 @@ xenial_adobe-flashplugin: ignored (end of standard support)
 bionic_adobe-flashplugin: ignored (end of standard support)
 focal_adobe-flashplugin: needs-triage
 jammy_adobe-flashplugin: DNE
-kinetic_adobe-flashplugin: DNE
 lunar_adobe-flashplugin: DNE
 devel_adobe-flashplugin: DNE

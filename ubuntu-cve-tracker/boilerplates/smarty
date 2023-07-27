@@ -19,7 +19,6 @@ xenial_moodle: ignored (end of standard support)
 bionic_moodle: ignored (end of standard support)
 focal_moodle: DNE
 jammy_moodle: DNE
-kinetic_moodle: DNE
 lunar_moodle: DNE
 devel_moodle: DNE
 

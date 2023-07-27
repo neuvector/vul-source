@@ -641,7 +641,7 @@ subprojects = {
         "stamp": 1650693600,
     },
     "ubuntu/kinetic": {
-        "eol": False,
+        "eol": True,
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 22.10",

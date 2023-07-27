@@ -1164,6 +1164,7 @@ kernel_glitches = {
         },
         'jammy': {
             '~': '5.15.0-1022.26', # initial publication
+            '5.15.0-1022.26': '5.15.0-1023.27', # development kernel
         },
     }
 }

@@ -93,4 +93,8 @@ for filename in cves:
                         else:
                             cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of standard support, was %s' % (status[0]))
                     else:
-                        cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of life')
+                        status = data['pkgs'][src][opt.release]
+                        if status[1] != '':
+                            cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of life, was %s [%s]' % (status[0], status[1]))
+                        else:
+                            cve_lib.update_state(filename, src, opt.release, 'ignored', 'end of life, was %s' % (status[0]))

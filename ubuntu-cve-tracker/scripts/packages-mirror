@@ -282,7 +282,6 @@ if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
     gen_packages bionic   "amd64 i386"               >> "$pull"
     gen_packages focal    "amd64 i386"               >> "$pull"
     gen_packages jammy    "amd64 i386"               >> "$pull"
-    gen_packages kinetic  "amd64 i386"               >> "$pull"
     gen_packages lunar    "amd64 i386"               >> "$pull"
     gen_packages mantic   "amd64 i386"               >> "$pull"
 
@@ -301,7 +300,6 @@ if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
     gen_packages bionic   "ppc64el armhf arm64 s390x"         >> "$pull"
     gen_packages focal    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
     gen_packages jammy    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
-    gen_packages kinetic  "ppc64el armhf arm64 s390x riscv64" >> "$pull"
     gen_packages lunar    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
     gen_packages mantic   "ppc64el armhf arm64 s390x riscv64" >> "$pull"
 
