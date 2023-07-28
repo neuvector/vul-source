@@ -825,3 +825,6 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 # CVE-2023-2612
 :title('UBUNTU: SAUCE: shiftfs: prevent lock unbalance in shiftfs_create_object()', ['local-CVE-2023-2612'])
 :title('UBUNTU: SAUCE: shiftfs: uid/gid shifting bind mount', ['local-CVE-2023-2612-break'])
+
+# CVE-2023-2640 and CVE-2023-32629 fix for 5.19 and later
+:title('Revert "UBUNTU: SAUCE: overlayfs: Skip permission checking for trusted.overlayfs.* xattrs"', ['local-CVE-2023-2640-fix-1'])

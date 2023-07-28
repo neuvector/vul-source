@@ -86,10 +86,7 @@ def get_pkg_rel_from_msg(msg):
     elif 'unknown package' in msg:
         pkg = parts[2].replace("'", "")
         rel = parts[-1].replace("'", "")
-    elif 'unknown status' in msg:
-        pkg = parts[0].replace("'", "")
-        rel = parts[-1].replace("'", "")
-    elif 'incorrect ignored detail' in msg:
+    elif 'incorrect' in msg:
         pkg = parts[0].replace("'", "")
         rel = msg.split(', try')[0].split(' ')[-1].replace("'", "")
     else:
@@ -195,7 +192,7 @@ for line in args.infile:
         modified.append(cve)
 
     elif "unknown package" in msg or "not in" in msg \
-        or "unknown release" in msg or "unknown status"\
+        or "unknown release" in msg or "incorrect status"\
         or "incorrect ignored detail" in msg:
         pkg, rel = get_pkg_rel_from_msg(msg)
 
@@ -218,7 +215,7 @@ for line in args.infile:
             fixup = "{rel}_{pkg}: {status}\n".format(rel=rel, pkg=pkg, status="DNE")
             insert_into_file(cve, linenum, fixup, args.dry_run, args.verbose)
         elif not cve_lib.is_active_release(rel):
-            if 'incorrect ignored detail' in msg:
+            if 'incorrect' in msg:
                 status = msg.split("try '")[1].replace("'", "")
             else:
                 state = msg.split(' ')[3].replace("'", "")
