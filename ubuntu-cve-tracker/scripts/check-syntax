@@ -41,6 +41,7 @@ if cve_lib.devel_release:
 # after a '/' e.g. 'linux-aws/trusty'
 unpublished_kernels = [
     "linux-bluefield/jammy",  # linux-bluefield/jammy is coming, apparently
+    "linux-nvidia/mantic", # not supported yet, but repo exists, is probably coming
 ]
 
 required_fields = [

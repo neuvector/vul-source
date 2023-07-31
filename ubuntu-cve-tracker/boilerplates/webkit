@@ -7,6 +7,8 @@ Notes:
  jdstrand> webkit receives limited support. For details, see
     https://wiki.ubuntu.com/SecurityTeam/FAQ#webkit
  jdstrand> webkit in Ubuntu uses the JavaScriptCore (JSC) engine, not V8
+ mdeslaur> It is no longer possible to build new webkit2gtk versions on
+ mdeslaur> focal and earlier. Marking as ignored.
 Mitigation: 
 Bugs: 
 Priority: medium
@@ -30,10 +32,10 @@ upstream_webkit2gtk: needs-triage
 trusty_webkit2gtk: DNE
 trusty/esm_webkit2gtk: DNE
 xenial_webkit2gtk: ignored (end of standard support, was deferred)
-esm-infra/xenial_webkit2gtk: deferred
+esm-infra/xenial_webkit2gtk: ignored
 bionic_webkit2gtk: ignored (end of standard support, was deferred)
-esm-infra/bionic_webkit2gtk: deferred
-focal_webkit2gtk: needs-triage
+esm-infra/bionic_webkit2gtk: ignored
+focal_webkit2gtk: ignored
 jammy_webkit2gtk: needs-triage
 lunar_webkit2gtk: needs-triage
 devel_webkit2gtk: needs-triage
