@@ -17636,6 +17636,7 @@ openjade
 openjdk-11-jre-dcevm
 openjdk-8
 openjdk-8-jre-dcevm
+openjdk-17
 openjfx
 openjpa
 openjpeg2

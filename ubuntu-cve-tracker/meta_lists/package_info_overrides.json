@@ -2163,6 +2163,10 @@
         "description": "Open Source Java implementation",
         "title": "OpenJDK 19"
     },
+    "openjdk-20": {
+        "description": "Open Source Java implementation",
+        "title": "OpenJDK 20"
+    },
     "openjdk-6": {
         "description": "Open Source Java implementation",
         "title": "OpenJDK 6"
