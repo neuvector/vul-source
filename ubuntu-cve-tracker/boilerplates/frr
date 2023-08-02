@@ -1,0 +1,36 @@
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+ sbeattie> the quagga project was renamed to frr
+Mitigation: 
+Bugs: 
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS: 
+
+Patches_frr:
+upstream_frr: needs-triage
+trusty_frr: DNE
+xenial_frr: DNE
+bionic_frr: DNE
+focal_frr: needs-triage
+esm-apps/focal_frr: needs-triage
+jammy_frr: needs-triage
+lunar_frr: needs-triage
+devel_frr: needs-triage
+
+Patches_quagga:
+upstream_quagga: needs-triage
+trusty_quagga: ignored (end of standard support)
+xenial_quagga: ignored (end of standard support)
+esm-infra/xenial_quagga: needs-triage
+bionic_quagga: ignored (end of standard support)
+esm-infra/bionic_quagga: needs-triage
+focal_quagga: needs-triage
+jammy_quagga: DNE
+lunar_quagga: DNE
+devel_quagga: DNE

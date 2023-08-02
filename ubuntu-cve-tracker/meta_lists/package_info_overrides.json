@@ -593,7 +593,7 @@
     },
     "gst-plugins-good1.0": {
         "description": "GStreamer plugins",
-        "title": "gst-plugins-good1.0"
+        "title": "GStreamer Good Plugins"
     },
     "gtk+2.0": {
         "description": "GTK+ graphical user interface library",

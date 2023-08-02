@@ -545,6 +545,8 @@ add_status('kernel-livepatches', 'disco', '--', UNIMPLEMENTED)
 add_status('kernel-livepatches', 'eoan', '--', UNIMPLEMENTED)
 add_status('kernel-livepatches', 'focal', '20.04 LTS Kernel', AVAILABLE)
 add_status('kernel-livepatches', 'groovy', '--', UNIMPLEMENTED)
+add_status('kernel-livepatches', 'jammy', '22.04 LTS Kernel', AVAILABLE)
+add_status('kernel-livepatches', 'kinetic', '--', UNIMPLEMENTED)
 
 add_status('disable-legacy-tls', 'focal', 'policy', DEFAULT)
 
