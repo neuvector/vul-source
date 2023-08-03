@@ -5,7 +5,7 @@ Description:
 Ubuntu-Description: 
 Notes: 
  alexmurray| google-guest-agent contains a vendored copy of golang-golang-x-net
- mdesluar| containerd contains a vendored copy of golang-golang-x-net
+ mdeslaur| containerd contains a vendored copy of golang-golang-x-net
 Mitigation: 
 Bugs: 
 Priority: untriaged

@@ -1735,6 +1735,10 @@
         "description": "fast and lightweight templating for the Python platform",
         "title": "Mako"
     },
+    "maradns": {
+        "description": "A small open-source DNS server",
+        "title": "MaraDNS"
+    },
     "mariadb-10.0": {
         "description": "MariaDB database",
         "title": "MariaDB"
