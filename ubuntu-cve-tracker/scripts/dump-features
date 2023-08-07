@@ -469,7 +469,7 @@ See [[https://git.launchpad.net/qa-regression-testing/tree/scripts/test-kernel-s
 	{ 'name':'kexec', 'short':'Block kexec',
           'depth': 1,
 	  'desc':
-'''Starting with Ubuntu 14.04 LTS, it is now [[https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=7984754b99b6c89054edc405e9d9d35810a91d36|possible to disable kexec]] via sysctl. CONFIG_KEXEC is enabled in Ubuntu so end users are able to use kexec as desired and the new sysctl allows administrators to disable kexec_load. This is desired in environments where CONFIG_STRICT_DEVMEM and modules_disabled are set, for example.
+'''Starting with Ubuntu 14.04 LTS, it is now [[https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=7984754b99b6c89054edc405e9d9d35810a91d36|possible to disable kexec]] via sysctl. CONFIG_KEXEC is enabled in Ubuntu so end users are able to use kexec as desired and the new sysctl allows administrators to disable kexec_load. This is desired in environments where CONFIG_STRICT_DEVMEM and modules_disabled are set, for example. When Secure Boot is in use, kexec is restricted by default to only load appropriately signed and trusted kernels.
 ''' },
 	{ 'name':'secure-boot', 'short':'UEFI Secure Boot (amd64)',
           'depth': 1,

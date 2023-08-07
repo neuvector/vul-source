@@ -2883,6 +2883,10 @@
         "description": "Unity Integration for Firefox",
         "title": "unity-firefox-extension"
     },
+    "unixodbc": {
+        "description": "Basic ODBC tools",
+        "title": "unixODBC"
+    },
     "uriparser": {
         "description": "Strictly RFC 3986 compliant URI parsing library",
         "title": "uriparser"

@@ -192,21 +192,54 @@ class TestParseCVEFiles:
 
 
 class TestSubprojects:
-
     def test_load_subprojects_loads_every_config_available(self):
         # mimic here how subprojects are loaded to then assert cve_lib.subprojects
         # contains every config available
         for supported_txt in cve_lib.find_files_recursive(cve_lib.subprojects_dir, "supported.txt"):
-            # rel name is the path component between subprojects/ and
+            # subproject name is the path component between subprojects/ and
             # /supported.txt
-            rel = supported_txt[len(cve_lib.subprojects_dir) + 1:-len("supported.txt") - 1]
-            config = cve_lib.read_external_subproject_config(rel)
-            config_data = ['ppa', 'oval', 'name', 'description', 'parent']
-            for data in config_data:
+            config = cve_lib.read_external_subproject_config(supported_txt[:-len("supported.txt") - 1])
+            subproject_name = config['product'] + '/' + config['release']
+            for data in cve_lib.MANDATORY_EXTERNAL_SUBPROJECT_KEYS:
                 if data in config:
-                    assert cve_lib.subprojects[rel][data] == config[data]
-            project = cve_lib.read_external_subproject_details(rel)
+                    assert cve_lib.subprojects[subproject_name][data] == config[data]
+            project = cve_lib.read_external_subproject_details(subproject_name)
             if project and "customer" in project:
-                assert cve_lib.subprojects[rel]["customer"] == project["customer"]
+                assert cve_lib.subprojects[subproject_name]["customer"] == project["customer"]
 
+    def test_get_subproject_details_regular(self):
+        for subproject in list(
+            filter(lambda subproject:
+                subproject not in cve_lib.external_releases,
+                cve_lib.subprojects
+            )
+        ):
+            canon, product, series, details = cve_lib.get_subproject_details(subproject)
+            expected_prod, expected_series = cve_lib.product_series(subproject)
+            assert canon == expected_prod + '/' + expected_series
+            assert product == expected_prod
+            assert series == expected_series
+            assert details
 
+    def test_get_subproject_details_external(self):
+        for subproject in cve_lib.external_releases:
+            canon, product, series, details = cve_lib.get_subproject_details(subproject)
+            assert canon == subproject
+            assert product == product.split('/')[0]
+            assert series == cve_lib.subprojects[subproject]['release']
+            assert details
+
+    def test_get_subproject_details_alias(self):
+        aliases = {'xenial' : 'ubuntu/xenial',
+                   'bionic': 'ubuntu/bionic',
+                   'focal': 'ubuntu/focal',
+                   'jammy': 'ubuntu/jammy'
+                   }
+
+        for alias in aliases:
+            canon, product, series, details = cve_lib.get_subproject_details(alias)
+            expected_prod, expected_series = cve_lib.product_series(aliases[alias])
+            assert canon == expected_prod + '/' + expected_series
+            assert product == expected_prod
+            assert series == expected_series
+            assert details
