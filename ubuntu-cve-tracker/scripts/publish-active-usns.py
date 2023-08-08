@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # Author: Kees Cook <kees@ubuntu.com>
 # Copyright (C) 2011-2017 Canonical Ltd.
 #

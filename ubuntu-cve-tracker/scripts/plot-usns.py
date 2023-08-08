@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # This script produces plot data for how many source packages were fixed
 # each month.
@@ -8,7 +8,6 @@
 # License: GPLv3
 import sys, time, usn_lib, cve_lib
 import optparse
-import cve_lib
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -21,7 +20,7 @@ parser.add_option("--cve-multiply", help="Multiply USN counts by number of CVEs 
 (opt, args) = parser.parse_args()
 
 if opt.target not in ['usn','src','bin','cve']:
-    print >>sys.stderr, "Unknown target '%s'" % (opt.target)
+    print("Unknown target '%s'" % (opt.target), file=sys.stderr)
     sys.exit(1)
 
 config = cve_lib.read_config()
@@ -52,7 +51,7 @@ for usn in sorted(db.keys()):
 
         count = 1
 
-        if opt.cve_multiply and db[usn].has_key('cves'):
+        if opt.cve_multiply and 'cves' in db[usn]:
             cve_count = 1
             for cve in db[usn]['cves']:
                 # Skip non-CVEs:
@@ -71,7 +70,7 @@ for usn in sorted(db.keys()):
 
     else:
         if opt.target == 'cve':
-            if not db[usn].has_key('cves'):
+            if 'cves' not in db[usn]:
                 continue
             for cve in db[usn]['cves']:
                 # Skip non-CVEs:
@@ -79,11 +78,11 @@ for usn in sorted(db.keys()):
                     continue
                 if opt.release and opt.release not in db[usn]['releases']:
                     continue
-                if not cves.has_key(cve):
+                if cve not in cves:
                     try:
                         cves.setdefault(cve,cve_lib.load_cve(cve_lib.find_cve(cve)))
-                    except Exception, e:
-                        print >> sys.stderr, "Skipping %s: %s" % (cve, str(e))
+                    except Exception as e:
+                        print("Skipping %s: %s" % (cve, str(e)), file=sys.stderr)
                         continue
                 months[when]['total'] += 1
                 months[when][cves[cve]['Priority'][0]] += 1
@@ -93,7 +92,7 @@ for usn in sorted(db.keys()):
                     continue
 
                 if opt.target == 'src':
-                    if not db[usn]['releases'][rel].has_key('sources'):
+                    if 'sources' not in db[usn]['releases'][rel]:
                         # Assume that the early USNs updated 1 srcpkg per release
                         months[when]['total'] += 1
                         #pp.pprint(db[usn])
@@ -101,7 +100,7 @@ for usn in sorted(db.keys()):
                     for pkg in db[usn]['releases'][rel]['sources']:
                         months[when]['total'] += 1
                 elif opt.target == 'bin':
-                    if not db[usn]['releases'][rel].has_key('binaries'):
+                    if 'binaries' not in db[usn]['releases'][rel]:
                         # Assume that the early USNs updated 1 binpkg per release
                         months[when]['total'] += 1
                         #pp.pprint(db[usn])
@@ -109,12 +108,12 @@ for usn in sorted(db.keys()):
                     for pkg in db[usn]['releases'][rel]['binaries']:
                         months[when]['total'] += 1
 
-print '# date',
+print('# date', end=' ')
 for column in columns:
-    print column,
-print
+    print(column, end=' ')
+print('')
 for month in sorted(months.keys()):
-    print month,
+    print(month, end=' ')
     for column in columns:
-        print months[month][column],
-    print
+        print(months[month][column], end=' ')
+    print('')

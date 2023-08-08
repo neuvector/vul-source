@@ -970,7 +970,7 @@ def load_external_subprojects():
                     subprojects[subproject_name].setdefault(key, config[key])
                 elif key in OPTIONAL_EXTERNAL_SUBPROJECT_KEYS:
                     _, _, _, original_release_details = get_subproject_details(subprojects[subproject_name]['release'])
-                    if key in original_release_details:
+                    if original_release_details and key in original_release_details:
                         subprojects[subproject_name].setdefault(key, original_release_details[key])
                 else:
                     print('%s missing "%s" field.' % (subproject_path, key))

@@ -31,7 +31,7 @@ bionic_insighttoolkit4: ignored (end of standard support)
 focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 lunar_insighttoolkit4: needs-triage
-devel_insighttoolkit4: needs-triage
+devel_insighttoolkit4: DNE
 
 Patches_qtwebengine-opensource-src:
 upstream_qtwebengine-opensource-src: needs-triage

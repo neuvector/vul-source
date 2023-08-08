@@ -1,0 +1,35 @@
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+Mitigation:
+Bugs:
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS:
+
+Patches_insighttoolkit4:
+upstream_insighttoolkit4: needs-triage
+trusty_insighttoolkit4: ignored (end of standard support)
+xenial_insighttoolkit4: ignored (end of standard support)
+bionic_insighttoolkit4: ignored (end of standard support)
+focal_insighttoolkit4: needs-triage
+esm-apps/focal_insighttoolkit4: needs-triage
+jammy_insighttoolkit4: needs-triage
+esm-apps/jammy_insighttoolkit4: needs-triage
+lunar_insighttoolkit4: needs-triage
+devel_insighttoolkit4: DNE
+
+Patches_insighttoolkit5:
+upstream_insighttoolkit5: needs-triage
+trusty_insighttoolkit5: DNE
+xenial_insighttoolkit5: DNE
+bionic_insighttoolkit5: DNE
+focal_insighttoolkit5: DNE
+jammy_insighttoolkit5: needs-triage
+esm-apps/jammy_insighttoolkit5: needs-triage
+lunar_insighttoolkit5: needs-triage
+devel_insighttoolkit5: needs-triage
