@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Author: Kees Cook <kees@ubuntu.com>
 # Copyright (C) 2009 Canonical Ltd.
@@ -16,7 +16,6 @@
 from __future__ import print_function
 
 import os
-import re
 import sys
 import optparse
 
@@ -105,6 +104,8 @@ def fixed_map(priority=None):
                                     continue
 
                                 specificity, cve_priority = cve_lib.contextual_priority(info[cve], pkg, rel)
+                                if type(cve_priority) == list:
+                                    cve_priority = cve_priority[0]
                                 if not priority or cve_priority == priority:
                                     report_pkg = pkg
                                     if pkg in cve_lib.pkg_alternates:

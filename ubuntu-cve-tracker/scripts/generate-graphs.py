@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # This script generates graphs and raw number data (read from a USN database).
 # By default, it expects to use the "-all" database to produce full historical
@@ -48,7 +48,7 @@ pp = pprint.PrettyPrinter(indent=4)
 def check_requirements():
     for b in ["/usr/bin/gnuplot"]:
         if not os.path.exists(b):
-            print >>sys.stderr, "Cannot find '%s'" % b
+            print("Cannot find '%s'" % b, file=sys.stderr)
             sys.exit(1)
 
 parser = optparse.OptionParser()
@@ -58,13 +58,13 @@ parser.add_option("--skip-new-cves", help="Skip new CVE additions. Useful for sc
 (opt, args) = parser.parse_args()
 
 if opt.target == None:
-    print >>sys.stderr, "Must specify --target"
+    print("Must specify --target", file=sys.stderr)
     sys.exit(1)
 
 config = cve_lib.read_config()
 
 if not os.path.exists(opt.database):
-    print >>sys.stderr, "Cannot find '%s'" % opt.database
+    print("Cannot find '%s'" % opt.database, file=sys.stderr)
     sys.exit(1)
 
 check_requirements()
@@ -84,7 +84,7 @@ details = {
 datasrcs = details.keys()
 
 def establish_release(rel, when):
-    if not info.has_key(rel):
+    if rel not in info:
         info.setdefault(rel, dict())
     for datasrc in datasrcs:
         info[rel].setdefault(datasrc, dict())
@@ -114,13 +114,13 @@ def build_plot(release, source, span):
         #print "DEBUG: skipping %s" % cmdpath
         return
     output = open(cmdpath, 'w')
-    print >>output, 'set term png small size 800,600'
-    print >>output, 'set output "%s"' % (imgpath)
-    print >>output, 'set xdata time'
-    print >>output, 'set timefmt "%Y%m"'
-    print >>output, 'set format x "  %b %Y"'
-    print >>output, 'set xtics out rotate'
-    print >>output, 'set key top right'
+    print('set term png small size 800,600', file=output)
+    print('set output "%s"' % (imgpath), file=output)
+    print('set xdata time', file=output)
+    print('set timefmt "%Y%m"', file=output)
+    print('set format x "  %b %Y"', file=output)
+    print('set xtics out rotate', file=output)
+    print('set key top right', file=output)
     title = details[source] + ' ('
     if release == 'all':
         title += "all releases"
@@ -131,9 +131,9 @@ def build_plot(release, source, span):
     elif span == '12':
         title += ', last 12 months'
     else:
-        raise ValueError, "Unknown span '%s'" % (span)
+        raise ValueError("Unknown span '%s'" % (span))
     title += ')'
-    print >>output, 'set title "%s"' % (title)
+    print('set title "%s"' % (title), file=output)
     color = "blue"
     if source == "regression":
         color = "red"
@@ -143,7 +143,7 @@ def build_plot(release, source, span):
         color = "purple"
     elif source.startswith("CVE"):
         color = "orange"
-    print >>output, 'plot "%s" using 1:2 with filledcurve x1 lc rgb "%s" title "%s"' % (datpath, color, 'count')
+    print('plot "%s" using 1:2 with filledcurve x1 lc rgb "%s" title "%s"' % (datpath, color, 'count'), file=output)
     output.close()
     #print "DEBUG: gnuplot %s" % cmdpath
     subprocess.call(['gnuplot',cmdpath])
@@ -153,22 +153,22 @@ def build_merged_plot(releases, source, span):
     cmdpath = basepath + 'plot'
     imgpath = basepath + 'png'
     output = open(cmdpath, 'w')
-    print >>output, 'set term png small size 800,600'
-    print >>output, 'set output "%s"' % (imgpath)
-    print >>output, 'set xdata time'
-    print >>output, 'set timefmt "%Y%m"'
-    print >>output, 'set format x "  %b %Y"'
-    print >>output, 'set xtics out rotate'
-    print >>output, 'set key top left'
+    print('set term png small size 800,600', file=output)
+    print('set output "%s"' % (imgpath), file=output)
+    print('set xdata time', file=output)
+    print('set timefmt "%Y%m"', file=output)
+    print('set format x "  %b %Y"', file=output)
+    print('set xtics out rotate', file=output)
+    print('set key top left', file=output)
     title = details[source] + ' (all releases'
     if span == 'all':
         pass
     elif span == '12':
         title += ', last 12 months'
     else:
-        raise ValueError, "Unknown span '%s'" % (span)
+        raise ValueError("Unknown span '%s'" % (span))
     title += ')'
-    print >>output, 'set title "%s"' % (title)
+    print('set title "%s"' % (title), file=output)
     plots = []
     for rel in releases:
         datpath = base_path(source, rel, span, 'dat')
@@ -176,7 +176,7 @@ def build_merged_plot(releases, source, span):
             #print "DEBUG: skipping %s" % cmdpath
             return
         plots.append(' "%s" using 1:2 with line title "%s"' % (datpath, rel),)
-    print >>output, 'plot %s' % (', '.join(plots))
+    print('plot %s' % (', '.join(plots)), file=output)
     output.close()
     subprocess.call(['gnuplot',cmdpath])
 
@@ -215,7 +215,7 @@ def generate_cve_additions():
     count = dict()
     # FIXME: precise version of git does not support %cI format
     for line in subprocess.Popen(['git', 'log', '--full-history', '--name-status', '--diff-filter=A', '-l65000', '--pretty=format:commit %H%ntimestamp: %ci%n'],
-                                 stdout=subprocess.PIPE).stdout:
+                                 stdout=subprocess.PIPE).communicate()[0].decode().splitlines():
         #if line.startswith('commit '):
         #    print line.strip()
         if line.startswith('timestamp: '):
@@ -229,22 +229,22 @@ def generate_cve_additions():
                 count[date] += 1
 
     output = open(datpath,'w')
-    for date in sorted(count):
+    for date in sorted(count.keys()):
         # sanity in active/CVE-* additions should start after 2007-09
         if date > 200709:
-            print >>output, date, count[date]
+            print(count[date], date, file=output)
     output.close()
 
     output = open(cmdpath,'w')
-    print >>output, 'set term png small size 800,600'
-    print >>output, 'set output "%s"' % (imgpath)
-    print >>output, 'set xdata time'
-    print >>output, 'set timefmt "%Y%m"'
-    print >>output, 'set format x "  %b %Y"'
-    print >>output, 'set xtics out rotate'
-    print >>output, 'set key top right'
-    print >>output, 'set title "%s"' % ('New CVEs per month')
-    print >>output, 'plot "%s" using 1:2 with filledcurve x1 lc rgb "orange" title "%s"' % (datpath, 'count')
+    print('set term png small size 800,600', file=output)
+    print('set output "%s"' % (imgpath), file=output)
+    print('set xdata time', file=output)
+    print('set timefmt "%Y%m"', file=output)
+    print('set format x "  %b %Y"', file=output)
+    print('set xtics out rotate', file=output)
+    print('set key top right', file=output)
+    print('set title "%s"' % ('New CVEs per month'), file=output)
+    print('plot "%s" using 1:2 with filledcurve x1 lc rgb "orange" title "%s"' % (datpath, 'count'), file=output)
     output.close()
     subprocess.call(['gnuplot',cmdpath])
 
@@ -263,14 +263,9 @@ def write_html_cell(datasrc, rel, span):
 
 def release_name(rel):
     if cve_lib.release_name(rel):
-        return cve_lib.release_name(rel).capitalize()
+        return str(cve_lib.release_name(rel)).capitalize()
     else:
         return rel.capitalize()
-
-# Inverted sort of release names so that most recent is at the "top"
-def release_sort(rel_b, rel_a):
-    return cmp(cve_lib.release_stamp(rel_a),
-               cve_lib.release_stamp(rel_b))
 
 def generate_table(output, show="all"):
     '''Generate an HTML table. show can be one of:
@@ -288,42 +283,43 @@ def generate_table(output, show="all"):
     elif show == "supported":
         shown_releases = set(info.keys()) - set(eol_releases)
 
-    print >>output, '''<p class='note'>Graphs with raw data ('r') and plot
+    print('''<p class='note'>Graphs with raw data ('r') and plot
 commands ('p'). 'n/a' used when not enough data is available (eg, first month
 of release or zeros for each month).</p>
 <table>
 <tr><th>Metric</th><th>Release</th><th>All Months</th><th>Last 12 Months</th></tr>
-'''
+''', file=output)
 
     for datasrc in datasrcs:
         count = len(shown_releases) + merged_offset # add "merged"
-        print >>output, '<tr><td rowspan="%d">%s</td>' % (count, details[datasrc])
-        releases = sorted(shown_releases, cmp=release_sort)
+        print('<tr><td rowspan="%d">%s</td>' % (count, details[datasrc]), file=output)
+        releases = cve_lib.release_sort(shown_releases)
+        releases.reverse()
         for rel in releases:
-            print >>output, '<td>%s</td>' % (release_name(rel))
+            print('<td>%s</td>' % (release_name(rel)), file=output)
             for span in ['all','12']:
                 cell = write_html_cell(datasrc, rel, span)
-                print >>output, '<td>%s</td>' % (cell)
-            print >>output, '</tr>'
+                print('<td>%s</td>' % (cell), file=output)
+            print('</tr>', file=output)
 
         if show != "eol":
             rel = 'merged'
-            print >>output, '<td>%s</td>' % (release_name(rel))
+            print('<td>%s</td>' % (release_name(rel)), file=output)
             for span in ['all','12']:
                 cell = write_html_cell(datasrc, rel, span)
-                print >>output, '<td>%s</td>' % (cell)
-        print >>output, '</tr>'
+                print('<td>%s</td>' % (cell), file=output)
+        print('</tr>', file=output)
 
     if show != "eol" and not opt.skip_new_cves:
         # new-cves row
-        print >>output, '<tr><td>New CVEs</td><td>All</td><td><a href="new-cves.png">Graph</a> (<a href="new-cves.dat">r</a>, <a href="new-cves.plot">p</a>)</td></tr>'
+        print('<tr><td>New CVEs</td><td>All</td><td><a href="new-cves.png">Graph</a> (<a href="new-cves.dat">r</a>, <a href="new-cves.plot">p</a>)</td></tr>', file=output)
 
-    print >>output, '</table>'
+    print('</table>', file=output)
 
 def generate_highlights(outout):
     img_width = "100%"
     img_height = img_width
-    print >>output, '''<table>
+    print('''<table>
 <tr>
   <td><p>USNs published per month</p><img src="USN_all_12.png" height="%s" width="%s"></td>
   <td><p>CVE fixes per month</p><img src="CVE-srcpkg-USN_all_12.png" height="%s" width="%s"></td>
@@ -333,7 +329,8 @@ def generate_highlights(outout):
   <td><p>Regressions per month</p><img src="regression_all_12.png" height="%s" width="%s"></td>
 </tr>
 </table>
-''' % (img_height, img_width, img_height, img_width, img_height, img_width, img_height, img_width)
+''' % (img_height, img_width, img_height, img_width, img_height, img_width, img_height, img_width),
+          file=output)
 
 # collect data sets
 for usn in sorted(db.keys()):
@@ -345,7 +342,7 @@ for usn in sorted(db.keys()):
     if 'egression' in db[usn]['title']:
         regressions.add(usn)
 
-    if len(regressions) == 0 and db[usn].has_key('cves'):
+    if len(regressions) == 0 and 'cves' in db[usn]:
         for cve in db[usn]['cves']:
             # Skip non-CVEs
             if cve.startswith('CVE-') or cve.startswith('CAN-'):
@@ -353,7 +350,7 @@ for usn in sorted(db.keys()):
 
     srcs = set()
     for rel in db[usn]['releases']:
-        if db[usn]['releases'][rel].has_key('sources'):
+        if 'sources' in db[usn]['releases'][rel]:
             for src in db[usn]['releases'][rel]['sources']:
                 srcs.add(src)
         else:
@@ -361,7 +358,7 @@ for usn in sorted(db.keys()):
             # that each USN was a unique src package.
             srcs.add('unknown-srcpkg_%s' % (usn))
 
-    for rel in db[usn]['releases'].keys() + ['all']:
+    for rel in list(db[usn]['releases'].keys()) + ['all']:
         establish_release(rel, when)
         info[rel]['USN'][when].add(usn)
         info[rel]['CVE'][when].update(cves)
@@ -414,7 +411,8 @@ for name in fds:
 
 # plot the data
 for datasrc in datasrcs:
-    releases = sorted(info.keys(), cmp=release_sort)
+    releases = cve_lib.release_sort(info.keys())
+    releases.reverse()
     for rel in releases:
         for span in ['all','12']:
             build_plot(rel, datasrc, span)
@@ -428,7 +426,7 @@ if not opt.skip_new_cves:
 
 # generate an index file to help guide navigation
 output = open('%s/index.html' % (opt.target), 'w')
-print >>output, '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+print('''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>Ubuntu Security Update Metrics</title>
@@ -449,16 +447,17 @@ from the <a href="http://www.ubuntu.com/usn/">Ubuntu Security Notices</a> list.
 </p>
 
 <h3>Summary</h3>
-'''
+''',
+      file=output)
 generate_highlights(output)
 
-print >>output, '''<h3>Supported releases</h3>'''
+print('''<h3>Supported releases</h3>''', file=output)
 generate_table(output, show="supported")
 
-print >>output, '''<h3>End-of-life releases</h3>'''
+print('''<h3>End-of-life releases</h3>''', file=output)
 generate_table(output, show="eol")
 
-print >>output, '''
+print('''
 <p class='note'><a href="https://code.launchpad.net/~ubuntu-security/ubuntu-cve-tracker/master">Updated</a>: %s</p>
 </div>
 <div id="footer">
@@ -467,5 +466,6 @@ print >>output, '''
 
 </body>
 </html>
-''' % (time.strftime('%Y-%m-%d %H:%M:%S %Z'), time.strftime('%Y'))
+''' % (time.strftime('%Y-%m-%d %H:%M:%S %Z'), time.strftime('%Y')),
+      file=output)
 output.close()
