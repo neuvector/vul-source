@@ -2911,6 +2911,14 @@
         "description": "Collection of tools to work with VCF files",
         "title": "VCFtools"
     },
+    "velocity": {
+        "description": "A general purpose template engine written in Java",
+        "title": "Velocity Engine"
+    },
+    "velocity-tools": {
+        "description": "A subproject of the Apache Velocity project",
+        "title": "Velocity Tools"
+    },
     "vim": {
         "description": "Vi IMproved - enhanced vi editor",
         "title": "Vim"
