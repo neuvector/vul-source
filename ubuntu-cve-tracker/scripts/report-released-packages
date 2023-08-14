@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Author: Jamie Strandboge <jamie@ubuntu.com>
 # Copyright (C) 2005-2017 Canonical Ltd.
@@ -71,7 +71,7 @@ for cve in sorted(cves):
             status = table[cve]['pkgs'][pkg]
             if r in status:
                 if status[r][0].startswith('released'):
-                    #print >>sys.stderr, "%s for %s in %s (%s)" % (cve, pkg, r, table[cve][pkg][r])
+                    #print("%s for %s in %s (%s)" % (cve, pkg, r, table[cve][pkg][r]), file=sys.stderr)
                     found = True
                     version = status[r][1]
 
