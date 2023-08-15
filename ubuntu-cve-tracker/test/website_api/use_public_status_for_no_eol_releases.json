@@ -1,25 +1,45 @@
-[{"bugs": [""],
-  "cvss3": null,
-  "description": "\nPublish CVEs to Website API tests",
-  "id": "CVE-2020-1234",
-  "mitigation": "",
-  "notes": [],
-  "packages": [{"debian": "https://tracker.debian.org/pkg/package",
-                "name": "package",
-                "source": "https://launchpad.net/ubuntu/+source/package",
-                "statuses": [{"description": "",
-                              "pocket": "security",
-                              "release_codename": "jammy",
-                              "status": "needed"},
-                             {"description": "",
-                              "pocket": "security",
-                              "release_codename": "upstream",
-                              "status": "needs-triage"}],
-                "ubuntu": "https://packages.ubuntu.com/search?suite=all&section=all&arch=any&searchon=sourcenames&keywords=package"}],
-  "patches": {"package": []},
-  "priority": "medium",
-  "published": "2020-08-04 17:00:00 UTC",
-  "references": ["https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1234"],
-  "status": "active",
-  "tags": {},
-  "ubuntu_description": ""}]
+[
+  {
+    "id": "CVE-2020-1234",
+    "description": "\nPublish CVEs to Website API tests",
+    "ubuntu_description": "",
+    "mitigation": "",
+    "notes": [],
+    "priority": "medium",
+    "cvss3": null,
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1234"
+    ],
+    "bugs": [
+      ""
+    ],
+    "packages": [
+      {
+        "name": "package",
+        "source": "https://launchpad.net/ubuntu/+source/package",
+        "ubuntu": "https://packages.ubuntu.com/search?suite=all&section=all&arch=any&searchon=sourcenames&keywords=package",
+        "debian": "https://tracker.debian.org/pkg/package",
+        "statuses": [
+          {
+            "release_codename": "jammy",
+            "status": "needed",
+            "description": "",
+            "pocket": "security"
+          },
+          {
+            "release_codename": "upstream",
+            "status": "needs-triage",
+            "description": "",
+            "pocket": "security"
+          }
+        ]
+      }
+    ],
+    "status": "active",
+    "tags": {},
+    "patches": {
+      "package": []
+    },
+    "published": "2020-08-04 17:00:00 UTC"
+  }
+]
