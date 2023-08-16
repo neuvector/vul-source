@@ -995,6 +995,10 @@
         "description": "PNG (Portable Network Graphics) file library",
         "title": "libpng"
     },
+    "libpod": {
+        "description": "engine to run OCI-based containers in Pods",
+        "title": "Podman"
+    },
     "libproxy": {
         "description": "automatic proxy configuration management library",
         "title": "libproxy"
