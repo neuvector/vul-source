@@ -3066,5 +3066,9 @@
     "zlib": {
         "description": "Lossless data-compression library",
         "title": "zlib"
+    },
+    "zziplib": {
+        "description": "The ZZIPlib provides read access on ZIP-archives and unpacked data",
+        "title": "ZZIPlib"
     }
 }

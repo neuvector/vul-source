@@ -719,7 +719,7 @@ def get_subproject_details(rel):
                     break
             except KeyError:
                 pass
-    
+
     if release:
         product, series = product_series(release)
         canon = product + "/" + series
@@ -953,7 +953,7 @@ def load_external_subprojects():
                 print('%s: missing "product" or "release".' % (subproject_path))
                 raise ValueError
 
-            subproject_name = f'{config["product"]}/{config["release"]}'
+            subproject_name = '%s/%s' % (config["product"], config["release"])
             external_releases.append(subproject_name)
             subprojects.setdefault(subproject_name, {"packages": [],
                                          "eol": False})
@@ -964,7 +964,7 @@ def load_external_subprojects():
             if os.path.isfile(supported_txt[:-len("supported.txt")] + 'aliases.yaml'):
                 subprojects[subproject_name].setdefault("aliases",
                     supported_txt[:-len("supported.txt")] + 'aliases.yaml')
-            
+
             for key in MANDATORY_EXTERNAL_SUBPROJECT_KEYS + OPTIONAL_EXTERNAL_SUBPROJECT_KEYS:
                 if key in config:
                     subprojects[subproject_name].setdefault(key, config[key])

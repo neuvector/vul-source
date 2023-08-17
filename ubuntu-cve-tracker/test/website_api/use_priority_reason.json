@@ -1,0 +1,56 @@
+[
+  {
+    "id": "CVE-2020-1234",
+    "description": "\nPublish CVEs to Website API tests",
+    "ubuntu_description": "",
+    "mitigation": "",
+    "notes": [
+      {
+        "author": "",
+        "note": "Priority reason:\nThis is the reason the priority of this CVE is low. This cve is priority low for a very good reason."
+      }
+    ],
+    "priority": "low",
+    "cvss3": null,
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1234"
+    ],
+    "bugs": [
+      ""
+    ],
+    "packages": [
+      {
+        "name": "package",
+        "source": "https://launchpad.net/ubuntu/+source/package",
+        "ubuntu": "https://packages.ubuntu.com/search?suite=all&section=all&arch=any&searchon=sourcenames&keywords=package",
+        "debian": "https://tracker.debian.org/pkg/package",
+        "statuses": [
+          {
+            "release_codename": "trusty",
+            "status": "released",
+            "description": "1.2.3",
+            "pocket": "security"
+          },
+          {
+            "release_codename": "jammy",
+            "status": "released",
+            "description": "4.5.6",
+            "pocket": "security"
+          },
+          {
+            "release_codename": "upstream",
+            "status": "needs-triage",
+            "description": "",
+            "pocket": "security"
+          }
+        ]
+      }
+    ],
+    "status": "active",
+    "tags": {},
+    "patches": {
+      "package": []
+    },
+    "published": "2020-08-04 17:00:00 UTC"
+  }
+]
