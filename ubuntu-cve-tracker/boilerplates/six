@@ -4,9 +4,11 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- mdeslaur> the python-pip package bundles six binaries when built.
- mdeslaur> After updating six, a no-change rebuild of python-pip is
- mdeslaur> required.
+ mdeslaur> On focal and earlier, the python-pip package bundles six
+ mdeslaur> binaries when built. After updating six, a no-change
+ mdeslaur> rebuild of python-pip is required.
+ mdeslaur> On jammy and later, six is bundled in the python-pip
+ mdeslaur> package and needs to be patched.
 Mitigation: 
 Bugs: 
 Priority: untriaged

@@ -4,9 +4,11 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- mdeslaur> the python-pip package bundles python-distro binaries
- mdeslaur> when built. After updating python-distro, a no-change
- mdeslaur> rebuild of python-pip is required.
+ mdeslaur> On focal and earlier, the python-pip package bundles
+ mdeslaur> python-distro binaries when built. After updating
+ mdeslaur> python-distro, a no-change rebuild of python-pip is required.
+ mdeslaur> On jammy and later, python-distro is bundled in the python-pip
+ mdeslaur> package and needs to be patched.
 Mitigation: 
 Bugs: 
 Priority: untriaged

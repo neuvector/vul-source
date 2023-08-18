@@ -4,9 +4,11 @@ References:
 Description: 
 Ubuntu-Description: 
 Notes: 
- mdeslaur> the python-pip package bundles contextlib2 binaries when built.
- mdeslaur> After updating contextlib2, a no-change rebuild of python-pip is
- mdeslaur> required.
+ mdeslaur> On focal and earlier, the python-pip package bundles contextlib2
+ mdeslaur> binaries when built. After updating contextlib2, a no-change
+ mdeslaur> rebuild of python-pip is required.
+ mdeslaur> On jammy and later, contextlib2 is bundled in the python-pip
+ mdeslaur> package and needs to be patched.
 Mitigation: 
 Bugs: 
 Priority: untriaged
