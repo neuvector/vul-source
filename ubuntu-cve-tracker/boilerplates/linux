@@ -31,7 +31,7 @@ trusty/esm_linux-hwe: DNE
 xenial_linux-hwe: ignored (end of standard support)
 esm-infra/xenial_linux-hwe: needs-triage
 bionic_linux-hwe: ignored (end of standard support)
-esm-infra/bionic_linux-hwe: needs-triage
+esm-infra/bionic_linux-hwe: ignored (replaced by linux-hwe-5.4)
 focal_linux-hwe: DNE
 jammy_linux-hwe: DNE
 lunar_linux-hwe: DNE
@@ -122,7 +122,7 @@ lunar_linux-hwe-6.2: DNE
 devel_linux-hwe-6.2: DNE
 
 Patches_linux-hwe-edge:
-upstream_linux-hwe-edge: needs-triage
+upstream_linux-hwe-edge: ignored (end of life)
 trusty_linux-hwe-edge: DNE
 trusty/esm_linux-hwe-edge: DNE
 xenial_linux-hwe-edge: ignored (end of standard support)
@@ -159,7 +159,7 @@ lunar_linux-kvm: needs-triage
 devel_linux-kvm: DNE
 
 Patches_linux-allwinner:
-upstream_linux-allwinner: needs-triage
+upstream_linux-allwinner: ignored (end of life)
 trusty_linux-allwinner: DNE
 trusty/esm_linux-allwinner: DNE
 xenial_linux-allwinner: DNE
@@ -168,7 +168,7 @@ bionic_linux-allwinner: DNE
 esm-infra/bionic_linux-allwinner: DNE
 focal_linux-allwinner: DNE
 jammy_linux-allwinner: DNE
-lunar_linux-allwinner: needs-triage
+lunar_linux-allwinner: ignored (end of life)
 devel_linux-allwinner: DNE
 
 Patches_linux-allwinner-5.19:
@@ -198,7 +198,7 @@ lunar_linux-aws: needs-triage
 devel_linux-aws: needs-triage
 
 Patches_linux-aws-5.0:
-upstream_linux-aws-5.0: needs-triage
+upstream_linux-aws-5.0: ignored (superseded by linux-hwe-5.3)
 trusty_linux-aws-5.0: DNE
 trusty/esm_linux-aws-5.0: DNE
 xenial_linux-aws-5.0: DNE
@@ -215,7 +215,7 @@ trusty_linux-aws-5.3: DNE
 trusty/esm_linux-aws-5.3: DNE
 xenial_linux-aws-5.3: DNE
 bionic_linux-aws-5.3: ignored (end of standard support)
-esm-infra/bionic_linux-aws-5.3: ignored (superseded by linux-hwe-5.4)
+esm-infra/bionic_linux-aws-5.3: ignored (superseded by linux-aws-5.4)
 focal_linux-aws-5.3: DNE
 jammy_linux-aws-5.3: DNE
 lunar_linux-aws-5.3: DNE
@@ -432,7 +432,7 @@ trusty/esm_linux-azure-fde: DNE
 xenial_linux-azure-fde: DNE
 esm-infra/xenial_linux-azure-fde: DNE
 bionic_linux-azure-fde: DNE
-focal_linux-azure-fde: needs-triage
+focal_linux-azure-fde: ignored (superseded by linux-azure-fde-5.15)
 jammy_linux-azure-fde: needs-triage
 lunar_linux-azure-fde: DNE
 devel_linux-azure-fde: DNE
@@ -474,7 +474,7 @@ lunar_linux-bluefield: DNE
 devel_linux-bluefield: DNE
 
 Patches_linux-dell300x:
-upstream_linux-dell300x: needs-triage
+upstream_linux-dell300x: ignored (end of life)
 trusty_linux-dell300x: DNE
 trusty/esm_linux-dell300x: DNE
 xenial_linux-dell300x: DNE
@@ -485,7 +485,7 @@ lunar_linux-dell300x: DNE
 devel_linux-dell300x: DNE
 
 Patches_linux-azure-edge:
-upstream_linux-azure-edge: needs-triage
+upstream_linux-azure-edge: ignored (superseded by linux-azure-5.3)
 trusty_linux-azure-edge: DNE
 trusty/esm_linux-azure-edge: DNE
 xenial_linux-azure-edge: DNE
@@ -630,29 +630,29 @@ trusty_linux-gke: DNE
 trusty/esm_linux-gke: DNE
 xenial_linux-gke: ignored (end of standard support)
 bionic_linux-gke: DNE
-focal_linux-gke: needs-triage
+focal_linux-gke: ignored (end of life)
 jammy_linux-gke: needs-triage
 lunar_linux-gke: DNE
 devel_linux-gke: DNE
 
 Patches_linux-gke-4.15:
-upstream_linux-gke-4.15: needs-triage
+upstream_linux-gke-4.15: ignored (superseded by linux-gke-5.0)
 trusty_linux-gke-4.15: DNE
 trusty/esm_linux-gke-4.15: DNE
 xenial_linux-gke-4.15: DNE
 bionic_linux-gke-4.15: ignored (end of standard support)
-esm-infra/bionic_linux-gke-4.15: needs-triage
+esm-infra/bionic_linux-gke-4.15: ignored (superseded by linux-gke-5.0)
 focal_linux-gke-4.15: DNE
 jammy_linux-gke-4.15: DNE
 lunar_linux-gke-4.15: DNE
 devel_linux-gke-4.15: DNE
 
 Patches_linux-gke-5.0:
-upstream_linux-gke-5.0: needs-triage
+upstream_linux-gke-5.0: ignored (superseded by linux-gke-5.3)
 trusty_linux-gke-5.0: DNE
 trusty/esm_linux-gke-5.0: DNE
 xenial_linux-gke-5.0: DNE
-bionic_linux-gke-5.0: ignored (end of standard support)
+bionic_linux-gke-5.0: ignored (superseded by linux-gke-5.3)
 focal_linux-gke-5.0: DNE
 jammy_linux-gke-5.0: DNE
 lunar_linux-gke-5.0: DNE
@@ -663,32 +663,32 @@ upstream_linux-gke-5.3: ignored (superseded by linux-gke-5.4)
 trusty_linux-gke-5.3: DNE
 trusty/esm_linux-gke-5.3: DNE
 xenial_linux-gke-5.3: DNE
-bionic_linux-gke-5.3: ignored (end of standard support)
+bionic_linux-gke-5.3: ignored (superseded by linux-gke-5.4)
 focal_linux-gke-5.3: DNE
 jammy_linux-gke-5.3: DNE
 lunar_linux-gke-5.3: DNE
 devel_linux-gke-5.3: DNE
 
 Patches_linux-gke-5.4:
-upstream_linux-gke-5.4: needs-triage
+upstream_linux-gke-5.4: ignored (end of life)
 trusty_linux-gke-5.4: DNE
 trusty/esm_linux-gke-5.4: DNE
 xenial_linux-gke-5.4: DNE
 bionic_linux-gke-5.4: ignored (end of standard support)
-esm-infra/bionic_linux-gke-5.4: needs-triage
+esm-infra/bionic_linux-gke-5.4: ignored (end of life)
 focal_linux-gke-5.4: DNE
 jammy_linux-gke-5.4: DNE
 lunar_linux-gke-5.4: DNE
 devel_linux-gke-5.4: DNE
 
 Patches_linux-gke-5.15:
-upstream_linux-gke-5.15: needs-triage
+upstream_linux-gke-5.15: ignored (end of life)
 trusty_linux-gke-5.15: DNE
 trusty/esm_linux-gke-5.15: DNE
 xenial_linux-gke-5.15: DNE
 esm-infra/xenial_linux-gke-5.15: DNE
 bionic_linux-gke-5.15: DNE
-focal_linux-gke-5.15: needs-triage
+focal_linux-gke-5.15: ignored (end of life)
 jammy_linux-gke-5.15: DNE
 lunar_linux-gke-5.15: DNE
 devel_linux-gke-5.15: DNE
@@ -705,12 +705,12 @@ lunar_linux-gkeop: DNE
 devel_linux-gkeop: DNE
 
 Patches_linux-gkeop-5.4:
-upstream_linux-gkeop-5.4: needs-triage
+upstream_linux-gkeop-5.4: ignored (end of life)
 trusty_linux-gkeop-5.4: DNE
 trusty/esm_linux-gkeop-5.4: DNE
 xenial_linux-gkeop-5.4: DNE
 bionic_linux-gkeop-5.4: ignored (end of standard support)
-esm-infra/bionic_linux-gkeop-5.4: needs-triage
+esm-infra/bionic_linux-gkeop-5.4: ignored (end of life)
 focal_linux-gkeop-5.4: DNE
 jammy_linux-gkeop-5.4: DNE
 lunar_linux-gkeop-5.4: DNE
@@ -755,12 +755,12 @@ lunar_linux-ibm-5.4: DNE
 devel_linux-ibm-5.4: DNE
 
 Patches_linux-intel-5.13:
-upstream_linux-intel-5.13: needs-triage
+upstream_linux-intel-5.13: ignored (end of life)
 trusty_linux-intel-5.13: DNE
 trusty/esm_linux-intel-5.13: DNE
 xenial_linux-intel-5.13: DNE
 bionic_linux-intel-5.13: DNE
-focal_linux-intel-5.13: needs-triage
+focal_linux-intel-5.13: ignored (end of life)
 jammy_linux-intel-5.13: DNE
 lunar_linux-intel-5.13: DNE
 devel_linux-intel-5.13: DNE
@@ -837,6 +837,19 @@ jammy_linux-lowlatency-hwe-5.19: needs-triage
 lunar_linux-lowlatency-hwe-5.19: DNE
 devel_linux-lowlatency-hwe-5.19: DNE
 
+Patches_linux-lowlatency-hwe-6.2:
+upstream_linux-lowlatency-hwe-6.2: needs-triage
+trusty_linux-lowlatency-hwe-6.2: DNE
+trusty/esm_linux-lowlatency-hwe-6.2: DNE
+xenial_linux-lowlatency-hwe-6.2: DNE
+esm-infra/xenial_linux-lowlatency-hwe-6.2: DNE
+bionic_linux-lowlatency-hwe-6.2: DNE
+esm-infra/bionic_linux-lowlatency-hwe-6.2: DNE
+focal_linux-lowlatency-hwe-6.2: DNE
+jammy_linux-lowlatency-hwe-6.2: needs-triage
+lunar_linux-lowlatency-hwe-6.2: DNE
+devel_linux-lowlatency-hwe-6.2: DNE
+
 Patches_linux-nvidia:
 upstream_linux-nvidia: needs-triage
 trusty_linux-nvidia: DNE
@@ -864,7 +877,7 @@ lunar_linux-oracle: needs-triage
 devel_linux-oracle: needs-triage
 
 Patches_linux-oracle-5.0:
-upstream_linux-oracle-5.0: needs-triage
+upstream_linux-oracle-5.0: ignored (superseded by linux-oracle-5.3)
 trusty_linux-oracle-5.0: DNE
 trusty/esm_linux-oracle-5.0: DNE
 xenial_linux-oracle-5.0: DNE
@@ -924,13 +937,13 @@ lunar_linux-oracle-5.11: DNE
 devel_linux-oracle-5.11: DNE
 
 Patches_linux-oracle-5.13:
-upstream_linux-oracle-5.13: needs-triage
+upstream_linux-oracle-5.13: ignored (superseded by linux-oracle-5.15)
 trusty_linux-oracle-5.13: DNE
 trusty/esm_linux-oracle-5.13: DNE
 xenial_linux-oracle-5.13: DNE
 esm-infra/xenial_linux-oracle-5.13: DNE
 bionic_linux-oracle-5.13: DNE
-focal_linux-oracle-5.13: needs-triage
+focal_linux-oracle-5.13: ignored (superseded by linux-oracle-5.15)
 jammy_linux-oracle-5.13: DNE
 lunar_linux-oracle-5.13: DNE
 devel_linux-oracle-5.13: DNE
@@ -948,35 +961,35 @@ lunar_linux-oracle-5.15: DNE
 devel_linux-oracle-5.15: DNE
 
 Patches_linux-oem:
-upstream_linux-oem: needs-triage
+upstream_linux-oem: ignored (end of life)
 trusty_linux-oem: DNE
 trusty/esm_linux-oem: DNE
 xenial_linux-oem: ignored (end of standard support)
 bionic_linux-oem: ignored (end of standard support)
-esm-infra/bionic_linux-oem: needs-triage
+esm-infra/bionic_linux-oem: ignored (end of life)
 focal_linux-oem: DNE
 jammy_linux-oem: DNE
 lunar_linux-oem: DNE
 devel_linux-oem: DNE
 
 Patches_linux-oem-5.6:
-upstream_linux-oem-5.6: needs-triage
+upstream_linux-oem-5.6: ignored (superseded by linux-oem-5.10)
 trusty_linux-oem-5.6: DNE
 trusty/esm_linux-oem-5.6: DNE
 xenial_linux-oem-5.6: DNE
 bionic_linux-oem-5.6: DNE
-focal_linux-oem-5.6: needs-triage
+focal_linux-oem-5.6: ignored (superseded by linux-oem-5.10)
 jammy_linux-oem-5.6: DNE
 lunar_linux-oem-5.6: DNE
 devel_linux-oem-5.6: DNE
 
 Patches_linux-oem-5.10:
-upstream_linux-oem-5.10: needs-triage
+upstream_linux-oem-5.10: ignored (superseded by linux-oem-5.13)
 trusty_linux-oem-5.10: DNE
 trusty/esm_linux-oem-5.10: DNE
 xenial_linux-oem-5.10: DNE
 bionic_linux-oem-5.10: DNE
-focal_linux-oem-5.10: needs-triage
+focal_linux-oem-5.10: ignored (superseded by linux-oem-5.13)
 jammy_linux-oem-5.10: DNE
 lunar_linux-oem-5.10: DNE
 devel_linux-oem-5.10: DNE
@@ -993,12 +1006,12 @@ lunar_linux-oem-5.13: DNE
 devel_linux-oem-5.13: DNE
 
 Patches_linux-oem-5.14:
-upstream_linux-oem-5.14: needs-triage
+upstream_linux-oem-5.14: ignored (end of life)
 trusty_linux-oem-5.14: DNE
 trusty/esm_linux-oem-5.14: DNE
 xenial_linux-oem-5.14: DNE
 bionic_linux-oem-5.14: DNE
-focal_linux-oem-5.14: needs-triage
+focal_linux-oem-5.14: ignored (end of life)
 jammy_linux-oem-5.14: DNE
 lunar_linux-oem-5.14: DNE
 devel_linux-oem-5.14: DNE
@@ -1040,7 +1053,7 @@ lunar_linux-oem-6.1: DNE
 devel_linux-oem-6.1: DNE
 
 Patches_linux-oem-osp1:
-upstream_linux-oem-osp1: needs-triage
+upstream_linux-oem-osp1: ignored (end of life)
 trusty_linux-oem-osp1: DNE
 trusty/esm_linux-oem-osp1: DNE
 xenial_linux-oem-osp1: DNE
@@ -1062,7 +1075,7 @@ lunar_linux-raspi: needs-triage
 devel_linux-raspi: needs-triage
 
 Patches_linux-raspi2:
-upstream_linux-raspi2: needs-triage
+upstream_linux-raspi2: ignored (end of life)
 trusty_linux-raspi2: DNE
 trusty/esm_linux-raspi2: DNE
 xenial_linux-raspi2: ignored (end of standard support)
@@ -1102,7 +1115,7 @@ trusty/esm_linux-riscv: DNE
 xenial_linux-riscv: DNE
 bionic_linux-riscv: DNE
 focal_linux-riscv: ignored (superseded by linux-riscv-5.8)
-jammy_linux-riscv: needs-triage
+jammy_linux-riscv: ignored (end of life)
 lunar_linux-riscv: needs-triage
 devel_linux-riscv: needs-triage
 
@@ -1143,7 +1156,7 @@ lunar_linux-riscv-5.15: DNE
 devel_linux-riscv-5.15: DNE
 
 Patches_linux-riscv-5.19:
-upstream_linux-riscv-5.19: needs-triage
+upstream_linux-riscv-5.19: ignored (end of life)
 trusty_linux-riscv-5.19: DNE
 trusty/esm_linux-riscv-5.19: DNE
 xenial_linux-riscv-5.19: DNE
@@ -1151,12 +1164,12 @@ esm-infra/xenial_linux-riscv-5.19: DNE
 bionic_linux-riscv-5.19: DNE
 esm-infra/bionic_linux-riscv-5.19: DNE
 focal_linux-riscv-5.19: DNE
-jammy_linux-riscv-5.19: needs-triage
+jammy_linux-riscv-5.19: ignored (end of life)
 lunar_linux-riscv-5.19: DNE
 devel_linux-riscv-5.19: DNE
 
 Patches_linux-snapdragon:
-upstream_linux-snapdragon: needs-triage
+upstream_linux-snapdragon: ignored (end of life)
 trusty_linux-snapdragon: DNE
 trusty/esm_linux-snapdragon: DNE
 xenial_linux-snapdragon: ignored (end of standard support)
@@ -1180,7 +1193,7 @@ lunar_linux-starfive: needs-triage
 devel_linux-starfive: needs-triage
 
 Patches_linux-starfive-5.19:
-upstream_linux-starfive-5.19: needs-triage
+upstream_linux-starfive-5.19: ignored (end of life)
 trusty_linux-starfive-5.19: DNE
 trusty/esm_linux-starfive-5.19: DNE
 xenial_linux-starfive-5.19: DNE
@@ -1188,7 +1201,7 @@ esm-infra/xenial_linux-starfive-5.19: DNE
 bionic_linux-starfive-5.19: DNE
 esm-infra/bionic_linux-starfive-5.19: DNE
 focal_linux-starfive-5.19: DNE
-jammy_linux-starfive-5.19: needs-triage
+jammy_linux-starfive-5.19: ignored (end of life)
 lunar_linux-starfive-5.19: DNE
 devel_linux-starfive-5.19: DNE
 
@@ -1203,16 +1216,3 @@ focal_linux-xilinx-zynqmp: needs-triage
 jammy_linux-xilinx-zynqmp: needs-triage
 lunar_linux-xilinx-zynqmp: DNE
 devel_linux-xilinx-zynqmp: DNE
-
-Patches_linux-lowlatency-hwe-6.2:
-upstream_linux-lowlatency-hwe-6.2: needs-triage
-trusty_linux-lowlatency-hwe-6.2: DNE
-trusty/esm_linux-lowlatency-hwe-6.2: DNE
-xenial_linux-lowlatency-hwe-6.2: DNE
-esm-infra/xenial_linux-lowlatency-hwe-6.2: DNE
-bionic_linux-lowlatency-hwe-6.2: DNE
-esm-infra/bionic_linux-lowlatency-hwe-6.2: DNE
-focal_linux-lowlatency-hwe-6.2: DNE
-jammy_linux-lowlatency-hwe-6.2: needs-triage
-lunar_linux-lowlatency-hwe-6.2: DNE
-devel_linux-lowlatency-hwe-6.2: DNE
