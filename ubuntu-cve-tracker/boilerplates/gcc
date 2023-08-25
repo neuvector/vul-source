@@ -5,6 +5,11 @@ Description:
 Ubuntu-Description: 
 Notes: 
  sbeattie> gcc-3.3 only provides libstdc++5
+ sbeattie> gcc-msp430 is based on gcc-4.6.3
+ sbeattie> gcc-m68hc1x is based on gcc-3.3.6
+ sbeattie> gcc-h8300-hms is based on gcc-3.4.6
+ sbeattie> gcc-i686-linux-android and gcc-arm-linux-androideabi are
+   based on gcc-4.7
 Mitigation: 
 Bugs: 
 Priority: untriaged
@@ -707,17 +712,6 @@ focal_gcc-msp430: needs-triage
 jammy_gcc-msp430: needs-triage
 lunar_gcc-msp430: needs-triage
 devel_gcc-msp430: needs-triage
-
-Patches_gcc-opt:
-upstream_gcc-opt: needs-triage
-trusty_gcc-opt: ignored (end of standard support)
-trusty/esm_gcc-opt: DNE
-xenial_gcc-opt: ignored (end of standard support)
-bionic_gcc-opt: ignored (end of standard support)
-focal_gcc-opt: needs-triage
-jammy_gcc-opt: needs-triage
-lunar_gcc-opt: needs-triage
-devel_gcc-opt: needs-triage
 
 Patches_gccgo-4.9:
 upstream_gccgo-4.9: needs-triage
