@@ -5,4 +5,6 @@ CVE-2015-8940
 CVE-2015-8942
 CVE-2019-9872 # IntelliJ IDEA Ultimate
 CVE-2021-25741 # kubernetes
-CVE-2023-30414 # Jerryscript
+CVE-2023-3676 # kubernetes
+CVE-2023-3893 # kubernetes
+CVE-2023-3955 # kubernetes

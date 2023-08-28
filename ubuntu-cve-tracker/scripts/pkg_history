@@ -62,7 +62,7 @@ for pkg in "$@"; do
     	dirs="active"
     fi
     for d in ${dirs} ; do
-        for cve in `grep "$pattern" "${UCT_DIR}/${d}/CVE-"* | \
+        for cve in `grep "$pattern" -r ${UCT_DIR}/${d} --include=CVE-* | \
             cut -d ':' -f 1 | \
             rev | \
             cut -d '/' -f 1 | \
