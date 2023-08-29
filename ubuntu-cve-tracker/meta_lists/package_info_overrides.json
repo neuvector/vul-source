@@ -351,6 +351,10 @@
         "description": "XML parsing C library",
         "title": "Expat"
     },
+    "faad2": {
+        "description": "Freeware Advanced Audio (AAC) Decoder",
+        "title": "FAAD2"
+    },
     "ffmpeg": {
         "description": "Tools for transcoding, streaming and playing of multimedia files",
         "title": "FFmpeg"
