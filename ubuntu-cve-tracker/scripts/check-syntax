@@ -1050,7 +1050,15 @@ def check_cve(cve):
         # check baseScore and baseSeverity match
         baseScore = cvss['baseMetricV3']['cvssV3']['baseScore']
         baseSeverity = cvss['baseMetricV3']['cvssV3']['baseSeverity']
-        if float(entry['baseScore']) != baseScore:
+        # check the entry's baseScore is actually a valid float
+        try:
+            entry['baseScore'] = float(entry['baseScore'])
+        except ValueError:
+            print("%s: %d: baseScore %s is not a valid float" %
+                  (filename, linenum, entry['baseScore']),
+                  file=sys.stderr)
+            cve_okay = False
+        if entry['baseScore'] != baseScore:
             print("%s: %d: baseScore %s is not correct, should be %02.1f" %
                   (filename, linenum, entry['baseScore'], baseScore),
                   file=sys.stderr)
