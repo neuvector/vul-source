@@ -331,10 +331,19 @@ if len(args) == 0:
                 args += [filename]
 
     else:
-        for bp in sorted(glob.glob("%s/*" % cve_lib.boilerplates_dir)):
-                args += [bp]
+        bps = glob.glob("%s/*" % cve_lib.boilerplates_dir)
+        rc, report = cmd(["git", "check-ignore"] + bps)
+        if rc == 0:
+            bps = set(bps) - set(report.splitlines())
+        for bp in sorted(bps):
+            args += [bp]
+
         for dir in check_dirs:
-            for cve in sorted(glob.glob("%s/CVE-*" % dir)):
+            cves = glob.glob("%s/CVE-*" % dir)
+            rc, report = cmd(["git", "check-ignore"] + cves)
+            if rc == 0:
+                cves = set(cves) - set(report.splitlines())
+            for cve in sorted(cves):
                 args += [cve]
 
 else:

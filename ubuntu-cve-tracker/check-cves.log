@@ -7741,3 +7741,5 @@
 2023-08-30 03:06:13 UTC - 0 added, 2 ignored, 0 skipped, 2 total - files: ['redhat.mbox.json']
 2023-08-30 03:07:21 UTC - 1 added, 0 ignored, 0 skipped, 1 total - files: ['rhel8oval-import_g6zh4i2d.json']
 2023-08-30 03:12:18 UTC - 13 added, 0 ignored, 0 skipped, 13 total - files: ['cve-feed.json']
+2023-08-31 01:26:49 UTC - 5 added, 113 ignored, 0 skipped, 118 total - files: ['nvdcve-1.1-recent.json']
+2023-08-31 01:34:51 UTC - 3 added, 0 ignored, 0 skipped, 3 total - files: ['debian-import_7hr1ipcl.json']
