@@ -140,10 +140,22 @@ def main():
 
         return
 
-    releases = [args.oval_release] if args.oval_release else supported_releases
-    supported_releases = releases
+    # if --oval-release, we still need to load parents cache
+    # so we can generate a complete oval for those releases that
+    # have a parent
+    if args.oval_release:
+        releases = [args.oval_release]
+        if args.oval_release not in supported_releases:
+            error(f"unknown oval release {args.oval_release}")
+        else:
+            r = args.oval_release
+            while release_parent(r):
+                r = release_parent(r)
+                releases.append(r)
+        supported_releases = releases
+
     cache = {}
-    for release in releases:
+    for release in supported_releases:
         cve_cache = {}
         cache.update({release: get_package_cache(args.pkg_cache_dir, release)})
 
@@ -293,18 +305,15 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
         for rel in supported_releases:
             if rel not in packages[pkg]['Releases']:
                 parent = release_parent(rel)
-                if parent and parent in packages[pkg]['Releases']:
-                    packages[pkg]['Releases'][rel] = \
-                        duplicate_package_status(parent, pkg, packages[pkg]['Releases'][parent], cache)
-                    # this is needed for update instructions
-                    progenitor = release_progenitor(parent)
-                    if progenitor and progenitor in packages[pkg]['Releases']:
-                        if packages[pkg]['Releases'][parent]['status'] == packages[pkg]['Releases'][progenitor]['status']:
-                            packages[pkg]['Releases'][rel]['parent'] = progenitor
-                        else:
-                            packages[pkg]['Releases'][rel]['parent'] = parent
-                    else:
-                        packages[pkg]['Releases'][rel]['parent'] = parent
+                if parent and parent not in packages[pkg]['Releases']:
+                    parent = release_parent(parent)
+
+                if not parent or parent not in packages[pkg]['Releases']:
+                    continue
+
+                packages[pkg]['Releases'][rel] = \
+                    duplicate_package_status(parent, pkg, packages[pkg]['Releases'][parent], cache)
+                packages[pkg]['Releases'][rel]['parent'] = parent
 
     return {'header': cve_header_data, 'packages': packages}
 

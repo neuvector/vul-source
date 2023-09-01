@@ -506,22 +506,22 @@ def check_cve(cve):
                                     file=sys.stderr,
                                 )
                                 cve_okay = False
-                    else:
-                        pkgs_from_generic = get_pkgs_from_generic(source, generics_cache, pkg, rel)
-                        if pkgs_from_generic:
-                            aliases_or_generics = True
-                            aliases_releases.add(rel)
-                            for curr_pkg in pkgs_from_generic:
-                                if curr_pkg not in data["pkgs"].keys():
-                                    filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                                    linenum = srcmap["pkgs"][pkg][nearby_rel][1]
-                                    print(
-                                        "%s: %d: %s missing release '%s'"
-                                        # put the error on a line near where this entry should go
-                                        % (filename, linenum, curr_pkg, rel),
-                                        file=sys.stderr,
-                                    )
-                                    cve_okay = False
+                                
+                    pkgs_from_generic = get_pkgs_from_generic(source, generics_cache, pkg, rel)
+                    if pkgs_from_generic:
+                        aliases_or_generics = True
+                        aliases_releases.add(rel)
+                        for curr_pkg in pkgs_from_generic:
+                            if curr_pkg not in data["pkgs"].keys():
+                                filename = srcmap["pkgs"][pkg][nearby_rel][0]
+                                linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                                print(
+                                    "%s: %d: %s missing release '%s'"
+                                    # put the error on a line near where this entry should go
+                                    % (filename, linenum, curr_pkg, rel),
+                                    file=sys.stderr,
+                                )
+                                cve_okay = False
 
                     # This package-release uses aliases or generic names,
                     # it shouldn't be listed
@@ -535,7 +535,7 @@ def check_cve(cve):
                                 % (filename, linenum, pkg, rel),
                                 file=sys.stderr,
                             )
-        missing_releases = all_required_releases - listed_releases - aliases_releases
+        missing_releases = all_required_releases - listed_releases
         nearby_rel = list(listed_releases - missing_releases)[0]
         for rel in missing_releases:
             # only warn on active CVEs
