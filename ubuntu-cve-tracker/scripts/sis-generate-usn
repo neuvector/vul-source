@@ -563,8 +563,13 @@ if opt.ignore_released_cves_in_changelog:
         for release in info.keys():
             for pkg in info[release].keys():
                 if pkg in cve["pkgs"].keys():
-                    if cve["pkgs"][pkg][release][0] == "released":
+                    if cve_lib.is_active_esm_release(release):
+                        _release = cve_lib.get_esm_name(release)
+                    else:
+                        _release = release
+                    if cve["pkgs"][pkg][_release][0] == "released":
                         released.add(cve_num)
+
     print("INFO: CVEs '%s' in changelog(s) are already released, ignoring" % (released), file=sys.stderr)
     CVEs.difference_update(released)
 
