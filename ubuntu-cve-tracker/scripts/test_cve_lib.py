@@ -216,7 +216,9 @@ class TestSubprojects:
         ):
             canon, product, series, details = cve_lib.get_subproject_details(subproject)
             expected_prod, expected_series = cve_lib.product_series(subproject)
-            assert canon == expected_prod + '/' + expected_series
+            expected_canon = expected_prod
+            if expected_series: expected_canon += '/' + expected_series
+            assert canon == expected_canon
             assert product == expected_prod
             assert series == expected_series
             assert details
