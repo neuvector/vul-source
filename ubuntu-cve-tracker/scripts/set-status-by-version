@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/python3
 
 # This script allows you to provide a fix version for a particulare package/CVE combination and it will update the CVE
 # based on a comparison of the release version against the fix version.
@@ -103,7 +103,7 @@ def run_mass_cve_edit(package, ubuntu_release, state, release_version, cve):
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     command_output=p.stdout.read()
     retcode=p.wait();
-    print command_output
+    print(command_output)
     if retcode != 0:
         print("An unknown error occurred when running `mass_cve_edit`")
         sys.exit(1)
@@ -134,14 +134,14 @@ if opt.state:
     state = opt.state
 
 umt_search_output = run_umt_search(package)
-umt_search_output = umt_search_output[4:]
+umt_search_output = umt_search_output[5:]
 
 for release in umt_search_output:
     if len(release) == 0: #this is a blank line, there are no more ubuntu versions to review
         break
-    print release
-    ubuntu_release = release.split(',')[0].split(':')[0].strip()
-    release_version = release.split(',')[0].split(':')[1].strip()
+    print(release)
+    ubuntu_release = release.split(' ')[0].strip()
+    release_version = release.split(' ')[1].strip()
     version_comparison_result = compare_versions(fixed_version, binary_operator, release_version)
     if version_comparison_result == 0:
         if ubuntu_release == devel_release:
