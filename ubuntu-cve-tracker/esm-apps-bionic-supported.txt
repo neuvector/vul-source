@@ -5485,6 +5485,8 @@ gogglesmm
 gogo
 goiardi
 golang-1.13
+golang-1.16
+golang-1.18
 golang-1.7-race-detector-runtime
 golang-1.8
 golang-1.8-race-detector-runtime

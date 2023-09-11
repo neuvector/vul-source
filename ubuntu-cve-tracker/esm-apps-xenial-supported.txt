@@ -4920,6 +4920,7 @@ goget-ubuntu-touch
 gogglesmm
 gogo
 golang-1.13
+golang-1.18
 golang-airbrake-go
 golang-ar
 golang-barcode

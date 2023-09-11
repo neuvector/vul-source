@@ -8,7 +8,7 @@
 # Author: Jamie Strandboge <jamie@ubuntu.com>
 # Author: Marc Deslauriers <marc.deslauriers@ubuntu.com>
 # Author: Steve Beattie <sbeattie@ubuntu.com>
-# Copyright (C) 2005-2021 Canonical Ltd.
+# Copyright (C) 2005-2022 Canonical Ltd.
 #
 # This script is distributed under the terms and conditions of the GNU General
 # Public License, Version 2 or later. See http://www.gnu.org/copyleft/gpl.html
@@ -38,6 +38,7 @@ import progressbar
 
 import cve_lib
 import source_map
+from check_cves.ignored_cache import IgnoredCache
 
 # load settings, if any
 cve_lib.read_config()
@@ -549,6 +550,7 @@ def cvss_source_from_filename(name):
             return source
     return 'unknown'
 
+
 class CVEHandler(xml.sax.handler.ContentHandler):
     """SAX handler for processing mitre's CVE database XML."""
 
@@ -573,7 +575,7 @@ class CVEHandler(xml.sax.handler.ContentHandler):
         self.cve_seen = set()
         self.cve_list = []
         self.cve_data = dict()
-        self.saved_ignore_reason = ""
+        self.saved_ignore_cache = IgnoredCache()
         self.saved_package = ""
         self.saved_cve = ""
         self.debian = None
@@ -1162,11 +1164,11 @@ class CVEHandler(xml.sax.handler.ContentHandler):
                 prompts = []
 
                 # Show debian reason first, then automatically determined
-                # reason, then saved reason. This makes more sense
+                # reason, then saved reasons. This makes more sense
                 # than sorting the reasons and is more predictable
-                for choice in [reason, 
-                               self.get_ignore_suggestion(self.cve_data[cve]['desc']),
-                               self.saved_ignore_reason]:
+                choices = [reason, self.get_ignore_suggestion(self.cve_data[cve]['desc'])]
+                choices.extend(self.saved_ignore_cache.get())
+                for choice in choices:
                     if choice != "" and choice not in prompts:
                         prompts.append(choice)
 
@@ -1188,7 +1190,7 @@ class CVEHandler(xml.sax.handler.ContentHandler):
                 elif len(info) < 3:  # Fat fingers protection
                     print('\nError: Reason must be at least 3 characters long!\n')
                     info = ""
-            self.saved_ignore_reason = info
+            self.saved_ignore_cache.insert(info)
             self.ignore_cve(cve, info)
 
         elif info.startswith('s'):
