@@ -287,11 +287,13 @@ meta_kernels.add_new_kernel('jammy', ['linux-aws'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-aws-5.19'], '-5.19.0')
 meta_kernels.add_new_kernel('jammy', ['linux-aws-6.2'], '-6.2.0')
 meta_kernels.add_new_kernel('jammy', ['linux-azure'], '-5.15.0')
-# the linux-azure-5.19 is still only in edge status
+# the linux-azure-5.19 never left edge status
 # meta_kernels.add_new_kernel('jammy', ['linux-azure-5.19'], '-5.19.0')
+meta_kernels.add_new_kernel('jammy', ['linux-azure-6.2'], '-6.2.0')
 meta_kernels.add_new_kernel('jammy', ['linux-azure-fde'], '-5.15.0')
-# the linux-azure-fde-5.19 is still only in edge status
+# the linux-azure-fde-5.19 never left edge status
 # meta_kernels.add_new_kernel('jammy', ['linux-azure-fde-5.19'], '-5.19.0')
+meta_kernels.add_new_kernel('jammy', ['linux-azure-fde-6.2'], '-6.2.0')
 meta_kernels.add_new_kernel('jammy', ['linux-gcp'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-gcp-5.19'], '-5.19.0')
 meta_kernels.add_new_kernel('jammy', ['linux-gcp-6.2'], '-6.2.0')
@@ -560,6 +562,11 @@ kernel_glitches = {
             '~': '5.15.0-1014.17~20.04.1',  # initial publication
         },
     },
+    'linux-azure-6.2': {
+        'jammy': {
+            '~': '6.2.0-1011.11~22.04.1',  # initial non-edge publication
+        },
+    },
     'linux-azure-fde': {
         'focal': {
             '~': '5.4.0-1069.72+cvm1.1',  # initial publication
@@ -572,6 +579,11 @@ kernel_glitches = {
     'linux-azure-fde-5.15' : {
         'focal': {
             '~': '5.15.0-1036.43~20.04.1.1',
+        },
+    },
+    'linux-azure-fde-6.2' : {
+        'jammy': {
+            '~': '6.2.0-1011.11~22.04.1.1', # initial non-edge publication
         },
     },
     'linux-bluefield': {

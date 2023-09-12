@@ -425,6 +425,19 @@ jammy_linux-azure-5.19: ignored (superseded by linux-azure-6.2)
 lunar_linux-azure-5.19: DNE
 devel_linux-azure-5.19: DNE
 
+Patches_linux-azure-6.2:
+upstream_linux-azure-6.2: needs-triage
+trusty_linux-azure-6.2: DNE
+trusty/esm_linux-azure-6.2: DNE
+xenial_linux-azure-6.2: DNE
+esm-infra/xenial_linux-azure-6.2: DNE
+bionic_linux-azure-6.2: DNE
+esm-infra/bionic_linux-azure-6.2: DNE
+focal_linux-azure-6.2: DNE
+jammy_linux-azure-6.2: needs-triage
+lunar_linux-azure-6.2: DNE
+devel_linux-azure-6.2: DNE
+
 Patches_linux-azure-fde:
 upstream_linux-azure-fde: needs-triage
 trusty_linux-azure-fde: DNE
@@ -460,6 +473,19 @@ focal_linux-azure-fde-5.19: DNE
 jammy_linux-azure-fde-5.19: ignored (superseded by linux-azure-fde-6.2)
 lunar_linux-azure-fde-5.19: DNE
 devel_linux-azure-fde-5.19: DNE
+
+Patches_linux-azure-fde-6.2:
+upstream_linux-azure-fde-6.2: needs-triage
+trusty_linux-azure-fde-6.2: DNE
+trusty/esm_linux-azure-fde-6.2: DNE
+xenial_linux-azure-fde-6.2: DNE
+esm-infra/xenial_linux-azure-fde-6.2: DNE
+bionic_linux-azure-fde-6.2: DNE
+esm-infra/bionic_linux-azure-fde-6.2: DNE
+focal_linux-azure-fde-6.2: DNE
+jammy_linux-azure-fde-6.2: needs-triage
+lunar_linux-azure-fde-6.2: DNE
+devel_linux-azure-fde-6.2: DNE
 
 Patches_linux-bluefield:
 upstream_linux-bluefield: needs-triage

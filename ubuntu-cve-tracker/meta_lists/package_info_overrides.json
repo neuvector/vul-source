@@ -1315,6 +1315,10 @@
         "description": "Linux kernel for Microsoft Azure cloud systems",
         "title": "Linux kernel (Azure)"
     },
+    "linux-azure-6.2": {
+        "description": "Linux kernel for Microsoft Azure cloud systems",
+        "title": "Linux kernel (Azure)"
+    },
     "linux-azure-fde": {
         "description": "Linux kernel for Microsoft Azure CVM cloud systems",
         "title": "Linux kernel (Azure CVM)"
@@ -1324,6 +1328,10 @@
         "title": "Linux kernel (Azure CVM)"
     },
     "linux-azure-fde-5.19": {
+        "description": "Linux kernel for Microsoft Azure CVM cloud systems",
+        "title": "Linux kernel (Azure CVM)"
+    },
+    "linux-azure-fde-6.2": {
         "description": "Linux kernel for Microsoft Azure CVM cloud systems",
         "title": "Linux kernel (Azure CVM)"
     },
