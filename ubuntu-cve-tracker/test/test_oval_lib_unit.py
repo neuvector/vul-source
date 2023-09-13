@@ -100,12 +100,12 @@ class TestOvalLibUnit:
                 <advisory from="security@ubuntu.com">
                     <severity>Medium</severity>
                     <issued date="2020-06-09"/>
-                    <cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0067</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-0543" severity="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0543</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12114" severity="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H">CVE-2020-12114</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12464" severity="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12464</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12659" severity="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12659</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-1749" severity="medium" public="20200304">CVE-2020-1749</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0067" priority="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0067</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0543" priority="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0543</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12114" priority="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H" cvss_severity="medium">CVE-2020-12114</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12464" priority="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H" cvss_severity="medium">CVE-2020-12464</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12659" priority="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H" cvss_severity="medium">CVE-2020-12659</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-1749" priority="medium" public="20200304">CVE-2020-1749</cve>
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
@@ -128,12 +128,12 @@ class TestOvalLibUnit:
                 <reference source="CVE" ref_id="CVE-2020-12659" ref_url="https://ubuntu.com/security/CVE-2020-12659"/>
                 <reference source="CVE" ref_id="CVE-2020-1749" ref_url="https://ubuntu.com/security/CVE-2020-1749"/>"""
     
-    cve_tags_mock = """<cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0067</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-0543" severity="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N">CVE-2020-0543</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12114" severity="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H">CVE-2020-12114</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12464" severity="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12464</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-12659" severity="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">CVE-2020-12659</cve>
-                    <cve href="https://ubuntu.com/security/CVE-2020-1749" severity="medium" public="20200304">CVE-2020-1749</cve>"""
+    cve_tags_mock = """<cve href="https://ubuntu.com/security/CVE-2020-0067" priority="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0067</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0543" priority="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0543</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12114" priority="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H" cvss_severity="medium">CVE-2020-12114</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12464" priority="medium" public="20200429" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H" cvss_severity="medium">CVE-2020-12464</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-12659" priority="low" public="20200505" cvss_score="6.7" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H" cvss_severity="medium">CVE-2020-12659</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-1749" priority="medium" public="20200304">CVE-2020-1749</cve>"""
 
 
     test_mock = [r"""
@@ -300,7 +300,7 @@ class TestOvalLibUnit:
                 <advisory from="security@ubuntu.com">
                     <severity>Medium</severity>
                     <issued date="2020-06-09"/>
-                    <cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>
+                    <cve href="https://ubuntu.com/security/CVE-2020-0067" priority="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
@@ -548,7 +548,7 @@ No subscription required"""
         format_cves_info_mock.return_value = (self.urls_mock,
             self.invalid_priority_cve_mock)
         create_cves_elements_mock.return_value = (self.invalid_priority_references_mock,
-            '<cve href="https://ubuntu.com/security/CVE-2020-0067" severity="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>')
+            '<cve href="https://ubuntu.com/security/CVE-2020-0067" priority="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium" usns="4387-1,4389-1,4390-1,4388-1,4527-1">CVE-2020-0067</cve>')
         create_bug_ref_mock.return_value = self.url_ref_mock
         get_usn_severity_mock.return_value = self.avg_severity_mock
         pocket_mock.return_value = self.pocket

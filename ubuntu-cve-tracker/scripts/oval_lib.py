@@ -123,10 +123,10 @@ def debug(message):
         sys.stdout.write('\rDEBUG: {0}\n'.format(message))
 
 def generate_cve_tag(cve):
-    cve_ref = '<cve href="https://ubuntu.com/security/{0}" severity="{1}" public="{2}"'.format(cve['Candidate'], cve['Priority'], cve['PublicDate'].split(' ')[0].replace('-', ''))
+    cve_ref = '<cve href="https://ubuntu.com/security/{0}" priority="{1}" public="{2}"'.format(cve['Candidate'], cve['Priority'], cve['PublicDate'].split(' ')[0].replace('-', ''))
 
     if 'CVSS' in cve and cve['CVSS']:
-        cve_ref += ' cvss_score="{0}" cvss_vector="{1}"'.format(cve['CVSS'][0]['baseScore'], cve['CVSS'][0]['vector'])
+        cve_ref += ' cvss_score="{0}" cvss_vector="{1}" cvss_severity="{2}"'.format(cve['CVSS'][0]['baseScore'], cve['CVSS'][0]['vector'], cve['CVSS'][0]['baseSeverity'].lower())
 
     cve_ref_usns = False
     if 'References' in cve:
@@ -502,7 +502,7 @@ class CVE:
     def __init__(self, number, info, pkgs=[]) -> None:
         self.number = number
         self.description = info['Description']
-        self.severity = info['Priority'][0]
+        self.priority = info['Priority'][0]
         self.public_date = info['PublicDate']
         self.cvss = info['CVSS']
         self.usns = []
@@ -667,11 +667,19 @@ class OvalGeneratorPkg(OvalGenerator):
 
         return definition
 
+    def _add_test_ref_to_cve_tag(self, test_ref_id: int, cve: CVE, definition: etree.Element):
+        advisory = definition.find('.//advisory')
+
+        for cve_tag in advisory.findall('cve'):
+            if cve_tag.text == cve.number:
+                cve_tag.attrib['test_ref'] = f"{self.ns}:tst:{test_ref_id}"
+                return
+
     def _generate_cve_tag(self, cve: CVE) -> etree.Element:
         cve_tag = etree.Element("cve",
             attrib={
                 'href' : f"https://ubuntu.com/security/{cve.number}",
-                'severity': cve.severity,
+                'priority': cve.priority,
                 'public': cve.public_date.split(' ')[0].replace('-', '')
             })
 
@@ -679,6 +687,7 @@ class OvalGeneratorPkg(OvalGenerator):
         if cve.cvss:
             cve_tag.set('cvss_score', cve.cvss[0]['baseScore'])
             cve_tag.set('cvss_vector', cve.cvss[0]['vector'])
+            cve_tag.set('cvss_severity', cve.cvss[0]['baseSeverity'].lower())
             if cve.usns:
                 cve_tag.set('usns', ','.join(cve.usns))
 
@@ -1055,15 +1064,19 @@ class OvalGeneratorPkg(OvalGenerator):
                 binaries = package.binaries[key]
                 if pkg_rel_entry.fixed_version:
                     if pkg_rel_entry.fixed_version in fixed_versions:
+                        self._add_test_ref_to_cve_tag(fixed_versions[pkg_rel_entry.fixed_version], cve, definition_element)
                         self._add_criterion(fixed_versions[pkg_rel_entry.fixed_version], pkg_rel_entry, cve, definition_element)
                         continue
                     else:
+                        self._add_test_ref_to_cve_tag(self.definition_id, cve, definition_element)
                         self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element)
                         fixed_versions[pkg_rel_entry.fixed_version] = self.definition_id
                 elif one_time_added_id:
+                    self._add_test_ref_to_cve_tag(one_time_added_id, cve, definition_element)
                     self._add_criterion(one_time_added_id, pkg_rel_entry, cve, definition_element)
                     continue
                 else:
+                    self._add_test_ref_to_cve_tag(self.definition_id, cve, definition_element)
                     self._add_criterion(self.definition_id, pkg_rel_entry, cve, definition_element)
                     one_time_added_id = self.definition_id
 
@@ -1105,6 +1118,8 @@ class OvalGeneratorPkg(OvalGenerator):
         for cve in package.cves:
             pkg_rel_entry = cve.pkg_rel_entries[package.name]
             cve_added = True
+
+            self._add_test_ref_to_cve_tag(self.definition_id, cve, definition_element)
 
             kernel_version_criterion = self._add_fixed_kernel_elements(cve, package, pkg_rel_entry, root_element, running_kernel_id, fixed_versions)
             self._add_to_criteria(definition_element, kernel_version_criterion, depth=3)

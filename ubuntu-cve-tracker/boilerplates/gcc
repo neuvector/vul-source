@@ -181,7 +181,7 @@ trusty/esm_gcc-13: DNE
 xenial_gcc-13: DNE
 bionic_gcc-13: DNE
 focal_gcc-13: DNE
-jammy_gcc-13: needs-triage
+jammy_gcc-13: DNE
 lunar_gcc-13: needs-triage
 devel_gcc-13: needs-triage
 
@@ -361,7 +361,7 @@ trusty_gcc-11-cross: DNE
 trusty/esm_gcc-11-cross: DNE
 xenial_gcc-11-cross: DNE
 bionic_gcc-11-cross: DNE
-focal_gcc-11-cross: needs-triage
+focal_gcc-11-cross: DNE
 jammy_gcc-11-cross: needs-triage
 lunar_gcc-11-cross: needs-triage
 devel_gcc-11-cross: needs-triage
@@ -372,8 +372,8 @@ trusty_gcc-11-cross-mipsen: DNE
 trusty/esm_gcc-11-cross-mipsen: DNE
 xenial_gcc-11-cross-mipsen: DNE
 bionic_gcc-11-cross-mipsen: DNE
-focal_gcc-11-cross-mipsen: needs-triage
-jammy_gcc-11-cross-mipsen: needs-triage
+focal_gcc-11-cross-mipsen: DNE
+jammy_gcc-11-cross-mipsen: DNE
 lunar_gcc-11-cross-mipsen: needs-triage
 devel_gcc-11-cross-mipsen: needs-triage
 
@@ -383,7 +383,7 @@ trusty_gcc-11-cross-ports: DNE
 trusty/esm_gcc-11-cross-ports: DNE
 xenial_gcc-11-cross-ports: DNE
 bionic_gcc-11-cross-ports: DNE
-focal_gcc-11-cross-ports: needs-triage
+focal_gcc-11-cross-ports: DNE
 jammy_gcc-11-cross-ports: needs-triage
 lunar_gcc-11-cross-ports: needs-triage
 devel_gcc-11-cross-ports: needs-triage
@@ -394,7 +394,7 @@ trusty_gcc-12-cross: DNE
 trusty/esm_gcc-12-cross: DNE
 xenial_gcc-12-cross: DNE
 bionic_gcc-12-cross: DNE
-focal_gcc-12-cross: needs-triage
+focal_gcc-12-cross: DNE
 jammy_gcc-12-cross: needs-triage
 lunar_gcc-12-cross: needs-triage
 devel_gcc-12-cross: needs-triage
@@ -405,8 +405,8 @@ trusty_gcc-12-cross-mipsen: DNE
 trusty/esm_gcc-12-cross-mipsen: DNE
 xenial_gcc-12-cross-mipsen: DNE
 bionic_gcc-12-cross-mipsen: DNE
-focal_gcc-12-cross-mipsen: needs-triage
-jammy_gcc-12-cross-mipsen: needs-triage
+focal_gcc-12-cross-mipsen: DNE
+jammy_gcc-12-cross-mipsen: DNE
 lunar_gcc-12-cross-mipsen: needs-triage
 devel_gcc-12-cross-mipsen: needs-triage
 
@@ -416,7 +416,7 @@ trusty_gcc-12-cross-ports: DNE
 trusty/esm_gcc-12-cross-ports: DNE
 xenial_gcc-12-cross-ports: DNE
 bionic_gcc-12-cross-ports: DNE
-focal_gcc-12-cross-ports: needs-triage
+focal_gcc-12-cross-ports: DNE
 jammy_gcc-12-cross-ports: needs-triage
 lunar_gcc-12-cross-ports: needs-triage
 devel_gcc-12-cross-ports: needs-triage
@@ -427,8 +427,8 @@ trusty_gcc-13-cross: DNE
 trusty/esm_gcc-13-cross: DNE
 xenial_gcc-13-cross: DNE
 bionic_gcc-13-cross: DNE
-focal_gcc-13-cross: needs-triage
-jammy_gcc-13-cross: needs-triage
+focal_gcc-13-cross: DNE
+jammy_gcc-13-cross: DNE
 lunar_gcc-13-cross: needs-triage
 devel_gcc-13-cross: needs-triage
 
@@ -438,8 +438,8 @@ trusty_gcc-13-cross-ports: DNE
 trusty/esm_gcc-13-cross-ports: DNE
 xenial_gcc-13-cross-ports: DNE
 bionic_gcc-13-cross-ports: DNE
-focal_gcc-13-cross-ports: needs-triage
-jammy_gcc-13-cross-ports: needs-triage
+focal_gcc-13-cross-ports: DNE
+jammy_gcc-13-cross-ports: DNE
 lunar_gcc-13-cross-ports: needs-triage
 devel_gcc-13-cross-ports: needs-triage
 
@@ -449,7 +449,7 @@ trusty_gcc-or1k-elf: ignored (end of standard support)
 trusty/esm_gcc-or1k-elf: DNE
 xenial_gcc-or1k-elf: ignored (end of standard support)
 bionic_gcc-or1k-elf: ignored (end of standard support)
-focal_gcc-or1k-elf: needs-triage
+focal_gcc-or1k-elf: DNE
 jammy_gcc-or1k-elf: needs-triage
 lunar_gcc-or1k-elf: needs-triage
 devel_gcc-or1k-elf: needs-triage
@@ -688,8 +688,8 @@ xenial_gcc-m68hc1x: ignored (end of standard support)
 bionic_gcc-m68hc1x: ignored (end of standard support)
 focal_gcc-m68hc1x: needs-triage
 jammy_gcc-m68hc1x: needs-triage
-lunar_gcc-m68hc1x: needs-triage
-devel_gcc-m68hc1x: needs-triage
+lunar_gcc-m68hc1x: DNE
+devel_gcc-m68hc1x: DNE
 
 Patches_gcc-mingw-w64:
 upstream_gcc-mingw-w64: needs-triage
