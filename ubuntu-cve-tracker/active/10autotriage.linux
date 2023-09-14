@@ -828,6 +828,8 @@ bf5ad0ecf4c49c79f18033d720a468e158e5858f local-2019-18680-break
 
 # CVE-2023-2640 and CVE-2023-32629 fix for 5.19 and later
 :title('Revert "UBUNTU: SAUCE: overlayfs: Skip permission checking for trusted.overlayfs.* xattrs"', ['local-CVE-2023-2640-fix-1'])
+# Given from 6.5 on, there will be no such revert, use the alternative SAUCE that replaces that original SAUCE
+:title('UBUNTU: SAUCE: overlayfs: default to userxattr when mounted from non initial user namespace', ['local-CVE-2023-2640-fix-2'])
 
 # CVE-2023-4622 was fixed in upstream stable trees, mainline had a sendpage refactoring
 :title('af_unix: Fix null-ptr-deref in unix_stream_sendpage().', ['local-CVE-2023-4622-fix'])
