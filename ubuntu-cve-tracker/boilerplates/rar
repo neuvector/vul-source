@@ -1,0 +1,54 @@
+Candidate:
+PublicDate:
+References:
+Description:
+Ubuntu-Description:
+Notes:
+Mitigation:
+Bugs:
+Priority: untriaged
+Discovered-by:
+Assigned-to:
+CVSS:
+
+Patches_rar:
+upstream_rar: needs-triage
+trusty_rar: ignored (end of standard support)
+xenial_rar: ignored (end of standard support)
+esm-apps/xenial_rar: needs-triage
+bionic_rar: ignored (end of standard support)
+esm-apps/bionic_rar: needs-triage
+focal_rar: needs-triage
+esm-apps/focal_rar: needs-triage
+jammy_rar: needs-triage
+esm-apps/jammy_rar: needs-triage
+lunar_rar: needs-triage
+devel_rar: needs-triage
+
+Patches_unrar-nonfree:
+upstream_unrar-nonfree: needs-triage
+trusty_unrar-nonfree: ignored (end of standard support)
+xenial_unrar-nonfree: ignored (end of standard support)
+esm-apps/xenial_unrar-nonfree: needs-triage
+bionic_unrar-nonfree: ignored (end of standard support)
+esm-apps/bionic_unrar-nonfree: needs-triage
+focal_unrar-nonfree: needs-triage
+esm-apps/focal_unrar-nonfree: needs-triage
+jammy_unrar-nonfree: needs-triage
+esm-apps/jammy_unrar-nonfree: needs-triage
+lunar_unrar-nonfree: needs-triage
+devel_unrar-nonfree: needs-triage
+
+Patches_libclamunrar:
+upstream_libclamunrar: needs-triage
+trusty_libclamunrar: ignored (end of standard support)
+xenial_libclamunrar: ignored (end of standard support)
+esm-apps/xenial_libclamunrar: needs-triage
+bionic_libclamunrar: ignored (end of standard support)
+esm-apps/bionic_libclamunrar: needs-triage
+focal_libclamunrar: needs-triage
+esm-apps/focal_libclamunrar: needs-triage
+jammy_libclamunrar: needs-triage
+esm-apps/jammy_libclamunrar: needs-triage
+lunar_libclamunrar: needs-triage
+devel_libclamunrar: needs-triage
