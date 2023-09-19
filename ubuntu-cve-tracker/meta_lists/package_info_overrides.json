@@ -1975,6 +1975,10 @@
         "description": "Natural Language Toolkit",
         "title": "NLTK"
     },
+    "nodejs": {
+        "description": "An open-source, cross-platform JavaScript runtime environment.",
+        "title": "Node.js"
+    },
     "node-css-what": {
         "description": "A CSS selector parser",
         "title": "css-what"
