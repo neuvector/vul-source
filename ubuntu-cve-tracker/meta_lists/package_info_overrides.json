@@ -691,6 +691,10 @@
         "description": "Image manipulation and rendering library",
         "title": "Imlib2"
     },
+    "indent": {
+        "description": "C language source code formatting program",
+        "title": "Indent"
+    },
     "intel-microcode": {
         "description": "Processor microcode for Intel CPUs",
         "title": "Intel Microcode"
