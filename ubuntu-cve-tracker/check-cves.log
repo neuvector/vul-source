@@ -7778,3 +7778,5 @@
 2023-09-20 14:21:07 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-09-21 11:45:41 UTC - 10 added, 72 ignored, 8 skipped, 82 total - files: ['nvdcve-1.1-recent.json']
 2023-09-21 11:53:36 UTC - 2 added, 0 ignored, 8 skipped, 2 total - files: ['debian-import_gz73_md1.json']
+2023-09-26 13:36:33 UTC - 12 added, 148 ignored, 18 skipped, 160 total - files: ['nvdcve-1.1-recent.json']
+2023-09-26 13:48:46 UTC - 1 added, 19 ignored, 20 skipped, 20 total - files: ['debian-import_ii7u21xz.json']
