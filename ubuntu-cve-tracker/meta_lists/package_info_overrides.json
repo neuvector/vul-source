@@ -2463,6 +2463,10 @@
         "description": "Centralized configuration management",
         "title": "Puppet"
     },
+    "puma": {
+        "description": "threaded HTTP 1.1 server for Ruby/Rack applications",
+        "title": "Puma"
+    },
     "pygments": {
         "description": "Generic syntax highlighter",
         "title": "Pygments"
