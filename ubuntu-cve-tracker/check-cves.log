@@ -7788,3 +7788,5 @@
 2023-09-27 14:13:54 UTC - 0 added, 0 ignored, 9 skipped, 0 total - files: ['cve-feed.json']
 2023-09-28 13:33:09 UTC - 10 added, 125 ignored, 1 skipped, 135 total - files: ['nvdcve-1.1-recent.json']
 2023-09-28 13:47:32 UTC - 10 added, 0 ignored, 4 skipped, 10 total - files: ['debian-import_tgkdt0cw.json']
+2023-09-29 13:21:43 UTC - 6 added, 76 ignored, 1 skipped, 82 total - files: ['nvdcve-1.1-recent.json']
+2023-09-29 13:25:52 UTC - 0 added, 0 ignored, 1 skipped, 0 total - files: ['debian-import_h39tdcuf.json']
