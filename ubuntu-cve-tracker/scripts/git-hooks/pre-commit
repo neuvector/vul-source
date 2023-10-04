@@ -39,7 +39,7 @@ if [ -z "${UCT_IGNORE_CHECK_SYNTAX}" ] ; then
     # check-syntax needs full path to files so prepend it via sed
     dir=$(git rev-parse --show-toplevel)
     git diff --cached --name-only --diff-filter=AM $against | sed "s|^|${dir}/|" > "${modified_files}"
-    git diff --cached --name-only --diff-filter=AM $against | grep ".json$" | sed "s|^|${dir}/|" > "${modified_json_files}"
+    git diff --cached --name-only --diff-filter=AM $against | grep "\.json$" | sed "s|^|${dir}/|" > "${modified_json_files}"
 
     if ! "${UCT}/scripts/check-syntax" --verbose --filelist "${modified_files}" ; then
     	read -p 'Found syntax errors. Enter "ignore" to continue or anything else to exit: ' answer < /dev/tty
