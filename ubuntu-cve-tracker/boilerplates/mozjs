@@ -98,7 +98,7 @@ bionic_mozjs78: DNE
 focal_mozjs78: DNE
 jammy_mozjs78: needs-triage
 lunar_mozjs78: needs-triage
-devel_mozjs78: needs-triage
+devel_mozjs78: DNE
 
 Patches_mozjs91:
 upstream_mozjs91: needs-triage

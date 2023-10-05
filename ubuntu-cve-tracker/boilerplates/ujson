@@ -47,4 +47,4 @@ bionic_collada2gltf: ignored (end of standard support, was needs-triage)
 focal_collada2gltf: DNE
 jammy_collada2gltf: needs-triage
 lunar_collada2gltf: needs-triage
-devel_collada2gltf: needs-triage
+devel_collada2gltf: DNE
