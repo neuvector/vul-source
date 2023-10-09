@@ -2671,6 +2671,10 @@
         "description": "Music player and organizer",
         "title": "Rhythmbox"
     },
+    "ring": {
+        "description": "Secure and distributed voice, video, and chat platform",
+        "title": "Ring"
+    },
     "root-system": {
         "description": "metapackage to install all ROOT packages",
         "title": "ROOT"

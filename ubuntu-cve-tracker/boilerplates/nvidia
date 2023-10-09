@@ -152,7 +152,7 @@ bionic_nvidia-graphics-drivers-418-server: ignored
 focal_nvidia-graphics-drivers-418-server: ignored
 jammy_nvidia-graphics-drivers-418-server: ignored
 lunar_nvidia-graphics-drivers-418-server: DNE
-devel_nvidia-graphics-drivers-418-server: needs-triage
+devel_nvidia-graphics-drivers-418-server: DNE
 
 Patches_nvidia-graphics-drivers-430:
 upstream_nvidia-graphics-drivers-430: needs-triage
@@ -196,7 +196,7 @@ bionic_nvidia-graphics-drivers-440-server: ignored
 focal_nvidia-graphics-drivers-440-server: ignored
 jammy_nvidia-graphics-drivers-440-server: ignored
 lunar_nvidia-graphics-drivers-440-server: ignored
-devel_nvidia-graphics-drivers-440-server: ignored
+devel_nvidia-graphics-drivers-440-server: DNE
 
 Patches_nvidia-graphics-drivers-450:
 upstream_nvidia-graphics-drivers-450: needs-triage
@@ -218,7 +218,7 @@ bionic_nvidia-graphics-drivers-450-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-450-server: needs-triage
 jammy_nvidia-graphics-drivers-450-server: needs-triage
 lunar_nvidia-graphics-drivers-450-server: needs-triage
-devel_nvidia-graphics-drivers-450-server: needs-triage
+devel_nvidia-graphics-drivers-450-server: DNE
 
 Patches_nvidia-graphics-drivers-455:
 upstream_nvidia-graphics-drivers-455: needs-triage
