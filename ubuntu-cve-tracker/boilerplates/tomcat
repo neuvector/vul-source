@@ -55,3 +55,14 @@ focal_tomcat9: needs-triage
 jammy_tomcat9: needs-triage
 lunar_tomcat9: needs-triage
 devel_tomcat9: needs-triage
+
+Patches_tomcat10:
+upstream_tomcat10: needs-triage
+trusty_tomcat10: DNE
+trusty/esm_tomcat10: DNE
+xenial_tomcat10: DNE
+bionic_tomcat10: DNE
+focal_tomcat10: DNE
+jammy_tomcat10: DNE
+lunar_tomcat10: needs-triage
+devel_tomcat10: needs-triage
