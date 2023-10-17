@@ -321,9 +321,14 @@ def load_built_using_collection(pmap, releases=None, component=None):
                     if pmap[rel][pkg]['pocket'] != '':
                         pocket += "-%s" % pmap[rel][pkg]['pocket']
 
-                    for (s, c, v) in map(lambda x: x.split(' ', 3),
+                    for pkg_cmp_ver in map(lambda x: x.split(' ', 3),
                                         pmap[rel][pkg][tag]):
-                        v = v.rstrip(')')
+                        if len(pkg_cmp_ver) != 3:
+                            print('WARN: Skipping invalid entry (', pkg_cmp_ver, ') for', rel, pkg, 'with tag', tag)
+                            continue
+
+                        s = pkg_cmp_ver[0]
+                        v = pkg_cmp_ver[2].rstrip(')')
                         if s not in built_using:
                             built_using[s] = dict()
                         if v not in built_using[s]:

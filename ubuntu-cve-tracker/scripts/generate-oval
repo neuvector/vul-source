@@ -198,6 +198,10 @@ def duplicate_package_status(release, package, original_status, cache, override_
 def ignore_source_package(source):
     if re.match('linux-.*-edge$', source):
         return True
+    if re.match('linux-riscv.*$', source):
+        # linux-riscv.* currently causes a lot of false positives, skip
+        # it altogether while we don't land a better fix
+        return True
     return False
 
 

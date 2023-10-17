@@ -219,7 +219,7 @@ security_website_endpoint = "cves.json"
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        description="This file loads CVEs to webteam's db, using the endpoint ubuntu.com/security/cve",
+        description="This file loads CVEs to webteam's db, using the endpoint ubuntu.com/security/",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
