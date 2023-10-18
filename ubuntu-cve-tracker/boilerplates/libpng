@@ -21,6 +21,7 @@ bionic_libpng: DNE
 focal_libpng: DNE
 jammy_libpng: DNE
 lunar_libpng: DNE
+mantic_libpng: DNE
 devel_libpng: DNE
 
 Patches_libpng1.6:
@@ -33,6 +34,7 @@ esm-infra/bionic_libpng1.6: needs-triage
 focal_libpng1.6: needs-triage
 jammy_libpng1.6: needs-triage
 lunar_libpng1.6: needs-triage
+mantic_libpng1.6: needs-triage
 devel_libpng1.6: needs-triage
 
 Patches_firefox:
@@ -46,6 +48,7 @@ esm-infra/bionic_firefox: needs-triage
 focal_firefox: needs-triage
 jammy_firefox: not-affected (code not present)
 lunar_firefox: not-affected (code not present)
+mantic_firefox: not-affected (code not present)
 devel_firefox: not-affected (code not present)
 
 Patches_thunderbird:
@@ -59,6 +62,7 @@ esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
 lunar_thunderbird: needs-triage
+mantic_thunderbird: needs-triage
 devel_thunderbird: needs-triage
 
 Patches_chromium-browser:
@@ -70,5 +74,6 @@ bionic_chromium-browser: not-affected (uses system libpng)
 focal_chromium-browser: not-affected (uses system libpng)
 jammy_chromium-browser: not-affected (uses system libpng)
 lunar_chromium-browser: not-affected (uses system libpng)
+mantic_chromium-browser: not-affected (uses system libpng)
 devel_chromium-browser: not-affected (uses system libpng)
 

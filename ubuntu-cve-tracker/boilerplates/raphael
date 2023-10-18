@@ -21,6 +21,7 @@ bionic_raphael: ignored (end of standard support)
 focal_raphael: needs-triage
 jammy_raphael: needs-triage
 lunar_raphael: needs-triage
+mantic_raphael: needs-triage
 devel_raphael: needs-triage
 
 Patches_maas:
@@ -34,4 +35,5 @@ esm-infra/bionic_maas: needs-triage
 focal_maas: needs-triage
 jammy_maas: DNE
 lunar_maas: DNE
+mantic_maas: DNE
 devel_maas: DNE

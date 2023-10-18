@@ -20,6 +20,7 @@ bionic_openjpeg2: ignored (end of standard support)
 focal_openjpeg2: needs-triage
 jammy_openjpeg2: needs-triage
 lunar_openjpeg2: needs-triage
+mantic_openjpeg2: needs-triage
 devel_openjpeg2: needs-triage
 
 Patches_insighttoolkit4:
@@ -31,6 +32,7 @@ bionic_insighttoolkit4: ignored (end of standard support)
 focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 lunar_insighttoolkit4: needs-triage
+mantic_insighttoolkit4: DNE
 devel_insighttoolkit4: DNE
 
 Patches_qtwebengine-opensource-src:
@@ -42,6 +44,7 @@ bionic_qtwebengine-opensource-src: ignored (end of standard support)
 focal_qtwebengine-opensource-src: needs-triage
 jammy_qtwebengine-opensource-src: needs-triage
 lunar_qtwebengine-opensource-src: needs-triage
+mantic_qtwebengine-opensource-src: needs-triage
 devel_qtwebengine-opensource-src: needs-triage
 
 Patches_blender:
@@ -53,6 +56,7 @@ bionic_blender: ignored (end of standard support)
 focal_blender: needs-triage
 jammy_blender: needs-triage
 lunar_blender: needs-triage
+mantic_blender: needs-triage
 devel_blender: needs-triage
 
 Patches_texmaker:
@@ -64,6 +68,7 @@ bionic_texmaker: ignored (end of standard support)
 focal_texmaker: needs-triage
 jammy_texmaker: needs-triage
 lunar_texmaker: needs-triage
+mantic_texmaker: needs-triage
 devel_texmaker: needs-triage
 
 Patches_ghostscript:
@@ -77,6 +82,7 @@ esm-infra/bionic_ghostscript: needs-triage
 focal_ghostscript: not-affected (uses system openjpeg2)
 jammy_ghostscript: not-affected (uses system openjpeg2)
 lunar_ghostscript: not-affected (uses system openjpeg2)
+mantic_ghostscript: not-affected (uses system openjpeg2)
 devel_ghostscript: not-affected (uses system openjpeg2)
 
 Patches_openjpeg:
@@ -88,4 +94,5 @@ bionic_openjpeg: DNE
 focal_openjpeg: DNE
 jammy_openjpeg: DNE
 lunar_openjpeg: DNE
+mantic_openjpeg: DNE
 devel_openjpeg: DNE

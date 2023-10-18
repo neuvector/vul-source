@@ -25,6 +25,7 @@ bionic_pep517: DNE
 focal_pep517: needs-triage
 jammy_pep517: needs-triage
 lunar_pep517: needs-triage
+mantic_pep517: needs-triage
 devel_pep517: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

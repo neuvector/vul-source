@@ -22,6 +22,7 @@ esm-infra/bionic_syslinux: needs-triage
 focal_syslinux: needs-triage
 jammy_syslinux: needs-triage
 lunar_syslinux: needs-triage
+mantic_syslinux: needs-triage
 devel_syslinux: needs-triage
 
 Patches_syslinux-legacy:
@@ -35,5 +36,6 @@ esm-infra/bionic_syslinux-legacy: needs-triage
 focal_syslinux-legacy: needs-triage
 jammy_syslinux-legacy: DNE
 lunar_syslinux-legacy: DNE
+mantic_syslinux-legacy: DNE
 devel_syslinux-legacy: DNE
 

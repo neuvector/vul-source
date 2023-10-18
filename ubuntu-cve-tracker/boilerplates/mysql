@@ -23,6 +23,7 @@ bionic_mysql-5.5: DNE
 focal_mysql-5.5: DNE
 jammy_mysql-5.5: DNE
 lunar_mysql-5.5: DNE
+mantic_mysql-5.5: DNE
 devel_mysql-5.5: DNE
 
 Patches_mysql-5.6:
@@ -34,6 +35,7 @@ bionic_mysql-5.6: DNE
 focal_mysql-5.6: DNE
 jammy_mysql-5.6: DNE
 lunar_mysql-5.6: DNE
+mantic_mysql-5.6: DNE
 devel_mysql-5.6: DNE
 
 Patches_mysql-5.7:
@@ -47,6 +49,7 @@ esm-infra/bionic_mysql-5.7: needs-triage
 focal_mysql-5.7: DNE
 jammy_mysql-5.7: DNE
 lunar_mysql-5.7: DNE
+mantic_mysql-5.7: DNE
 devel_mysql-5.7: DNE
 
 Patches_mysql-8.0:
@@ -58,6 +61,7 @@ bionic_mysql-8.0: DNE
 focal_mysql-8.0: needs-triage
 jammy_mysql-8.0: needs-triage
 lunar_mysql-8.0: needs-triage
+mantic_mysql-8.0: needs-triage
 devel_mysql-8.0: needs-triage
 
 Patches_mariadb:
@@ -69,6 +73,7 @@ bionic_mariadb: DNE
 focal_mariadb: DNE
 jammy_mariadb: DNE
 lunar_mariadb: needs-triage
+mantic_mariadb: needs-triage
 devel_mariadb: needs-triage
 
 Patches_mariadb-5.5:
@@ -80,6 +85,7 @@ bionic_mariadb-5.5: DNE
 focal_mariadb-5.5: DNE
 jammy_mariadb-5.5: DNE
 lunar_mariadb-5.5: DNE
+mantic_mariadb-5.5: DNE
 devel_mariadb-5.5: DNE
 
 Patches_mariadb-10.0:
@@ -91,6 +97,7 @@ bionic_mariadb-10.0: DNE
 focal_mariadb-10.0: DNE
 jammy_mariadb-10.0: DNE
 lunar_mariadb-10.0: DNE
+mantic_mariadb-10.0: DNE
 devel_mariadb-10.0: DNE
 
 Patches_mariadb-10.1:
@@ -102,6 +109,7 @@ bionic_mariadb-10.1: ignored (end of standard support)
 focal_mariadb-10.1: DNE
 jammy_mariadb-10.1: DNE
 lunar_mariadb-10.1: DNE
+mantic_mariadb-10.1: DNE
 devel_mariadb-10.1: DNE
 
 Patches_mariadb-10.3:
@@ -113,6 +121,7 @@ bionic_mariadb-10.3: DNE
 focal_mariadb-10.3: needs-triage
 jammy_mariadb-10.3: DNE
 lunar_mariadb-10.3: DNE
+mantic_mariadb-10.3: DNE
 devel_mariadb-10.3: DNE
 
 Patches_mariadb-10.6:
@@ -124,6 +133,7 @@ bionic_mariadb-10.6: DNE
 focal_mariadb-10.6: DNE
 jammy_mariadb-10.6: needs-triage
 lunar_mariadb-10.6: needs-triage
+mantic_mariadb-10.6: DNE
 devel_mariadb-10.6: DNE
 
 Patches_percona-xtradb-cluster-5.5:
@@ -135,6 +145,7 @@ bionic_percona-xtradb-cluster-5.5: DNE
 focal_percona-xtradb-cluster-5.5: DNE
 jammy_percona-xtradb-cluster-5.5: DNE
 lunar_percona-xtradb-cluster-5.5: DNE
+mantic_percona-xtradb-cluster-5.5: DNE
 devel_percona-xtradb-cluster-5.5: DNE
 
 Patches_percona-xtradb-cluster-5.6:
@@ -146,6 +157,7 @@ bionic_percona-xtradb-cluster-5.6: DNE
 focal_percona-xtradb-cluster-5.6: DNE
 jammy_percona-xtradb-cluster-5.6: DNE
 lunar_percona-xtradb-cluster-5.6: DNE
+mantic_percona-xtradb-cluster-5.6: DNE
 devel_percona-xtradb-cluster-5.6: DNE
 
 Patches_percona-server-5.6:
@@ -157,4 +169,5 @@ bionic_percona-server-5.6: DNE
 focal_percona-server-5.6: DNE
 jammy_percona-server-5.6: DNE
 lunar_percona-server-5.6: DNE
+mantic_percona-server-5.6: DNE
 devel_percona-server-5.6: DNE

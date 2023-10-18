@@ -20,4 +20,5 @@ bionic_kodi-inputstream-adaptive: DNE
 focal_kodi-inputstream-adaptive: DNE
 jammy_kodi-inputstream-adaptive: needs-triage
 lunar_kodi-inputstream-adaptive: needs-triage
+mantic_kodi-inputstream-adaptive: needs-triage
 devel_kodi-inputstream-adaptive: needs-triage

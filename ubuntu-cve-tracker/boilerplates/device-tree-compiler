@@ -26,6 +26,7 @@ hirsute_device-tree-compiler: ignored (end of life, was needs-triage)
 impish_device-tree-compiler: ignored (end of life, was needs-triage)
 jammy_device-tree-compiler:
 lunar_device-tree-compiler:
+mantic_device-tree-compiler:
 devel_device-tree-compiler:
 
 Patches_opensbi:
@@ -40,4 +41,5 @@ hirsute_opensbi: ignored (end of life, was needs-triage)
 impish_opensbi: ignored (end of life, was needs-triage)
 jammy_opensbi:
 lunar_opensbi:
+mantic_opensbi:
 devel_opensbi:

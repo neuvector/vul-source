@@ -26,6 +26,7 @@ esm-infra/bionic_python-webencodings: needs-triage
 focal_python-webencodings: needs-triage
 jammy_python-webencodings: needs-triage
 lunar_python-webencodings: needs-triage
+mantic_python-webencodings: needs-triage
 devel_python-webencodings: needs-triage
 
 Patches_python-pip:
@@ -37,6 +38,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

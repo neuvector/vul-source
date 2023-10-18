@@ -20,6 +20,7 @@ bionic_tomcat6: DNE
 focal_tomcat6: DNE
 jammy_tomcat6: DNE
 lunar_tomcat6: DNE
+mantic_tomcat6: DNE
 devel_tomcat6: DNE
 
 Patches_tomcat7:
@@ -31,6 +32,7 @@ bionic_tomcat7: ignored (end of standard support)
 focal_tomcat7: DNE
 jammy_tomcat7: DNE
 lunar_tomcat7: DNE
+mantic_tomcat7: DNE
 devel_tomcat7: DNE
 
 Patches_tomcat8:
@@ -43,6 +45,7 @@ bionic_tomcat8: ignored (end of standard support)
 focal_tomcat8: DNE
 jammy_tomcat8: DNE
 lunar_tomcat8: DNE
+mantic_tomcat8: DNE
 devel_tomcat8: DNE
 
 Patches_tomcat9:
@@ -54,6 +57,7 @@ bionic_tomcat9: ignored (end of standard support)
 focal_tomcat9: needs-triage
 jammy_tomcat9: needs-triage
 lunar_tomcat9: needs-triage
+mantic_tomcat9: needs-triage
 devel_tomcat9: needs-triage
 
 Patches_tomcat10:
@@ -65,4 +69,5 @@ bionic_tomcat10: DNE
 focal_tomcat10: DNE
 jammy_tomcat10: DNE
 lunar_tomcat10: needs-triage
+mantic_tomcat10: needs-triage
 devel_tomcat10: needs-triage

@@ -24,6 +24,7 @@ esm-infra/bionic_bzip2: needs-triage
 focal_bzip2: needs-triage
 jammy_bzip2: needs-triage
 lunar_bzip2: needs-triage
+mantic_bzip2: needs-triage
 devel_bzip2: needs-triage
 
 Patches_clamav:
@@ -37,4 +38,5 @@ esm-infra/bionic_clamav: needs-triage
 focal_clamav: needs-triage
 jammy_clamav: needs-triage
 lunar_clamav: needs-triage
+mantic_clamav: needs-triage
 devel_clamav: needs-triage

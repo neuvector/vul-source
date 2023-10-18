@@ -22,6 +22,7 @@ bionic_golang-goprotobuf: ignored (end of standard support)
 focal_golang-goprotobuf: needs-triage
 jammy_golang-goprotobuf: needs-triage
 lunar_golang-goprotobuf: needs-triage
+mantic_golang-goprotobuf: needs-triage
 devel_golang-goprotobuf: needs-triage
 
 Patches_google-guest-agent:
@@ -33,4 +34,5 @@ bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 lunar_google-guest-agent: needs-triage
+mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

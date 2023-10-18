@@ -25,6 +25,7 @@ bionic_distlib: ignored (end of standard support)
 focal_distlib: needs-triage
 jammy_distlib: needs-triage
 lunar_distlib: needs-triage
+mantic_distlib: needs-triage
 devel_distlib: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

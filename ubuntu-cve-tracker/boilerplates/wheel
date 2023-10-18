@@ -25,6 +25,7 @@ bionic_wheel: ignored (end of standard support)
 focal_wheel: needs-triage
 jammy_wheel: needs-triage
 lunar_wheel: needs-triage
+mantic_wheel: needs-triage
 devel_wheel: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

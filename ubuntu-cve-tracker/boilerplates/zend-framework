@@ -20,6 +20,7 @@ bionic_php-zend-code: ignored (end of standard support)
 focal_php-zend-code: needs-triage
 jammy_php-zend-code: needs-triage
 lunar_php-zend-code: needs-triage
+mantic_php-zend-code: needs-triage
 devel_php-zend-code: needs-triage
 
 Patches_php-zend-db:
@@ -31,6 +32,7 @@ bionic_php-zend-db: ignored (end of standard support)
 focal_php-zend-db: DNE
 jammy_php-zend-db: DNE
 lunar_php-zend-db: DNE
+mantic_php-zend-db: DNE
 devel_php-zend-db: DNE
 
 Patches_php-zend-eventmanager:
@@ -42,6 +44,7 @@ bionic_php-zend-eventmanager: ignored (end of standard support)
 focal_php-zend-eventmanager: needs-triage
 jammy_php-zend-eventmanager: needs-triage
 lunar_php-zend-eventmanager: needs-triage
+mantic_php-zend-eventmanager: needs-triage
 devel_php-zend-eventmanager: needs-triage
 
 Patches_php-zend-stdlib:
@@ -53,6 +56,7 @@ bionic_php-zend-stdlib: ignored (end of standard support)
 focal_php-zend-stdlib: needs-triage
 jammy_php-zend-stdlib: needs-triage
 lunar_php-zend-stdlib: needs-triage
+mantic_php-zend-stdlib: needs-triage
 devel_php-zend-stdlib: needs-triage
 
 Patches_zend-framework:
@@ -64,6 +68,7 @@ bionic_zend-framework: DNE
 focal_zend-framework: DNE
 jammy_zend-framework: DNE
 lunar_zend-framework: DNE
+mantic_zend-framework: DNE
 devel_zend-framework: DNE
 
 Patches_zendframework:
@@ -76,4 +81,5 @@ bionic_zendframework: ignored (end of standard support)
 focal_zendframework: DNE
 jammy_zendframework: DNE
 lunar_zendframework: DNE
+mantic_zendframework: DNE
 devel_zendframework: DNE

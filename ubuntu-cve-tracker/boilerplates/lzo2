@@ -31,6 +31,7 @@ hirsute_lzo2: ignored (end of life, was needs-triage)
 impish_lzo2: ignored (end of life, was needs-triage)
 jammy_lzo2:
 lunar_lzo2:
+mantic_lzo2:
 devel_lzo2:
 
 Patches_samhain:
@@ -45,6 +46,7 @@ hirsute_samhain: ignored (end of life, was needs-triage)
 impish_samhain: ignored (end of life, was needs-triage)
 jammy_samhain:
 lunar_samhain:
+mantic_samhain:
 devel_samhain:
 
 Patches_valgrind:
@@ -61,6 +63,7 @@ hirsute_valgrind: ignored (end of life, was needs-triage)
 impish_valgrind: ignored (end of life, was needs-triage)
 jammy_valgrind:
 lunar_valgrind:
+mantic_valgrind:
 devel_valgrind:
 
 Patches_syslinux:
@@ -77,6 +80,7 @@ hirsute_syslinux: ignored (end of life, was needs-triage)
 impish_syslinux: ignored (end of life, was needs-triage)
 jammy_syslinux:
 lunar_syslinux:
+mantic_syslinux:
 devel_syslinux:
 
 Patches_distcc:
@@ -91,6 +95,7 @@ hirsute_distcc: ignored (end of life, was needs-triage)
 impish_distcc: ignored (end of life, was needs-triage)
 jammy_distcc:
 lunar_distcc:
+mantic_distcc:
 devel_distcc:
 
 Patches_bb:
@@ -105,6 +110,7 @@ hirsute_bb: ignored (end of life, was needs-triage)
 impish_bb: ignored (end of life, was needs-triage)
 jammy_bb:
 lunar_bb:
+mantic_bb:
 devel_bb:
 
 Patches_u-boot:
@@ -121,6 +127,7 @@ hirsute_u-boot: ignored (end of life, was needs-triage)
 impish_u-boot: ignored (end of life, was needs-triage)
 jammy_u-boot:
 lunar_u-boot:
+mantic_u-boot:
 devel_u-boot:
 
 Patches_refind:
@@ -135,6 +142,7 @@ hirsute_refind: ignored (end of life, was needs-triage)
 impish_refind: ignored (end of life, was needs-triage)
 jammy_refind:
 lunar_refind:
+mantic_refind:
 devel_refind:
 
 Patches_blender:
@@ -149,6 +157,7 @@ hirsute_blender: ignored (end of life, was needs-triage)
 impish_blender: ignored (end of life, was needs-triage)
 jammy_blender:
 lunar_blender:
+mantic_blender:
 devel_blender:
 
 Patches_n2n:
@@ -163,6 +172,7 @@ hirsute_n2n: ignored (end of life, was needs-triage)
 impish_n2n: ignored (end of life, was needs-triage)
 jammy_n2n:
 lunar_n2n:
+mantic_n2n:
 devel_n2n:
 
 Patches_nfdump:
@@ -177,6 +187,7 @@ hirsute_nfdump: ignored (end of life, was needs-triage)
 impish_nfdump: ignored (end of life, was needs-triage)
 jammy_nfdump:
 lunar_nfdump:
+mantic_nfdump:
 devel_nfdump:
 
 Patches_libvncserver:
@@ -193,6 +204,7 @@ hirsute_libvncserver: ignored (end of life, was needs-triage)
 impish_libvncserver: ignored (end of life, was needs-triage)
 jammy_libvncserver:
 lunar_libvncserver:
+mantic_libvncserver:
 devel_libvncserver:
 
 Patches_ht:
@@ -207,6 +219,7 @@ hirsute_ht: ignored (end of life, was needs-triage)
 impish_ht: ignored (end of life, was needs-triage)
 jammy_ht:
 lunar_ht:
+mantic_ht:
 devel_ht:
 
 Patches_medafen:
@@ -218,6 +231,7 @@ bionic_medafen: DNE
 focal_medafen: DNE
 jammy_medafen: DNE
 lunar_medafen: DNE
+mantic_medafen: DNE
 devel_medafen: DNE
 
 Patches_qemu:
@@ -234,6 +248,7 @@ hirsute_qemu: ignored (end of life, was needs-triage)
 impish_qemu: ignored (end of life, was needs-triage)
 jammy_qemu:
 lunar_qemu:
+mantic_qemu:
 devel_qemu:
 
 Patches_grub2:
@@ -250,6 +265,7 @@ hirsute_grub2: ignored (end of life, was needs-triage)
 impish_grub2: ignored (end of life, was needs-triage)
 jammy_grub2:
 lunar_grub2:
+mantic_grub2:
 devel_grub2:
 
 Patches_grub2-signed:
@@ -266,4 +282,5 @@ hirsute_grub2-signed: ignored (end of life, was needs-triage)
 impish_grub2-signed: ignored (end of life, was needs-triage)
 jammy_grub2-signed:
 lunar_grub2-signed:
+mantic_grub2-signed:
 devel_grub2-signed:

@@ -22,6 +22,7 @@ bionic_golang-golang-x-net: DNE
 focal_golang-golang-x-net: DNE
 jammy_golang-golang-x-net: needs-triage
 lunar_golang-golang-x-net: needs-triage
+mantic_golang-golang-x-net: needs-triage
 devel_golang-golang-x-net: needs-triage
 
 Patches_google-guest-agent:
@@ -33,6 +34,7 @@ bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 lunar_google-guest-agent: needs-triage
+mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage
 
 Patches_containerd:
@@ -45,4 +47,5 @@ esm-apps/bionic_containerd: needs-triage
 focal_containerd: needs-triage
 jammy_containerd: needs-triage
 lunar_containerd: needs-triage
+mantic_containerd: needs-triage
 devel_containerd: needs-triage

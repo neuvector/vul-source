@@ -27,6 +27,7 @@ esm-apps/bionic_containerd: needs-triage
 focal_containerd: needs-triage
 jammy_containerd: needs-triage
 lunar_containerd: needs-triage
+mantic_containerd: needs-triage
 devel_containerd: needs-triage
 
 Patches_containerd-app:
@@ -38,5 +39,6 @@ bionic_containerd-app: DNE
 focal_containerd-app: needs-triage
 jammy_containerd-app: needs-triage
 lunar_containerd-app: needs-triage
+mantic_containerd-app: needs-triage
 devel_containerd-app: needs-triage
 

@@ -20,6 +20,7 @@ bionic_xpdf: ignored (end of standard support)
 focal_xpdf: DNE
 jammy_xpdf: needs-triage
 lunar_xpdf: needs-triage
+mantic_xpdf: needs-triage
 devel_xpdf: needs-triage
 
 Patches_ipe:
@@ -31,4 +32,5 @@ bionic_ipe: ignored (end of standard support)
 focal_ipe: needs-triage
 jammy_ipe: needs-triage
 lunar_ipe: needs-triage
+mantic_ipe: needs-triage
 devel_ipe: needs-triage

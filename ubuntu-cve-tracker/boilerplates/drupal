@@ -20,5 +20,6 @@ bionic_drupal7: DNE
 focal_drupal7: DNE
 jammy_drupal7: DNE
 lunar_drupal7: DNE
+mantic_drupal7: DNE
 devel_drupal7: DNE
 

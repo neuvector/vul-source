@@ -25,6 +25,7 @@ bionic_python-packaging: ignored (end of standard support)
 focal_python-packaging: needs-triage
 jammy_python-packaging: needs-triage
 lunar_python-packaging: needs-triage
+mantic_python-packaging: needs-triage
 devel_python-packaging: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

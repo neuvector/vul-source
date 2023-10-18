@@ -21,6 +21,7 @@ bionic_lua50: ignored (end of standard support)
 focal_lua50: needs-triage
 jammy_lua50: DNE
 lunar_lua50: DNE
+mantic_lua50: DNE
 devel_lua50: DNE
 
 Patches_lua5.1:
@@ -33,6 +34,7 @@ bionic_lua5.1: ignored (end of standard support)
 focal_lua5.1: needs-triage
 jammy_lua5.1: needs-triage
 lunar_lua5.1: needs-triage
+mantic_lua5.1: needs-triage
 devel_lua5.1: needs-triage
 
 Patches_lua5.2:
@@ -46,6 +48,7 @@ esm-infra/bionic_lua5.2: needs-triage
 focal_lua5.2: needs-triage
 jammy_lua5.2: needs-triage
 lunar_lua5.2: needs-triage
+mantic_lua5.2: needs-triage
 devel_lua5.2: needs-triage
 
 Patches_lua5.3:
@@ -59,6 +62,7 @@ esm-infra/bionic_lua5.3: needs-triage
 focal_lua5.3: needs-triage
 jammy_lua5.3: needs-triage
 lunar_lua5.3: needs-triage
+mantic_lua5.3: needs-triage
 devel_lua5.3: needs-triage
 
 Patches_lua5.4:
@@ -70,4 +74,5 @@ bionic_lua5.4: DNE
 focal_lua5.4: DNE
 jammy_lua5.4: needs-triage
 lunar_lua5.4: needs-triage
+mantic_lua5.4: needs-triage
 devel_lua5.4: needs-triage

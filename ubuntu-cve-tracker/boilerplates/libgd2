@@ -23,6 +23,7 @@ esm-infra/bionic_libgd2: needs-triage
 focal_libgd2: needs-triage
 jammy_libgd2: needs-triage
 lunar_libgd2: needs-triage
+mantic_libgd2: needs-triage
 devel_libgd2: needs-triage
 
 Patches_php5:
@@ -34,6 +35,7 @@ bionic_php5: DNE
 focal_php5: DNE
 jammy_php5: DNE
 lunar_php5: DNE
+mantic_php5: DNE
 devel_php5: DNE
 
 Patches_php7.0:
@@ -46,6 +48,7 @@ bionic_php7.0: DNE
 focal_php7.0: DNE
 jammy_php7.0: DNE
 lunar_php7.0: DNE
+mantic_php7.0: DNE
 devel_php7.0: DNE
 
 Patches_php7.2:
@@ -58,6 +61,7 @@ esm-infra/bionic_php7.2: not-affected (uses system gd)
 focal_php7.2: DNE
 jammy_php7.2: DNE
 lunar_php7.2: DNE
+mantic_php7.2: DNE
 devel_php7.2: DNE
 
 Patches_php7.3:
@@ -69,4 +73,5 @@ bionic_php7.3: DNE
 focal_php7.3: DNE
 jammy_php7.3: DNE
 lunar_php7.3: DNE
+mantic_php7.3: DNE
 devel_php7.3: DNE

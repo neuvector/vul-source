@@ -20,6 +20,7 @@ bionic_gnutls26: DNE
 focal_gnutls26: DNE
 jammy_gnutls26: DNE
 lunar_gnutls26: DNE
+mantic_gnutls26: DNE
 devel_gnutls26: DNE
 
 Patches_gnutls28:
@@ -33,5 +34,6 @@ esm-infra/bionic_gnutls28: needs-triage
 focal_gnutls28: needs-triage
 jammy_gnutls28: needs-triage
 lunar_gnutls28: needs-triage
+mantic_gnutls28: needs-triage
 devel_gnutls28: needs-triage
 

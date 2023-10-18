@@ -24,6 +24,7 @@ esm-infra/bionic_libmspack: needs-triage
 focal_libmspack: needs-triage
 jammy_libmspack: needs-triage
 lunar_libmspack: needs-triage
+mantic_libmspack: needs-triage
 devel_libmspack: needs-triage
 
 Patches_clamav:
@@ -37,4 +38,5 @@ esm-infra/bionic_clamav: needs-triage
 focal_clamav: not-affected (uses system libmspack)
 jammy_clamav: not-affected (uses system libmspack)
 lunar_clamav: not-affected (uses system libmspack)
+mantic_clamav: not-affected (uses system libmspack)
 devel_clamav: not-affected (uses system libmspack)

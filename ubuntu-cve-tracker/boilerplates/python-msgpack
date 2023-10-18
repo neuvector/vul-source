@@ -26,6 +26,7 @@ esm-infra/bionic_python-msgpack: needs-triage
 focal_python-msgpack: needs-triage
 jammy_python-msgpack: needs-triage
 lunar_python-msgpack: needs-triage
+mantic_python-msgpack: needs-triage
 devel_python-msgpack: needs-triage
 
 Patches_python-pip:
@@ -37,6 +38,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

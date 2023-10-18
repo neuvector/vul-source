@@ -23,6 +23,7 @@ esm-infra/bionic_tgt: needs-triage
 focal_tgt: needs-triage
 jammy_tgt: needs-triage
 lunar_tgt: needs-triage
+mantic_tgt: needs-triage
 devel_tgt: needs-triage
 
 Patches_iscsitarget:
@@ -34,4 +35,5 @@ bionic_iscsitarget: DNE
 focal_iscsitarget: DNE
 jammy_iscsitarget: DNE
 lunar_iscsitarget: DNE
+mantic_iscsitarget: DNE
 devel_iscsitarget: DNE

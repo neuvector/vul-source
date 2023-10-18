@@ -26,6 +26,7 @@ bionic_ujson: ignored (end of standard support, was needs-triage)
 focal_ujson: needs-triage
 jammy_ujson: needs-triage
 lunar_ujson: needs-triage
+mantic_ujson: needs-triage
 devel_ujson: needs-triage
 
 Patches_pandas:
@@ -37,6 +38,7 @@ bionic_pandas: ignored (end of standard support, was needs-triage)
 focal_pandas: needs-triage
 jammy_pandas: needs-triage
 lunar_pandas: needs-triage
+mantic_pandas: needs-triage
 devel_pandas: needs-triage
 
 Patches_collada2gltf:
@@ -47,4 +49,5 @@ bionic_collada2gltf: ignored (end of standard support, was needs-triage)
 focal_collada2gltf: DNE
 jammy_collada2gltf: needs-triage
 lunar_collada2gltf: needs-triage
+mantic_collada2gltf: DNE
 devel_collada2gltf: DNE

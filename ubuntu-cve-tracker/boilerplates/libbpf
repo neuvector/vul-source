@@ -21,6 +21,7 @@ focal_libbpf: needs-triage
 esm-apps/focal_libbpf: needs-triage
 jammy_libbpf: needs-triage
 lunar_libbpf: needs-triage
+mantic_libbpf: needs-triage
 devel_libbpf: needs-triage
 
 Patches_dwarves-dfsg:
@@ -34,4 +35,5 @@ focal_dwarves-dfsg: needs-triage
 esm-apps/focal_dwarves-dfsg: needs-triage
 jammy_dwarves-dfsg: DNE
 lunar_dwarves-dfsg: DNE
+mantic_dwarves-dfsg: DNE
 devel_dwarves-dfsg: DNE

@@ -22,4 +22,5 @@ bionic_oath-toolkit: ignored (end of standard support)
 focal_oath-toolkit: needs-triage
 jammy_oath-toolkit: needs-triage
 lunar_oath-toolkit: needs-triage
+mantic_oath-toolkit: needs-triage
 devel_oath-toolkit: needs-triage

@@ -27,6 +27,7 @@ esm-infra/bionic_python-ipaddr: needs-triage
 focal_python-ipaddr: needs-triage
 jammy_python-ipaddr: DNE
 lunar_python-ipaddr: DNE
+mantic_python-ipaddr: DNE
 devel_python-ipaddr: DNE
 
 Patches_python-pip:
@@ -38,6 +39,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

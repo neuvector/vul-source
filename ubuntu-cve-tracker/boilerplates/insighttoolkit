@@ -21,6 +21,7 @@ esm-apps/focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 esm-apps/jammy_insighttoolkit4: needs-triage
 lunar_insighttoolkit4: needs-triage
+mantic_insighttoolkit4: DNE
 devel_insighttoolkit4: DNE
 
 Patches_insighttoolkit5:
@@ -32,4 +33,5 @@ focal_insighttoolkit5: DNE
 jammy_insighttoolkit5: needs-triage
 esm-apps/jammy_insighttoolkit5: needs-triage
 lunar_insighttoolkit5: needs-triage
+mantic_insighttoolkit5: needs-triage
 devel_insighttoolkit5: needs-triage

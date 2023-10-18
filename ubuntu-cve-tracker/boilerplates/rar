@@ -23,6 +23,7 @@ esm-apps/focal_rar: needs-triage
 jammy_rar: needs-triage
 esm-apps/jammy_rar: needs-triage
 lunar_rar: needs-triage
+mantic_rar: needs-triage
 devel_rar: needs-triage
 
 Patches_unrar-nonfree:
@@ -37,6 +38,7 @@ esm-apps/focal_unrar-nonfree: needs-triage
 jammy_unrar-nonfree: needs-triage
 esm-apps/jammy_unrar-nonfree: needs-triage
 lunar_unrar-nonfree: needs-triage
+mantic_unrar-nonfree: needs-triage
 devel_unrar-nonfree: needs-triage
 
 Patches_libclamunrar:
@@ -51,4 +53,5 @@ esm-apps/focal_libclamunrar: needs-triage
 jammy_libclamunrar: needs-triage
 esm-apps/jammy_libclamunrar: needs-triage
 lunar_libclamunrar: needs-triage
+mantic_libclamunrar: needs-triage
 devel_libclamunrar: needs-triage

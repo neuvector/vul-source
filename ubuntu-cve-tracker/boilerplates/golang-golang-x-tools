@@ -21,6 +21,7 @@ bionic_golang-golang-x-tools: ignored (end of standard support)
 focal_golang-golang-x-tools: needs-triage
 jammy_golang-golang-x-tools: needs-triage
 lunar_golang-golang-x-tools: needs-triage
+mantic_golang-golang-x-tools: needs-triage
 devel_golang-golang-x-tools: needs-triage
 
 Patches_google-guest-agent:
@@ -32,4 +33,5 @@ bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
 lunar_google-guest-agent: needs-triage
+mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

@@ -27,6 +27,7 @@ esm-infra/bionic_secureboot-db: needs-triage
 focal_secureboot-db: needs-triage
 jammy_secureboot-db: needs-triage
 lunar_secureboot-db: needs-triage
+mantic_secureboot-db: needs-triage
 devel_secureboot-db: needs-triage
 
 Patches_shim-signed:
@@ -40,6 +41,7 @@ esm-infra/bionic_shim-signed: needs-triage
 focal_shim-signed: needs-triage
 jammy_shim-signed: needs-triage
 lunar_shim-signed: needs-triage
+mantic_shim-signed: needs-triage
 devel_shim-signed: needs-triage
 
 Patches_shim:
@@ -53,4 +55,5 @@ esm-infra/bionic_shim: needs-triage
 focal_shim: needs-triage
 jammy_shim: needs-triage
 lunar_shim: needs-triage
+mantic_shim: needs-triage
 devel_shim: needs-triage

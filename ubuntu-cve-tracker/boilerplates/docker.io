@@ -27,6 +27,7 @@ esm-infra/bionic_docker.io: needs-triage
 focal_docker.io: needs-triage
 jammy_docker.io: needs-triage
 lunar_docker.io: needs-triage
+mantic_docker.io: needs-triage
 devel_docker.io: needs-triage
 
 Patches_docker.io-app:
@@ -38,5 +39,6 @@ bionic_docker.io-app: DNE
 focal_docker.io-app: needs-triage
 jammy_docker.io-app: needs-triage
 lunar_docker.io-app: needs-triage
+mantic_docker.io-app: needs-triage
 devel_docker.io-app: needs-triage
 

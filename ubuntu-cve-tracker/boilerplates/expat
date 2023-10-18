@@ -35,6 +35,7 @@ esm-infra/bionic_expat: needs-triage
 focal_expat: needs-triage
 jammy_expat: needs-triage
 lunar_expat: needs-triage
+mantic_expat: needs-triage
 devel_expat: needs-triage
 
 Patches_apache2:
@@ -48,6 +49,7 @@ esm-infra/bionic_apache2: not-affected (uses system expat)
 focal_apache2: not-affected (uses system expat)
 jammy_apache2: not-affected (uses system expat)
 lunar_apache2: not-affected (uses system expat)
+mantic_apache2: not-affected (uses system expat)
 devel_apache2: not-affected (uses system expat)
 
 Patches_apr-util:
@@ -61,6 +63,7 @@ esm-infra/bionic_apr-util: not-affected (uses system expat)
 focal_apr-util: not-affected (uses system expat)
 jammy_apr-util: not-affected (uses system expat)
 lunar_apr-util: not-affected (uses system expat)
+mantic_apr-util: not-affected (uses system expat)
 devel_apr-util: not-affected (uses system expat)
 
 Patches_cmake:
@@ -74,6 +77,7 @@ esm-infra/bionic_cmake: not-affected (uses system expat)
 focal_cmake: not-affected (uses system expat)
 jammy_cmake: not-affected (uses system expat)
 lunar_cmake: not-affected (uses system expat)
+mantic_cmake: not-affected (uses system expat)
 devel_cmake: not-affected (uses system expat)
 
 Patches_ghostscript:
@@ -87,6 +91,7 @@ esm-infra/bionic_ghostscript: not-affected (uses system expat)
 focal_ghostscript: not-affected (uses system expat)
 jammy_ghostscript: not-affected (uses system expat)
 lunar_ghostscript: not-affected (uses system expat)
+mantic_ghostscript: not-affected (uses system expat)
 devel_ghostscript: not-affected (uses system expat)
 
 Patches_texlive-bin:
@@ -100,6 +105,7 @@ esm-infra/bionic_texlive-bin: not-affected (code-not-compiled)
 focal_texlive-bin: not-affected (code-not-compiled)
 jammy_texlive-bin: not-affected (code-not-compiled)
 lunar_texlive-bin: not-affected (code-not-compiled)
+mantic_texlive-bin: not-affected (code-not-compiled)
 devel_texlive-bin: not-affected (code-not-compiled)
 
 Patches_xmlrpc-c:
@@ -111,6 +117,7 @@ bionic_xmlrpc-c: ignored (end of standard support)
 focal_xmlrpc-c: needs-triage
 jammy_xmlrpc-c: needs-triage
 lunar_xmlrpc-c: needs-triage
+mantic_xmlrpc-c: needs-triage
 devel_xmlrpc-c: needs-triage
 
 Patches_vnc4:
@@ -122,6 +129,7 @@ bionic_vnc4: ignored (end of standard support)
 focal_vnc4: DNE
 jammy_vnc4: DNE
 lunar_vnc4: DNE
+mantic_vnc4: DNE
 devel_vnc4: DNE
 
 Patches_wbxml2:
@@ -133,6 +141,7 @@ bionic_wbxml2: ignored (end of standard support)
 focal_wbxml2: needs-triage
 jammy_wbxml2: needs-triage
 lunar_wbxml2: needs-triage
+mantic_wbxml2: needs-triage
 devel_wbxml2: needs-triage
 
 Patches_swish-e:
@@ -144,6 +153,7 @@ bionic_swish-e: ignored (end of standard support)
 focal_swish-e: needs-triage
 jammy_swish-e: needs-triage
 lunar_swish-e: needs-triage
+mantic_swish-e: needs-triage
 devel_swish-e: needs-triage
 
 Patches_insighttoolkit4:
@@ -155,6 +165,7 @@ bionic_insighttoolkit4: not-affected (uses system expat)
 focal_insighttoolkit4: not-affected (uses system expat)
 jammy_insighttoolkit4: not-affected (uses system expat)
 lunar_insighttoolkit4: not-affected (uses system expat)
+mantic_insighttoolkit4: DNE
 devel_insighttoolkit4: DNE
 
 Patches_cadaver:
@@ -166,6 +177,7 @@ bionic_cadaver: ignored (end of standard support)
 focal_cadaver: needs-triage
 jammy_cadaver: needs-triage
 lunar_cadaver: needs-triage
+mantic_cadaver: needs-triage
 devel_cadaver: needs-triage
 
 Patches_gdcm:
@@ -177,6 +189,7 @@ bionic_gdcm: not-affected (uses system expat)
 focal_gdcm: not-affected (uses system expat)
 jammy_gdcm: not-affected (uses system expat)
 lunar_gdcm: not-affected (uses system expat)
+mantic_gdcm: not-affected (uses system expat)
 devel_gdcm: not-affected (uses system expat)
 
 Patches_ayttm:
@@ -188,6 +201,7 @@ bionic_ayttm: DNE
 focal_ayttm: DNE
 jammy_ayttm: DNE
 lunar_ayttm: DNE
+mantic_ayttm: DNE
 devel_ayttm: DNE
 
 Patches_cableswig:
@@ -199,6 +213,7 @@ bionic_cableswig: DNE
 focal_cableswig: DNE
 jammy_cableswig: DNE
 lunar_cableswig: DNE
+mantic_cableswig: DNE
 devel_cableswig: DNE
 
 Patches_coin3:
@@ -210,6 +225,7 @@ bionic_coin3: ignored (end of standard support)
 focal_coin3: not-affected (uses system expat)
 jammy_coin3: not-affected (uses system expat)
 lunar_coin3: not-affected (uses system expat)
+mantic_coin3: not-affected (uses system expat)
 devel_coin3: not-affected (uses system expat)
 
 Patches_matanza:
@@ -221,6 +237,7 @@ bionic_matanza: ignored (end of standard support)
 focal_matanza: needs-triage
 jammy_matanza: needs-triage
 lunar_matanza: needs-triage
+mantic_matanza: needs-triage
 devel_matanza: needs-triage
 
 Patches_tdom:
@@ -232,6 +249,7 @@ bionic_tdom: ignored (end of standard support)
 focal_tdom: needs-triage
 jammy_tdom: needs-triage
 lunar_tdom: needs-triage
+mantic_tdom: needs-triage
 devel_tdom: needs-triage
 
 Patches_vtk:
@@ -243,6 +261,7 @@ bionic_vtk: DNE
 focal_vtk: DNE
 jammy_vtk: DNE
 lunar_vtk: DNE
+mantic_vtk: DNE
 devel_vtk: DNE
 
 Patches_smart:
@@ -254,6 +273,7 @@ bionic_smart: not-affected (code-not-compiled)
 focal_smart: DNE
 jammy_smart: DNE
 lunar_smart: DNE
+mantic_smart: DNE
 devel_smart: DNE
 
 Patches_firefox:
@@ -267,6 +287,7 @@ esm-infra/bionic_firefox: needs-triage
 focal_firefox: needs-triage
 jammy_firefox: not-affected (code not present)
 lunar_firefox: not-affected (code not present)
+mantic_firefox: not-affected (code not present)
 devel_firefox: not-affected (code not present)
 
 Patches_thunderbird:
@@ -280,6 +301,7 @@ esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
 lunar_thunderbird: needs-triage
+mantic_thunderbird: needs-triage
 devel_thunderbird: needs-triage
 
 Patches_libxmltok:
@@ -291,5 +313,6 @@ bionic_libxmltok: ignored (end of standard support)
 focal_libxmltok: needs-triage
 jammy_libxmltok: needs-triage
 lunar_libxmltok: needs-triage
+mantic_libxmltok: needs-triage
 devel_libxmltok: needs-triage
 

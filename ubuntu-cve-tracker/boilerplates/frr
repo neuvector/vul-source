@@ -21,6 +21,7 @@ focal_frr: needs-triage
 esm-apps/focal_frr: needs-triage
 jammy_frr: needs-triage
 lunar_frr: needs-triage
+mantic_frr: needs-triage
 devel_frr: needs-triage
 
 Patches_quagga:
@@ -33,4 +34,5 @@ esm-infra/bionic_quagga: needs-triage
 focal_quagga: needs-triage
 jammy_quagga: DNE
 lunar_quagga: DNE
+mantic_quagga: DNE
 devel_quagga: DNE

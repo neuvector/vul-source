@@ -23,6 +23,7 @@ esm-infra/bionic_bind9: needs-triage
 focal_bind9: needs-triage
 jammy_bind9: needs-triage
 lunar_bind9: needs-triage
+mantic_bind9: needs-triage
 devel_bind9: needs-triage
 
 Patches_isc-dhcp:
@@ -36,5 +37,6 @@ esm-infra/bionic_isc-dhcp: needs-triage
 focal_isc-dhcp: not-affected (code not present)
 jammy_isc-dhcp: not-affected (code not present)
 lunar_isc-dhcp: needs-triage
+mantic_isc-dhcp: needs-triage
 devel_isc-dhcp: needs-triage
 

@@ -29,6 +29,7 @@ esm-infra/bionic_grub2: needs-triage
 focal_grub2: needs-triage
 jammy_grub2: needs-triage
 lunar_grub2: needs-triage
+mantic_grub2: needs-triage
 devel_grub2: needs-triage
 
 Patches_grub2-unsigned:
@@ -42,6 +43,7 @@ esm-infra/bionic_grub2-unsigned: needs-triage
 focal_grub2-unsigned: needs-triage
 jammy_grub2-unsigned: needs-triage
 lunar_grub2-unsigned: needs-triage
+mantic_grub2-unsigned: needs-triage
 devel_grub2-unsigned: needs-triage
 
 Patches_grub2-signed:
@@ -55,4 +57,5 @@ esm-infra/bionic_grub2-signed: needs-triage
 focal_grub2-signed: needs-triage
 jammy_grub2-signed: needs-triage
 lunar_grub2-signed: needs-triage
+mantic_grub2-signed: needs-triage
 devel_grub2-signed: needs-triage

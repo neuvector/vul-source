@@ -20,5 +20,6 @@ bionic_golang-golang-x-text: DNE
 focal_golang-golang-x-text: needs-triage
 jammy_golang-golang-x-text: needs-triage
 lunar_golang-golang-x-text: needs-triage
+mantic_golang-golang-x-text: needs-triage
 devel_golang-golang-x-text: needs-triage
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # An example hook script to verify what is about to be committed.
 # Called by "git commit" with no arguments.  The hook should
@@ -6,6 +6,8 @@
 # it wants to stop the commit.
 #
 # To enable this hook, rename this file to "pre-commit".
+#
+# this script is a bash script due to the use of 'read -p'
 
 SUBPROJECTS=subprojects
 
@@ -39,7 +41,7 @@ if [ -z "${UCT_IGNORE_CHECK_SYNTAX}" ] ; then
     # check-syntax needs full path to files so prepend it via sed
     dir=$(git rev-parse --show-toplevel)
     git diff --cached --name-only --diff-filter=AM $against | sed "s|^|${dir}/|" > "${modified_files}"
-    git diff --cached --name-only --diff-filter=AM $against | grep "\.json$" | sed "s|^|${dir}/|" > "${modified_json_files}"
+    git diff --cached --name-only --diff-filter=AM $against | grep -E '\.json$' | sed "s|^|${dir}/|" > "${modified_json_files}"
 
     if ! "${UCT}/scripts/check-syntax" --verbose --filelist "${modified_files}" ; then
     	read -p 'Found syntax errors. Enter "ignore" to continue or anything else to exit: ' answer < /dev/tty
@@ -64,7 +66,7 @@ if [ -z "${UCT_IGNORE_CHECK_SYNTAX}" ] ; then
 
     if [ -d $SUBPROJECTS ]; then
         subproject_untracked=$(git -C $SUBPROJECTS status --porcelain | awk '{print $2}')
-        if [ ! -z "${subproject_untracked}" ]; then
+        if [ -n "${subproject_untracked}" ]; then
             echo "Please commit changes in the subprojects directory:"
             for file in ${subproject_untracked}; do
 	        echo $file

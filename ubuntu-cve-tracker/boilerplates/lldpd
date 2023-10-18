@@ -20,6 +20,7 @@ bionic_lldpd: ignored (end of standard support)
 focal_lldpd: needs-triage
 jammy_lldpd: needs-triage
 lunar_lldpd: needs-triage
+mantic_lldpd: needs-triage
 devel_lldpd: needs-triage
 
 Patches_openvswitch:
@@ -33,4 +34,5 @@ esm-infra/bionic_openvswitch: needs-triage
 focal_openvswitch: needs-triage
 jammy_openvswitch: needs-triage
 lunar_openvswitch: needs-triage
+mantic_openvswitch: needs-triage
 devel_openvswitch: needs-triage

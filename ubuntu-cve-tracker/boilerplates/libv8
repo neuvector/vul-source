@@ -20,4 +20,5 @@ bionic_libv8-3.14: ignored (end of standard support)
 focal_libv8-3.14: DNE
 jammy_libv8-3.14: DNE
 lunar_libv8-3.14: DNE
+mantic_libv8-3.14: DNE
 devel_libv8-3.14: DNE

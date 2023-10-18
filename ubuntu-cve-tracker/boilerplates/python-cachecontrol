@@ -25,6 +25,7 @@ bionic_python-cachecontrol: ignored (end of standard support)
 focal_python-cachecontrol: needs-triage
 jammy_python-cachecontrol: needs-triage
 lunar_python-cachecontrol: needs-triage
+mantic_python-cachecontrol: needs-triage
 devel_python-cachecontrol: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

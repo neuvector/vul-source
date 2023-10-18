@@ -24,6 +24,7 @@ esm-infra/bionic_potrace: needs-triage
 focal_potrace: needs-triage
 jammy_potrace: needs-triage
 lunar_potrace: needs-triage
+mantic_potrace: needs-triage
 devel_potrace: needs-triage
 
 Patches_inkscape:
@@ -36,4 +37,5 @@ bionic_inkscape: not-affected (code not present)
 focal_inkscape: not-affected (code not present)
 jammy_inkscape: not-affected (code not present)
 lunar_inkscape: not-affected (code not present)
+mantic_inkscape: not-affected (code not present)
 devel_inkscape: not-affected (code not present)

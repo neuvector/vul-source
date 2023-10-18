@@ -27,6 +27,7 @@ esm-infra/bionic_python-setuptools: needs-triage
 focal_python-setuptools: needs-triage
 jammy_python-setuptools: needs-triage
 lunar_python-setuptools: needs-triage
+mantic_python-setuptools: needs-triage
 devel_python-setuptools: needs-triage
 
 Patches_setuptools:
@@ -38,6 +39,7 @@ bionic_setuptools: DNE
 focal_setuptools: needs-triage
 jammy_setuptools: needs-triage
 lunar_setuptools: needs-triage
+mantic_setuptools: needs-triage
 devel_setuptools: needs-triage
 
 Patches_python-pip:
@@ -49,6 +51,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

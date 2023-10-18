@@ -21,6 +21,7 @@ bionic_golang-goyaml: DNE
 focal_golang-goyaml: DNE
 jammy_golang-goyaml: DNE
 lunar_golang-goyaml: DNE
+mantic_golang-goyaml: DNE
 devel_golang-goyaml: DNE
 
 Patches_golang-yaml.v2:
@@ -33,6 +34,7 @@ bionic_golang-yaml.v2: ignored (end of standard support)
 focal_golang-yaml.v2: needs-triage
 jammy_golang-yaml.v2: needs-triage
 lunar_golang-yaml.v2: needs-triage
+mantic_golang-yaml.v2: needs-triage
 devel_golang-yaml.v2: needs-triage
 
 Patches_golang-gopkg-yaml.v3:
@@ -45,6 +47,7 @@ bionic_golang-gopkg-yaml.v3: DNE
 focal_golang-gopkg-yaml.v3: DNE
 jammy_golang-gopkg-yaml.v3: needs-triage
 lunar_golang-gopkg-yaml.v3: needs-triage
+mantic_golang-gopkg-yaml.v3: needs-triage
 devel_golang-gopkg-yaml.v3: needs-triage
 
 Patches_snapd:
@@ -59,4 +62,5 @@ focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
 lunar_snapd: needs-triage
+mantic_snapd: needs-triage
 devel_snapd: needs-triage

@@ -20,6 +20,7 @@ bionic_telepathy-qt: ignored (end of standard support)
 focal_telepathy-qt: needs-triage
 jammy_telepathy-qt: needs-triage
 lunar_telepathy-qt: needs-triage
+mantic_telepathy-qt: needs-triage
 devel_telepathy-qt: needs-triage
 
 Patches_telepathy-qt5:
@@ -31,4 +32,5 @@ bionic_telepathy-qt5: DNE
 focal_telepathy-qt5: DNE
 jammy_telepathy-qt5: DNE
 lunar_telepathy-qt5: DNE
+mantic_telepathy-qt5: DNE
 devel_telepathy-qt5: DNE

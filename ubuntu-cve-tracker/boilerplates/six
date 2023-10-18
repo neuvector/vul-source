@@ -27,6 +27,7 @@ esm-infra/bionic_six: needs-triage
 focal_six: needs-triage
 jammy_six: needs-triage
 lunar_six: needs-triage
+mantic_six: needs-triage
 devel_six: needs-triage
 
 Patches_python-pip:
@@ -38,6 +39,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

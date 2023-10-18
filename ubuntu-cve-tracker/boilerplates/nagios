@@ -21,6 +21,7 @@ bionic_nagios3: ignored (end of standard support)
 focal_nagios3: DNE
 jammy_nagios3: DNE
 lunar_nagios3: DNE
+mantic_nagios3: DNE
 devel_nagios3: DNE
 
 Patches_nagios4:
@@ -33,6 +34,7 @@ bionic_nagios4: DNE
 focal_nagios4: needs-triage
 jammy_nagios4: needs-triage
 lunar_nagios4: needs-triage
+mantic_nagios4: needs-triage
 devel_nagios4: needs-triage
 
 Patches_icinga:
@@ -44,4 +46,5 @@ bionic_icinga: ignored (end of standard support)
 focal_icinga: DNE
 jammy_icinga: DNE
 lunar_icinga: DNE
+mantic_icinga: DNE
 devel_icinga: DNE

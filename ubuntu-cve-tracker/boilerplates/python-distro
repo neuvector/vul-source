@@ -25,6 +25,7 @@ bionic_python-distro: ignored (end of standard support)
 focal_python-distro: needs-triage
 jammy_python-distro: needs-triage
 lunar_python-distro: needs-triage
+mantic_python-distro: needs-triage
 devel_python-distro: needs-triage
 
 Patches_python-pip:
@@ -36,6 +37,7 @@ bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
 lunar_python-pip: needs-triage
+mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 
 

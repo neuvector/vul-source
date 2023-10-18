@@ -21,6 +21,7 @@ bionic_golang-gopkg-cheggaaa-pb.v1: ignored (end of standard support)
 focal_golang-gopkg-cheggaaa-pb.v1: needs-triage
 jammy_golang-gopkg-cheggaaa-pb.v1: needs-triage
 lunar_golang-gopkg-cheggaaa-pb.v1: needs-triage
+mantic_golang-gopkg-cheggaaa-pb.v1: needs-triage
 devel_golang-gopkg-cheggaaa-pb.v1: needs-triage
 
 Patches_golang-gopkg-cheggaaa-pb.v2:
@@ -32,6 +33,7 @@ bionic_golang-gopkg-cheggaaa-pb.v2: DNE
 focal_golang-gopkg-cheggaaa-pb.v2: needs-triage
 jammy_golang-gopkg-cheggaaa-pb.v2: needs-triage
 lunar_golang-gopkg-cheggaaa-pb.v2: needs-triage
+mantic_golang-gopkg-cheggaaa-pb.v2: needs-triage
 devel_golang-gopkg-cheggaaa-pb.v2: needs-triage
 
 Patches_golang-pb:
@@ -44,6 +46,7 @@ bionic_golang-pb: ignored (end of standard support)
 focal_golang-pb: DNE
 jammy_golang-pb: DNE
 lunar_golang-pb: DNE
+mantic_golang-pb: DNE
 devel_golang-pb: DNE
 
 Patches_snapd:
@@ -58,4 +61,5 @@ focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
 lunar_snapd: needs-triage
+mantic_snapd: needs-triage
 devel_snapd: needs-triage

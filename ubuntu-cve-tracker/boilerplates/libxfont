@@ -22,6 +22,7 @@ esm-infra/bionic_libxfont: needs-triage
 focal_libxfont: needs-triage
 jammy_libxfont: needs-triage
 lunar_libxfont: needs-triage
+mantic_libxfont: needs-triage
 devel_libxfont: needs-triage
 
 Patches_libxfont2:
@@ -34,4 +35,5 @@ bionic_libxfont2: DNE
 focal_libxfont2: DNE
 jammy_libxfont2: DNE
 lunar_libxfont2: DNE
+mantic_libxfont2: DNE
 devel_libxfont2: DNE

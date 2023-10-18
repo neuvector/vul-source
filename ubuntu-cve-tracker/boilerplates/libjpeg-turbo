@@ -22,6 +22,7 @@ bionic_libjpeg6b: ignored (end of standard support)
 focal_libjpeg6b: needs-triage
 jammy_libjpeg6b: needs-triage
 lunar_libjpeg6b: needs-triage
+mantic_libjpeg6b: needs-triage
 devel_libjpeg6b: needs-triage
 
 Patches_libjpeg-turbo:
@@ -35,6 +36,7 @@ esm-infra/bionic_libjpeg-turbo: needs-triage
 focal_libjpeg-turbo: needs-triage
 jammy_libjpeg-turbo: needs-triage
 lunar_libjpeg-turbo: needs-triage
+mantic_libjpeg-turbo: needs-triage
 devel_libjpeg-turbo: needs-triage
 
 Patches_libjpeg9:
@@ -46,4 +48,5 @@ bionic_libjpeg9: ignored (end of standard support)
 focal_libjpeg9: needs-triage
 jammy_libjpeg9: needs-triage
 lunar_libjpeg9: needs-triage
+mantic_libjpeg9: needs-triage
 devel_libjpeg9: needs-triage

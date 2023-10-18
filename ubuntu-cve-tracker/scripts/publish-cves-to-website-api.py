@@ -17,6 +17,7 @@ from macaroonbakery import httpbakery
 #import http
 #http.client.HTTPConnection.debuglevel = 1
 
+CVE_regex_pattern = "CVE-\\d{4}-\\d{4,}$"
 
 IGNORE_CACHE = os.path.expanduser("~/.publish-cves-ignore-cache")
 
@@ -79,6 +80,34 @@ def get_devel_codename(cve_releases):
     cve_devel_release = cve_lib.releases[devel_release_index]
 
     return cve_devel_release
+
+
+def delete_single_cve(args, cve):
+    http_method = "DELETE"
+    endpoint = f"{args.endpoint}cves/{cve}.json"
+    if args.dry_run:
+        print(f"DEBUG: would send delete http request for: {endpoint}")
+    else:
+        if args.verbose:
+            print(f"INFO: sending delete http request for: {endpoint}")
+
+        response = authentication(method=http_method, url=endpoint, payload=None)
+        print(response, response.text[0:60])
+        if args.stop and not re.match(r"^<Response \[2..\]>$", str(response)):
+            sys.exit(1)
+
+
+def do_delete_cves(args, cve_list):
+    CVE_regex = re.compile(f"^{CVE_regex_pattern}$")
+
+    for cve in cve_list:
+        if not re.match(CVE_regex, cve):
+            print(
+                f"WARNING: skipping deletion of non-CVE '{cve}'",
+                file=sys.stderr
+            )
+            continue
+        delete_single_cve(args, cve)
 
 
 def post_single_cve(cve_filename):
@@ -254,18 +283,28 @@ def main(argv=None):
         help="API endpoint url.",
     )
     parser.add_argument(
+        "--delete",
+        action="append",
+        type=str,
+        help="CVE(s) to delete from the web endpoint",
+    )
+    parser.add_argument(
         "file_path",
         action="store",
         type=str,
-        nargs="+",
+        nargs="*",
         help="[Required] The path of the CVE file(s) or folder(s)",
     )
+
     args = parser.parse_args(argv)
+
+    if args.delete is not None:
+        do_delete_cves(args, args.delete)
 
     ## if args:
     ## headers = {"Content-type": "application/json"}
     cves = []
-    CVE_filename_regex = re.compile(".*/?CVE-\\d{4}-\\d{4,7}$" if args.filename_check else ".*")
+    CVE_filename_regex = re.compile(f".*/?{CVE_regex_pattern}$" if args.filename_check else ".*")
     NFU_filename_regex = re.compile(".*/not-for-us.txt$")
     ignore_paths = ['experimental', 'subprojects', 'scripts']
     cache_not_for_us_cve_ids = list()

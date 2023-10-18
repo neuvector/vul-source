@@ -23,4 +23,5 @@ bionic_rpm: ignored (end of standard support)
 focal_rpm: needs-triage
 jammy_rpm: needs-triage
 lunar_rpm: needs-triage
+mantic_rpm: needs-triage
 devel_rpm: needs-triage

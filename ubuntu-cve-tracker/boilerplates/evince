@@ -22,6 +22,7 @@ esm-infra/bionic_evince: needs-triage
 focal_evince: needs-triage
 jammy_evince: needs-triage
 lunar_evince: needs-triage
+mantic_evince: needs-triage
 devel_evince: needs-triage
 
 Patches_atril:
@@ -33,4 +34,5 @@ bionic_atril: ignored (end of standard support)
 focal_atril: needs-triage
 jammy_atril: needs-triage
 lunar_atril: needs-triage
+mantic_atril: needs-triage
 devel_atril: needs-triage
