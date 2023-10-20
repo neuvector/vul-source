@@ -48,6 +48,10 @@ parser.add_argument("--ignore-abi", help="Ignore ABI mismatches", action='store_
 parser.add_argument("--add-proposed", help="Check proposed for ABI mismatches", action='store_true')
 parser.add_argument("--check-esm", help="Check esm ppa kernels as well", action='store_true')
 parser.add_argument("--use-updates", '--include-updates', help="Check updates pocket for USNs to issue", action='store_true')
+parser.add_argument(
+    "--use-lp-bot-account", default=False, action='store_true',
+    help="WHen connecting to launchpad, use an alternate bot account credentials"
+)
 parser.add_argument("kernel", help="only check specific kernels", nargs="*")
 opt = parser.parse_args()
 
@@ -56,7 +60,7 @@ if opt.debug >= 2:
     import httplib2
     httplib2.debuglevel = 1
 
-lp = lpl_common.connect()
+lp = lpl_common.connect(bot=opt.use_lp_bot_account)
 ubuntu = lp.distributions['ubuntu']
 archive = ubuntu.main_archive
 pockets = ['Updates', 'Security']
