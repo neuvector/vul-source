@@ -7815,3 +7815,5 @@
 2023-10-12 13:17:02 UTC - 1 added, 5 ignored, 2 skipped, 6 total - files: ['nvdcve-1.1-recent.json']
 2023-10-12 13:25:02 UTC - 0 added, 0 ignored, 2 skipped, 0 total - files: ['debian-import_0dg8eokr.json']
 2023-10-18 06:02:00 UTC - 5 added, 240 ignored, 120 skipped, 245 total - files: ['nvdcve-1.1-recent.json']
+2023-10-20 22:15:33 UTC - 16 added, 154 ignored, 3 skipped, 170 total - files: ['nvdcve-1.1-recent.json']
+2023-10-20 23:20:39 UTC - 9 added, 3 ignored, 3 skipped, 12 total - files: ['debian-import_x_jf1jwa.json']
