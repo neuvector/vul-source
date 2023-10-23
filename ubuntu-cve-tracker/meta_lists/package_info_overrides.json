@@ -15,6 +15,10 @@
         "description": "Advanced Intrusion Detection Environment",
         "title": "AIDE"
     },
+    "aom": {
+        "description": "AV1 Video Codec Library",
+        "title": "AOM"
+    },
     "apache-log4j1.2": {
         "description": "Java-based open-source logging tool",
         "title": "Apache Log4j"
