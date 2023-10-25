@@ -99,6 +99,18 @@ class TestReleaseSort:
         assert cve_lib.release_sort(
             ["xenial", "dapper"]) == ["dapper", "xenial"]
 
+class TestReleaseDevel:
+    def test_release_devel_direct(self):
+        # ensure that there is no more than one ubuntu release marked as
+        # under development in the subprojects data structure, through
+        # direct access to the data structure
+        dev_release = None
+        for release in cve_lib.subprojects:
+            _, product, _, details = cve_lib.get_subproject_details(release)
+            if 'devel' in details and details['devel']:
+                assert dev_release is None, "Multiple releases marked as devel: %s, %s)" % (dev_release, release)
+                dev_release = release
+
 TEST_DATA_DIR = "test/"
 
 # these are tests located in the 'okay' subdirectory that

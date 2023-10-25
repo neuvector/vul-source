@@ -676,17 +676,17 @@ subprojects = {
         "description": "Interim Release",
         "stamp": 1697493600,
     },
-#    "ubuntu/n": {
-#        "eol": False,
-#        "oval": True,
-#        "components": ["main", "restricted", "universe", "multiverse"],
-#        "name": "Ubuntu 24.04 LTS.",
-#        "version": 24.04,
-#        "codename": "Nerdy Neckbeard",  ## FIXME add real release name
-#        "alias": "nerdy",  ## FIXME add real release codename
-#        "devel": True,  # there can be only one ⚔
-#        "description": "Long Term Release",
-#    },
+    "ubuntu/noble": {
+        "eol": False,
+        "oval": True,
+        "components": ["main", "restricted", "universe", "multiverse"],
+        "name": "Ubuntu 24.04 LTS.",
+        "version": 24.04,
+        "codename": "Noble XXXX",  ## FIXME add real release name
+        "alias": "noble",
+        "devel": True,  # there can be only one ⚔
+        "description": "Long Term Release",
+    },
     "snap": {
         "eol": False,
         "oval": False,
@@ -1058,7 +1058,7 @@ flavor_releases = [
     'lucid', 'precise', 'trusty', 'utopic', 'vivid', 'wily', 'xenial',
     'yakkety', 'zesty', 'artful', 'bionic', 'cosmic', 'disco', 'eoan',
     'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic', "lunar",
-    'mantic',
+    'mantic', 'noble',
 ]
 
 all_releases = release_sort(all_releases)
@@ -1445,12 +1445,12 @@ release_expectations = {
        'bonus': [],
        'arch_all': 'amd64',
     },
-#    'nnnnnnn': {
-#       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
-#       'expected': ['riscv64'],
-#       'bonus': [],
-#       'arch_all': 'amd64',
-#    },
+    'noble': {
+       'required': ['amd64', 'i386', 'armhf', 'arm64', 'ppc64el', 's390x'],
+       'expected': ['riscv64'],
+       'bonus': [],
+       'arch_all': 'amd64',
+    },
 }
 
 # components in the archive

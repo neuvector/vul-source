@@ -284,6 +284,7 @@ if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
     gen_packages jammy    "amd64 i386"               >> "$pull"
     gen_packages lunar    "amd64 i386"               >> "$pull"
     gen_packages mantic   "amd64 i386"               >> "$pull"
+    gen_packages noble    "amd64 i386"               >> "$pull"
 
     # don't bother to pull duplicates
     sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"
@@ -302,6 +303,7 @@ if [ ! -e "${outPath}/dists" ] || do_use_timestamp "$timestamp" ; then
     gen_packages jammy    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
     gen_packages lunar    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
     gen_packages mantic   "ppc64el armhf arm64 s390x riscv64" >> "$pull"
+    gen_packages noble    "ppc64el armhf arm64 s390x riscv64" >> "$pull"
 
     # don't bother to pull duplicates
     sort -u "$pull" > "$pull.sorted" && mv "$pull.sorted" "$pull"; rm -f "$pull.sorted"

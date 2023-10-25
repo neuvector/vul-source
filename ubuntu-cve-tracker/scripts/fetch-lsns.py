@@ -12,24 +12,37 @@ import json
 import requests
 import os
 
-url = "https://ubuntu.com/security/notices.json?order=newest&details=LSN"
-data = json.loads(requests.get(url).text)
-total = data['total_results']
-filename = 'database-lsn.json'
+def query_data(offset):
+    url = "https://ubuntu.com/security/notices.json?order=newest&details=LSN"
+    if offset:
+        url = url + "&offset=" + str(offset)
 
-db = {}
-if os.path.exists(filename):
-    with open(filename, 'r') as json_file:
-        try:
-            db = json.load(json_file)
-            print('Reading database-lsn.json')
-        except json.decoder.JSONDecodeError:
-            print('Creating database-lsn.json')
+    response = {}
+    try:
+        response = requests.get(url).json()
+    except:
+        print("ERROR: Failed to establish connection, continuing with local db")
 
-offset = 0
-with open(filename, 'w+') as json_file:
+    return response
+
+def main():
+    db = {}
+    filename = "database-lsn.json"
+    if os.path.exists(filename):
+        with open(filename, 'r') as json_file:
+            try:
+                db = json.load(json_file)
+                print("Reading database-lsn.json")
+            except json.decoder.JSONDecodeError:
+                print("Creating database-lsn.json")
+
+    total = 20
+    offset = 0
     while offset < total:
-        data = json.loads(requests.get(url + '&offset=' + str(offset)).text)
+        data = query_data(offset)
+        if not data:
+            return 0
+        total = data['total_results']
         for notice in data['notices']:
             lsn_id = notice['id']
             if lsn_id in db:
@@ -78,4 +91,14 @@ with open(filename, 'w+') as json_file:
 
         offset += 20
 
-    json.dump(db, json_file, indent=4)
+    try:
+        with open(filename, "w+") as json_file:
+            json.dump(db, json_file, indent=4)
+    except:
+        print(f"Could not write to JSON file: {filename}")
+
+    return 0
+
+
+if __name__ == '__main__':
+    main()
