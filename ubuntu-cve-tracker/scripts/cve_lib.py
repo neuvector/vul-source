@@ -963,13 +963,12 @@ def load_external_subprojects():
         main_config = read_external_subproject_config(subproject_path)
         support_metadata = {}
 
-        # Disable this check until we have the information available
-        # for key in MANDATORY_EXTERNAL_SUBPROJECT_KEYS:
-        #     if key not in main_config:
-        #         print('%s missing "%s" field.' % (subproject_path, key))
-        #         raise ValueError
-        #     else:
-        #         support_metadata[key] = main_config[key]
+        for key in MANDATORY_EXTERNAL_SUBPROJECT_KEYS:
+            if key not in main_config:
+                print('%s missing "%s" field.' % (subproject_path, key))
+                raise ValueError
+            else:
+                support_metadata[key] = main_config[key]
 
         for ppa in main_config['ppas']:
             config = main_config['ppas'][ppa]

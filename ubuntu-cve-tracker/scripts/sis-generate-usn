@@ -214,6 +214,9 @@ def parse_CVEs(text, cvelines):
     cvere = re.compile("((?:CVE|cve)-\d\d\d\d-\d{4,7})")
     for cve in cvere.finditer(text):
         cve_number = cve.group().upper()
+        if opt.ignore_cves and cve_number in opt.ignore_cves:
+            print("WARN: found '%s' in changelog but ignored in command line" % cve_number, file=sys.stderr)
+            continue
         check_cve_priority(cve_number)
         result.add(cve_number)
 
