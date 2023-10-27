@@ -921,6 +921,20 @@ lunar_linux-iot: DNE
 mantic_linux-iot: DNE
 devel_linux-iot: DNE
 
+Patches_linux-laptop:
+upstream_linux-laptop: needs-triage
+trusty_linux-laptop: DNE
+trusty/esm_linux-laptop: DNE
+xenial_linux-laptop: DNE
+esm-infra/xenial_linux-laptop: DNE
+bionic_linux-laptop: DNE
+esm-infra/bionic_linux-laptop: DNE
+focal_linux-laptop: DNE
+jammy_linux-laptop: DNE
+lunar_linux-laptop: DNE
+mantic_linux-laptop: needs-triage
+devel_linux-laptop: needs-triage
+
 Patches_linux-lowlatency:
 upstream_linux-lowlatency: needs-triage
 trusty_linux-lowlatency: DNE

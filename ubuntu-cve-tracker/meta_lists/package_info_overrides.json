@@ -1511,6 +1511,10 @@
         "description": "Linux kernel for cloud environments",
         "title": "Linux kernel (KVM)"
     },
+    "linux-laptop": {
+        "description": "Linux kernel for Lenovo X13s ARM laptops",
+        "title": "linux-laptop"
+    },
     "linux-linaro": {
         "description": "Linux kernel for ARM",
         "title": "linux-linaro"

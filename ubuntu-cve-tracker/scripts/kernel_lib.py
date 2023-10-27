@@ -352,7 +352,7 @@ meta_kernels.add_new_kernel('mantic', ['linux-ibm'], '-6.5.0')
 meta_kernels.add_new_kernel('mantic', ['linux-oracle'], '-6.5.0')
 meta_kernels.add_new_kernel('mantic', ['linux-riscv'], '-6.5.0', signed=False)
 meta_kernels.add_new_kernel('mantic', ['linux-starfive'], '-6.5.0', signed=False)
-meta_kernels.add_new_kernel('mantic', ['linux-laptop'], '-6.5.0', signed=False)  # XXX ARM for lenovo x13s laptops, might not be supported
+meta_kernels.add_new_kernel('mantic', ['linux-laptop'], '-6.5.0', signed=False)  # ARM for lenovo x13s laptops
 
 # list of kernel versions to masquerade as when things end up in the
 # wrong pockets or otherwise should not have a USN published for it.

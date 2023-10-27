@@ -7829,3 +7829,5 @@
 2023-10-25 14:27:48 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2023-10-26 19:29:38 UTC - 3 added, 200 ignored, 2 skipped, 203 total - files: ['nvdcve-1.1-recent.json']
 2023-10-26 19:36:29 UTC - 0 added, 1 ignored, 2 skipped, 1 total - files: ['debian-import_xtacoyx2.json']
+2023-10-27 14:01:20 UTC - 2 added, 17 ignored, 4 skipped, 19 total - files: ['nvdcve-1.1-recent.json']
+2023-10-27 14:09:19 UTC - 0 added, 0 ignored, 4 skipped, 0 total - files: ['debian-import_vgvm2x2r.json']

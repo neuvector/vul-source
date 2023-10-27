@@ -38,7 +38,7 @@ reserved_usn = False
 uct_script_dir = os.path.join(os.environ['UCT'], 'scripts')
 
 # adjust this line when adding new kernels
-generate_usn_regex = r'^linux-image-(\d|generic|virtual|lowlatency|power|server|omap|raspi|riscv|snapdragon|highbank|allwinner|aws|bluefield|gcp|gke|ibm|intel|nvidia|oem|oracle|azure|joule|kvm|euclid|dell|starfive|xilinx)'
+generate_usn_regex = r'^linux-image-(\d|generic|virtual|lowlatency|power|server|omap|raspi|riscv|snapdragon|highbank|allwinner|aws|bluefield|gcp|gke|ibm|intel|nvidia|oem|oracle|azure|joule|kvm|euclid|dell|starfive|xilinx|laptop)'
 
 def grouper(iterable, n, fillvalue=None):
     "Collect data into fixed-length chunks or blocks"
