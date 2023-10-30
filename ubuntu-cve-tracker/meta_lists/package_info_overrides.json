@@ -1623,6 +1623,10 @@
         "description": "Linux kernel for OEM systems",
         "title": "Linux kernel (OEM)"
     },
+    "linux-oem-6.5": {
+        "description": "Linux kernel for OEM systems",
+        "title": "Linux kernel (OEM)"
+    },
     "linux-oem-osp1": {
         "description": "Linux kernel for OEM systems",
         "title": "Linux kernel (OEM)"

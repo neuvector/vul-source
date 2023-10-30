@@ -13,7 +13,7 @@ mock_subprojects = {
         "packages": ["test/esm-fake-supported.txt"],
         "name": "Ubuntu 01.01 ESM",
         "codename": "Fabulous Fake",
-        "ppa": "ubuntu-esm/esm-bar-security/ubuntu",
+        "ppas": [{"ppa": "ubuntu-esm/esm-bar-security/ubuntu", "pocket": "main"}],
         "parent": "ubuntu/bar",
         "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
         "stamp": 1618963200,

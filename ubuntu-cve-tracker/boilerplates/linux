@@ -1221,6 +1221,20 @@ lunar_linux-oem-6.1: DNE
 mantic_linux-oem-6.1: DNE
 devel_linux-oem-6.1: DNE
 
+Patches_linux-oem-6.5:
+upstream_linux-oem-6.5: needs-triage
+trusty_linux-oem-6.5: DNE
+trusty/esm_linux-oem-6.5: DNE
+xenial_linux-oem-6.5: DNE
+esm-infra/xenial_linux-oem-6.5: DNE
+bionic_linux-oem-6.5: DNE
+esm-infra/bionic_linux-oem-6.5: DNE
+focal_linux-oem-6.5: DNE
+jammy_linux-oem-6.5: needs-triage
+lunar_linux-oem-6.5: DNE
+mantic_linux-oem-6.5: DNE
+devel_linux-oem-6.5: DNE
+
 Patches_linux-oem-osp1:
 upstream_linux-oem-osp1: ignored (end of life)
 trusty_linux-oem-osp1: DNE

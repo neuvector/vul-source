@@ -312,6 +312,7 @@ meta_kernels.add_new_kernel('jammy', ['linux-nvidia-6.2'], '-6.2.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-5.17'], '-5.17.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-6.0'], '-6.0.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-6.1'], '-6.1.0')
+meta_kernels.add_new_kernel('jammy', ['linux-oem-6.5'], '-6.5.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oracle'], '-5.15')
 meta_kernels.add_new_kernel('jammy', ['linux-riscv'], '-5.15', signed=False)
 meta_kernels.add_new_kernel('jammy', ['linux-riscv-5.19'], '-5.19.0', signed=False)
@@ -874,6 +875,11 @@ kernel_glitches = {
         'jammy': {
             '~': '6.1.0-1004.4',  # Initial publication
             '6.1.0-1010.10': '6.1.0-1012.12', # no CVEs, deadlock issue LP: #2018566
+        },
+    },
+    'linux-oem-6.5': {
+        'jammy': {
+            '~': '6.5.0-1006.6',  # Initial publication
         },
     },
     'linux-oracle': {

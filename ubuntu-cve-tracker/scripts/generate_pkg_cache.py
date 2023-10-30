@@ -11,7 +11,7 @@
 # for details.
 #
 
-from cve_lib import (all_releases, devel_release, eol_releases, needs_oval, product_series, release_parent, release_ppa)
+from cve_lib import (all_releases, devel_release, eol_releases, needs_oval, product_series, release_parent, release_ppas, release_ppa_pocket)
 
 import argparse
 import datetime
@@ -55,31 +55,11 @@ def write_to_cache(cache_dir, release, cache):
     except Exception:
         error(f"Could not write to JSON file: {filename}")
 
-
-def update_cache(release, cache, ppa=None, latest_date_created=None):
-    lp = lpl_common.connect(version='devel')
-    ubuntu = lp.distributions['ubuntu']
-    series = ubuntu.getSeries(name_or_version=product_series(release)[1])
-
-    real_threshold = None
-    if latest_date_created:
-        # Allow a grace period to cope with publications arriving out of
-        # order during long transactions.
-        real_threshold = latest_date_created - datetime.timedelta(hours=1)
-
-    if ppa:
-        archive, group, ppa_full_name = lpl_common.get_archive(
-            ppa,
-            lp,
-            False,
-            distribution=ubuntu
-        )
-    else:
-        archive = ubuntu.main_archive
-
+def get_binaries_rel(release, archive, real_threshold, series, cache, latest_date_created, ppa=None):
     debug(f"Retrieving Launchpad publications since {real_threshold}")
     sources = archive.getPublishedSources(order_by_date=True, created_since_date=real_threshold, distro_series=series)
     for s in sources:
+        override_pocket = None
         if s.pocket not in pockets:
             continue
 
@@ -90,15 +70,16 @@ def update_cache(release, cache, ppa=None, latest_date_created=None):
         src = s.source_package_name
         src_ver = s.source_package_version
         src_component = None
-        if not ppa:
+        if ppa:
             src_component = s.component_name
+            override_pocket = release_ppa_pocket(release, ppa)
 
         binaries = s.getPublishedBinaries(active_binaries_only=False)
         for b in binaries:
             bin_name = b.binary_package_name
             bin_version = b.binary_package_version
             bin_component = b.component_name
-            pocket = b.pocket
+            pocket = b.pocket if not ppa else override_pocket
             bin_arch = b.display_name.split(' ')[-1]
 
             if src not in cache:
@@ -117,6 +98,33 @@ def update_cache(release, cache, ppa=None, latest_date_created=None):
                 }
             if bin_arch not in cache[src][src_ver]["binaries"][bin_name]["arch"]:
                 cache[src][src_ver]["binaries"][bin_name]["arch"].append(bin_arch)
+
+    return latest_date_created
+
+def update_cache(release, cache, ppas=None, latest_date_created=None):
+    lp = lpl_common.connect(version='devel')
+    ubuntu = lp.distributions['ubuntu']
+    series = ubuntu.getSeries(name_or_version=product_series(release)[1])
+
+    real_threshold = None
+    if latest_date_created:
+        # Allow a grace period to cope with publications arriving out of
+        # order during long transactions.
+        real_threshold = latest_date_created - datetime.timedelta(hours=1)
+
+    if ppas:
+        for ppa_pocket in ppas:
+            ppa = ppa_pocket['ppa']
+            archive, _, _ = lpl_common.get_archive(
+                ppa.split('/ubuntu')[0],
+                lp,
+                False,
+                distribution=ubuntu
+            )
+
+            latest_date_created = get_binaries_rel(release, archive, real_threshold, series, cache, latest_date_created, ppa)
+    else:
+        latest_date_created = get_binaries_rel(release, ubuntu.main_archive, real_threshold, series, cache, latest_date_created)
 
     return latest_date_created
 
@@ -186,8 +194,8 @@ def main():
 
             debug('UPDATING CACHE')
 
-            ppa = release_ppa(release)
-            latest_date_created = update_cache(release, cache, ppa, latest_date_created)
+            ppas = release_ppas(release)
+            latest_date_created = update_cache(release, cache, ppas, latest_date_created)
 
             if latest_date_created is not None:
                 epoch = datetime.datetime.fromtimestamp(0, tz=datetime.timezone.utc)
