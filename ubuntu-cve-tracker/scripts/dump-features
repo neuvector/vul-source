@@ -57,7 +57,7 @@ Testing for this can be done with `netstat -an --inet | grep LISTEN | grep -v 12
 	{ 'name':'hashing', 'short':'Password hashing',
           'depth': 1,
 	  'desc':
-'''The system password used for logging into Ubuntu is stored in /etc/shadow. Very old style password hashes were based on DES and visible in /etc/passwd. Modern Linux has long since moved to /etc/shadow, and for some time now has used salted MD5-based hashes for password verification (crypt id 1). Since MD5 is considered "broken" for some uses and as computational power available to perform brute-forcing of MD5 increases, Ubuntu 8.10 and later proactively moved to using salted SHA-512 based password hashes (crypt id 6), which are orders of magnitude more difficult to brute-force. See the [[Manpage:crypt|crypt]] manpage for additional details.
+'''The system password used for logging into Ubuntu is stored in /etc/shadow. Very old style password hashes were based on DES and visible in /etc/passwd. Modern Linux has long since moved to /etc/shadow, and for some time now has used salted MD5-based hashes for password verification (crypt id 1). Since MD5 is considered "broken" for some uses and as computational power available to perform brute-forcing of MD5 increases, Ubuntu 8.10 and later proactively moved to using salted SHA-512 based password hashes (crypt id 6), which are orders of magnitude more difficult to brute-force. Ubuntu 22.04 LTS and later then moved to yescrypt to provide increased protection against offline password cracking. See the [[Manpage:crypt|crypt]] manpage for additional details.
 
 See [[https://git.launchpad.net/qa-regression-testing/tree/scripts/test-glibc-security.py|test-glibc-security.py]] for regression tests.
 ''' },
@@ -528,6 +528,7 @@ add_status('ports', 'dapper', 'policy', DEFAULT)
 
 add_status('hashing', 'dapper', 'md5', DEFAULT)
 add_status('hashing', 'intrepid', 'sha512', DEFAULT)
+add_status('hashing', 'jammy', 'yescrypt', DEFAULT)
 
 add_status('syn-cookies', 'warty', 'kernel', AVAILABLE)
 add_status('syn-cookies', 'jaunty', 'kernel & sysctl', DEFAULT)

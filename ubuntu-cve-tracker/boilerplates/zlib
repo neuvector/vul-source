@@ -4,7 +4,7 @@ References:
 Description:
 Ubuntu-Description:
 Notes:
- mdeslaur> since 3.1.3-7, rsync builds with the system zlib
+ mdeslaur> since 3.2.0-1, rsync builds with the system zlib
 Mitigation: 
 Bugs: 
 Priority: untriaged
