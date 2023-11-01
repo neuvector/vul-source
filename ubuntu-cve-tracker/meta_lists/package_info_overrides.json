@@ -1513,7 +1513,7 @@
     },
     "linux-laptop": {
         "description": "Linux kernel for Lenovo X13s ARM laptops",
-        "title": "linux-laptop"
+        "title": "Linux kernel (ARM laptop)"
     },
     "linux-linaro": {
         "description": "Linux kernel for ARM",
