@@ -91,6 +91,10 @@
         "description": "powerful and featureful web server log analyzer",
         "title": "AWStats"
     },
+    "axis": {
+        "description": "SOAP implementation in Java",
+        "title": "Axis"
+    },
     "batik": {
         "description": "SVG Library",
         "title": "Batik"
