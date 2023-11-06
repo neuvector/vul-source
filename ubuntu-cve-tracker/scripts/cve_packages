@@ -308,13 +308,13 @@ for cve in sorted(cves):
 
 if opt.by_assignee:
     people = assignees.keys()
-    people.sort()
+    people = sorted(people)
     for p in people:
         if opt.assignee and p not in opt.assignee:
             continue
         sys.stdout.write("%s:\n" % p)
         pkgs = assignees[p].keys()
-        pkgs.sort()
+        pkgs = sorted(pkgs)
         for pkg in pkgs:
             sys.stdout.write("  %s:\n" % pkg)
             cves_p = assignees[p][pkg]
