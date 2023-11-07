@@ -1,0 +1,10 @@
+Searching mail file: /home/mdeslaur/uct/lists/oss-sec/7000
+
+Couldn't find CVE-2020-0001 in tracker!
+Message date:    Tue, 25 Jan 2020 11:26:50 -0500 (EST)
+Message subject: Re: CVE request: libxml2 heap contents leak
+
+Couldn't find CVE-2019-4659 in tracker!
+Message date:    Tue, 25 Jan 2019 12:08:05 -0500 (EST)
+Message subject: Re: CVE request: multiple status.net issues
+

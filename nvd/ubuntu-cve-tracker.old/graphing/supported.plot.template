@@ -1,0 +1,21 @@
+
+set term png small size 800,480
+set output "supported.png"
+
+set key noenhanced
+
+set title "Packages (i386) supported during stable release cycles"
+set style data histogram
+set style histogram rowstacked
+set style fill solid border -1
+set boxwidth 0.75
+set auto x
+set key autotitle columnheader
+set key top left
+set xtics
+plot "supported.data" using 2:xtic(1),
+
+set output "supported-src.png"
+set title "Source packages supported during stable release cycles"
+
+plot "supported-src.data" using 2:xtic(1),

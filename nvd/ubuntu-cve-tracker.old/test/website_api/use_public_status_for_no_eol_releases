@@ -1,0 +1,22 @@
+PublicDateAtUSN: 2020-08-04 17:00:00 UTC
+Candidate: CVE-2020-1234
+CRD: 2020-08-04 17:00:00 UTC
+PublicDate: 2020-08-04 17:00:00 UTC
+References:
+ https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1234
+Description:
+ Publish CVEs to Website API tests
+Ubuntu-Description:
+Notes:
+Mitigation:
+Bugs:
+Priority: medium
+Discovered-by:
+Assigned-to:
+CVSS:
+
+
+Patches_package:
+upstream_package: needs-triage
+jammy_package: needed
+esm-apps/jammy_package: needs-triage

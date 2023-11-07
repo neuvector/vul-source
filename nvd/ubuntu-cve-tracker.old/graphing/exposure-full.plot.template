@@ -1,0 +1,19 @@
+set term png small size 640,480
+set output "exposure-full.png"
+
+#set key noenhanced
+
+#set auto x
+set key top left
+set xtics out
+set xlabel "Days"
+set ylabel "CVEs"
+
+set title "Exposure to Open CVEs"
+
+plot "exposure.data" using ($2+$3+$4+$5+$6+$7):xtic(1) with filledcurve x1 lc rgb 'black' title 'Critical', \
+     "exposure.data" using ($2+$3+$4+$5+$6):xtic(1) with filledcurve x1 lc rgb 'red' title 'High', \
+     "exposure.data" using ($2+$3+$4+$5):xtic(1) with filledcurve x1 lc rgb 'orange' title 'Medium', \
+     "exposure.data" using ($2+$3+$4):xtic(1) with filledcurve x1 lc rgb 'yellow' title 'Low', \
+     "exposure.data" using ($2+$3):xtic(1) with filledcurve x1 lc rgb 'grey' title 'Negligible', \
+     "exposure.data" using ($2):xtic(1) with filledcurve x1 lc rgb 'purple' title 'Untriaged'

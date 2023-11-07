@@ -1,0 +1,37 @@
+
+        <definition class="inventory" id="oval:com.ubuntu.bionic:def:100" version="1">
+           <metadata>
+              <title>Check that Ubuntu 18.04 LTS (bionic) is installed.</title>
+              <description></description>
+           </metadata>
+           <criteria>
+              <criterion test_ref="oval:com.ubuntu.bionic:tst:100" comment="Ubuntu 18.04 LTS (bionic) is installed." />
+           </criteria>
+        </definition>
+        <definition id="oval:com.ubuntu.bionic:def:43881000000" version="1" class="patch">
+           <metadata>
+              <title>4388-1 -- Linux kernel vulnerabilities</title>
+              <affected family="unix">
+                 <platform>Ubuntu 18.04 LTS</platform>
+              </affected>
+              <reference source="USN" ref_url="https://ubuntu.com/security/notices/USN-4388-1" ref_id="4388-1"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-0067.html" ref_id="CVE-2020-0067"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-0543.html" ref_id="CVE-2020-0543"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-12114.html" ref_id="CVE-2020-12114"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-12464.html" ref_id="CVE-2020-12464"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-12659.html" ref_id="CVE-2020-12659"/>
+              <reference source="CVE" ref_url="https://people.canonical.com/~ubuntu-security/cve/2020/CVE-2020-1749.html" ref_id="CVE-2020-1749"/>
+              <description>Several security issues were fixed in the Linux kernel.</description>
+              <advisory from="security@ubuntu.com">
+                 <severity>Medium</severity>
+                 <issued date="2020-06-09"/>
+                 <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
+              </advisory>
+           </metadata>
+           <criteria>
+              <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="?" />
+              <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="?" />
+              <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="?" />
+              <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="?" />
+           </criteria>
+        </definition>

@@ -1,0 +1,16 @@
+
+        <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:100" version="1" comment="Ubuntu 18.04 LTS">
+           <ind:subexpression datatype="string" operation="equals">bionic</ind:subexpression>
+        </ind:textfilecontent54_state>
+        <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000000" version="1">
+          <linux:evr datatype="evr_string" operation="less than">5.0.0.1042.27</linux:evr>
+        </linux:dpkginfo_state>
+        <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000010" version="1">
+          <linux:evr datatype="evr_string" operation="less than">5.0.0-1059.64</linux:evr>
+        </linux:dpkginfo_state>
+        <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000020" version="1">
+          <linux:evr datatype="evr_string" operation="less than">5.0.0.1059.58</linux:evr>
+        </linux:dpkginfo_state>
+        <linux:dpkginfo_state id="oval:com.ubuntu.bionic:ste:438810000030" version="1">
+          <linux:evr datatype="evr_string" operation="less than">5.0.0-1042.43</linux:evr>
+        </linux:dpkginfo_state>

@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# This script runs the publish script over the files starting with use_ in
+# this directory and stores the output in the json format. It has two purposes:
+#
+#  - To add new tests. Just create the new CVE starting with new_ and
+#    the json will be created after running this script.
+#
+#  - Everytime you run it, the jsons are recreated so if there is a change in
+#    the publish script, the json file will be different making it easy to
+#    spot the change.
+#
+
+SCRIPT=../../scripts/publish-cves-to-website-api.py
+
+shopt -s extglob
+for FILE in use_!(*.json); do
+	echo $FILE...
+	$SCRIPT -n -v --ignore-filename-check $FILE | grep -v "total CVEs" > $FILE.json
+	sed -i "s/'/\"/g;s/None/null/g" $FILE.json
+done

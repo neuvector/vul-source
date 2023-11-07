@@ -1,0 +1,32 @@
+# Boilerplate CVE files
+
+The files contained within the boilerplate directory are used to pre-populate various information within a CVE when it is created via active_edit. Each file specifies the name of a package (or an alias for that package) and when a new CVE file is created with that name, all the contents of the boilerplate file is used as the template for the CVE.
+
+ie. assuming a new CVE affects all versions of gcc, instead of having to manually add each to the new CVE file, the gcc boilerplate file can be used instead by simply specifying the package name as gcc:
+
+```
+./scripts/active-edit -p gcc -c CVE-YYYY-NNNN
+```
+
+Symlinks are used to add an alias for a particular package, which allows more convenient / standard naming of packages to be specified as well.
+
+
+## Use cases
+
+### Vendored code copies
+
+A common use-case is to represent the fact that one package is contained within another (ie. vendored into that package). This is useful, since if say package foo is contained within package bar, then every time a new CVE is raised against foo we also want to add bar to the CVE file so it can be appropriately triaged.
+
+This is done by creating a boilerplate file named foo with details for package foo but then also adding a Packages entry for bar, along with a Notes: entry describing the relationship between the two packages.
+
+A good example of this is the expat boilerplate.
+
+### Transitioned versioned packages
+
+Another common use-case is when an upstream package transitions to a new major release / edition and the associated source package in Ubuntu gets bumped to a new revision. In this case, both the original version of the package and the new version refer to the same upstream project and so CVEs for that project need to be created against all editions of the package.
+
+A good example of this is the gcc boilerplate which captures all the different editions of the gcc compiler across all the various Ubuntu releases.
+
+# Local Variables:
+# mode: markdown
+# End:

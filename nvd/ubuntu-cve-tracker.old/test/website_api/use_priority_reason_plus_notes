@@ -1,0 +1,29 @@
+PublicDateAtUSN: 2020-08-04 17:00:00 UTC
+Candidate: CVE-2020-1234
+CRD: 2020-08-04 17:00:00 UTC
+PublicDate: 2020-08-04 17:00:00 UTC
+References:
+ https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1234
+Description:
+ Publish CVEs to Website API tests
+Ubuntu-Description:
+Notes:
+ pfsmorigo> this is a note
+ sbeattie> this is another note. It contains for too many words for a
+   note. Why are there so many words in this note?
+Mitigation:
+Bugs:
+Priority: low
+ This is the reason the priority of this CVE is low. This cve is
+ priority low for a very good reason.
+Discovered-by:
+Assigned-to:
+CVSS:
+
+
+Patches_package:
+upstream_package: needs-triage
+trusty_package: released (1.2.3)
+trusty/esm_package: not-affected (1.2.3)
+jammy_package: released (4.5.6)
+esm-apps/jammy_package: not-affected (4.5.6)

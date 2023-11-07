@@ -1,0 +1,3 @@
+Although libav originally started as an ffmpeg fork, the codebases have
+diverged enough that it is no longer feasible to assume ffmpeg CVEs also
+apply to libav.

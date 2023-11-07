@@ -1,0 +1,17 @@
+
+set term png small size 640,480
+set output "usn-updates-6mon.png"
+
+set xdata time
+set timefmt "%Y-%m"
+set format x "  %Y-%m"
+set xtics out rotate
+set key top right
+
+# Template!  YYYY-MM is filled in by update.sh
+set xrange ["YYYY-MM":]
+
+set title "Monthly sum of each USN's Releases times CVEs (last 6 months)"
+
+plot "usn-updates.data" using 1:2 with filledcurve x1 lc rgb 'blue' title 'CVEs * Releases', \
+	"usn-updates.data.truncated" using 1:2 with line lc rgb 'green' notitle smooth bezier

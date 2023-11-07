@@ -1,0 +1,5 @@
+[run]
+branch = True
+include =
+    scripts/generate-oval
+    scripts/oval_lib.py

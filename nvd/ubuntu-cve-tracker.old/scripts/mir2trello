@@ -1,0 +1,39 @@
+#!/bin/bash
+# Author: Mark Morlino <mark.morlino@canonical.com>
+# Copyright (C) 2019 Canonical Ltd.
+#
+# This script is distributed under the terms and conditions of the GNU General
+# Public License, Version 2 or later. See http://www.gnu.org/copyleft/gpl.html
+# for details.
+#
+# query launchpad for MIR requests, run uaudit and create trello cards
+
+
+# export some TRELLO vars to override defaults in ~/.trello.conf
+export TRELLO_BOARD="Security Team"
+export TRELLO_LANE="MIR backlog"
+export TRELLO_EXCLUDE_LANES="Completed,DONE"
+COV_URL="http://10.246.74.221:8079"
+AUDIT_DIR=${AUDIT_DIR:-${HOME}/ubuntu/security/audits}
+[[ -d "$AUDIT_DIR" ]] || mkdir -p "$AUDIT_DIR"
+RELEASE=$(grep -E '^release_devel=' ~/.ubuntu-security-tools.conf | cut -d= -f 2 | tr -dc '[:lower:]')
+SRCS=$("$UCT/scripts/report-todo-mir" | awk '/^=== Source: / {print $3}')
+
+for SRC in $SRCS ; do
+    echo "package $SRC found in report-todo-mir output"
+    CARD=$("$UCT/scripts/trello_lib.py" --board "$TRELLO_BOARD" --find "[MIR] $SRC")
+    if [[ -n "$CARD" ]] ; then
+	    echo "found existing MIR trello card (${CARD}) for $SRC on the $TRELLO_BOARD trello board"
+    else
+        echo "No existing MIR trello card for $SRC on the $TRELLO_BOARD trello board"
+	if [[ ! -f "${AUDIT_DIR}/${SRC}/${RELEASE}/audits/coverity.txt" ]]  ; then
+	    echo "Running uaudit $SRC in $AUDIT_DIR"
+            uaudit "$SRC"
+	else
+	    echo "Found ${AUDIT_DIR}/${SRC}/${RELEASE}/audits/coverity.txt, not re-running uaudit"
+        fi
+	echo "Creating new trello card for $SRC in the $TRELLO_LANE lane on the $TRELLO_BOARD trello board"
+        "$UCT/scripts/trello_lib.py" --board "$TRELLO_BOARD" --lane "$TRELLO_LANE" --new "[MIR] $SRC" "$SRC coverity scan results uploaded to $COV_URL"
+    fi
+    echo
+done

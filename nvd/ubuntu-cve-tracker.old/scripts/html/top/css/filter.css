@@ -1,0 +1,11 @@
+#filter #filter-criteria{
+    display: inline;
+}
+
+button {
+    margin: 8px 8px 0px 0px;
+}
+
+#field-selector, #filter-criteria-regex, #filter-criteria-selector {
+    margin: 8px 8px 0px 0px;
+}
