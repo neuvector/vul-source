@@ -591,6 +591,10 @@
         "description": "GRand Unified Bootloader",
         "title": "GRUB 2"
     },
+    "gsl": {
+        "description": "A modern numerical library for C and C++ programmers",
+        "title": "GNU Scientific Library"
+    },
     "gst-plugins-base0.10": {
         "description": "GStreamer plugins",
         "title": "GStreamer Base Plugins"
