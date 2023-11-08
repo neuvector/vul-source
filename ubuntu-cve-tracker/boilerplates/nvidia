@@ -413,3 +413,13 @@ lunar_nvidia-graphics-drivers-535: needs-triage
 mantic_nvidia-graphics-drivers-535: needs-triage
 devel_nvidia-graphics-drivers-535: needs-triage
 
+Patches_nvidia-graphics-drivers-535-server:
+upstream_nvidia-graphics-drivers-535-server: needs-triage
+trusty_nvidia-graphics-drivers-535-server: DNE
+xenial_nvidia-graphics-drivers-535-server: DNE
+focal_nvidia-graphics-drivers-535-server: needs-triage
+jammy_nvidia-graphics-drivers-535-server: needs-triage
+lunar_nvidia-graphics-drivers-535-server: needs-triage
+mantic_nvidia-graphics-drivers-535-server: needs-triage
+devel_nvidia-graphics-drivers-535-server: needs-triage
+
