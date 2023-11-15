@@ -2907,6 +2907,10 @@
         "description": "Mozilla Open Source mail and newsgroup client",
         "title": "Thunderbird"
     },
+    "tidy-html5": {
+        "description": "HTML/XML syntax checker and reformatter",
+        "title": "HTML Tidy"
+    },
     "tiff": {
         "description": "Tag Image File Format (TIFF) library",
         "title": "LibTIFF"
