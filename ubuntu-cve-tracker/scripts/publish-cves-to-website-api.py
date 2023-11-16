@@ -378,6 +378,21 @@ def main(argv=None):
 
     return cves
 
+def report_cves_in_collection(cve_collection, outfile=sys.stdout):
+
+    # turn the full cve structures into just a dict of CVEs with a list
+    # of packages as the elements, to limit the amount of output when
+    # reporting errors
+    simple_cves = dict()
+
+    for cve_entry in cve_collection:
+        packages = []
+        if 'packages' in cve_entry:
+            for package in cve_entry['packages']:
+                packages.append(package['name'])
+        simple_cves[cve_entry['id']] = packages
+        print(json.dumps(simple_cves, indent=2), file=outfile)
+
 def push_chunks(args, url, chunk):
     if args.verbose:
         print(json.dumps(chunk, indent=2))
@@ -386,8 +401,8 @@ def push_chunks(args, url, chunk):
     resp = authentication("PUT", f"{url}{security_website_endpoint}", chunk)
     print(resp, str(resp.text).rstrip()[0:4096])
     if args.stop and not OK_REGEX.match(str(resp)):
-        print("CHUNK FAILED")
-        pprint.pprint(chunk)
+        print("PUSH FAILED", file=sys.stderr)
+        report_cves_in_collection(chunk, outfile=sys.stderr)
         sys.exit(1)
 
 def push_individual_cves(args, url, chunk):
@@ -399,8 +414,8 @@ def push_individual_cves(args, url, chunk):
         resp = authentication("PUT", f"{url}{security_website_endpoint}", [cve])
         print(resp, str(resp.text).rstrip()[0:4096])
         if args.stop and not OK_REGEX.match(str(resp)):
-            print("CVE FAILED")
-            pprint.pprint(cve)
+            print("CVE FAILED", file=sys.stderr)
+            report_cves_in_collection([cve], outfile=sys.stderr)
             sys.exit(1)
 
 if __name__ == "__main__":
