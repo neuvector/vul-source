@@ -1242,7 +1242,7 @@ class OvalGeneratorCVE:
 
         self.release = release
         # e.g. codename for trusty/esm should be trusty
-        self.release_codename = parent if parent else self.release.replace('/', '_')
+        self.release_codename = cve_lib.release_progenitor(release) if cve_lib.release_progenitor(release) else self.release.replace('/', '_')
         self.release_name = release_name
         self.warn = warn_method or self.warn
         self.tmpdir = tempfile.mkdtemp(prefix='oval_lib-')
@@ -1437,7 +1437,7 @@ class OvalGeneratorCVE:
         mapping = {
             'ns': self.ns,
             'id_base': self.id,
-            'codename': cve_lib.product_series(self.release)[1],
+            'codename': self.release_codename,
             'release_name': self.release_name,
         }
         self.release_applicability_definition_id = \
@@ -2016,8 +2016,9 @@ class OvalGeneratorUSN():
     oval_schema_version = '5.11.1'
     priorities = {'negligible': 0, 'low': 1, 'medium': 2, 'high': 3, 'critical': 4}
 
-    def __init__(self, release_codename, release_name, outdir='./', cve_dir=None, prefix='', oval_format='dpkg'):
-        self.release_codename = release_codename.replace('/', '_')
+    def __init__(self, release, release_name, outdir='./', cve_dir=None, prefix='', oval_format='dpkg'):
+        self.release = release
+        self.release_codename = cve_lib.release_progenitor(release) if cve_lib.release_progenitor(release) else self.release.replace('/', '_')
         self.release_name = release_name
         self.pocket = "security"
         self.product_description = None
@@ -2030,6 +2031,7 @@ class OvalGeneratorUSN():
             '{0}com.ubuntu.{1}.usn.oval.xml'.format(prefix, self.release_codename)
         self.ns = 'oval:com.ubuntu.{0}'.format(self.release_codename)
         self.id = 100
+        self.release_applicability_definition_id = '{0}:def:{1}'.format(self.ns, self.id)
         self.oval_structure = None
         self.load_oval_file_structures()
         self.create_release_oval_info()
@@ -2066,24 +2068,18 @@ class OvalGeneratorUSN():
     # TODO: xml lib
     def create_release_definition(self):
         if self.oval_format == 'dpkg':
-            mapping = {
-                'id': self.id,
-                'ns': self.ns,
-                'title': "Check that {} ({})".format(self.release_name, self.release_codename),
-                'comment': "{} ({})".format(self.release_name, self.release_codename)
-            }
-
             definition =\
-        """
-        <definition class="inventory" id="{ns}:def:{id}" version="1">
+        f"""
+        <definition class="inventory" id="{self.ns}:def:{self.id}" version="1">
             <metadata>
-                <title>{title} is installed.</title>
+                <title>Check that {self.release_name} ({self.release_codename}) is installed.</title>
                 <description></description>
             </metadata>
             <criteria>
-                <criterion test_ref="{ns}:tst:{id}" comment="{comment} is installed." />
+                <criterion test_ref="{self.ns}:tst:{self.id}" comment="The host is part of the unix family." />
+                <criterion test_ref="{self.ns}:tst:{self.id+1}" comment="The host is running {self.release_name} ({self.release_codename})." />
             </criteria>
-        </definition>""".format(**mapping)
+        </definition>"""
         else:
             definition = ""
 
@@ -2092,18 +2088,16 @@ class OvalGeneratorUSN():
     # TODO: xml lib
     def create_release_test(self):
         if self.oval_format == 'dpkg':
-            mapping = {
-                'id': self.id,
-                'ns': self.ns,
-                'comment': "{} ({})".format(self.release_name, self.release_codename)
-            }
-
             test =\
-        """
-        <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="{ns}:tst:{id}" version="1" comment="{comment} is installed.">
-            <ind:object object_ref="{ns}:obj:{id}" />
-            <ind:state state_ref="{ns}:ste:{id}" />
-        </ind:textfilecontent54_test>""".format(**mapping)
+        f"""
+        <ind:family_test id="{self.ns}:tst:{self.id}" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host part of the unix family?">
+            <ind:object object_ref="{self.ns}:obj:{self.id}"/>
+            <ind:state state_ref="{self.ns}:ste:{self.id}"/>
+        </ind:family_test>
+        <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="{self.ns}:tst:{self.id+1}" version="1" comment="Is the host running Ubuntu {self.release_codename}?">
+            <ind:object object_ref="{self.ns}:obj:{self.id+1}" />
+            <ind:state state_ref="{self.ns}:ste:{self.id+1}" />
+        </ind:textfilecontent54_test>"""
         else:
             test = ""
 
@@ -2112,18 +2106,14 @@ class OvalGeneratorUSN():
     # TODO: xml lib
     def create_release_object(self):
         if self.oval_format == 'dpkg':
-            mapping = {
-                'id': self.id,
-                'ns': self.ns,
-            }
-
             _object =\
-        """
-        <ind:textfilecontent54_object id="{ns}:obj:{id}" version="1">
+        f"""
+        <ind:family_object id="{self.ns}:obj:{self.id}" version="1" comment="The singleton family object."/>
+        <ind:textfilecontent54_object id="{self.ns}:obj:{self.id+1}" version="1">
             <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
                 <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
             <ind:instance datatype="int">1</ind:instance>
-        </ind:textfilecontent54_object>""".format(**mapping)
+        </ind:textfilecontent54_object>"""
         else:
             _object = ""
 
@@ -2132,18 +2122,14 @@ class OvalGeneratorUSN():
     # TODO: xml lib
     def create_release_state(self):
         if self.oval_format == 'dpkg':
-            mapping = {
-                'id': self.id,
-                'ns': self.ns,
-                'comment': "{}".format(self.release_name),
-                'release_codename': self.release_codename,
-            }
-
             state =\
-        """
-        <ind:textfilecontent54_state id="{ns}:ste:{id}" version="1" comment="{comment}">
-            <ind:subexpression datatype="string" operation="equals">{release_codename}</ind:subexpression>
-        </ind:textfilecontent54_state>""".format(**mapping)
+        f"""
+        <ind:family_state id="{self.ns}:ste:{self.id}" version="1" comment="The singleton family object.">
+            <ind:family>unix</ind:family>
+        </ind:family_state>
+        <ind:textfilecontent54_state id="{self.ns}:ste:{self.id+1}" version="1" comment="{self.release_name}">
+            <ind:subexpression datatype="string" operation="equals">{self.release_codename}</ind:subexpression>
+        </ind:textfilecontent54_state>"""
         else:
             state = ""
 
@@ -2220,13 +2206,15 @@ class OvalGeneratorUSN():
 
         usn_severity = self.get_usn_severity([self.priorities[cve['Priority']]
                                                         for cve in cves_info])
-
         mapping = {
             'id': id_base,
             'usn_id': usn_object['id'],
             'ns': self.ns,
             'title': "{} -- {}".format(usn_object['id'], usn_object['title']),
-            'platform': "{}".format(self.release_name),
+            'codename': escape(self.release_codename),
+            'release_name': escape(self.release_name),
+            'applicability_def_id': escape(
+                self.release_applicability_definition_id),
             'usn_url': self.usn_base_url.format(usn_object['id']),
             'description': escape(' '.join((usn_object['description'].strip() + instructions).split('\n'))),
             'cves_references': cve_references,
@@ -2237,25 +2225,32 @@ class OvalGeneratorUSN():
             'criteria': '',
         }
 
+        if self.oval_format == 'dpkg':
+            mapping['os_release_check'] = """<extend_definition definition_ref="{applicability_def_id}" comment="{release_name} ({codename}) is installed." applicability_check="true" />""".format(**mapping)
+        else:
+            mapping['os_release_check'] = ""
+
         # convert number versions of binary pkgs into test criteria
         criteria = []
         kernel = False
+        criteria.append('<criteria operator="OR">')
         for test_ref in test_refs:
             if self.pocket == 'livepatch' and self.oval_format == 'dpkg':
-                criteria.append('<criteria operator="AND">')
-                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, str(int(test_ref['testref_id']) + 1), self.product_description))
-                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
-                criteria.append('</criteria>')
+                criteria.append('    <criteria operator="AND">')
+                criteria.append('        <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, str(int(test_ref['testref_id']) + 1), self.product_description))
+                criteria.append('        <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    </criteria>')
             elif 'kernel' in test_ref and self.oval_format == 'dpkg':
                 kernel = True
-                criteria.append('<criteria operator="AND">')
-                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    <criteria operator="AND">')
+                criteria.append('        <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
             elif kernel:
                 kernel = False
-                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
-                criteria.append('</criteria>')
+                criteria.append('        <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    </criteria>')
             else:
-                criteria.append('<criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+                criteria.append('    <criterion test_ref="{0}:tst:{1}" comment="{2}" />'.format(self.ns, test_ref['testref_id'], self.product_description))
+        criteria.append('</criteria>')
 
         mapping['criteria'] = '\n                '.join(criteria)
 
@@ -2265,7 +2260,7 @@ class OvalGeneratorUSN():
             <metadata>
                 <title>{title}</title>
                 <affected family="unix">
-                    <platform>{platform}</platform>
+                    <platform>{release_name}</platform>
                 </affected>
                 <reference source="USN" ref_id="{usn_id}" ref_url="{usn_url}"/>
                 {cves_references}
@@ -2277,7 +2272,8 @@ class OvalGeneratorUSN():
                     {bug_references}
                 </advisory>
             </metadata>
-            <criteria operator="OR">
+            <criteria>
+                {os_release_check}
                 {criteria}
             </criteria>
         </definition>""".format(**mapping)

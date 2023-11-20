@@ -32,6 +32,7 @@ class MockOvalGeneratorUSN(oval_lib.OvalGeneratorUSN):
         self.testdict = {}
         self.ns = 'oval:com.ubuntu.{}'.format(self.release_codename)
         self.id = 100
+        self.release_applicability_definition_id = '{0}:def:{1}'.format(self.ns, self.id)
         self.oval_format = oval_format
 
     def file_cleanup(self):
@@ -109,14 +110,17 @@ class TestOvalLibUnit:
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
-            <criteria operator="OR">
-                <criteria operator="AND">
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
-                </criteria>
-                <criteria operator="AND">
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.bionic:def:100" comment="Ubuntu 18.04 LTS (bionic) is installed." applicability_check="true" />
+                <criteria operator="OR">
+                    <criteria operator="AND">
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
+                    </criteria>
+                    <criteria operator="AND">
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+                    </criteria>
                 </criteria>
             </criteria>
         </definition>"""
@@ -127,7 +131,7 @@ class TestOvalLibUnit:
                 <reference source="CVE" ref_id="CVE-2020-12464" ref_url="https://ubuntu.com/security/CVE-2020-12464"/>
                 <reference source="CVE" ref_id="CVE-2020-12659" ref_url="https://ubuntu.com/security/CVE-2020-12659"/>
                 <reference source="CVE" ref_id="CVE-2020-1749" ref_url="https://ubuntu.com/security/CVE-2020-1749"/>"""
-    
+
     cve_tags_mock = """<cve href="https://ubuntu.com/security/CVE-2020-0067" priority="medium" public="20200417" cvss_score="4.4" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0067</cve>
                     <cve href="https://ubuntu.com/security/CVE-2020-0543" priority="medium" public="20200609" cvss_score="5.5" cvss_vector="CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N" cvss_severity="medium">CVE-2020-0543</cve>
                     <cve href="https://ubuntu.com/security/CVE-2020-12114" priority="medium" public="20200504" cvss_score="4.7" cvss_vector="CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H" cvss_severity="medium">CVE-2020-12114</cve>
@@ -304,14 +308,17 @@ class TestOvalLibUnit:
                     <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SRBDS</ref>
                 </advisory>
             </metadata>
-            <criteria operator="OR">
-                <criteria operator="AND">
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
-                </criteria>
-                <criteria operator="AND">
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
-                    <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.bionic:def:100" comment="Ubuntu 18.04 LTS (bionic) is installed." applicability_check="true" />
+                <criteria operator="OR">
+                    <criteria operator="AND">
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000000" comment="Long Term Support" />
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000010" comment="Long Term Support" />
+                    </criteria>
+                    <criteria operator="AND">
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000020" comment="Long Term Support" />
+                        <criterion test_ref="oval:com.ubuntu.bionic:tst:438810000030" comment="Long Term Support" />
+                    </criteria>
                 </criteria>
             </criteria>
         </definition>"""
@@ -339,7 +346,8 @@ No subscription required"""
                 <description></description>
             </metadata>
             <criteria>
-                <criterion test_ref="oval:com.ubuntu.bionic:tst:100" comment="Ubuntu 18.04 LTS (bionic) is installed." />
+                <criterion test_ref="oval:com.ubuntu.bionic:tst:100" comment="The host is part of the unix family." />
+                <criterion test_ref="oval:com.ubuntu.bionic:tst:101" comment="The host is running Ubuntu 18.04 LTS (bionic)." />
             </criteria>
         </definition>"""
 
@@ -358,9 +366,13 @@ No subscription required"""
 
     def test_create_release_test(self):
         release_test_mock = """
-        <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="oval:com.ubuntu.bionic:tst:100" version="1" comment="Ubuntu 18.04 LTS (bionic) is installed.">
-            <ind:object object_ref="oval:com.ubuntu.bionic:obj:100" />
-            <ind:state state_ref="oval:com.ubuntu.bionic:ste:100" />
+        <ind:family_test id="oval:com.ubuntu.bionic:tst:100" check="at least one" check_existence="at_least_one_exists" version="1" comment="Is the host part of the unix family?">
+            <ind:object object_ref="oval:com.ubuntu.bionic:obj:100"/>
+            <ind:state state_ref="oval:com.ubuntu.bionic:ste:100"/>
+        </ind:family_test>
+        <ind:textfilecontent54_test check="at least one" check_existence="at_least_one_exists" id="oval:com.ubuntu.bionic:tst:101" version="1" comment="Is the host running Ubuntu bionic?">
+            <ind:object object_ref="oval:com.ubuntu.bionic:obj:101" />
+            <ind:state state_ref="oval:com.ubuntu.bionic:ste:101" />
         </ind:textfilecontent54_test>"""
 
         test_ret = oval_lib.OvalGeneratorUSN.create_release_test(
@@ -370,7 +382,8 @@ No subscription required"""
 
     def test_create_release_obj(self):
         release_obj_mock = r"""
-        <ind:textfilecontent54_object id="oval:com.ubuntu.bionic:obj:100" version="1">
+        <ind:family_object id="oval:com.ubuntu.bionic:obj:100" version="1" comment="The singleton family object."/>
+        <ind:textfilecontent54_object id="oval:com.ubuntu.bionic:obj:101" version="1">
             <ind:filepath datatype="string">/etc/lsb-release</ind:filepath>
                 <ind:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind:pattern>
             <ind:instance datatype="int">1</ind:instance>
@@ -383,7 +396,10 @@ No subscription required"""
 
     def test_create_release_state(self):
         release_state_mock = """
-        <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:100" version="1" comment="Ubuntu 18.04 LTS">
+        <ind:family_state id="oval:com.ubuntu.bionic:ste:100" version="1" comment="The singleton family object.">
+            <ind:family>unix</ind:family>
+        </ind:family_state>
+        <ind:textfilecontent54_state id="oval:com.ubuntu.bionic:ste:101" version="1" comment="Ubuntu 18.04 LTS">
             <ind:subexpression datatype="string" operation="equals">bionic</ind:subexpression>
         </ind:textfilecontent54_state>"""
 
@@ -429,7 +445,7 @@ No subscription required"""
                 }],
                 'CVE_URL': 'https://ubuntu.com/security/CVE-TEST',
                 'MITRE_URL': 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-TEST',
-                'References': ['', 
+                'References': ['',
                                'http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9999',
                                'http://www.openwall.com/lists/oss-security/foo']
         }
