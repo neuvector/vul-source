@@ -7868,3 +7868,5 @@
 2023-11-17 13:48:47 UTC - 4 added, 7 ignored, 0 skipped, 11 total - files: ['debian-import_be9ca70d.json']
 2023-11-19 23:44:05 UTC - 0 added, 68 ignored, 0 skipped, 68 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-2023.json', 'nvdcve-1.1-recent.json']
 2023-11-19 23:58:01 UTC - 2 added, 0 ignored, 0 skipped, 2 total - files: ['debian-import_l2nzeh87.json']
+2023-11-21 00:44:48 UTC - 2 added, 65 ignored, 0 skipped, 67 total - files: ['nvdcve-1.1-recent.json']
+2023-11-21 00:48:33 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['debian-import_wzv2536y.json']
