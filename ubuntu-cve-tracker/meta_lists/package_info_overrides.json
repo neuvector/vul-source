@@ -2939,6 +2939,10 @@
         "description": "Queuing system for the sequential distribution of jobs",
         "title": "Torque"
     },
+    "tracker-miners": {
+        "description": "Metadata database, indexer and search tool",
+        "title": "tracker-miners"
+    },
     "twisted": {
         "description": "Event-based framework for internet applications",
         "title": "Twisted"
