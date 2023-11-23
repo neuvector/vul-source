@@ -3151,6 +3151,10 @@
         "description": "lightweight messaging kernel",
         "title": "ZeroMQ"
     },
+    "zfs-linux": {
+        "description": "OpenZFS filesystem for Linux",
+        "title": "OpenZFS"
+    },
     "zipios++": {
         "description": "A C++ library for reading and writing Zip files using streams",
         "title": "Zipios"
