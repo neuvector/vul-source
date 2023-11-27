@@ -898,6 +898,17 @@ def get_subproject_description(rel):
 
     return description
 
+def is_cve_triage_required(rel):
+    """Check if CVE triage is required for a given release"""
+    if rel not in external_releases:
+        return True
+    
+    try:
+        _,_,_,details = get_subproject_details(rel)
+        return details['support_metadata']['cve_triage']
+    except KeyError:
+        # Taking the safe option here
+        return True
 
 def get_external_subproject_cve_dir(subproject):
     """Get the directory where CVE files are stored for the subproject.

@@ -540,6 +540,11 @@ def check_cve(cve):
             # only warn on active CVEs
             if is_active(cve) and \
                rel in source and pkg in source[rel]:
+                
+                # If the subproject doesn't require cve triage,
+                # we shouldn't add any entries to the CVE
+                if not cve_lib.is_cve_triage_required(rel): continue
+
                 filename = srcmap["pkgs"][pkg][nearby_rel][0]
                 linenum = srcmap["pkgs"][pkg][nearby_rel][1]
                 print(

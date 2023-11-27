@@ -138,6 +138,10 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
             elif pkgs_from_generic:
                 pkgs_to_add = pkgs_from_generic
 
+            # If the subproject doesn't require cve triage,
+            # we shouldn't add any entries to the CVE
+            if not cve_lib.is_cve_triage_required(rel): continue
+
             for pkg in pkgs_to_add:
                 rel_pkgname = rel + '/' + pkg
                 if not rel_pkgname in added_rel_pkg:
