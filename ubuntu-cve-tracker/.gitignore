@@ -4,6 +4,7 @@
 allitems.xml*
 nvdcve*.xml*
 nvdcve*.json*
+/nvd-database
 database.pickle*
 database-all.pickle*
 embargoed

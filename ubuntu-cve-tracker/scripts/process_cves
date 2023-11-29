@@ -38,8 +38,8 @@ download() {
         wget -N "$url" ||:
         gunzip -f "$file"
     else
-        echo "rsync -vz --progress \"$url\" ."
-        rsync -vz --progress "$url" .
+        echo "rsync -avz --progress \"$url\" ."
+        rsync -avz --progress "$url" .
     fi
     echo "---"
 }
@@ -97,9 +97,12 @@ update_debian() {
 }
 
 update_files() {
+    # deprecate NVD 1.0 data in 2024
     download "${mitre_loc:-https://cve.mitre.org/data/downloads}/allitems.xml"
     download_yearly_files
     download "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json"
+    # NVD 2.0 API will replace and become nvd_loc in December 2023
+    download "${nvd2_loc:-people.canonical.com:/home/ubuntu-security/nvd-database}"
 }
 
 full_refresh() {
