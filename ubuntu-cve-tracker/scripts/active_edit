@@ -91,11 +91,10 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
             fixed_in_release_version = fixed[p][2]
     for rel in ['upstream'] + cve_lib.release_sort(list(source.keys())):
         aliases = source_map.get_aliases_of_ubuntu_package(source, p, rel)
-        pkgs_from_generic = source_map.get_packages_from_generic_name(source, p, rel)
         # determine default state but override this if pkg_db has a
         # better one
         state = "needs-triage"
-        if not pkg_in_rel(p, rel) and not aliases and not pkgs_from_generic:
+        if not pkg_in_rel(p, rel) and not aliases:
             # package doesn't exist in this release - see if it wants a
             # DNE entry
             if release_wants_dne(rel):
@@ -135,8 +134,6 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
             pkgs_to_add = [p]
             if aliases:
                 pkgs_to_add = aliases
-            elif pkgs_from_generic:
-                pkgs_to_add = pkgs_from_generic
 
             # If the subproject doesn't require cve triage,
             # we shouldn't add any entries to the CVE
@@ -154,8 +151,7 @@ def add_pkg(p, fp, fixed, parent, embargoed):
     add = False
     for r in source.keys():
         aliases = source_map.get_all_aliases(source, r)
-        pkgs_from_generic = source_map.get_packages_from_generic_name(source, p, r)
-        add |= p in source[r] or p in aliases or len(pkgs_from_generic) > 0
+        add |= p in source[r] or p in aliases
     if add:
         _add_pkg(p, fp, fixed, parent, embargoed)
 

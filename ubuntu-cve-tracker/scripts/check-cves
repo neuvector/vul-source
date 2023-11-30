@@ -933,13 +933,6 @@ class CVEHandler(xml.sax.handler.ContentHandler):
                             external_subprojects.setdefault(subproject, set()).add(hint)
                     elif hint in aliases:
                         external_subprojects.setdefault(subproject, set()).add(hint)
-                    else:
-                        pkgs = source_map.get_packages_from_generic_name(source, hint, subproject)
-                        for pkg in pkgs:
-                            if 'aliases' in source[subproject][pkg]:
-                                external_subprojects.setdefault(subproject, set()).add(','.join(source[subproject][pkg]['aliases']))
-                            else:
-                                external_subprojects.setdefault(subproject, set()).add(hint)
 
         return external_subprojects
 

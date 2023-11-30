@@ -18,6 +18,7 @@ trusty/esm_openjdk-8: DNE
 xenial_openjdk-8: ignored (end of standard support)
 esm-infra/xenial_openjdk-8: needs-triage
 bionic_openjdk-8: ignored (end of standard support)
+esm-apps/bionic_openjdk-8: needs-triage
 focal_openjdk-8: needs-triage
 jammy_openjdk-8: needs-triage
 lunar_openjdk-8: needs-triage
@@ -82,6 +83,7 @@ trusty_openjdk-17: DNE
 trusty/esm_openjdk-17: DNE
 xenial_openjdk-17: DNE
 bionic_openjdk-17: ignored (end of standard support)
+esm-apps/bionic_openjdk-17: needs-triage
 focal_openjdk-17: needs-triage
 jammy_openjdk-17: needs-triage
 lunar_openjdk-17: needs-triage
@@ -121,9 +123,9 @@ xenial_openjdk-20: DNE
 bionic_openjdk-20: DNE
 focal_openjdk-20: DNE
 jammy_openjdk-20: DNE
-lunar_openjdk-20: needs-triage
-mantic_openjdk-20: needs-triage
-devel_openjdk-20: needs-triage
+lunar_openjdk-20: ignored (superseded by openjdk-21)
+mantic_openjdk-20: ignored (superseded by openjdk-21)
+devel_openjdk-20: ignored (superseded by openjdk-21)
 
 Patches_openjdk-21:
 upstream_openjdk-21: needs-triage

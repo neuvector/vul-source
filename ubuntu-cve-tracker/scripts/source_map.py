@@ -416,16 +416,6 @@ def get_aliases_of_ubuntu_package(sources, pkg_name, rel):
                 aliases.append(pkg)
     return aliases
 
-def get_packages_from_generic_name(sources, generic_name, rel):
-    pkgs = []
-    if not rel in sources:
-        return pkgs
-
-    for pkg in sources[rel]:
-        if 'generic_name' in sources[rel][pkg] and sources[rel][pkg]['generic_name'] == generic_name:
-            pkgs.append(pkg)
-    return pkgs
-
 def load_subprojects_lists(releases=None):
     map = dict()
 
@@ -486,18 +476,13 @@ def load_subprojects_lists(releases=None):
                     else:
                         map[rel][pkg]['section'] = 'main'
 
-                    if '|' in pkg:
-                        main_package_name = pkg.split('|')[0]
-                        map[rel][pkg]['generic_name'] = main_package_name
-
             if 'aliases' in details:
                 with open(details['aliases'], 'r') as file:
                     aliases = yaml.safe_load(file)
 
                     for pkg in aliases:
                         for src_pkg in map[rel]:
-                            if pkg == src_pkg or \
-                                ('generic_name' in map[rel][src_pkg] and pkg == map[rel][src_pkg]['generic_name']):
+                            if pkg == src_pkg:
                                 map[rel][src_pkg]['aliases'] = aliases[pkg]
                             #else:
                             #    print("WARN: pkg %s found in aliases but not in supported list for %s. Skipping" % (pkg, rel))

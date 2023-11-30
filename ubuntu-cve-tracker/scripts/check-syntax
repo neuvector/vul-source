@@ -139,16 +139,6 @@ def get_pkgs_from_aliases(sources, aliases, pkg, rel):
     aliases[rel][pkg] = source_map.get_aliases_of_ubuntu_package(sources, pkg, rel)
     return aliases[rel][pkg]
 
-def get_pkgs_from_generic(sources, generics, pkg, rel):
-    if rel in generics:
-        if pkg in generics[rel]:
-            return generics[rel][pkg]
-    else:
-        generics[rel] = {}
-
-    generics[rel][pkg] = source_map.get_packages_from_generic_name(sources, pkg, rel)
-    return generics[rel][pkg]
-
 def subprocess_setup():
     # Python installs a SIGPIPE handler by default. This is usually not what
     # non-Python subprocesses expect.
@@ -391,7 +381,6 @@ if len(cna_cves_set) > 0 and all_files:
               % (cna_cves_set[cve][0], cna_cves_set[cve][1], cve))
 
 aliases_cache = {}
-generics_cache = {}
 
 def check_cve(cve):
     if re.match(r"EMB-", cve):
@@ -475,23 +464,23 @@ def check_cve(cve):
                     continue
 
             if rel in source:
-                skip_aliases_generics = False
+                skip_aliases = False
                 if not 'soss' in rel:
                     _, series = cve_lib.product_series(rel)
                     # If the series is not listed in the original CVE,
                     # we won't create the CVE in the subproject.
                     if not is_active(cve) and series not in listed_series:
-                        skip_aliases_generics = True
+                        skip_aliases = True
 
                     # We are not adding CVEs in ignored.
                     if "ignored/" in cvepath:
-                        skip_aliases_generics = True
+                        skip_aliases = True
 
-                if not skip_aliases_generics:
-                    aliases_or_generics = False
+                if not skip_aliases:
+                    aliases = False
                     pkgs_from_aliases = get_pkgs_from_aliases(source, aliases_cache, pkg, rel)
                     if pkgs_from_aliases:
-                        aliases_or_generics = True
+                        aliases = True
                         aliases_releases.add(rel)
 
                         for pkg_alias in pkgs_from_aliases:
@@ -505,26 +494,10 @@ def check_cve(cve):
                                     file=sys.stderr,
                                 )
                                 cve_okay = False
-                                
-                    pkgs_from_generic = get_pkgs_from_generic(source, generics_cache, pkg, rel)
-                    if pkgs_from_generic:
-                        aliases_or_generics = True
-                        aliases_releases.add(rel)
-                        for curr_pkg in pkgs_from_generic:
-                            if curr_pkg not in data["pkgs"].keys():
-                                filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                                linenum = srcmap["pkgs"][pkg][nearby_rel][1]
-                                print(
-                                    "%s: %d: %s missing release '%s'"
-                                    # put the error on a line near where this entry should go
-                                    % (filename, linenum, curr_pkg, rel),
-                                    file=sys.stderr,
-                                )
-                                cve_okay = False
 
-                    # This package-release uses aliases or generic names,
+                    # This package-release uses aliases,
                     # it shouldn't be listed
-                    if aliases_or_generics:
+                    if aliases:
                         if rel in listed_releases and pkg \
                             not in pkgs_from_aliases:
                             filename = srcmap["pkgs"][pkg][nearby_rel][0]
