@@ -134,7 +134,7 @@ trusty/esm_openjdk-21: DNE
 xenial_openjdk-21: DNE
 bionic_openjdk-21: DNE
 focal_openjdk-21: DNE
-jammy_openjdk-21: DNE
+jammy_openjdk-21: needs-triage
 lunar_openjdk-21: needs-triage
 mantic_openjdk-21: needs-triage
 devel_openjdk-21: needs-triage

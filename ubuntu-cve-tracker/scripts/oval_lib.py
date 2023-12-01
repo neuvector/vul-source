@@ -407,9 +407,17 @@ class Package:
             if source_version in self.versions_binaries or self.all_binaries_same_version(source_version):
                 return source_version
             else:
-                if source_version and apt_pkg.version_compare(source_version, self.latest_version) > 0:
-                    pass
-                    #print(f'Wrong CVE entry version {source_version} - latest for package {self.name} in {self.rel} is {self.latest_version}')
+                if source_version:
+                    if apt_pkg.version_compare(source_version, self.latest_version) > 0:
+                        print(f'Wrong CVE entry version {source_version} - latest for package {self.name} in {self.rel} is {self.latest_version}')
+                        return self.latest_version
+                    elif apt_pkg.version_compare(source_version, self.earliest_version) < 0:
+                        return self.earliest_version
+                    else:
+                        for version in self.versions_binaries:
+                            if apt_pkg.version_compare(version, source_version) > 0:
+                                print(f'CVE entry version in the middle {source_version} - for package {self.name} in {self.rel} is {self.earliest_version}- {self.latest_version} - using {version} instead')
+                                return version
 
                 return self.earliest_version
 

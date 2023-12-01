@@ -216,7 +216,7 @@ def create_or_update_cve(cve, packages, priority=None, bug_urls=None, ref_urls=N
             print('Candidate: %s' % (cve), file=fp)
             print('PublicDate: %s' % (public_date if public_date else "unknown"), file=fp)
             if embargoed:
-                print('CRD: %s' % (public_date if public_date else "<TBD>"), file=fp)
+                print('CRD: %s' % (public_date if public_date else "unknown"), file=fp)
             print('References:\n https://cve.mitre.org/cgi-bin/cvename.cgi?name=%s' % (cve), file=fp)
             for url in (ref_urls if ref_urls else []):
                 print(" %s" % url, file=fp)
