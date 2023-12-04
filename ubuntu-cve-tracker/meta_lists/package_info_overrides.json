@@ -2715,6 +2715,10 @@
         "description": "Persistent key-value database with network interface",
         "title": "Redis"
     },
+    "request-tracker4": {
+        "description": "An enterprise-grade issue tracking system",
+        "title": "Request Tracker"
+    },
     "requests": {
         "description": "elegant and simple HTTP library for Python",
         "title": "Requests"
