@@ -13,6 +13,18 @@ Discovered-by:
 Assigned-to:
 CVSS: 
 
+Patches_postgresql-15:
+upstream_postgresql-15: needs-triage
+trusty_postgresql-15: DNE
+trusty/esm_postgresql-15: DNE
+xenial_postgresql-15: DNE
+bionic_postgresql-15: DNE
+focal_postgresql-15: DNE
+jammy_postgresql-15: DNE
+lunar_postgresql-15: needs-triage
+mantic_postgresql-15: needs-triage
+devel_postgresql-15: needs-triage
+
 Patches_postgresql-14:
 upstream_postgresql-14: needs-triage
 trusty_postgresql-14: DNE
