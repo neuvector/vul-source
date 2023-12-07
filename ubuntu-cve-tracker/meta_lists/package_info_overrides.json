@@ -2947,6 +2947,10 @@
         "description": "Lightweight, non-caching, optionally anonymizing HTTP proxy",
         "title": "Tinyproxy"
     },
+    "tinyxml": {
+        "description": "A simple, small, minimal, C++ XML parser",
+        "title": "TinyXML"
+    },
     "tomcat6": {
         "description": "Servlet and JSP engine",
         "title": "Tomcat"
