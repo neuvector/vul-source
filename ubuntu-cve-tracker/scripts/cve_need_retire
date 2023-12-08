@@ -4,7 +4,7 @@
 # Author: Kees Cook <kees@ubuntu.com>
 # Author: Marc Deslauriers <marc.deslauriers@ubuntu.com>
 # Author: Steve Beattie <sbeattie@ubuntu.com>
-# Copyright (C) 2005-2020 Canonical Ltd.
+# Copyright (C) 2005-2023 Canonical Ltd.
 #
 # This script is distributed under the terms and conditions of the GNU General
 # Public License, Version 2 or later. See http://www.gnu.org/copyleft/gpl.html
@@ -21,7 +21,7 @@ cvedir="./active"
 
 help() {
     cat <<EOM
-Uasge: cve_need_retire [-f] [-p] [-u]"
+Uasge: cve_need_retire [-f] [-p] [-u] [CVE list]"
 
   -f	full listing
   -r	report (first) package
@@ -29,6 +29,8 @@ Uasge: cve_need_retire [-f] [-p] [-u]"
   -u	move the files to retired directory
   -c	commit the changes to git (requires -u)
   -h	this help statement
+
+A list of CVEs can be given to operate on a subset of the repo
 EOM
 }
 
@@ -37,6 +39,7 @@ update=
 commit=
 path=
 report_pkg=
+cves=
 
 while getopts "fhucpr" opt ; do
     case "$opt" in
@@ -49,6 +52,11 @@ while getopts "fhucpr" opt ; do
         ?) help ; exit 1;;
     esac
 done
+shift $((OPTIND - 1))
+
+if [ "$#" -gt 0 ] ; then
+    cves="$*"
+fi
 
 vcs=bzr
 if [ -d ".git" ]; then
@@ -62,7 +70,11 @@ if [ -n "${commit}" ] && [ -z "${update}" ] ; then
     exit 1
 fi
 
-./scripts/ubuntu-table -r 2>&1 >/dev/null | grep '^retire: ' | while read junk cve
+# don't wrap $cves in quotes because we want it to be ignored if there
+# are none passed, as well as we want the contents to be treated as
+# individual arguments
+# shellcheck disable=SC2086
+./scripts/ubuntu-table -r $cves 2>&1 >/dev/null | grep '^retire: ' | while read -r junk cve
 do
     if [ -z "$full" ]; then
         if [ -z "$update" ]; then
