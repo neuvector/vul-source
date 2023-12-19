@@ -7901,3 +7901,5 @@
 2023-12-14 21:50:02 UTC - 16 added, 5 ignored, 0 skipped, 21 total - files: ['debian-import_ahhv_dc2.json']
 2023-12-15 18:35:31 UTC - 13 added, 268 ignored, 1 skipped, 281 total - files: ['nvdcve-1.1-recent.json']
 2023-12-15 18:51:17 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['debian-import_f274xj20.json']
+2023-12-19 18:34:55 UTC - 4 added, 93 ignored, 12 skipped, 97 total - files: ['nvdcve-1.1-recent.json']
+2023-12-19 18:47:13 UTC - 0 added, 59 ignored, 21 skipped, 59 total - files: ['debian-import_799jhku3.json']
