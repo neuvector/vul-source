@@ -7910,3 +7910,5 @@
 2023-12-21 16:15:47 UTC - 3 added, 0 ignored, 0 skipped, 3 total - files: ['debian-import_6rgeq49j.json']
 2023-12-29 10:29:45 UTC - 1 added, 111 ignored, 1 skipped, 112 total - files: ['nvdcve-1.1-recent.json']
 2023-12-29 13:45:00 UTC - 12 added, 151 ignored, 2 skipped, 163 total - files: ['nvdcve-1.1-recent.json']
+2024-01-02 13:41:03 UTC - 4 added, 178 ignored, 0 skipped, 182 total - files: ['nvdcve-1.1-recent.json']
+2024-01-02 15:09:18 UTC - 32 added, 213 ignored, 11 skipped, 245 total - files: ['debian-import_iizorbha.json']
