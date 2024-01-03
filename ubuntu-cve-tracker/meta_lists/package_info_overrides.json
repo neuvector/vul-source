@@ -3191,6 +3191,10 @@
         "description": "Lossless data-compression library",
         "title": "zlib"
     },
+    "zookeeper": {
+        "description": "High-performance coordination service for distributed applications",
+        "title": "ZooKeeper"
+    },
     "zziplib": {
         "description": "The ZZIPlib provides read access on ZIP-archives and unpacked data",
         "title": "ZZIPlib"

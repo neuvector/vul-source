@@ -592,6 +592,7 @@ if opt.add_cves:
 
 local_pickle = os.path.join(config['usn_storage'], '$USN.pickle')
 print('#!/bin/bash')
+print('# -*- compile-command: (concat "grep -Hn \'X\'\'X\'\'X\' " (if buffer-file-name (shell-quote-argument buffer-file-name)) " && exit 1 || exit 0"); -*-')
 print('set -e')
 print()
 print('# check for unfixed placeholders - DO NOT REMOVE THE FOLLOWING LINE')
