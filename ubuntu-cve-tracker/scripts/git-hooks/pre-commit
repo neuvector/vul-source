@@ -35,6 +35,15 @@ set -e
 
 trap cleanup EXIT INT HUP
 
+if git diff --staged --name-only | grep --quiet "active"; then
+    if ! git diff --quiet $(git diff --staged --name-only | grep "active"); then
+        read -p 'Found unstaged changes in staged files from $UTC/active. Enter "ignore" to continue or anything else to exit: ' answer < /dev/tty
+        if ! [ "${answer}" = "ignore" ] ; then
+            exit 1
+        fi
+    fi
+fi
+
 if [ -z "${UCT_IGNORE_CHECK_SYNTAX}" ] ; then
     modified_files="$(mktemp -t ucthook-XXXXXXXXXX)"
     modified_json_files="$(mktemp -t ucthook-XXXXXXXXXX)"
