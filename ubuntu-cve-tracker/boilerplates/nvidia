@@ -50,7 +50,7 @@ focal_nvidia-graphics-drivers-340: ignored
 jammy_nvidia-graphics-drivers-340: not-affected (superseded)
 lunar_nvidia-graphics-drivers-340: not-affected (superseded)
 mantic_nvidia-graphics-drivers-340: not-affected (superseded)
-devel_nvidia-graphics-drivers-340: not-affected (superseded)
+devel_nvidia-graphics-drivers-340: DNE
 
 Patches_nvidia-graphics-drivers-340-updates:
 upstream_nvidia-graphics-drivers-340-updates: needs-triage
@@ -176,7 +176,7 @@ focal_nvidia-graphics-drivers-430: ignored
 jammy_nvidia-graphics-drivers-430: ignored
 lunar_nvidia-graphics-drivers-430: ignored
 mantic_nvidia-graphics-drivers-430: ignored
-devel_nvidia-graphics-drivers-430: ignored
+devel_nvidia-graphics-drivers-430: DNE
 
 Patches_nvidia-graphics-drivers-435:
 upstream_nvidia-graphics-drivers-435: needs-triage
@@ -188,7 +188,7 @@ focal_nvidia-graphics-drivers-435: ignored
 jammy_nvidia-graphics-drivers-435: ignored
 lunar_nvidia-graphics-drivers-435: ignored
 mantic_nvidia-graphics-drivers-435: ignored
-devel_nvidia-graphics-drivers-435: ignored
+devel_nvidia-graphics-drivers-435: DNE
 
 Patches_nvidia-graphics-drivers-440:
 upstream_nvidia-graphics-drivers-440: needs-triage
@@ -200,7 +200,7 @@ focal_nvidia-graphics-drivers-440: ignored
 jammy_nvidia-graphics-drivers-440: ignored
 lunar_nvidia-graphics-drivers-440: ignored
 mantic_nvidia-graphics-drivers-440: ignored
-devel_nvidia-graphics-drivers-440: ignored
+devel_nvidia-graphics-drivers-440: DNE
 
 Patches_nvidia-graphics-drivers-440-server:
 upstream_nvidia-graphics-drivers-440-server: needs-triage
@@ -248,7 +248,7 @@ focal_nvidia-graphics-drivers-455: ignored
 jammy_nvidia-graphics-drivers-455: ignored
 lunar_nvidia-graphics-drivers-455: ignored
 mantic_nvidia-graphics-drivers-455: ignored
-devel_nvidia-graphics-drivers-455: ignored
+devel_nvidia-graphics-drivers-455: DNE
 
 Patches_nvidia-graphics-drivers-460:
 upstream_nvidia-graphics-drivers-460: needs-triage
@@ -320,7 +320,7 @@ focal_nvidia-graphics-drivers-510: ignored
 jammy_nvidia-graphics-drivers-510: ignored
 lunar_nvidia-graphics-drivers-510: ignored
 mantic_nvidia-graphics-drivers-510: ignored
-devel_nvidia-graphics-drivers-510: ignored
+devel_nvidia-graphics-drivers-510: DNE
 
 Patches_nvidia-graphics-drivers-510-server:
 upstream_nvidia-graphics-drivers-510-server: not-affected (superseded)
@@ -344,7 +344,7 @@ focal_nvidia-graphics-drivers-515: needs-triage
 jammy_nvidia-graphics-drivers-515: needs-triage
 lunar_nvidia-graphics-drivers-515: needs-triage
 mantic_nvidia-graphics-drivers-515: needs-triage
-devel_nvidia-graphics-drivers-515: needs-triage
+devel_nvidia-graphics-drivers-515: DNE
 
 Patches_nvidia-graphics-drivers-515-server:
 upstream_nvidia-graphics-drivers-515-server: needs-triage
@@ -401,7 +401,7 @@ focal_nvidia-graphics-drivers-530: needs-triage
 jammy_nvidia-graphics-drivers-530: needs-triage
 lunar_nvidia-graphics-drivers-530: needs-triage
 mantic_nvidia-graphics-drivers-530: needs-triage
-devel_nvidia-graphics-drivers-530: needs-triage
+devel_nvidia-graphics-drivers-530: DNE
 
 Patches_nvidia-graphics-drivers-535:
 upstream_nvidia-graphics-drivers-535: needs-triage
