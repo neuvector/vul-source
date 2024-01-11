@@ -567,6 +567,14 @@
         "description": "Go programming language compiler",
         "title": "Go"
     },
+    "golang-1.20": {
+        "description": "Go programming language compiler",
+        "title": "Go"
+    },
+    "golang-1.21": {
+        "description": "Go programming language compiler",
+        "title": "Go"
+    },
     "gpac": {
         "description": "GPAC Project on Advanced Content",
         "title": "GPAC"

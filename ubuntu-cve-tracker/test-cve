@@ -26,8 +26,8 @@ Priority_foo: medium
 Patches_foo:
  upstream: http://www.example.com/commit
  vendor: http://www.example.com/url
- patch: http://www.example.com/patch
  debdiff: http://www.example.com/debdiff
+ other: http://www.example.com/other
 upstream_foo: released (1.0, 1.1)
 hardy_foo: ignored (end of life)
 intrepid_foo: DNE
@@ -46,8 +46,8 @@ Priority_malformed: medim
 Patches_malfor"med:
  upstream: http://www.example.com/commit
  vendor: http://www.example.com/url
- patch: http://www.example.com/patch
  debdiff: http://www.example.com/debdiff
+ other: http://www.example.com/other
 upstream_malformed: relased (1.0, 1.1)
 hardy_malformed: ignored end of life)
 lucid_malfor'med: needs-triage

@@ -1865,7 +1865,7 @@ def add_cvss(cve, source, cvss):
     return updated
 
 
-def add_patch(cve, pkg, url, type="patch"):
+def add_patch(cve, pkg, url, type="unknown"):
     patch_header = "Patches_%s:" % (pkg)
     in_patch = False
 
