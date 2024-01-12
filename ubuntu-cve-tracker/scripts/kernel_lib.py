@@ -301,6 +301,7 @@ meta_kernels.add_new_kernel('jammy', ['linux-gke'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-gkeop'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-hwe-5.19'], '-5.19.0')
 meta_kernels.add_new_kernel('jammy', ['linux-hwe-6.2'], '-6.2.0')
+meta_kernels.add_new_kernel('jammy', ['linux-hwe-6.5'], '-6.5.0')
 meta_kernels.add_new_kernel('jammy', ['linux-ibm'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-intel-iotg'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-kvm'], '-5.15.0')
@@ -1253,6 +1254,11 @@ kernel_glitches = {
     'linux-hwe-6.2': {
         'jammy': {
             '~': '6.2.0-26.26~22.04.1',  # initial publication
+        },
+    },
+    'linux-hwe-6.5': {
+        'jammy': {
+            '~': '6.5.0-14.14~22.04.1',  # initial publication
         },
     },
     'linux-xilinx-zynqmp': {

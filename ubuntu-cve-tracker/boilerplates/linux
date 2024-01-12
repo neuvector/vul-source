@@ -117,7 +117,7 @@ mantic_linux-hwe-5.19: DNE
 devel_linux-hwe-5.19: DNE
 
 Patches_linux-hwe-6.2:
-upstream_linux-hwe-6.2: needs-triage
+upstream_linux-hwe-6.2: ignored (superseded by linux-hwe-6.5)
 trusty_linux-hwe-6.2: DNE
 trusty/esm_linux-hwe-6.2: DNE
 xenial_linux-hwe-6.2: DNE
@@ -125,10 +125,24 @@ esm-infra/xenial_linux-hwe-6.2: DNE
 bionic_linux-hwe-6.2: DNE
 esm-infra/bionic_linux-hwe-6.2: DNE
 focal_linux-hwe-6.2: DNE
-jammy_linux-hwe-6.2: needs-triage
+jammy_linux-hwe-6.2: ignored (superseded by linux-hwe-6.5)
 lunar_linux-hwe-6.2: DNE
 mantic_linux-hwe-6.2: DNE
 devel_linux-hwe-6.2: DNE
+
+Patches_linux-hwe-6.5:
+upstream_linux-hwe-6.5: needs-triage
+trusty_linux-hwe-6.5: DNE
+trusty/esm_linux-hwe-6.5: DNE
+xenial_linux-hwe-6.5: DNE
+esm-infra/xenial_linux-hwe-6.5: DNE
+bionic_linux-hwe-6.5: DNE
+esm-infra/bionic_linux-hwe-6.5: DNE
+focal_linux-hwe-6.5: DNE
+jammy_linux-hwe-6.5: needs-triage
+lunar_linux-hwe-6.5: DNE
+mantic_linux-hwe-6.5: DNE
+devel_linux-hwe-6.5: DNE
 
 Patches_linux-hwe-edge:
 upstream_linux-hwe-edge: ignored (end of life)
