@@ -19,7 +19,8 @@ from cve_lib import (is_active_release, is_active_esm_release,
                      esm_releases, get_orig_rel_name)
 from kernel_lib import (meta_kernels, lookup_glitch_version,
                         ignore_kernel_mabi, get_kernel_meta_alt_pkg,
-                        kernel_package_abi, kernel_meta_abi)
+                        kernel_package_abi, kernel_meta_abi,
+                        get_kernel_sru_cycle)
 from usn_lib import USNdb
 
 try:
@@ -45,13 +46,17 @@ parser.add_argument("-d", "--debug", action='count', default=0,
                     help="Report debugging information")
 parser.add_argument("--ignore-usn", help="Ignore need for USNs", action='store_true')
 parser.add_argument("--ignore-abi", help="Ignore ABI mismatches", action='store_true')
-parser.add_argument("--add-proposed", help="Check proposed for ABI mismatches", action='store_true')
+parser.add_argument(
+    "--add-proposed", "--use-proposed", "--include-proposed",
+    action='store_true', help="Check proposed for ABI mismatches",
+)
 parser.add_argument("--check-esm", help="Check esm ppa kernels as well", action='store_true')
 parser.add_argument("--use-updates", '--include-updates', help="Check updates pocket for USNs to issue", action='store_true')
 parser.add_argument(
     "--use-lp-bot-account", default=False, action='store_true',
     help="WHen connecting to launchpad, use an alternate bot account credentials"
 )
+parser.add_argument("--check-cycle", help="Check kernel workflow cycle", action='store_true')
 parser.add_argument("kernel", help="only check specific kernels", nargs="*")
 opt = parser.parse_args()
 
@@ -195,6 +200,8 @@ def pocket_abis_match(release, srcs, meta_pkg, signed):
     if not opt.ignore_usn:
         if is_active_esm_release(get_orig_rel_name(release)):
             pocket = 'Release'
+        elif opt.add_proposed:
+            pocket = 'Proposed'
         elif opt.use_updates:
             pocket = 'Updates'
         else:
@@ -212,7 +219,11 @@ def pocket_abis_match(release, srcs, meta_pkg, signed):
                     print('Skipping kernel %s in release %s pocket %s' % (src, release, pocket), file=sys.stderr)
             else:
                 rc = False
-                print("USN needed: %s/%s: %s (last USN: %s)" % (release, pkg[src][pocket]['name'], pkg[src][pocket]['version'], last_usn), file=sys.stderr)
+                kernel_title = f"{pkg[src][pocket]['name']}: {pkg[src][pocket]['version']}"
+                if (opt.check_cycle):
+                    print("USN needed: %s/%s (last USN: %s) - cycle: %s" % (release, kernel_title, last_usn, get_kernel_sru_cycle(kernel_title, lp)), file=sys.stderr)
+                else:
+                    print("USN needed: %s/%s (last USN: %s)" % (release, kernel_title, last_usn), file=sys.stderr)
 
     if opt.ignore_abi:
         return rc

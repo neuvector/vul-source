@@ -1,9 +1,9 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Author: Kees Cook <kees@ubuntu.com>
 # Author: Jamie Strandboge <jamie@ubuntu.com>
 # Author: Steve Beattie <sbeattie@ubuntu.com>
-# Copyright (C) 2005-2017 Canonical Ltd.
+# Copyright (C) 2005-2024 Canonical Ltd.
 #
 # This script is distributed under the terms and conditions of the GNU General
 # Public License, Version 3 or later. See http://www.gnu.org/copyleft/gpl.html
@@ -17,6 +17,28 @@ import sys
 
 # XXX kernel_srcs probably belongs here, too
 from cve_lib import (kernel_srcs, get_esm_name, is_active_esm_release)
+
+
+# search for the kernel SRU cycle for a kernel in the format
+# "linux[-complement]: <version>"
+def get_kernel_sru_cycle(kernel_title, lp):
+    cycle = None
+    kernels = lp.projects['kernel-sru-workflow']
+
+    task = kernels.searchTasks(search_text=kernel_title)
+    if len(task) > 1:
+        print('found multiple (%d) results:' % len(task), file=sys.stderr)
+        for _task in task:
+            print(' %s' % _task.bug.title, file=sys.stderr)
+        raise ValueError('More than one task with title %s found' % (kernel_title))
+
+    if task:
+        for tag in task[0].bug.tags:
+            if tag.startswith("kernel-sru-cycle-"):
+                cycle = tag.split('-', maxsplit=3)[3]
+                break
+
+    return cycle
 
 
 # converts a kernel source package name to the signed version, based off
