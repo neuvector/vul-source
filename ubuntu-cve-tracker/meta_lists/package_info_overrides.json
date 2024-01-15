@@ -1091,6 +1091,10 @@
         "description": "HTTP client/server library for GNOME",
         "title": "libsoup"
     },
+    "libspf2": {
+        "description": "Sender Policy Framework for SMTP authorization",
+        "title": "Libspf2"
+    },
     "libspring-java": {
         "description": "Modular Java/J2EE application framework",
         "title": "Spring Framework"
