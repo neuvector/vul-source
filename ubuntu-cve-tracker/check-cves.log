@@ -7936,3 +7936,5 @@
 2024-01-12 15:39:47 UTC - 0 added, 1 ignored, 0 skipped, 1 total - files: ['debian-import_wcpjbspr.json']
 2024-01-15 13:07:21 UTC - 6 added, 143 ignored, 1 skipped, 149 total - files: ['nvdcve-1.1-2004.json', 'nvdcve-1.1-2005.json', 'nvdcve-1.1-2006.json', 'nvdcve-1.1-2007.json', 'nvdcve-1.1-2008.json', 'nvdcve-1.1-2009.json', 'nvdcve-1.1-2010.json', 'nvdcve-1.1-2011.json', 'nvdcve-1.1-2012.json', 'nvdcve-1.1-2013.json', 'nvdcve-1.1-2014.json', 'nvdcve-1.1-2015.json', 'nvdcve-1.1-2016.json', 'nvdcve-1.1-2017.json', 'nvdcve-1.1-2018.json', 'nvdcve-1.1-2019.json', 'nvdcve-1.1-2020.json', 'nvdcve-1.1-2021.json', 'nvdcve-1.1-2022.json', 'nvdcve-1.1-2023.json', 'nvdcve-1.1-2024.json', 'nvdcve-1.1-modified.json', 'nvdcve-1.1-recent.json']
 2024-01-15 13:34:30 UTC - 10 added, 1 ignored, 0 skipped, 11 total - files: ['debian-import_2c5_i_pn.json']
+2024-01-16 11:17:37 UTC - 5 added, 44 ignored, 0 skipped, 49 total - files: ['nvdcve-1.1-recent.json']
+2024-01-16 11:30:17 UTC - 0 added, 9 ignored, 6 skipped, 9 total - files: ['debian-import_5d9rs2tx.json']
