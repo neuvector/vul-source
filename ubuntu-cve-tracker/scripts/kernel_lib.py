@@ -330,6 +330,7 @@ meta_kernels.add_new_kernel('jammy', ['linux-kvm'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-lowlatency'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-lowlatency-hwe-5.19'], '-5.19.0')
 meta_kernels.add_new_kernel('jammy', ['linux-lowlatency-hwe-6.2'], '-6.2.0')
+meta_kernels.add_new_kernel('jammy', ['linux-lowlatency-hwe-6.5'], '-6.5.0')
 meta_kernels.add_new_kernel('jammy', ['linux-nvidia'], '-5.15.0')
 meta_kernels.add_new_kernel('jammy', ['linux-nvidia-6.2'], '-6.2.0')
 meta_kernels.add_new_kernel('jammy', ['linux-oem-5.17'], '-5.17.0')
@@ -799,6 +800,11 @@ kernel_glitches = {
     'linux-lowlatency-hwe-6.2': {
         'jammy': {
             '~': '6.2.0-1009.9~22.04.1',  # initial publication
+        },
+    },
+    'linux-lowlatency-hwe-6.5': {
+        'jammy': {
+            '~': '6.5.0-14.14.1~22.04.1',  # initial publication
         },
     },
     'linux-kvm': {

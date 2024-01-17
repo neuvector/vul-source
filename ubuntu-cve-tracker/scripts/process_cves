@@ -327,7 +327,8 @@ case "$action" in
         ./scripts/check-cves ./allitems.xml
 
         process_missing_debian
-        process_missing_redhat
+        # Disabling this due to https://listman.redhat.com/archives/rhsa-announce/2023-October/012854.html
+        #process_missing_redhat
         process_missing_mozilla
 
         full_refresh
@@ -339,7 +340,9 @@ case "$action" in
         process_missing_mozilla
         ;;
     redhat)
-        process_missing_redhat
+        # Disabling this due to https://listman.redhat.com/archives/rhsa-announce/2023-October/012854.html
+        #process_missing_redhat
+        echo "This option is currently disabled."
         ;;
     debian)
         update_debian

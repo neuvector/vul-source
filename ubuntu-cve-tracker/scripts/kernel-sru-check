@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+# Author: Kees Cook <kees@canonical.com>
+# Copyright (C) 2011 Canonical, Ltd.
+# License: GPLv3
+#
+# Based on https://wiki.ubuntu.com/Kernel/kernel-sru-workflow
+# this script implements the security team's first step of:
+#
+# "When the security team detects that the Security-signoff task is in
+# the ready-to-start state (status: Confirmed), they change the tasks
+# state to in-progress (status: In Progress). The task is reassigned
+# to the individual working the task."
+#
+# The rest of the procedure is done manually:
+#
+# "They take care of any tasks they deem necessary prior to having an
+# archive admin copy the release to the security pocket. If there are no
+# CVEs, the security team sets the Security-signoff task to the not-needed
+# state (status: Invalid). If there are CVEs in the release and the security
+# team has signed-off on the release being promoted to the security pocket
+# (once all testing passes successfully) they change the status of the
+# Security-signoff task to completed (status: Fix Released)."
+from __future__ import print_function
+
+from collections import defaultdict
+import httplib2
+import argparse
+import re
+import time
+
+KERNEL_TAG_PREFIX='kernel-sru-cycle-'
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--api-version", help="Which LP API Version to use (default: 1.0)", action='store', default='1.0')
+parser.add_argument("--debug", help="Show HTTP requests", action='store_true', default=False)
+parser.add_argument("--task", help="which task series to focus on (default: security-signoff)", action='store', default='security-signoff')
+parser.add_argument("--oneline", help="compressed output, useful for aggregating cron jobs", action='store_true', default=False)
+parser.add_argument("--cycle", help="only report signoff bugs for a specific kernel cycle tag (default: all)", action='store')
+args = parser.parse_args()
+
+if args.debug:
+    httplib2.debuglevel = 1
+import lpl_common
+
+class SignoffBug(object):
+    def __init__(self, task):
+        bug = task.bug
+        self.id = bug.id
+        self.title = task.title
+        self.release = get_ubuntu_release_from_bug(bug)
+        self.kernel, self.version = bug.title.split(' ')[0:2]
+        self.kernel_series = self.version.split('-')[0]
+
+        cycle = 'missing'
+        for tag in bug.tags:
+            if tag.startswith(KERNEL_TAG_PREFIX):
+                cycle = tag.split('-', maxsplit=3)[3]
+        self.cycle = cycle
+
+    def emit(self, short_output=False):
+        print('[%d] %s' % (self.id, self.title))
+        if not short_output:
+            print('%s %s %s' % (self.release, self.kernel, self.version))
+            print('https://launchpad.net/bugs/%d' % (self.id))
+            print('')
+
+
+def kernel_cmp_key(version_string):
+    # turns '4.15.0' -> [4, 15, 0] for sorting
+    return [int(x) for x in version_string.split('.')]
+
+count = 10
+while True:
+    try:
+        lp = lpl_common.connect(version=args.api_version)
+        sec = lp.projects['kernel-sru-workflow'].getSeries(name=args.task)
+        break
+    except:
+        count -= 1
+        if count <= 0:
+            raise
+        time.sleep(5)
+        pass
+
+
+def get_ubuntu_release_from_bug(signoff_bug):
+    _kernel = signoff_bug.title.split(':')[0]
+    # tracking bug reports are now getting RELEASE/ prepended to the
+    # kernel name, e.g. 'xenial/linux-raspi2:'
+    kernel = _kernel.split('/').pop()
+    try:
+        for task in signoff_bug.bug_tasks:
+            # look for the task that starts with the kernel source name
+            # and isn't the devel release (so doesn't have (Ubuntu) in
+            # the target_name) and is not invalid. For the most current
+            # supported release, the devel target may stay open.
+            if (task.bug_target_name.startswith('%s ' % kernel) and
+                not re.search('\(Ubuntu\)$', task.bug_target_name) and
+                task.status != 'Invalid'):
+                # ugh, can't figure out a way to cache the name lookups,
+                # so the following ends up being a roundtrip to
+                # launchpad.
+                return task.target.distroseries.name
+    except AttributeError:
+        return "Unknown Release"
+
+
+for task in sec.searchTasks(omit_targeted=False, status="Confirmed"):
+    task.assignee = lp.me
+    task.status = "In Progress"
+    lpl_common.save(task)
+
+cycles = defaultdict(dict)
+
+# Report stuff in progress as a reminder
+if args.cycle:
+    open_tasks = sec.searchTasks(omit_targeted=False, status="In Progress", tags=KERNEL_TAG_PREFIX+args.cycle)
+else:
+    open_tasks = sec.searchTasks(omit_targeted=False, status="In Progress")
+
+for task in open_tasks:
+    bug = SignoffBug(task)
+    cycles[bug.cycle].setdefault(bug.kernel_series, []).append(bug)
+
+
+for cycle in sorted(cycles):
+    print(f'========== {cycle} cycle ==========')
+    for kernel_series in sorted(cycles[cycle], key=kernel_cmp_key):
+        for bug in cycles[cycle][kernel_series]:
+            bug.emit(short_output=args.oneline)
