@@ -46,6 +46,7 @@ trusty_golang-1.8: DNE
 trusty/esm_golang-1.8: DNE
 xenial_golang-1.8: DNE
 bionic_golang-1.8: ignored (end of standard support)
+esm-apps/bionic_golang-1.8: needs-triage
 focal_golang-1.8: DNE
 jammy_golang-1.8: DNE
 lunar_golang-1.8: DNE
@@ -58,6 +59,7 @@ trusty_golang-1.9: DNE
 trusty/esm_golang-1.9: DNE
 xenial_golang-1.9: DNE
 bionic_golang-1.9: ignored (end of standard support)
+esm-apps/bionic_golang-1.9: needs-triage
 focal_golang-1.9: DNE
 jammy_golang-1.9: DNE
 lunar_golang-1.9: DNE

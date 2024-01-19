@@ -107,7 +107,7 @@ def _add_pkg(p, fp, fixed, parent, embargoed):
             continue
         elif rel in cve_lib.eol_releases and not cve_lib.is_active_esm_release(rel):
             continue
-        elif cve_lib.is_active_esm_release(rel):
+        elif state != "DNE" and cve_lib.is_active_esm_release(rel):
             state = cve_lib.EOL_ESM_STATUS.split(',')[0] + ')'
         elif rel == 'upstream' and fixed_in is not None:
             state = "released (%s)" % fixed_in
