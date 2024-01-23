@@ -2535,6 +2535,10 @@
         "description": "threaded HTTP 1.1 server for Ruby/Rack applications",
         "title": "Puma"
     },
+    "pycryptodome": {
+        "description": "Cryptographic Python library",
+        "title": "PyCryptodome"
+    },
     "pydantic": {
         "description": "Data validation using Python type hints.",
         "title": "Pydantic"
