@@ -839,6 +839,10 @@
         "description": "Lib3MF is a C++ implementation of the 3D Manufacturing Format",
         "title": "lib3mf"
     },
+    "libapache-session-ldap-perl": {
+        "description": "Apache::Session::LDAP Perl module - Store Apache Session in LDAP",
+        "title": "Apache::Session::LDAP"
+    },
     "libapache2-mod-auth-mellon": {
         "description": "SAML 2.0 authentication module for Apache",
         "title": "mod-auth-mellon"

@@ -107,7 +107,7 @@ focal_kodi: needs-triage
 jammy_kodi: needs-triage
 lunar_kodi: needs-triage
 mantic_kodi: needs-triage
-devel_kodi: DNE
+devel_kodi: needs-triage
 
 Patches_digikam:
 upstream_digikam: needs-triage
