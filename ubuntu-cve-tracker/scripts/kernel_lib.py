@@ -21,22 +21,26 @@ from cve_lib import (kernel_srcs, get_esm_name, is_active_esm_release)
 
 # search for the kernel SRU cycle for a kernel in the format
 # "linux[-complement]: <version>"
-def get_kernel_sru_cycle(kernel_title, lp):
+def get_kernel_sru_cycle(kernel_title, debug, lp):
     cycle = None
     kernels = lp.projects['kernel-sru-workflow']
+    tasks = kernels.searchTasks(search_text=kernel_title)
 
-    task = kernels.searchTasks(search_text=kernel_title)
-    if len(task) > 1:
-        print('found multiple (%d) results:' % len(task), file=sys.stderr)
-        for _task in task:
-            print(' %s' % _task.bug.title, file=sys.stderr)
-        raise ValueError('More than one task with title %s found' % (kernel_title))
+    if debug:
+        print('found %d results: for %s' % (len(tasks), kernel_title), file=sys.stderr)
 
-    if task:
-        for tag in task[0].bug.tags:
-            if tag.startswith("kernel-sru-cycle-"):
-                cycle = tag.split('-', maxsplit=3)[3]
-                break
+    for task in tasks:
+        if debug:
+            print(' LP#%d: %s' % (task.bug.id, task.bug.title), file=sys.stderr)
+
+        # re-search for the exact text in the title as the first search
+        # in searchTasks() can return similarities
+        if kernel_title in task.bug.title:
+            for tag in task.bug.tags:
+                if tag.startswith("kernel-sru-cycle-"):
+                    cycle = tag.split('-', maxsplit=3)[3]
+                    break
+            break
 
     return cycle
 

@@ -221,7 +221,7 @@ def pocket_abis_match(release, srcs, meta_pkg, signed):
                 rc = False
                 kernel_title = f"{pkg[src][pocket]['name']}: {pkg[src][pocket]['version']}"
                 if (opt.check_cycle):
-                    print("USN needed: %s/%s (last USN: %s) - cycle: %s" % (release, kernel_title, last_usn, get_kernel_sru_cycle(kernel_title, lp)), file=sys.stderr)
+                    print("USN needed: %s/%s (last USN: %s) - cycle: %s" % (release, kernel_title, last_usn, get_kernel_sru_cycle(kernel_title, opt.debug, lp)), file=sys.stderr)
                 else:
                     print("USN needed: %s/%s (last USN: %s)" % (release, kernel_title, last_usn), file=sys.stderr)
 
