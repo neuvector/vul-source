@@ -26,7 +26,7 @@ bionic_chardet: ignored (end of standard support)
 esm-infra/bionic_chardet: needs-triage
 focal_chardet: needs-triage
 jammy_chardet: needs-triage
-lunar_chardet: needs-triage
+lunar_chardet: ignored (end of life, was needs-triage)
 mantic_chardet: needs-triage
 devel_chardet: needs-triage
 
@@ -38,7 +38,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

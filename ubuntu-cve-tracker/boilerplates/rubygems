@@ -94,7 +94,7 @@ xenial_ruby3.1: DNE
 bionic_ruby3.1: DNE
 focal_ruby3.1: DNE
 jammy_ruby3.1: DNE
-lunar_ruby3.1: needs-triage
+lunar_ruby3.1: ignored (end of life, was needs-triage)
 mantic_ruby3.1: needs-triage
 devel_ruby3.1: needs-triage
 
@@ -106,6 +106,6 @@ xenial_jruby: ignored (end of standard support)
 bionic_jruby: ignored (end of standard support)
 focal_jruby: needs-triage
 jammy_jruby: DNE
-lunar_jruby: needs-triage
+lunar_jruby: ignored (end of life, was needs-triage)
 mantic_jruby: needs-triage
 devel_jruby: needs-triage

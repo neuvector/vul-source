@@ -23,7 +23,7 @@ bionic_libyaml: ignored (end of standard support)
 esm-infra/bionic_libyaml: needs-triage
 focal_libyaml: needs-triage
 jammy_libyaml: needs-triage
-lunar_libyaml: needs-triage
+lunar_libyaml: ignored (end of life, was needs-triage)
 mantic_libyaml: needs-triage
 devel_libyaml: needs-triage
 
@@ -37,7 +37,7 @@ bionic_libyaml-libyaml-perl: ignored (end of standard support)
 esm-infra/bionic_libyaml-libyaml-perl: needs-triage
 focal_libyaml-libyaml-perl: needs-triage
 jammy_libyaml-libyaml-perl: needs-triage
-lunar_libyaml-libyaml-perl: needs-triage
+lunar_libyaml-libyaml-perl: ignored (end of life, was needs-triage)
 mantic_libyaml-libyaml-perl: needs-triage
 devel_libyaml-libyaml-perl: needs-triage
 
@@ -62,7 +62,7 @@ esm-infra/xenial_golang-yaml.v2: needs-triage
 bionic_golang-yaml.v2: ignored (end of standard support)
 focal_golang-yaml.v2: needs-triage
 jammy_golang-yaml.v2: needs-triage
-lunar_golang-yaml.v2: needs-triage
+lunar_golang-yaml.v2: ignored (end of life, was needs-triage)
 mantic_golang-yaml.v2: needs-triage
 devel_golang-yaml.v2: needs-triage
 

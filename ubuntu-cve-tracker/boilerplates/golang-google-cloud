@@ -20,7 +20,7 @@ xenial_golang-google-cloud: ignored (end of standard support)
 bionic_golang-google-cloud: ignored (end of standard support)
 focal_golang-google-cloud: needs-triage
 jammy_golang-google-cloud: needs-triage
-lunar_golang-google-cloud: needs-triage
+lunar_golang-google-cloud: ignored (end of life, was needs-triage)
 mantic_golang-google-cloud: needs-triage
 devel_golang-google-cloud: needs-triage
 
@@ -32,6 +32,6 @@ xenial_google-guest-agent: ignored (end of standard support)
 bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
-lunar_google-guest-agent: needs-triage
+lunar_google-guest-agent: ignored (end of life, was needs-triage)
 mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

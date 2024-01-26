@@ -22,7 +22,7 @@ bionic_rustc: ignored (end of standard support)
 esm-infra/bionic_rustc: needs-triage
 focal_rustc: needs-triage
 jammy_rustc: needs-triage
-lunar_rustc: needs-triage
+lunar_rustc: ignored (end of life, was needs-triage)
 mantic_rustc: needs-triage
 devel_rustc: needs-triage
 
@@ -33,6 +33,6 @@ xenial_cargo: ignored (end of standard support)
 bionic_cargo: ignored (end of standard support)
 focal_cargo: needs-triage
 jammy_cargo: needs-triage
-lunar_cargo: needs-triage
+lunar_cargo: ignored (end of life, was needs-triage)
 mantic_cargo: DNE
 devel_cargo: DNE

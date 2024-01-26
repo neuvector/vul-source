@@ -21,7 +21,7 @@ bionic_libraw: ignored (end of standard support)
 esm-infra/bionic_libraw: needs-triage
 focal_libraw: needs-triage
 jammy_libraw: needs-triage
-lunar_libraw: needs-triage
+lunar_libraw: ignored (end of life, was needs-triage)
 mantic_libraw: needs-triage
 devel_libraw: needs-triage
 
@@ -45,7 +45,7 @@ xenial_darktable: ignored (end of standard support)
 bionic_darktable: ignored (end of standard support)
 focal_darktable: needs-triage
 jammy_darktable: needs-triage
-lunar_darktable: needs-triage
+lunar_darktable: ignored (end of life, was needs-triage)
 mantic_darktable: needs-triage
 devel_darktable: needs-triage
 
@@ -57,7 +57,7 @@ xenial_exactimage: ignored (end of standard support)
 bionic_exactimage: ignored (end of standard support)
 focal_exactimage: needs-triage
 jammy_exactimage: needs-triage
-lunar_exactimage: needs-triage
+lunar_exactimage: ignored (end of life, was needs-triage)
 mantic_exactimage: needs-triage
 devel_exactimage: needs-triage
 
@@ -69,7 +69,7 @@ xenial_dcraw: ignored (end of standard support)
 bionic_dcraw: ignored (end of standard support)
 focal_dcraw: needs-triage
 jammy_dcraw: needs-triage
-lunar_dcraw: needs-triage
+lunar_dcraw: ignored (end of life, was needs-triage)
 mantic_dcraw: needs-triage
 devel_dcraw: needs-triage
 
@@ -81,7 +81,7 @@ xenial_rawtherapee: ignored (end of standard support)
 bionic_rawtherapee: ignored (end of standard support)
 focal_rawtherapee: needs-triage
 jammy_rawtherapee: needs-triage
-lunar_rawtherapee: needs-triage
+lunar_rawtherapee: ignored (end of life, was needs-triage)
 mantic_rawtherapee: needs-triage
 devel_rawtherapee: needs-triage
 
@@ -105,7 +105,7 @@ xenial_kodi: ignored (end of standard support)
 bionic_kodi: ignored (end of standard support)
 focal_kodi: needs-triage
 jammy_kodi: needs-triage
-lunar_kodi: needs-triage
+lunar_kodi: ignored (end of life, was needs-triage)
 mantic_kodi: needs-triage
 devel_kodi: needs-triage
 
@@ -117,6 +117,6 @@ xenial_digikam: ignored (end of standard support)
 bionic_digikam: ignored (end of standard support)
 focal_digikam: needs-triage
 jammy_digikam: needs-triage
-lunar_digikam: needs-triage
+lunar_digikam: ignored (end of life, was needs-triage)
 mantic_digikam: needs-triage
 devel_digikam: needs-triage

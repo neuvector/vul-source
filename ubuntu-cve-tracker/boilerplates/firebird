@@ -31,6 +31,6 @@ xenial_firebird3.0: DNE
 bionic_firebird3.0: ignored (end of standard support)
 focal_firebird3.0: needs-triage
 jammy_firebird3.0: needs-triage
-lunar_firebird3.0: needs-triage
+lunar_firebird3.0: ignored (end of life, was needs-triage)
 mantic_firebird3.0: needs-triage
 devel_firebird3.0: needs-triage

@@ -19,7 +19,7 @@ xenial_libmodplug: ignored (end of standard support)
 bionic_libmodplug: ignored (end of standard support)
 focal_libmodplug: needs-triage
 jammy_libmodplug: needs-triage
-lunar_libmodplug: needs-triage
+lunar_libmodplug: ignored (end of life, was needs-triage)
 mantic_libmodplug: needs-triage
 devel_libmodplug: needs-triage
 

@@ -20,7 +20,7 @@ bionic_frr: DNE
 focal_frr: needs-triage
 esm-apps/focal_frr: needs-triage
 jammy_frr: needs-triage
-lunar_frr: needs-triage
+lunar_frr: ignored (end of life, was needs-triage)
 mantic_frr: needs-triage
 devel_frr: needs-triage
 

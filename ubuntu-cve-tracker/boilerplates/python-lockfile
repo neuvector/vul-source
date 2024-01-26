@@ -26,7 +26,7 @@ bionic_python-lockfile: ignored (end of standard support)
 esm-infra/bionic_python-lockfile: needs-triage
 focal_python-lockfile: needs-triage
 jammy_python-lockfile: needs-triage
-lunar_python-lockfile: needs-triage
+lunar_python-lockfile: ignored (end of life, was needs-triage)
 mantic_python-lockfile: needs-triage
 devel_python-lockfile: needs-triage
 
@@ -38,7 +38,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

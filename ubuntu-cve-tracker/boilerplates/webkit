@@ -38,7 +38,7 @@ bionic_webkit2gtk: ignored (end of standard support, was deferred)
 esm-infra/bionic_webkit2gtk: ignored
 focal_webkit2gtk: ignored
 jammy_webkit2gtk: needs-triage
-lunar_webkit2gtk: needs-triage
+lunar_webkit2gtk: ignored (end of life, was needs-triage)
 mantic_webkit2gtk: needs-triage
 devel_webkit2gtk: needs-triage
 
@@ -63,7 +63,7 @@ esm-infra/xenial_qtwebkit-opensource-src: needs-triage
 bionic_qtwebkit-opensource-src: ignored (end of standard support)
 focal_qtwebkit-opensource-src: needs-triage
 jammy_qtwebkit-opensource-src: needs-triage
-lunar_qtwebkit-opensource-src: needs-triage
+lunar_qtwebkit-opensource-src: ignored (end of life, was needs-triage)
 mantic_qtwebkit-opensource-src: needs-triage
 devel_qtwebkit-opensource-src: needs-triage
 

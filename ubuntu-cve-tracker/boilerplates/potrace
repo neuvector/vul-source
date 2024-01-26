@@ -23,7 +23,7 @@ bionic_potrace: ignored (end of standard support)
 esm-infra/bionic_potrace: needs-triage
 focal_potrace: needs-triage
 jammy_potrace: needs-triage
-lunar_potrace: needs-triage
+lunar_potrace: ignored (end of life, was needs-triage)
 mantic_potrace: needs-triage
 devel_potrace: needs-triage
 

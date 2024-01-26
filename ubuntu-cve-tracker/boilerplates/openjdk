@@ -21,7 +21,7 @@ bionic_openjdk-8: ignored (end of standard support)
 esm-apps/bionic_openjdk-8: needs-triage
 focal_openjdk-8: needs-triage
 jammy_openjdk-8: needs-triage
-lunar_openjdk-8: needs-triage
+lunar_openjdk-8: ignored (end of life, was needs-triage)
 mantic_openjdk-8: needs-triage
 devel_openjdk-8: needs-triage
 
@@ -47,7 +47,7 @@ bionic_openjdk-lts: ignored (end of standard support)
 esm-infra/bionic_openjdk-lts: needs-triage
 focal_openjdk-lts: needs-triage
 jammy_openjdk-lts: needs-triage
-lunar_openjdk-lts: needs-triage
+lunar_openjdk-lts: ignored (end of life, was needs-triage)
 mantic_openjdk-lts: needs-triage
 devel_openjdk-lts: needs-triage
 
@@ -86,7 +86,7 @@ bionic_openjdk-17: ignored (end of standard support)
 esm-apps/bionic_openjdk-17: needs-triage
 focal_openjdk-17: needs-triage
 jammy_openjdk-17: needs-triage
-lunar_openjdk-17: needs-triage
+lunar_openjdk-17: ignored (end of life, was needs-triage)
 mantic_openjdk-17: needs-triage
 devel_openjdk-17: needs-triage
 
@@ -135,7 +135,7 @@ xenial_openjdk-21: DNE
 bionic_openjdk-21: DNE
 focal_openjdk-21: needs-triage
 jammy_openjdk-21: needs-triage
-lunar_openjdk-21: needs-triage
+lunar_openjdk-21: ignored (end of life, was needs-triage)
 mantic_openjdk-21: needs-triage
 devel_openjdk-21: needs-triage
 

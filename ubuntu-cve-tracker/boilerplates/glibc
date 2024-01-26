@@ -33,6 +33,6 @@ bionic_glibc: ignored (end of standard support)
 esm-infra/bionic_glibc: needs-triage
 focal_glibc: needs-triage
 jammy_glibc: needs-triage
-lunar_glibc: needs-triage
+lunar_glibc: ignored (end of life, was needs-triage)
 mantic_glibc: needs-triage
 devel_glibc: needs-triage

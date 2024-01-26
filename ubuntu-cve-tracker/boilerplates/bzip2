@@ -23,7 +23,7 @@ bionic_bzip2: ignored (end of standard support)
 esm-infra/bionic_bzip2: needs-triage
 focal_bzip2: needs-triage
 jammy_bzip2: needs-triage
-lunar_bzip2: needs-triage
+lunar_bzip2: ignored (end of life, was needs-triage)
 mantic_bzip2: needs-triage
 devel_bzip2: needs-triage
 
@@ -37,6 +37,6 @@ bionic_clamav: ignored (end of standard support)
 esm-infra/bionic_clamav: needs-triage
 focal_clamav: needs-triage
 jammy_clamav: needs-triage
-lunar_clamav: needs-triage
+lunar_clamav: ignored (end of life, was needs-triage)
 mantic_clamav: needs-triage
 devel_clamav: needs-triage

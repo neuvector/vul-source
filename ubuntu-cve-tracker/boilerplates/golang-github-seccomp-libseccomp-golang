@@ -20,7 +20,7 @@ xenial_golang-github-seccomp-libseccomp-golang: ignored (end of standard support
 bionic_golang-github-seccomp-libseccomp-golang: ignored (end of standard support)
 focal_golang-github-seccomp-libseccomp-golang: needs-triage
 jammy_golang-github-seccomp-libseccomp-golang: needs-triage
-lunar_golang-github-seccomp-libseccomp-golang: needs-triage
+lunar_golang-github-seccomp-libseccomp-golang: ignored (end of life, was needs-triage)
 mantic_golang-github-seccomp-libseccomp-golang: needs-triage
 devel_golang-github-seccomp-libseccomp-golang: needs-triage
 
@@ -32,6 +32,6 @@ xenial_runc: ignored (end of standard support)
 bionic_runc: ignored (end of standard support)
 focal_runc: needs-triage
 jammy_runc: needs-triage
-lunar_runc: needs-triage
+lunar_runc: ignored (end of life, was needs-triage)
 mantic_runc: needs-triage
 devel_runc: needs-triage

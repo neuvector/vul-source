@@ -119,7 +119,7 @@ xenial_python3.11: DNE
 bionic_python3.11: DNE
 focal_python3.11: DNE
 jammy_python3.11: needs-triage
-lunar_python3.11: needs-triage
+lunar_python3.11: ignored (end of life, was needs-triage)
 mantic_python3.11: needs-triage
 devel_python3.11: needs-triage
 

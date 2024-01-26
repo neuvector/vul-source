@@ -24,7 +24,7 @@ xenial_python-resolvelib: DNE
 bionic_python-resolvelib: DNE
 focal_python-resolvelib: DNE
 jammy_python-resolvelib: needs-triage
-lunar_python-resolvelib: needs-triage
+lunar_python-resolvelib: ignored (end of life, was needs-triage)
 mantic_python-resolvelib: needs-triage
 devel_python-resolvelib: needs-triage
 
@@ -36,7 +36,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

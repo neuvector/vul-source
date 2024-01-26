@@ -39,7 +39,7 @@ bionic_thunderbird: ignored (end of standard support)
 esm-infra/bionic_thunderbird: needed
 focal_thunderbird: needed
 jammy_thunderbird: needed
-lunar_thunderbird: needed
+lunar_thunderbird: ignored (end of life, was needed)
 mantic_thunderbird: needed
 devel_thunderbird: needed
 
@@ -88,7 +88,7 @@ xenial_mozjs78: DNE
 bionic_mozjs78: DNE
 focal_mozjs78: DNE
 jammy_mozjs78: needs-triage
-lunar_mozjs78: needs-triage
+lunar_mozjs78: ignored (end of life, was needs-triage)
 mantic_mozjs78: DNE
 devel_mozjs78: DNE
 
@@ -112,6 +112,6 @@ xenial_mozjs102: DNE
 bionic_mozjs102: DNE
 focal_mozjs102: DNE
 jammy_mozjs102: needs-triage
-lunar_mozjs102: needs-triage
+lunar_mozjs102: ignored (end of life, was needs-triage)
 mantic_mozjs102: needs-triage
 devel_mozjs102: needs-triage

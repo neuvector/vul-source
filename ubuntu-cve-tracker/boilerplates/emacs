@@ -19,7 +19,7 @@ xenial_emacs: DNE
 bionic_emacs: DNE
 focal_emacs: needs-triage
 jammy_emacs: needs-triage
-lunar_emacs: needs-triage
+lunar_emacs: ignored (end of life, was needs-triage)
 mantic_emacs: needs-triage
 devel_emacs: needs-triage
 
@@ -31,7 +31,7 @@ xenial_xemacs21: ignored (end of standard support)
 bionic_xemacs21: ignored (end of standard support)
 focal_xemacs21: needs-triage
 jammy_xemacs21: needs-triage
-lunar_xemacs21: needs-triage
+lunar_xemacs21: ignored (end of life, was needs-triage)
 mantic_xemacs21: needs-triage
 devel_xemacs21: needs-triage
 
@@ -43,7 +43,7 @@ xenial_xemacs21-packages: ignored (end of standard support)
 bionic_xemacs21-packages: ignored (end of standard support)
 focal_xemacs21-packages: needs-triage
 jammy_xemacs21-packages: needs-triage
-lunar_xemacs21-packages: needs-triage
+lunar_xemacs21-packages: ignored (end of life, was needs-triage)
 mantic_xemacs21-packages: needs-triage
 devel_xemacs21-packages: needs-triage
 

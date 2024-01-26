@@ -21,7 +21,7 @@ bionic_pillow: ignored (end of standard support)
 esm-infra/bionic_pillow: needs-triage
 focal_pillow: needs-triage
 jammy_pillow: needs-triage
-lunar_pillow: needs-triage
+lunar_pillow: ignored (end of life, was needs-triage)
 mantic_pillow: needs-triage
 devel_pillow: needs-triage
 

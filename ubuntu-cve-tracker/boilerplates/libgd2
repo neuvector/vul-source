@@ -22,7 +22,7 @@ bionic_libgd2: ignored (end of standard support)
 esm-infra/bionic_libgd2: needs-triage
 focal_libgd2: needs-triage
 jammy_libgd2: needs-triage
-lunar_libgd2: needs-triage
+lunar_libgd2: ignored (end of life, was needs-triage)
 mantic_libgd2: needs-triage
 devel_libgd2: needs-triage
 

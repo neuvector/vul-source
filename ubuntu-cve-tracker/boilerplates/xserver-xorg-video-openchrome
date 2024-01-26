@@ -19,7 +19,7 @@ xenial_xserver-xorg-video-openchrome: ignored (end of standard support)
 bionic_xserver-xorg-video-openchrome: ignored (end of standard support)
 focal_xserver-xorg-video-openchrome: needs-triage
 jammy_xserver-xorg-video-openchrome: needs-triage
-lunar_xserver-xorg-video-openchrome: needs-triage
+lunar_xserver-xorg-video-openchrome: ignored (end of life, was needs-triage)
 mantic_xserver-xorg-video-openchrome: needs-triage
 devel_xserver-xorg-video-openchrome: needs-triage
 

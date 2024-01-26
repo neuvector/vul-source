@@ -24,7 +24,7 @@ xenial_python-distro: DNE
 bionic_python-distro: ignored (end of standard support)
 focal_python-distro: needs-triage
 jammy_python-distro: needs-triage
-lunar_python-distro: needs-triage
+lunar_python-distro: ignored (end of life, was needs-triage)
 mantic_python-distro: needs-triage
 devel_python-distro: needs-triage
 
@@ -36,7 +36,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

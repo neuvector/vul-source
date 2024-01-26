@@ -19,7 +19,7 @@ xenial_php-zend-code: ignored (end of standard support)
 bionic_php-zend-code: ignored (end of standard support)
 focal_php-zend-code: needs-triage
 jammy_php-zend-code: needs-triage
-lunar_php-zend-code: needs-triage
+lunar_php-zend-code: ignored (end of life, was needs-triage)
 mantic_php-zend-code: needs-triage
 devel_php-zend-code: needs-triage
 
@@ -43,7 +43,7 @@ xenial_php-zend-eventmanager: ignored (end of standard support)
 bionic_php-zend-eventmanager: ignored (end of standard support)
 focal_php-zend-eventmanager: needs-triage
 jammy_php-zend-eventmanager: needs-triage
-lunar_php-zend-eventmanager: needs-triage
+lunar_php-zend-eventmanager: ignored (end of life, was needs-triage)
 mantic_php-zend-eventmanager: needs-triage
 devel_php-zend-eventmanager: needs-triage
 
@@ -55,7 +55,7 @@ xenial_php-zend-stdlib: ignored (end of standard support)
 bionic_php-zend-stdlib: ignored (end of standard support)
 focal_php-zend-stdlib: needs-triage
 jammy_php-zend-stdlib: needs-triage
-lunar_php-zend-stdlib: needs-triage
+lunar_php-zend-stdlib: ignored (end of life, was needs-triage)
 mantic_php-zend-stdlib: needs-triage
 devel_php-zend-stdlib: needs-triage
 

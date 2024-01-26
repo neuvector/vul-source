@@ -20,7 +20,7 @@ bionic_libidn2: ignored (end of standard support)
 esm-infra/bionic_libidn2: needs-triage
 focal_libidn2: needs-triage
 jammy_libidn2: needs-triage
-lunar_libidn2: needs-triage
+lunar_libidn2: ignored (end of life, was needs-triage)
 mantic_libidn2: needs-triage
 devel_libidn2: needs-triage
 

@@ -20,7 +20,7 @@ xenial_raphael: ignored (end of standard support)
 bionic_raphael: ignored (end of standard support)
 focal_raphael: needs-triage
 jammy_raphael: needs-triage
-lunar_raphael: needs-triage
+lunar_raphael: ignored (end of life, was needs-triage)
 mantic_raphael: needs-triage
 devel_raphael: needs-triage
 

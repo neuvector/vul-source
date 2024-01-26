@@ -21,7 +21,7 @@ bionic_syslinux: ignored (end of standard support)
 esm-infra/bionic_syslinux: needs-triage
 focal_syslinux: needs-triage
 jammy_syslinux: needs-triage
-lunar_syslinux: needs-triage
+lunar_syslinux: ignored (end of life, was needs-triage)
 mantic_syslinux: needs-triage
 devel_syslinux: needs-triage
 

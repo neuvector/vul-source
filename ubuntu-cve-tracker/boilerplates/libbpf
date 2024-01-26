@@ -20,7 +20,7 @@ bionic_libbpf: DNE
 focal_libbpf: needs-triage
 esm-apps/focal_libbpf: needs-triage
 jammy_libbpf: needs-triage
-lunar_libbpf: needs-triage
+lunar_libbpf: ignored (end of life, was needs-triage)
 mantic_libbpf: needs-triage
 devel_libbpf: needs-triage
 

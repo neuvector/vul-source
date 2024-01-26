@@ -34,7 +34,7 @@ bionic_expat: ignored (end of standard support)
 esm-infra/bionic_expat: needs-triage
 focal_expat: needs-triage
 jammy_expat: needs-triage
-lunar_expat: needs-triage
+lunar_expat: ignored (end of life, was needs-triage)
 mantic_expat: needs-triage
 devel_expat: needs-triage
 
@@ -116,7 +116,7 @@ xenial_xmlrpc-c: ignored (end of standard support)
 bionic_xmlrpc-c: ignored (end of standard support)
 focal_xmlrpc-c: needs-triage
 jammy_xmlrpc-c: needs-triage
-lunar_xmlrpc-c: needs-triage
+lunar_xmlrpc-c: ignored (end of life, was needs-triage)
 mantic_xmlrpc-c: needs-triage
 devel_xmlrpc-c: needs-triage
 
@@ -140,7 +140,7 @@ xenial_wbxml2: ignored (end of standard support)
 bionic_wbxml2: ignored (end of standard support)
 focal_wbxml2: needs-triage
 jammy_wbxml2: needs-triage
-lunar_wbxml2: needs-triage
+lunar_wbxml2: ignored (end of life, was needs-triage)
 mantic_wbxml2: needs-triage
 devel_wbxml2: needs-triage
 
@@ -152,7 +152,7 @@ xenial_swish-e: ignored (end of standard support)
 bionic_swish-e: ignored (end of standard support)
 focal_swish-e: needs-triage
 jammy_swish-e: needs-triage
-lunar_swish-e: needs-triage
+lunar_swish-e: ignored (end of life, was needs-triage)
 mantic_swish-e: needs-triage
 devel_swish-e: needs-triage
 
@@ -176,7 +176,7 @@ xenial_cadaver: ignored (end of standard support)
 bionic_cadaver: ignored (end of standard support)
 focal_cadaver: needs-triage
 jammy_cadaver: needs-triage
-lunar_cadaver: needs-triage
+lunar_cadaver: ignored (end of life, was needs-triage)
 mantic_cadaver: needs-triage
 devel_cadaver: needs-triage
 
@@ -236,7 +236,7 @@ xenial_matanza: ignored (end of standard support)
 bionic_matanza: ignored (end of standard support)
 focal_matanza: needs-triage
 jammy_matanza: needs-triage
-lunar_matanza: needs-triage
+lunar_matanza: ignored (end of life, was needs-triage)
 mantic_matanza: needs-triage
 devel_matanza: needs-triage
 
@@ -248,7 +248,7 @@ xenial_tdom: ignored (end of standard support)
 bionic_tdom: ignored (end of standard support)
 focal_tdom: needs-triage
 jammy_tdom: needs-triage
-lunar_tdom: needs-triage
+lunar_tdom: ignored (end of life, was needs-triage)
 mantic_tdom: needs-triage
 devel_tdom: needs-triage
 
@@ -300,7 +300,7 @@ bionic_thunderbird: ignored (end of standard support)
 esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
-lunar_thunderbird: needs-triage
+lunar_thunderbird: ignored (end of life, was needs-triage)
 mantic_thunderbird: needs-triage
 devel_thunderbird: needs-triage
 
@@ -312,7 +312,7 @@ xenial_libxmltok: ignored (end of standard support)
 bionic_libxmltok: ignored (end of standard support)
 focal_libxmltok: needs-triage
 jammy_libxmltok: needs-triage
-lunar_libxmltok: needs-triage
+lunar_libxmltok: ignored (end of life, was needs-triage)
 mantic_libxmltok: needs-triage
 devel_libxmltok: needs-triage
 

@@ -33,7 +33,7 @@ xenial_postgresql-15: DNE
 bionic_postgresql-15: DNE
 focal_postgresql-15: DNE
 jammy_postgresql-15: DNE
-lunar_postgresql-15: needs-triage
+lunar_postgresql-15: ignored (end of life, was needs-triage)
 mantic_postgresql-15: needs-triage
 devel_postgresql-15: DNE
 

@@ -30,7 +30,7 @@ groovy_lzo2: ignored (end of life, was needs-triage)
 hirsute_lzo2: ignored (end of life, was needs-triage)
 impish_lzo2: ignored (end of life, was needs-triage)
 jammy_lzo2:
-lunar_lzo2:
+lunar_lzo2: ignored (end of life, was needs-triage)
 mantic_lzo2:
 devel_lzo2:
 
@@ -45,7 +45,7 @@ groovy_samhain: ignored (end of life, was needs-triage)
 hirsute_samhain: ignored (end of life, was needs-triage)
 impish_samhain: ignored (end of life, was needs-triage)
 jammy_samhain:
-lunar_samhain:
+lunar_samhain: ignored (end of life, was needs-triage)
 mantic_samhain:
 devel_samhain:
 
@@ -62,7 +62,7 @@ groovy_valgrind: ignored (end of life, was needs-triage)
 hirsute_valgrind: ignored (end of life, was needs-triage)
 impish_valgrind: ignored (end of life, was needs-triage)
 jammy_valgrind:
-lunar_valgrind:
+lunar_valgrind: ignored (end of life, was needs-triage)
 mantic_valgrind:
 devel_valgrind:
 
@@ -79,7 +79,7 @@ groovy_syslinux: ignored (end of life, was needs-triage)
 hirsute_syslinux: ignored (end of life, was needs-triage)
 impish_syslinux: ignored (end of life, was needs-triage)
 jammy_syslinux:
-lunar_syslinux:
+lunar_syslinux: ignored (end of life, was needs-triage)
 mantic_syslinux:
 devel_syslinux:
 
@@ -94,7 +94,7 @@ groovy_distcc: ignored (end of life, was needs-triage)
 hirsute_distcc: ignored (end of life, was needs-triage)
 impish_distcc: ignored (end of life, was needs-triage)
 jammy_distcc:
-lunar_distcc:
+lunar_distcc: ignored (end of life, was needs-triage)
 mantic_distcc:
 devel_distcc:
 
@@ -109,7 +109,7 @@ groovy_bb: ignored (end of life, was needs-triage)
 hirsute_bb: ignored (end of life, was needs-triage)
 impish_bb: ignored (end of life, was needs-triage)
 jammy_bb:
-lunar_bb:
+lunar_bb: ignored (end of life, was needs-triage)
 mantic_bb:
 devel_bb:
 
@@ -126,7 +126,7 @@ groovy_u-boot: ignored (end of life, was needs-triage)
 hirsute_u-boot: ignored (end of life, was needs-triage)
 impish_u-boot: ignored (end of life, was needs-triage)
 jammy_u-boot:
-lunar_u-boot:
+lunar_u-boot: ignored (end of life, was needs-triage)
 mantic_u-boot:
 devel_u-boot:
 
@@ -141,7 +141,7 @@ groovy_refind: ignored (end of life, was needs-triage)
 hirsute_refind: ignored (end of life, was needs-triage)
 impish_refind: ignored (end of life, was needs-triage)
 jammy_refind:
-lunar_refind:
+lunar_refind: ignored (end of life, was needs-triage)
 mantic_refind:
 devel_refind:
 
@@ -156,7 +156,7 @@ groovy_blender: ignored (end of life, was needs-triage)
 hirsute_blender: ignored (end of life, was needs-triage)
 impish_blender: ignored (end of life, was needs-triage)
 jammy_blender:
-lunar_blender:
+lunar_blender: ignored (end of life, was needs-triage)
 mantic_blender:
 devel_blender:
 
@@ -171,7 +171,7 @@ groovy_n2n: ignored (end of life, was needs-triage)
 hirsute_n2n: ignored (end of life, was needs-triage)
 impish_n2n: ignored (end of life, was needs-triage)
 jammy_n2n:
-lunar_n2n:
+lunar_n2n: ignored (end of life, was needs-triage)
 mantic_n2n:
 devel_n2n:
 
@@ -186,7 +186,7 @@ groovy_nfdump: ignored (end of life, was needs-triage)
 hirsute_nfdump: ignored (end of life, was needs-triage)
 impish_nfdump: ignored (end of life, was needs-triage)
 jammy_nfdump:
-lunar_nfdump:
+lunar_nfdump: ignored (end of life, was needs-triage)
 mantic_nfdump:
 devel_nfdump:
 
@@ -203,7 +203,7 @@ groovy_libvncserver: ignored (end of life, was needs-triage)
 hirsute_libvncserver: ignored (end of life, was needs-triage)
 impish_libvncserver: ignored (end of life, was needs-triage)
 jammy_libvncserver:
-lunar_libvncserver:
+lunar_libvncserver: ignored (end of life, was needs-triage)
 mantic_libvncserver:
 devel_libvncserver:
 
@@ -218,7 +218,7 @@ groovy_ht: ignored (end of life, was needs-triage)
 hirsute_ht: ignored (end of life, was needs-triage)
 impish_ht: ignored (end of life, was needs-triage)
 jammy_ht:
-lunar_ht:
+lunar_ht: ignored (end of life, was needs-triage)
 mantic_ht:
 devel_ht:
 
@@ -247,7 +247,7 @@ groovy_qemu: ignored (end of life, was needs-triage)
 hirsute_qemu: ignored (end of life, was needs-triage)
 impish_qemu: ignored (end of life, was needs-triage)
 jammy_qemu:
-lunar_qemu:
+lunar_qemu: ignored (end of life, was needs-triage)
 mantic_qemu:
 devel_qemu:
 
@@ -264,7 +264,7 @@ groovy_grub2: ignored (end of life, was needs-triage)
 hirsute_grub2: ignored (end of life, was needs-triage)
 impish_grub2: ignored (end of life, was needs-triage)
 jammy_grub2:
-lunar_grub2:
+lunar_grub2: ignored (end of life, was needs-triage)
 mantic_grub2:
 devel_grub2:
 
@@ -281,6 +281,6 @@ groovy_grub2-signed: ignored (end of life, was needs-triage)
 hirsute_grub2-signed: ignored (end of life, was needs-triage)
 impish_grub2-signed: ignored (end of life, was needs-triage)
 jammy_grub2-signed:
-lunar_grub2-signed:
+lunar_grub2-signed: ignored (end of life, was needs-triage)
 mantic_grub2-signed:
 devel_grub2-signed:

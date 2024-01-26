@@ -24,7 +24,7 @@ xenial_pep517: DNE
 bionic_pep517: DNE
 focal_pep517: needs-triage
 jammy_pep517: needs-triage
-lunar_pep517: needs-triage
+lunar_pep517: ignored (end of life, was needs-triage)
 mantic_pep517: needs-triage
 devel_pep517: needs-triage
 
@@ -36,7 +36,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

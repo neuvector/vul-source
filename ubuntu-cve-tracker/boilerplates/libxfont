@@ -21,7 +21,7 @@ bionic_libxfont: ignored (end of standard support)
 esm-infra/bionic_libxfont: needs-triage
 focal_libxfont: needs-triage
 jammy_libxfont: needs-triage
-lunar_libxfont: needs-triage
+lunar_libxfont: ignored (end of life, was needs-triage)
 mantic_libxfont: needs-triage
 devel_libxfont: needs-triage
 

@@ -23,6 +23,6 @@ bionic_defusedxml: ignored (end of standard support)
 esm-infra/bionic_defusedxml: needs-triage
 focal_defusedxml: needs-triage
 jammy_defusedxml: needs-triage
-lunar_defusedxml: needs-triage
+lunar_defusedxml: ignored (end of life, was needs-triage)
 mantic_defusedxml: needs-triage
 devel_defusedxml: needs-triage

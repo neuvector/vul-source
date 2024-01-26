@@ -38,7 +38,7 @@ xenial_setuptools: DNE
 bionic_setuptools: DNE
 focal_setuptools: needs-triage
 jammy_setuptools: needs-triage
-lunar_setuptools: needs-triage
+lunar_setuptools: ignored (end of life, was needs-triage)
 mantic_setuptools: needs-triage
 devel_setuptools: needs-triage
 
@@ -50,7 +50,7 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: needs-triage
+lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

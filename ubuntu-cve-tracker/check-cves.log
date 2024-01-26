@@ -7956,3 +7956,5 @@
 2024-01-24 18:54:20 UTC - 0 added, 0 ignored, 1 skipped, 0 total - files: ['allitems.xml']
 2024-01-24 19:06:12 UTC - 1 added, 2 ignored, 5 skipped, 3 total - files: ['debian-import_vzcl2aq4.json']
 2024-01-24 19:06:21 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
+2024-01-26 19:18:17 UTC - 14 added, 94 ignored, 5 skipped, 108 total - files: ['nvdcve-1.1-recent.json']
+2024-01-26 19:37:35 UTC - 2 added, 1 ignored, 5 skipped, 3 total - files: ['debian-import_dpktqx9u.json']

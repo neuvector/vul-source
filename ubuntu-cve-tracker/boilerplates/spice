@@ -22,7 +22,7 @@ xenial_spice-gtk: ignored (end of standard support)
 bionic_spice-gtk: ignored (end of standard support)
 focal_spice-gtk: needs-triage
 jammy_spice-gtk: needs-triage
-lunar_spice-gtk: needs-triage
+lunar_spice-gtk: ignored (end of life, was needs-triage)
 mantic_spice-gtk: needs-triage
 devel_spice-gtk: needs-triage
 
@@ -36,7 +36,7 @@ bionic_spice: ignored (end of standard support)
 esm-infra/bionic_spice: needs-triage
 focal_spice: needs-triage
 jammy_spice: needs-triage
-lunar_spice: needs-triage
+lunar_spice: ignored (end of life, was needs-triage)
 mantic_spice: needs-triage
 devel_spice: needs-triage
 
@@ -50,6 +50,6 @@ bionic_spice-protocol: ignored (end of standard support)
 esm-infra/bionic_spice-protocol: needs-triage
 focal_spice-protocol: needs-triage
 jammy_spice-protocol: needs-triage
-lunar_spice-protocol: needs-triage
+lunar_spice-protocol: ignored (end of life, was needs-triage)
 mantic_spice-protocol: needs-triage
 devel_spice-protocol: needs-triage

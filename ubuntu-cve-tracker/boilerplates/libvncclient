@@ -21,7 +21,7 @@ bionic_libvncserver: ignored (end of standard support)
 esm-infra/bionic_libvncserver: needs-triage
 focal_libvncserver: needs-triage
 jammy_libvncserver: needs-triage
-lunar_libvncserver: needs-triage
+lunar_libvncserver: ignored (end of life, was needs-triage)
 mantic_libvncserver: needs-triage
 devel_libvncserver: needs-triage
 
@@ -35,7 +35,7 @@ bionic_vino: ignored (end of standard support)
 esm-infra/bionic_vino: needs-triage
 focal_vino: needs-triage
 jammy_vino: needs-triage
-lunar_vino: needs-triage
+lunar_vino: ignored (end of life, was needs-triage)
 mantic_vino: needs-triage
 devel_vino: needs-triage
 
@@ -47,7 +47,7 @@ xenial_x11vnc: ignored (end of standard support)
 bionic_x11vnc: ignored (end of standard support)
 focal_x11vnc: needs-triage
 jammy_x11vnc: needs-triage
-lunar_x11vnc: needs-triage
+lunar_x11vnc: ignored (end of life, was needs-triage)
 mantic_x11vnc: needs-triage
 devel_x11vnc: needs-triage
 
@@ -59,7 +59,7 @@ xenial_veyon: DNE
 bionic_veyon: DNE
 focal_veyon: needs-triage
 jammy_veyon: needs-triage
-lunar_veyon: needs-triage
+lunar_veyon: ignored (end of life, was needs-triage)
 mantic_veyon: needs-triage
 devel_veyon: needs-triage
 
@@ -83,6 +83,6 @@ xenial_tightvnc: ignored (end of standard support)
 bionic_tightvnc: ignored (end of standard support)
 focal_tightvnc: needs-triage
 jammy_tightvnc: needs-triage
-lunar_tightvnc: needs-triage
+lunar_tightvnc: ignored (end of life, was needs-triage)
 mantic_tightvnc: needs-triage
 devel_tightvnc: needs-triage

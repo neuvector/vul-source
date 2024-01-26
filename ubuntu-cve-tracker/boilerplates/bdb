@@ -45,7 +45,7 @@ bionic_db5.3: ignored (end of standard support)
 esm-infra/bionic_db5.3: needs-triage
 focal_db5.3: needs-triage
 jammy_db5.3: needs-triage
-lunar_db5.3: needs-triage
+lunar_db5.3: ignored (end of life, was needs-triage)
 mantic_db5.3: needs-triage
 devel_db5.3: needs-triage
 

@@ -20,7 +20,7 @@ xenial_golang-github-gcp-guest-logging-go: DNE
 bionic_golang-github-gcp-guest-logging-go: DNE
 focal_golang-github-gcp-guest-logging-go: DNE
 jammy_golang-github-gcp-guest-logging-go: needs-triage
-lunar_golang-github-gcp-guest-logging-go: needs-triage
+lunar_golang-github-gcp-guest-logging-go: ignored (end of life, was needs-triage)
 mantic_golang-github-gcp-guest-logging-go: needs-triage
 devel_golang-github-gcp-guest-logging-go: needs-triage
 
@@ -32,6 +32,6 @@ xenial_google-guest-agent: ignored (end of standard support)
 bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
-lunar_google-guest-agent: needs-triage
+lunar_google-guest-agent: ignored (end of life, was needs-triage)
 mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

@@ -24,7 +24,7 @@ bionic_xorg-server: ignored (end of standard support)
 esm-infra/bionic_xorg-server: needs-triage
 focal_xorg-server: needs-triage
 jammy_xorg-server: needs-triage
-lunar_xorg-server: needs-triage
+lunar_xorg-server: ignored (end of life, was needs-triage)
 mantic_xorg-server: needs-triage
 devel_xorg-server: needs-triage
 
@@ -36,7 +36,7 @@ xenial_xwayland: DNE
 bionic_xwayland: DNE
 focal_xwayland: DNE
 jammy_xwayland: needs-triage
-lunar_xwayland: needs-triage
+lunar_xwayland: ignored (end of life, was needs-triage)
 mantic_xwayland: needs-triage
 devel_xwayland: needs-triage
 

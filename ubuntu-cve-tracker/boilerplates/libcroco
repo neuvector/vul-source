@@ -35,6 +35,6 @@ bionic_gnome-shell: ignored (end of standard support)
 esm-infra/bionic_gnome-shell: needs-triage
 focal_gnome-shell: needs-triage
 jammy_gnome-shell: needs-triage
-lunar_gnome-shell: needs-triage
+lunar_gnome-shell: ignored (end of life, was needs-triage)
 mantic_gnome-shell: needs-triage
 devel_gnome-shell: needs-triage

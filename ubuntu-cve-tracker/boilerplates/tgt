@@ -22,7 +22,7 @@ bionic_tgt: ignored (end of standard support)
 esm-infra/bionic_tgt: needs-triage
 focal_tgt: needs-triage
 jammy_tgt: needs-triage
-lunar_tgt: needs-triage
+lunar_tgt: ignored (end of life, was needs-triage)
 mantic_tgt: needs-triage
 devel_tgt: needs-triage
 

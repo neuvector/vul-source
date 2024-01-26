@@ -674,7 +674,7 @@ subprojects = {
         "stamp": 1666461600,
     },
     "ubuntu/lunar": {
-        "eol": False,
+        "eol": True,
         "oval": True,
         "components": ["main", "restricted", "universe", "multiverse"],
         "name": "Ubuntu 23.04",

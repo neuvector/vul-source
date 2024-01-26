@@ -234,7 +234,7 @@ xenial_nvidia-graphics-drivers-450-server: DNE
 bionic_nvidia-graphics-drivers-450-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-450-server: needs-triage
 jammy_nvidia-graphics-drivers-450-server: needs-triage
-lunar_nvidia-graphics-drivers-450-server: needs-triage
+lunar_nvidia-graphics-drivers-450-server: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-450-server: DNE
 devel_nvidia-graphics-drivers-450-server: DNE
 
@@ -282,7 +282,7 @@ xenial_nvidia-graphics-drivers-470: DNE
 bionic_nvidia-graphics-drivers-470: ignored (end of standard support)
 focal_nvidia-graphics-drivers-470: needs-triage
 jammy_nvidia-graphics-drivers-470: needs-triage
-lunar_nvidia-graphics-drivers-470: needs-triage
+lunar_nvidia-graphics-drivers-470: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-470: needs-triage
 devel_nvidia-graphics-drivers-470: needs-triage
 
@@ -294,7 +294,7 @@ xenial_nvidia-graphics-drivers-470-server: DNE
 bionic_nvidia-graphics-drivers-470-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-470-server: needs-triage
 jammy_nvidia-graphics-drivers-470-server: needs-triage
-lunar_nvidia-graphics-drivers-470-server: needs-triage
+lunar_nvidia-graphics-drivers-470-server: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-470-server: needs-triage
 devel_nvidia-graphics-drivers-470-server: needs-triage
 
@@ -342,7 +342,7 @@ xenial_nvidia-graphics-drivers-515: DNE
 bionic_nvidia-graphics-drivers-515: ignored (end of standard support)
 focal_nvidia-graphics-drivers-515: needs-triage
 jammy_nvidia-graphics-drivers-515: needs-triage
-lunar_nvidia-graphics-drivers-515: needs-triage
+lunar_nvidia-graphics-drivers-515: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-515: needs-triage
 devel_nvidia-graphics-drivers-515: DNE
 
@@ -354,7 +354,7 @@ xenial_nvidia-graphics-drivers-515-server: DNE
 bionic_nvidia-graphics-drivers-515-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-515-server: needs-triage
 jammy_nvidia-graphics-drivers-515-server: needs-triage
-lunar_nvidia-graphics-drivers-515-server: needs-triage
+lunar_nvidia-graphics-drivers-515-server: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-515-server: needs-triage
 devel_nvidia-graphics-drivers-515-server: DNE
 
@@ -377,7 +377,7 @@ xenial_nvidia-graphics-drivers-525: DNE
 bionic_nvidia-graphics-drivers-525: ignored (end of standard support)
 focal_nvidia-graphics-drivers-525: needs-triage
 jammy_nvidia-graphics-drivers-525: needs-triage
-lunar_nvidia-graphics-drivers-525: needs-triage
+lunar_nvidia-graphics-drivers-525: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-525: needs-triage
 devel_nvidia-graphics-drivers-525: needs-triage
 
@@ -388,7 +388,7 @@ xenial_nvidia-graphics-drivers-525-server: DNE
 bionic_nvidia-graphics-drivers-525-server: ignored (end of standard support)
 focal_nvidia-graphics-drivers-525-server: needs-triage
 jammy_nvidia-graphics-drivers-525-server: needs-triage
-lunar_nvidia-graphics-drivers-525-server: needs-triage
+lunar_nvidia-graphics-drivers-525-server: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-525-server: needs-triage
 devel_nvidia-graphics-drivers-525-server: needs-triage
 
@@ -399,7 +399,7 @@ xenial_nvidia-graphics-drivers-530: DNE
 bionic_nvidia-graphics-drivers-530: ignored (end of standard support)
 focal_nvidia-graphics-drivers-530: needs-triage
 jammy_nvidia-graphics-drivers-530: needs-triage
-lunar_nvidia-graphics-drivers-530: needs-triage
+lunar_nvidia-graphics-drivers-530: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-530: needs-triage
 devel_nvidia-graphics-drivers-530: DNE
 
@@ -409,7 +409,7 @@ trusty_nvidia-graphics-drivers-535: DNE
 xenial_nvidia-graphics-drivers-535: DNE
 focal_nvidia-graphics-drivers-535: needs-triage
 jammy_nvidia-graphics-drivers-535: needs-triage
-lunar_nvidia-graphics-drivers-535: needs-triage
+lunar_nvidia-graphics-drivers-535: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-535: needs-triage
 devel_nvidia-graphics-drivers-535: needs-triage
 
@@ -419,7 +419,7 @@ trusty_nvidia-graphics-drivers-535-server: DNE
 xenial_nvidia-graphics-drivers-535-server: DNE
 focal_nvidia-graphics-drivers-535-server: needs-triage
 jammy_nvidia-graphics-drivers-535-server: needs-triage
-lunar_nvidia-graphics-drivers-535-server: needs-triage
+lunar_nvidia-graphics-drivers-535-server: ignored (end of life, was needs-triage)
 mantic_nvidia-graphics-drivers-535-server: needs-triage
 devel_nvidia-graphics-drivers-535-server: needs-triage
 

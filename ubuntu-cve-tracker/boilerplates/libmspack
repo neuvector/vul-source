@@ -23,7 +23,7 @@ bionic_libmspack: ignored (end of standard support)
 esm-infra/bionic_libmspack: needs-triage
 focal_libmspack: needs-triage
 jammy_libmspack: needs-triage
-lunar_libmspack: needs-triage
+lunar_libmspack: ignored (end of life, was needs-triage)
 mantic_libmspack: needs-triage
 devel_libmspack: needs-triage
 

@@ -33,7 +33,7 @@ bionic_libpng1.6: ignored (end of standard support)
 esm-infra/bionic_libpng1.6: needs-triage
 focal_libpng1.6: needs-triage
 jammy_libpng1.6: needs-triage
-lunar_libpng1.6: needs-triage
+lunar_libpng1.6: ignored (end of life, was needs-triage)
 mantic_libpng1.6: needs-triage
 devel_libpng1.6: needs-triage
 
@@ -61,7 +61,7 @@ bionic_thunderbird: ignored (end of standard support)
 esm-infra/bionic_thunderbird: needs-triage
 focal_thunderbird: needs-triage
 jammy_thunderbird: needs-triage
-lunar_thunderbird: needs-triage
+lunar_thunderbird: ignored (end of life, was needs-triage)
 mantic_thunderbird: needs-triage
 devel_thunderbird: needs-triage
 

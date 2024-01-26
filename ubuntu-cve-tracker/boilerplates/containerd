@@ -26,7 +26,7 @@ bionic_containerd: ignored (end of standard support)
 esm-apps/bionic_containerd: needs-triage
 focal_containerd: needs-triage
 jammy_containerd: needs-triage
-lunar_containerd: needs-triage
+lunar_containerd: ignored (end of life, was needs-triage)
 mantic_containerd: needs-triage
 devel_containerd: needs-triage
 
@@ -38,7 +38,7 @@ xenial_containerd-app: DNE
 bionic_containerd-app: DNE
 focal_containerd-app: needs-triage
 jammy_containerd-app: needs-triage
-lunar_containerd-app: needs-triage
+lunar_containerd-app: ignored (end of life, was needs-triage)
 mantic_containerd-app: needs-triage
 devel_containerd-app: needs-triage
 

@@ -22,7 +22,7 @@ bionic_zlib: ignored (end of standard support)
 esm-infra/bionic_zlib: needs-triage
 focal_zlib: needs-triage
 jammy_zlib: needs-triage
-lunar_zlib: needs-triage
+lunar_zlib: ignored (end of life, was needs-triage)
 mantic_zlib: needs-triage
 devel_zlib: needs-triage
 
