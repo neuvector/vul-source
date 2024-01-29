@@ -21,6 +21,5 @@ xenial_kubernetes: DNE
 bionic_kubernetes: DNE
 focal_kubernetes: needs-triage
 jammy_kubernetes: needs-triage
-lunar_kubernetes: ignored (end of life, was needs-triage)
 mantic_kubernetes: needs-triage
 devel_kubernetes: needs-triage

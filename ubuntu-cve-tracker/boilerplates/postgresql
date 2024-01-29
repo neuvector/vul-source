@@ -21,7 +21,6 @@ xenial_postgresql-16: DNE
 bionic_postgresql-16: DNE
 focal_postgresql-16: DNE
 jammy_postgresql-16: DNE
-lunar_postgresql-16: DNE
 mantic_postgresql-16: DNE
 devel_postgresql-16: needs-triage
 
@@ -33,7 +32,6 @@ xenial_postgresql-15: DNE
 bionic_postgresql-15: DNE
 focal_postgresql-15: DNE
 jammy_postgresql-15: DNE
-lunar_postgresql-15: ignored (end of life, was needs-triage)
 mantic_postgresql-15: needs-triage
 devel_postgresql-15: DNE
 
@@ -45,7 +43,6 @@ xenial_postgresql-14: DNE
 bionic_postgresql-14: DNE
 focal_postgresql-14: DNE
 jammy_postgresql-14: needs-triage
-lunar_postgresql-14: DNE
 mantic_postgresql-14: DNE
 devel_postgresql-14: DNE
 
@@ -57,7 +54,6 @@ xenial_postgresql-13: DNE
 bionic_postgresql-13: DNE
 focal_postgresql-13: DNE
 jammy_postgresql-13: DNE
-lunar_postgresql-13: DNE
 mantic_postgresql-13: DNE
 devel_postgresql-13: DNE
 
@@ -69,7 +65,6 @@ xenial_postgresql-12: DNE
 bionic_postgresql-12: DNE
 focal_postgresql-12: needs-triage
 jammy_postgresql-12: DNE
-lunar_postgresql-12: DNE
 mantic_postgresql-12: DNE
 devel_postgresql-12: DNE
 
@@ -82,7 +77,6 @@ bionic_postgresql-10: ignored (end of standard support)
 esm-infra/bionic_postgresql-10: needs-triage
 focal_postgresql-10: DNE
 jammy_postgresql-10: DNE
-lunar_postgresql-10: DNE
 mantic_postgresql-10: DNE
 devel_postgresql-10: DNE
 
@@ -95,7 +89,6 @@ esm-infra/xenial_postgresql-9.5: needs-triage
 bionic_postgresql-9.5: DNE
 focal_postgresql-9.5: DNE
 jammy_postgresql-9.5: DNE
-lunar_postgresql-9.5: DNE
 mantic_postgresql-9.5: DNE
 devel_postgresql-9.5: DNE
 
@@ -107,7 +100,6 @@ xenial_postgresql-9.3: DNE
 bionic_postgresql-9.3: DNE
 focal_postgresql-9.3: DNE
 jammy_postgresql-9.3: DNE
-lunar_postgresql-9.3: DNE
 mantic_postgresql-9.3: DNE
 devel_postgresql-9.3: DNE
 
@@ -119,6 +111,5 @@ xenial_postgresql-9.1: DNE
 bionic_postgresql-9.1: DNE
 focal_postgresql-9.1: DNE
 jammy_postgresql-9.1: DNE
-lunar_postgresql-9.1: DNE
 mantic_postgresql-9.1: DNE
 devel_postgresql-9.1: DNE

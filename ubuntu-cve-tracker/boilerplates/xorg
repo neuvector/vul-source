@@ -24,7 +24,6 @@ bionic_xorg-server: ignored (end of standard support)
 esm-infra/bionic_xorg-server: needs-triage
 focal_xorg-server: needs-triage
 jammy_xorg-server: needs-triage
-lunar_xorg-server: ignored (end of life, was needs-triage)
 mantic_xorg-server: needs-triage
 devel_xorg-server: needs-triage
 
@@ -36,7 +35,6 @@ xenial_xwayland: DNE
 bionic_xwayland: DNE
 focal_xwayland: DNE
 jammy_xwayland: needs-triage
-lunar_xwayland: ignored (end of life, was needs-triage)
 mantic_xwayland: needs-triage
 devel_xwayland: needs-triage
 
@@ -49,7 +47,6 @@ esm-infra/xenial_xorg-server-hwe-16.04: needs-triage
 bionic_xorg-server-hwe-16.04: DNE
 focal_xorg-server-hwe-16.04: DNE
 jammy_xorg-server-hwe-16.04: DNE
-lunar_xorg-server-hwe-16.04: DNE
 mantic_xorg-server-hwe-16.04: DNE
 devel_xorg-server-hwe-16.04: DNE
 
@@ -62,7 +59,6 @@ bionic_xorg-server-hwe-18.04: ignored (end of standard support)
 esm-infra/bionic_xorg-server-hwe-18.04: needs-triage
 focal_xorg-server-hwe-18.04: DNE
 jammy_xorg-server-hwe-18.04: DNE
-lunar_xorg-server-hwe-18.04: DNE
 mantic_xorg-server-hwe-18.04: DNE
 devel_xorg-server-hwe-18.04: DNE
 
@@ -76,7 +72,6 @@ bionic_xorg: not-affected (code not present)
 esm-infra/bionic_xorg: not-affected (code not present)
 focal_xorg: not-affected (code not present)
 jammy_xorg: not-affected (code not present)
-lunar_xorg: not-affected (code not present)
 mantic_xorg: not-affected (code not present)
 devel_xorg: not-affected (code not present)
 
@@ -89,7 +84,6 @@ esm-infra/xenial_xorg-hwe-16.04: not-affected (code not present)
 bionic_xorg-hwe-16.04: DNE
 focal_xorg-hwe-16.04: DNE
 jammy_xorg-hwe-16.04: DNE
-lunar_xorg-hwe-16.04: DNE
 mantic_xorg-hwe-16.04: DNE
 devel_xorg-hwe-16.04: DNE
 
@@ -102,7 +96,6 @@ bionic_xorg-hwe-18.04: not-affected (code not present)
 esm-infra/bionic_xorg-hwe-18.04: not-affected (code not present)
 focal_xorg-hwe-18.04: DNE
 jammy_xorg-hwe-18.04: DNE
-lunar_xorg-hwe-18.04: DNE
 mantic_xorg-hwe-18.04: DNE
 devel_xorg-hwe-18.04: DNE
 
@@ -114,7 +107,6 @@ xenial_xorg-server-lts-utopic: DNE
 bionic_xorg-server-lts-utopic: DNE
 focal_xorg-server-lts-utopic: DNE
 jammy_xorg-server-lts-utopic: DNE
-lunar_xorg-server-lts-utopic: DNE
 mantic_xorg-server-lts-utopic: DNE
 devel_xorg-server-lts-utopic: DNE
 
@@ -126,7 +118,6 @@ xenial_xorg-server-lts-vivid: DNE
 bionic_xorg-server-lts-vivid: DNE
 focal_xorg-server-lts-vivid: DNE
 jammy_xorg-server-lts-vivid: DNE
-lunar_xorg-server-lts-vivid: DNE
 mantic_xorg-server-lts-vivid: DNE
 devel_xorg-server-lts-vivid: DNE
 
@@ -138,7 +129,6 @@ xenial_xorg-server-lts-wily: DNE
 bionic_xorg-server-lts-wily: DNE
 focal_xorg-server-lts-wily: DNE
 jammy_xorg-server-lts-wily: DNE
-lunar_xorg-server-lts-wily: DNE
 mantic_xorg-server-lts-wily: DNE
 devel_xorg-server-lts-wily: DNE
 
@@ -150,7 +140,6 @@ xenial_xorg-server-lts-xenial: DNE
 bionic_xorg-server-lts-xenial: DNE
 focal_xorg-server-lts-xenial: DNE
 jammy_xorg-server-lts-xenial: DNE
-lunar_xorg-server-lts-xenial: DNE
 mantic_xorg-server-lts-xenial: DNE
 devel_xorg-server-lts-xenial: DNE
 

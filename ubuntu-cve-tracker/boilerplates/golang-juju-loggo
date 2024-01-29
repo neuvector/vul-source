@@ -21,7 +21,6 @@ esm-infra/xenial_golang-juju-loggo: needs-triage
 bionic_golang-juju-loggo: ignored (end of standard support)
 focal_golang-juju-loggo: DNE
 jammy_golang-juju-loggo: DNE
-lunar_golang-juju-loggo: DNE
 mantic_golang-juju-loggo: DNE
 devel_golang-juju-loggo: DNE
 
@@ -33,7 +32,6 @@ xenial_golang-github-juju-loggo: ignored (end of standard support)
 bionic_golang-github-juju-loggo: ignored (end of standard support)
 focal_golang-github-juju-loggo: needs-triage
 jammy_golang-github-juju-loggo: needs-triage
-lunar_golang-github-juju-loggo: ignored (end of life, was needs-triage)
 mantic_golang-github-juju-loggo: needs-triage
 devel_golang-github-juju-loggo: needs-triage
 
@@ -48,6 +46,5 @@ esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
-lunar_snapd: ignored (end of life, was needs-triage)
 mantic_snapd: needs-triage
 devel_snapd: needs-triage

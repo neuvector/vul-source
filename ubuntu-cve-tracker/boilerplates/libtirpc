@@ -22,7 +22,6 @@ bionic_libtirpc: ignored (end of standard support)
 esm-infra/bionic_libtirpc: needs-triage
 focal_libtirpc: needs-triage
 jammy_libtirpc: needs-triage
-lunar_libtirpc: ignored (end of life, was needs-triage)
 mantic_libtirpc: needs-triage
 devel_libtirpc: needs-triage
 
@@ -34,6 +33,5 @@ xenial_ntirpc: ignored (end of standard support)
 bionic_ntirpc: ignored (end of standard support)
 focal_ntirpc: needs-triage
 jammy_ntirpc: needs-triage
-lunar_ntirpc: ignored (end of life, was needs-triage)
 mantic_ntirpc: needs-triage
 devel_ntirpc: needs-triage

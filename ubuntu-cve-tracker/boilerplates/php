@@ -20,7 +20,6 @@ xenial_php5: DNE
 bionic_php5: DNE
 focal_php5: DNE
 jammy_php5: DNE
-lunar_php5: DNE
 mantic_php5: DNE
 devel_php5: DNE
 
@@ -33,7 +32,6 @@ esm-infra/xenial_php7.0: needs-triage
 bionic_php7.0: DNE
 focal_php7.0: DNE
 jammy_php7.0: DNE
-lunar_php7.0: DNE
 mantic_php7.0: DNE
 devel_php7.0: DNE
 
@@ -46,7 +44,6 @@ bionic_php7.2: ignored (end of standard support)
 esm-infra/bionic_php7.2: needs-triage
 focal_php7.2: DNE
 jammy_php7.2: DNE
-lunar_php7.2: DNE
 mantic_php7.2: DNE
 devel_php7.2: DNE
 
@@ -58,7 +55,6 @@ xenial_php7.4: DNE
 bionic_php7.4: DNE
 focal_php7.4: needs-triage
 jammy_php7.4: DNE
-lunar_php7.4: DNE
 mantic_php7.4: DNE
 devel_php7.4: DNE
 
@@ -70,7 +66,6 @@ xenial_php8.0: DNE
 bionic_php8.0: DNE
 focal_php8.0: DNE
 jammy_php8.0: DNE
-lunar_php8.0: DNE
 mantic_php8.0: DNE
 devel_php8.0: DNE
 
@@ -82,7 +77,6 @@ xenial_php8.1: DNE
 bionic_php8.1: DNE
 focal_php8.1: DNE
 jammy_php8.1: needs-triage
-lunar_php8.1: ignored (end of life, was needs-triage)
 mantic_php8.1: DNE
 devel_php8.1: DNE
 

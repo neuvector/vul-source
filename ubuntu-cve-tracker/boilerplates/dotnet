@@ -18,7 +18,6 @@ xenial_dotnet6: DNE
 bionic_dotnet6: DNE
 focal_dotnet6: DNE
 jammy_dotnet6: needs-triage
-lunar_dotnet6: ignored (end of life, was needs-triage)
 mantic_dotnet6: needs-triage
 devel_dotnet6: DNE
 
@@ -29,6 +28,5 @@ xenial_dotnet7: DNE
 bionic_dotnet7: DNE
 focal_dotnet7: DNE
 jammy_dotnet7: needs-triage
-lunar_dotnet7: ignored (end of life, was needs-triage)
 mantic_dotnet7: needs-triage
 devel_dotnet7: DNE

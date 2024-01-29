@@ -20,7 +20,6 @@ xenial_golang-github-kardianos-service: DNE
 bionic_golang-github-kardianos-service: DNE
 focal_golang-github-kardianos-service: needs-triage
 jammy_golang-github-kardianos-service: needs-triage
-lunar_golang-github-kardianos-service: ignored (end of life, was needs-triage)
 mantic_golang-github-kardianos-service: needs-triage
 devel_golang-github-kardianos-service: needs-triage
 
@@ -32,6 +31,5 @@ xenial_google-guest-agent: ignored (end of standard support)
 bionic_google-guest-agent: ignored (end of standard support)
 focal_google-guest-agent: needs-triage
 jammy_google-guest-agent: needs-triage
-lunar_google-guest-agent: ignored (end of life, was needs-triage)
 mantic_google-guest-agent: needs-triage
 devel_google-guest-agent: needs-triage

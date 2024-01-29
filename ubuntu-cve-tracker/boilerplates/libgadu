@@ -20,7 +20,6 @@ xenial_libgadu: ignored (end of standard support)
 bionic_libgadu: ignored (end of standard support)
 focal_libgadu: needs-triage
 jammy_libgadu: needs-triage
-lunar_libgadu: ignored (end of life, was needs-triage)
 mantic_libgadu: needs-triage
 devel_libgadu: needs-triage
 
@@ -32,6 +31,5 @@ xenial_pidgin: ignored (end of standard support)
 bionic_pidgin: ignored (end of standard support)
 focal_pidgin: needs-triage
 jammy_pidgin: needs-triage
-lunar_pidgin: ignored (end of life, was needs-triage)
 mantic_pidgin: needs-triage
 devel_pidgin: needs-triage

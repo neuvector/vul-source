@@ -19,7 +19,6 @@ xenial_sqlite: ignored (end of standard support)
 bionic_sqlite: ignored (end of standard support)
 focal_sqlite: needs-triage
 jammy_sqlite: needs-triage
-lunar_sqlite: needs-triage
 mantic_sqlite: needs-triage
 devel_sqlite: needs-triage
 
@@ -33,6 +32,5 @@ bionic_sqlite3: ignored (end of standard support)
 esm-infra/bionic_sqlite3: needs-triage
 focal_sqlite3: needs-triage
 jammy_sqlite3: needs-triage
-lunar_sqlite3: ignored (end of life, was needs-triage)
 mantic_sqlite3: needs-triage
 devel_sqlite3: needs-triage

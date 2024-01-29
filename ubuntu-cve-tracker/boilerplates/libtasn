@@ -19,7 +19,6 @@ xenial_libtasn1-3: DNE
 bionic_libtasn1-3: DNE
 focal_libtasn1-3: DNE
 jammy_libtasn1-3: DNE
-lunar_libtasn1-3: DNE
 mantic_libtasn1-3: DNE
 devel_libtasn1-3: DNE
 
@@ -33,7 +32,6 @@ bionic_libtasn1-6: ignored (end of standard support)
 esm-infra/bionic_libtasn1-6: needs-triage
 focal_libtasn1-6: needs-triage
 jammy_libtasn1-6: needs-triage
-lunar_libtasn1-6: ignored (end of life, was needs-triage)
 mantic_libtasn1-6: needs-triage
 devel_libtasn1-6: needs-triage
 

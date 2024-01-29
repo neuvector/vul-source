@@ -23,7 +23,6 @@ esm-infra/xenial_golang-go.crypto: needs-triage
 bionic_golang-go.crypto: ignored (end of standard support)
 focal_golang-go.crypto: needs-triage
 jammy_golang-go.crypto: needs-triage
-lunar_golang-go.crypto: ignored (end of life, was needs-triage)
 mantic_golang-go.crypto: needs-triage
 devel_golang-go.crypto: needs-triage
 
@@ -38,7 +37,6 @@ esm-infra/bionic_snapd: needs-triage
 focal_snapd: needs-triage
 snap_snapd: needs-triage
 jammy_snapd: needs-triage
-lunar_snapd: ignored (end of life, was needs-triage)
 mantic_snapd: needs-triage
 devel_snapd: needs-triage
 
@@ -52,6 +50,5 @@ bionic_lxd: ignored (end of standard support)
 esm-infra/bionic_lxd: needs-triage
 focal_lxd: not-affected (code-not-present)
 jammy_lxd: DNE
-lunar_lxd: DNE
 mantic_lxd: DNE
 devel_lxd: DNE

@@ -20,7 +20,6 @@ bionic_libidn2: ignored (end of standard support)
 esm-infra/bionic_libidn2: needs-triage
 focal_libidn2: needs-triage
 jammy_libidn2: needs-triage
-lunar_libidn2: ignored (end of life, was needs-triage)
 mantic_libidn2: needs-triage
 devel_libidn2: needs-triage
 
@@ -32,6 +31,5 @@ xenial_libidn2-0: ignored (end of standard support)
 bionic_libidn2-0: DNE
 focal_libidn2-0: DNE
 jammy_libidn2-0: DNE
-lunar_libidn2-0: DNE
 mantic_libidn2-0: DNE
 devel_libidn2-0: DNE

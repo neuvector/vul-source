@@ -22,7 +22,6 @@ bionic_libcroco: ignored (end of standard support)
 esm-infra/bionic_libcroco: needs-triage
 focal_libcroco: needs-triage
 jammy_libcroco: DNE
-lunar_libcroco: DNE
 mantic_libcroco: DNE
 devel_libcroco: DNE
 
@@ -35,6 +34,5 @@ bionic_gnome-shell: ignored (end of standard support)
 esm-infra/bionic_gnome-shell: needs-triage
 focal_gnome-shell: needs-triage
 jammy_gnome-shell: needs-triage
-lunar_gnome-shell: ignored (end of life, was needs-triage)
 mantic_gnome-shell: needs-triage
 devel_gnome-shell: needs-triage

@@ -21,7 +21,6 @@ bionic_python2.7: ignored (end of standard support)
 esm-infra/bionic_python2.7: needs-triage
 focal_python2.7: needs-triage
 jammy_python2.7: needs-triage
-lunar_python2.7: DNE
 mantic_python2.7: DNE
 devel_python2.7: DNE
 
@@ -33,7 +32,6 @@ xenial_python3.4: DNE
 bionic_python3.4: DNE
 focal_python3.4: DNE
 jammy_python3.4: DNE
-lunar_python3.4: DNE
 mantic_python3.4: DNE
 devel_python3.4: DNE
 
@@ -46,7 +44,6 @@ esm-infra/xenial_python3.5: needs-triage
 bionic_python3.5: DNE
 focal_python3.5: DNE
 jammy_python3.5: DNE
-lunar_python3.5: DNE
 mantic_python3.5: DNE
 devel_python3.5: DNE
 
@@ -59,7 +56,6 @@ bionic_python3.6: ignored (end of standard support)
 esm-infra/bionic_python3.6: needs-triage
 focal_python3.6: DNE
 jammy_python3.6: DNE
-lunar_python3.6: DNE
 mantic_python3.6: DNE
 devel_python3.6: DNE
 
@@ -71,7 +67,6 @@ xenial_python3.7: DNE
 bionic_python3.7: ignored (end of standard support)
 focal_python3.7: DNE
 jammy_python3.7: DNE
-lunar_python3.7: DNE
 mantic_python3.7: DNE
 devel_python3.7: DNE
 
@@ -83,7 +78,6 @@ xenial_python3.8: DNE
 bionic_python3.8: ignored (end of standard support)
 focal_python3.8: needs-triage
 jammy_python3.8: DNE
-lunar_python3.8: DNE
 mantic_python3.8: DNE
 devel_python3.8: DNE
 
@@ -95,7 +89,6 @@ xenial_python3.9: DNE
 bionic_python3.9: DNE
 focal_python3.9: needs-triage
 jammy_python3.9: DNE
-lunar_python3.9: DNE
 mantic_python3.9: DNE
 devel_python3.9: DNE
 
@@ -107,7 +100,6 @@ xenial_python3.10: DNE
 bionic_python3.10: DNE
 focal_python3.10: DNE
 jammy_python3.10: needs-triage
-lunar_python3.10: DNE
 mantic_python3.10: DNE
 devel_python3.10: DNE
 
@@ -119,7 +111,6 @@ xenial_python3.11: DNE
 bionic_python3.11: DNE
 focal_python3.11: DNE
 jammy_python3.11: needs-triage
-lunar_python3.11: ignored (end of life, was needs-triage)
 mantic_python3.11: needs-triage
 devel_python3.11: needs-triage
 
@@ -131,6 +122,5 @@ xenial_python3.12: DNE
 bionic_python3.12: DNE
 focal_python3.12: DNE
 jammy_python3.12: DNE
-lunar_python3.12: DNE
 mantic_python3.12: needs-triage
 devel_python3.12: needs-triage

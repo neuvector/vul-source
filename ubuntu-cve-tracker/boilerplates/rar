@@ -22,7 +22,6 @@ focal_rar: needs-triage
 esm-apps/focal_rar: needs-triage
 jammy_rar: needs-triage
 esm-apps/jammy_rar: needs-triage
-lunar_rar: ignored (end of life, was needs-triage)
 mantic_rar: needs-triage
 devel_rar: needs-triage
 
@@ -37,7 +36,6 @@ focal_unrar-nonfree: needs-triage
 esm-apps/focal_unrar-nonfree: needs-triage
 jammy_unrar-nonfree: needs-triage
 esm-apps/jammy_unrar-nonfree: needs-triage
-lunar_unrar-nonfree: ignored (end of life, was needs-triage)
 mantic_unrar-nonfree: needs-triage
 devel_unrar-nonfree: needs-triage
 
@@ -52,6 +50,5 @@ focal_libclamunrar: needs-triage
 esm-apps/focal_libclamunrar: needs-triage
 jammy_libclamunrar: needs-triage
 esm-apps/jammy_libclamunrar: needs-triage
-lunar_libclamunrar: ignored (end of life, was needs-triage)
 mantic_libclamunrar: needs-triage
 devel_libclamunrar: needs-triage

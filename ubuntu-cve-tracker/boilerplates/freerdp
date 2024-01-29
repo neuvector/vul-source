@@ -20,7 +20,6 @@ esm-infra/xenial_freerdp: needs-triage
 bionic_freerdp: ignored (end of standard support)
 focal_freerdp: 
 jammy_freerdp: 
-lunar_freerdp: 
 mantic_freerdp: 
 devel_freerdp: 
 
@@ -32,6 +31,5 @@ bionic_freerdp2: ignored (end of standard support)
 esm-infra/bionic_freerdp2: needs-triage
 focal_freerdp2: needs-triage
 jammy_freerdp2: needs-triage
-lunar_freerdp2: ignored (end of life, was needs-triage)
 mantic_freerdp2: needs-triage
 devel_freerdp2: needs-triage

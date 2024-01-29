@@ -20,7 +20,6 @@ esm-infra/xenial_nagios3: needs-triage
 bionic_nagios3: ignored (end of standard support)
 focal_nagios3: DNE
 jammy_nagios3: DNE
-lunar_nagios3: DNE
 mantic_nagios3: DNE
 devel_nagios3: DNE
 
@@ -33,7 +32,6 @@ esm-infra/xenial_nagios4: DNE
 bionic_nagios4: DNE
 focal_nagios4: needs-triage
 jammy_nagios4: needs-triage
-lunar_nagios4: ignored (end of life, was needs-triage)
 mantic_nagios4: needs-triage
 devel_nagios4: needs-triage
 
@@ -45,6 +43,5 @@ xenial_icinga: ignored (end of standard support)
 bionic_icinga: ignored (end of standard support)
 focal_icinga: DNE
 jammy_icinga: DNE
-lunar_icinga: DNE
 mantic_icinga: DNE
 devel_icinga: DNE

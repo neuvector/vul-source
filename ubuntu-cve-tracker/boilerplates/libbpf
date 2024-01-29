@@ -20,7 +20,6 @@ bionic_libbpf: DNE
 focal_libbpf: needs-triage
 esm-apps/focal_libbpf: needs-triage
 jammy_libbpf: needs-triage
-lunar_libbpf: ignored (end of life, was needs-triage)
 mantic_libbpf: needs-triage
 devel_libbpf: needs-triage
 
@@ -34,6 +33,5 @@ esm-apps/bionic_dwarves-dfsg: needs-triage
 focal_dwarves-dfsg: needs-triage
 esm-apps/focal_dwarves-dfsg: needs-triage
 jammy_dwarves-dfsg: DNE
-lunar_dwarves-dfsg: DNE
 mantic_dwarves-dfsg: DNE
 devel_dwarves-dfsg: DNE

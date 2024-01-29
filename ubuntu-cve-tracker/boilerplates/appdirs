@@ -26,7 +26,6 @@ bionic_appdirs: ignored (end of standard support)
 esm-infra/bionic_appdirs: needs-triage
 focal_appdirs: needs-triage
 jammy_appdirs: needs-triage
-lunar_appdirs: ignored (end of life, was needs-triage)
 mantic_appdirs: needs-triage
 devel_appdirs: needs-triage
 
@@ -38,7 +37,6 @@ xenial_python-pip: ignored (end of standard support)
 bionic_python-pip: ignored (end of standard support)
 focal_python-pip: needs-triage
 jammy_python-pip: needs-triage
-lunar_python-pip: ignored (end of life, was needs-triage)
 mantic_python-pip: needs-triage
 devel_python-pip: needs-triage
 

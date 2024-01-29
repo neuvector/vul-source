@@ -21,7 +21,6 @@ bionic_pillow: ignored (end of standard support)
 esm-infra/bionic_pillow: needs-triage
 focal_pillow: needs-triage
 jammy_pillow: needs-triage
-lunar_pillow: ignored (end of life, was needs-triage)
 mantic_pillow: needs-triage
 devel_pillow: needs-triage
 
@@ -33,6 +32,5 @@ xenial_pillow-python2: DNE
 bionic_pillow-python2: DNE
 focal_pillow-python2: needs-triage
 jammy_pillow-python2: DNE
-lunar_pillow-python2: DNE
 mantic_pillow-python2: DNE
 devel_pillow-python2: DNE

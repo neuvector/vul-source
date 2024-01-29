@@ -19,7 +19,6 @@ xenial_pupnp: DNE
 bionic_pupnp: ignored (end of standard support)
 focal_pupnp: DNE
 jammy_pupnp: DNE
-lunar_pupnp: DNE
 mantic_pupnp: needs-triage
 devel_pupnp: needs-triage
 
@@ -31,7 +30,6 @@ xenial_pupnp-1.8: DNE
 bionic_pupnp-1.8: ignored (end of standard support)
 focal_pupnp-1.8: needs-triage
 jammy_pupnp-1.8: needs-triage
-lunar_pupnp-1.8: ignored (end of life, was needs-triage)
 mantic_pupnp-1.8: DNE
 devel_pupnp-1.8: DNE
 
@@ -43,7 +41,6 @@ xenial_libupnp: ignored (end of standard support)
 bionic_libupnp: ignored (end of standard support)
 focal_libupnp: DNE
 jammy_libupnp: DNE
-lunar_libupnp: DNE
 mantic_libupnp: DNE
 devel_libupnp: DNE
 
@@ -55,6 +52,5 @@ xenial_mediatomb: ignored (end of standard support)
 bionic_mediatomb: DNE
 focal_mediatomb: DNE
 jammy_mediatomb: DNE
-lunar_mediatomb: DNE
 mantic_mediatomb: DNE
 devel_mediatomb: DNE

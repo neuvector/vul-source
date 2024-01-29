@@ -18,7 +18,6 @@ bionic_u-boot: ignored (end of standard support)
 esm-infra/bionic_u-boot: needs-triage
 focal_u-boot: needs-triage 
 jammy_u-boot: needs-triage
-lunar_u-boot: ignored (end of life, was needs-triage)
 mantic_u-boot: needs-triage
 devel_u-boot: needs-triage
 
@@ -28,6 +27,5 @@ esm-infra/xenial_u-boot-nezha: DNE
 bionic_u-boot-nezha: DNE
 focal_u-boot-nezha: DNE
 jammy_u-boot-nezha: needs-triage
-lunar_u-boot-nezha: ignored (end of life, was needs-triage)
 mantic_u-boot-nezha: needs-triage
 devel_u-boot-nezha: needs-triage

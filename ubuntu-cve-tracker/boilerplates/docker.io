@@ -26,7 +26,6 @@ bionic_docker.io: ignored (end of standard support)
 esm-infra/bionic_docker.io: needs-triage
 focal_docker.io: needs-triage
 jammy_docker.io: needs-triage
-lunar_docker.io: ignored (end of life, was needs-triage)
 mantic_docker.io: needs-triage
 devel_docker.io: needs-triage
 
@@ -38,7 +37,6 @@ xenial_docker.io-app: DNE
 bionic_docker.io-app: DNE
 focal_docker.io-app: needs-triage
 jammy_docker.io-app: needs-triage
-lunar_docker.io-app: ignored (end of life, was needs-triage)
 mantic_docker.io-app: needs-triage
 devel_docker.io-app: needs-triage
 

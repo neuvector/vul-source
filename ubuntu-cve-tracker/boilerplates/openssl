@@ -27,7 +27,6 @@ focal_openssl: needs-triage
 fips/focal_openssl: needs-triage
 fips-updates/focal_openssl: needs-triage
 jammy_openssl: needs-triage
-lunar_openssl: ignored (end of life, was needs-triage)
 mantic_openssl: needs-triage
 devel_openssl: needs-triage
 
@@ -40,7 +39,6 @@ bionic_openssl1.0: ignored (end of standard support)
 esm-infra/bionic_openssl1.0: needs-triage
 focal_openssl1.0: DNE
 jammy_openssl1.0: DNE
-lunar_openssl1.0: DNE
 mantic_openssl1.0: DNE
 devel_openssl1.0: DNE
 
@@ -52,7 +50,6 @@ xenial_nodejs: not-affected (uses system openssl)
 bionic_nodejs: not-affected (uses system openssl1.0)
 focal_nodejs: not-affected (uses system openssl)
 jammy_nodejs: needed
-lunar_nodejs: not-affected (uses system openssl)
 mantic_nodejs: not-affected (uses system openssl)
 devel_nodejs: not-affected (uses system openssl)
 
@@ -64,6 +61,5 @@ xenial_edk2: ignored (end of standard support)
 bionic_edk2: ignored (end of standard support)
 focal_edk2: needs-triage
 jammy_edk2: needs-triage
-lunar_edk2: ignored (end of life, was needs-triage)
 mantic_edk2: needs-triage
 devel_edk2: needs-triage

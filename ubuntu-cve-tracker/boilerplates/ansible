@@ -21,7 +21,6 @@ xenial_ansible: ignored (end of standard support)
 bionic_ansible: ignored (end of standard support)
 focal_ansible: needs-triage
 jammy_ansible: needs-triage
-lunar_ansible: ignored (end of life, was needs-triage)
 mantic_ansible: needs-triage
 devel_ansible: needs-triage
 
@@ -33,7 +32,6 @@ xenial_ansible-base: DNE
 bionic_ansible-base: DNE
 focal_ansible-base: DNE
 jammy_ansible-base: DNE
-lunar_ansible-base: DNE
 mantic_ansible-base: DNE
 devel_ansible-base: DNE
 
@@ -45,6 +43,5 @@ xenial_ansible-core: DNE
 bionic_ansible-core: DNE
 focal_ansible-core: DNE
 jammy_ansible-core: needs-triage
-lunar_ansible-core: ignored (end of life, was needs-triage)
 mantic_ansible-core: needs-triage
 devel_ansible-core: needs-triage

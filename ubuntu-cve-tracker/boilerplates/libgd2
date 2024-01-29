@@ -22,7 +22,6 @@ bionic_libgd2: ignored (end of standard support)
 esm-infra/bionic_libgd2: needs-triage
 focal_libgd2: needs-triage
 jammy_libgd2: needs-triage
-lunar_libgd2: ignored (end of life, was needs-triage)
 mantic_libgd2: needs-triage
 devel_libgd2: needs-triage
 
@@ -34,7 +33,6 @@ xenial_php5: DNE
 bionic_php5: DNE
 focal_php5: DNE
 jammy_php5: DNE
-lunar_php5: DNE
 mantic_php5: DNE
 devel_php5: DNE
 
@@ -47,7 +45,6 @@ esm-infra/xenial_php7.0: not-affected (uses system gd)
 bionic_php7.0: DNE
 focal_php7.0: DNE
 jammy_php7.0: DNE
-lunar_php7.0: DNE
 mantic_php7.0: DNE
 devel_php7.0: DNE
 
@@ -60,7 +57,6 @@ bionic_php7.2: not-affected (uses system gd)
 esm-infra/bionic_php7.2: not-affected (uses system gd)
 focal_php7.2: DNE
 jammy_php7.2: DNE
-lunar_php7.2: DNE
 mantic_php7.2: DNE
 devel_php7.2: DNE
 
@@ -72,6 +68,5 @@ xenial_php7.3: DNE
 bionic_php7.3: DNE
 focal_php7.3: DNE
 jammy_php7.3: DNE
-lunar_php7.3: DNE
 mantic_php7.3: DNE
 devel_php7.3: DNE

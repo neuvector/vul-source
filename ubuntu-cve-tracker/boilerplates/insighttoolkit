@@ -20,7 +20,6 @@ focal_insighttoolkit4: needs-triage
 esm-apps/focal_insighttoolkit4: needs-triage
 jammy_insighttoolkit4: needs-triage
 esm-apps/jammy_insighttoolkit4: needs-triage
-lunar_insighttoolkit4: ignored (end of life, was needs-triage)
 mantic_insighttoolkit4: DNE
 devel_insighttoolkit4: DNE
 
@@ -32,6 +31,5 @@ bionic_insighttoolkit5: DNE
 focal_insighttoolkit5: DNE
 jammy_insighttoolkit5: needs-triage
 esm-apps/jammy_insighttoolkit5: needs-triage
-lunar_insighttoolkit5: ignored (end of life, was needs-triage)
 mantic_insighttoolkit5: needs-triage
 devel_insighttoolkit5: needs-triage

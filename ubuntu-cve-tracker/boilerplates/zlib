@@ -22,7 +22,6 @@ bionic_zlib: ignored (end of standard support)
 esm-infra/bionic_zlib: needs-triage
 focal_zlib: needs-triage
 jammy_zlib: needs-triage
-lunar_zlib: ignored (end of life, was needs-triage)
 mantic_zlib: needs-triage
 devel_zlib: needs-triage
 
@@ -36,6 +35,5 @@ bionic_rsync: ignored (end of standard support)
 esm-infra/bionic_rsync: needed
 focal_rsync: needed
 jammy_rsync: not-affected (uses system zlib)
-lunar_rsync: not-affected (uses system zlib)
 mantic_rsync: not-affected (uses system zlib)
 devel_rsync: not-affected (uses system zlib)

@@ -21,7 +21,6 @@ xenial_libev: ignored (end of standard support, was needs-triage)
 bionic_libev: ignored (end of standard support)
 focal_libev: needs-triage
 jammy_libev: needs-triage
-lunar_libev: ignored (end of life, was needs-triage)
 mantic_libev: needs-triage
 devel_libev: needs-triage
 
@@ -33,7 +32,6 @@ xenial_ruby-nio4r: ignored (end of standard support, was needs-triage)
 bionic_ruby-nio4r: ignored (end of standard support)
 focal_ruby-nio4r: needs-triage
 jammy_ruby-nio4r: needs-triage
-lunar_ruby-nio4r: ignored (end of life, was needs-triage)
 mantic_ruby-nio4r: needs-triage
 devel_ruby-nio4r: needs-triage
 

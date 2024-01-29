@@ -28,7 +28,6 @@ bionic_grub2: ignored (end of standard support)
 esm-infra/bionic_grub2: needs-triage
 focal_grub2: needs-triage
 jammy_grub2: needs-triage
-lunar_grub2: ignored (end of life, was needs-triage)
 mantic_grub2: needs-triage
 devel_grub2: needs-triage
 
@@ -42,7 +41,6 @@ bionic_grub2-unsigned: ignored (end of standard support)
 esm-infra/bionic_grub2-unsigned: needs-triage
 focal_grub2-unsigned: needs-triage
 jammy_grub2-unsigned: needs-triage
-lunar_grub2-unsigned: ignored (end of life, was needs-triage)
 mantic_grub2-unsigned: needs-triage
 devel_grub2-unsigned: needs-triage
 
@@ -56,6 +54,5 @@ bionic_grub2-signed: ignored (end of standard support)
 esm-infra/bionic_grub2-signed: needs-triage
 focal_grub2-signed: needs-triage
 jammy_grub2-signed: needs-triage
-lunar_grub2-signed: ignored (end of life, was needs-triage)
 mantic_grub2-signed: needs-triage
 devel_grub2-signed: needs-triage

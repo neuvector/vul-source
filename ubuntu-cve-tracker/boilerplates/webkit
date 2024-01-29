@@ -24,7 +24,6 @@ xenial_webkitgtk: ignored (end of standard support)
 bionic_webkitgtk: ignored (end of standard support)
 focal_webkitgtk: DNE
 jammy_webkitgtk: DNE
-lunar_webkitgtk: DNE
 mantic_webkitgtk: DNE
 devel_webkitgtk: DNE
 
@@ -38,7 +37,6 @@ bionic_webkit2gtk: ignored (end of standard support, was deferred)
 esm-infra/bionic_webkit2gtk: ignored
 focal_webkit2gtk: ignored
 jammy_webkit2gtk: needs-triage
-lunar_webkit2gtk: ignored (end of life, was needs-triage)
 mantic_webkit2gtk: needs-triage
 devel_webkit2gtk: needs-triage
 
@@ -50,7 +48,6 @@ xenial_qtwebkit-source: ignored (end of standard support)
 bionic_qtwebkit-source: ignored (end of standard support)
 focal_qtwebkit-source: DNE
 jammy_qtwebkit-source: DNE
-lunar_qtwebkit-source: DNE
 mantic_qtwebkit-source: DNE
 devel_qtwebkit-source: DNE
 
@@ -63,7 +60,6 @@ esm-infra/xenial_qtwebkit-opensource-src: needs-triage
 bionic_qtwebkit-opensource-src: ignored (end of standard support)
 focal_qtwebkit-opensource-src: needs-triage
 jammy_qtwebkit-opensource-src: needs-triage
-lunar_qtwebkit-opensource-src: ignored (end of life, was needs-triage)
 mantic_qtwebkit-opensource-src: needs-triage
 devel_qtwebkit-opensource-src: needs-triage
 
@@ -75,6 +71,5 @@ xenial_wpewebkit: DNE
 bionic_wpewebkit: DNE
 focal_wpewebkit: needs-triage
 jammy_wpewebkit: needs-triage
-lunar_wpewebkit: DNE
 mantic_wpewebkit: DNE
 devel_wpewebkit: DNE

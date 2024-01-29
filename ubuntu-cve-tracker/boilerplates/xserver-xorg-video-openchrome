@@ -19,7 +19,6 @@ xenial_xserver-xorg-video-openchrome: ignored (end of standard support)
 bionic_xserver-xorg-video-openchrome: ignored (end of standard support)
 focal_xserver-xorg-video-openchrome: needs-triage
 jammy_xserver-xorg-video-openchrome: needs-triage
-lunar_xserver-xorg-video-openchrome: ignored (end of life, was needs-triage)
 mantic_xserver-xorg-video-openchrome: needs-triage
 devel_xserver-xorg-video-openchrome: needs-triage
 
@@ -31,7 +30,6 @@ xenial_xserver-xorg-video-openchrome-lts-utopic: DNE
 bionic_xserver-xorg-video-openchrome-lts-utopic: DNE
 focal_xserver-xorg-video-openchrome-lts-utopic: DNE
 jammy_xserver-xorg-video-openchrome-lts-utopic: DNE
-lunar_xserver-xorg-video-openchrome-lts-utopic: DNE
 mantic_xserver-xorg-video-openchrome-lts-utopic: DNE
 devel_xserver-xorg-video-openchrome-lts-utopic: DNE
 
@@ -43,7 +41,6 @@ xenial_xserver-xorg-video-openchrome-lts-vivid: DNE
 bionic_xserver-xorg-video-openchrome-lts-vivid: DNE
 focal_xserver-xorg-video-openchrome-lts-vivid: DNE
 jammy_xserver-xorg-video-openchrome-lts-vivid: DNE
-lunar_xserver-xorg-video-openchrome-lts-vivid: DNE
 mantic_xserver-xorg-video-openchrome-lts-vivid: DNE
 devel_xserver-xorg-video-openchrome-lts-vivid: DNE
 
@@ -55,7 +52,6 @@ xenial_xserver-xorg-video-openchrome-lts-wily: DNE
 bionic_xserver-xorg-video-openchrome-lts-wily: DNE
 focal_xserver-xorg-video-openchrome-lts-wily: DNE
 jammy_xserver-xorg-video-openchrome-lts-wily: DNE
-lunar_xserver-xorg-video-openchrome-lts-wily: DNE
 mantic_xserver-xorg-video-openchrome-lts-wily: DNE
 devel_xserver-xorg-video-openchrome-lts-wily: DNE
 
@@ -67,7 +63,6 @@ xenial_xserver-xorg-video-openchrome-lts-xenial: DNE
 bionic_xserver-xorg-video-openchrome-lts-xenial: DNE
 focal_xserver-xorg-video-openchrome-lts-xenial: DNE
 jammy_xserver-xorg-video-openchrome-lts-xenial: DNE
-lunar_xserver-xorg-video-openchrome-lts-xenial: DNE
 mantic_xserver-xorg-video-openchrome-lts-xenial: DNE
 devel_xserver-xorg-video-openchrome-lts-xenial: DNE
 
@@ -79,7 +74,6 @@ xenial_xserver-xorg-video-openchrome-hwe-16.04: ignored (end of standard support
 bionic_xserver-xorg-video-openchrome-hwe-16.04: DNE
 focal_xserver-xorg-video-openchrome-hwe-16.04: DNE
 jammy_xserver-xorg-video-openchrome-hwe-16.04: DNE
-lunar_xserver-xorg-video-openchrome-hwe-16.04: DNE
 mantic_xserver-xorg-video-openchrome-hwe-16.04: DNE
 devel_xserver-xorg-video-openchrome-hwe-16.04: DNE
 

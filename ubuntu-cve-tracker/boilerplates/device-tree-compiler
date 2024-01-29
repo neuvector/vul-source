@@ -25,7 +25,6 @@ groovy_device-tree-compiler: ignored (end of life, was needs-triage)
 hirsute_device-tree-compiler: ignored (end of life, was needs-triage)
 impish_device-tree-compiler: ignored (end of life, was needs-triage)
 jammy_device-tree-compiler:
-lunar_device-tree-compiler: ignored (end of life, was needs-triage)
 mantic_device-tree-compiler:
 devel_device-tree-compiler:
 
@@ -40,6 +39,5 @@ groovy_opensbi: ignored (end of life, was needs-triage)
 hirsute_opensbi: ignored (end of life, was needs-triage)
 impish_opensbi: ignored (end of life, was needs-triage)
 jammy_opensbi:
-lunar_opensbi: ignored (end of life, was needs-triage)
 mantic_opensbi:
 devel_opensbi:
