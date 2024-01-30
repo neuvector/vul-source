@@ -15,7 +15,7 @@ CVSS:
 Patches_tiff:
 upstream_tiff: needs-triage
 trusty_tiff: ignored (end of standard support)
-trusty/esm_tiff: DNE
+trusty/esm_tiff: needs-triage
 xenial_tiff: ignored (end of standard support)
 esm-infra/xenial_tiff: needs-triage
 bionic_tiff: ignored (end of standard support)
