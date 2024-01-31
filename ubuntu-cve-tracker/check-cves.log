@@ -7963,3 +7963,7 @@
 2024-01-29 12:54:52 UTC - 6 added, 0 ignored, 4 skipped, 6 total - files: ['debian-import_crsyn4bv.json']
 2024-01-30 11:43:13 UTC - 5 added, 90 ignored, 4 skipped, 95 total - files: ['nvdcve-1.1-recent.json']
 2024-01-30 12:55:34 UTC - 2 added, 6 ignored, 4 skipped, 8 total - files: ['debian-import_18h7hlzp.json']
+2024-01-31 11:14:44 UTC - 6 added, 66 ignored, 0 skipped, 72 total - files: ['nvdcve-1.1-recent.json']
+2024-01-31 11:15:03 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['allitems.xml']
+2024-01-31 11:30:55 UTC - 7 added, 3 ignored, 0 skipped, 10 total - files: ['debian-import_ieyn4j8f.json']
+2024-01-31 11:31:08 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
