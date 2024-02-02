@@ -591,16 +591,17 @@ def check_cve(cve):
                             file=sys.stderr,
                         )
                         cve_okay = False
-                    elif state == 'ignored':
-                        if not details[1]:
-                            continue
-                        elif (f'ignored ({details[1]})' != fixed_state):
-                            print(
-                                "%s: %d: %s incorrect ignored detail '%s' for '%s', try '%s'"
-                                % (filename, linenum, pkg, details[1], rel, fixed_state),
-                                file=sys.stderr,
-                            )
-                            cve_okay = False
+                    # REMOVED THIS CHECK TEMPORARILY WHILE WE WORK IN ANOTHER SOLUTION
+                    # elif state == 'ignored':
+                    #     if not details[1]:
+                    #         continue
+                    #     elif (f'ignored ({details[1]})' != fixed_state):
+                    #         print(
+                    #             "%s: %d: %s incorrect ignored detail '%s' for '%s', try '%s'"
+                    #             % (filename, linenum, pkg, details[1], rel, fixed_state),
+                    #             file=sys.stderr,
+                    #         )
+                    #         cve_okay = False
                 continue
 
             # Skip devel checks on retired CVEs

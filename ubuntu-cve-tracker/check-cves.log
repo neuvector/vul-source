@@ -7969,3 +7969,5 @@
 2024-01-31 11:31:08 UTC - 0 added, 0 ignored, 0 skipped, 0 total - files: ['cve-feed.json']
 2024-02-01 12:33:31 UTC - 2 added, 77 ignored, 1 skipped, 79 total - files: ['nvdcve-1.1-recent.json']
 2024-02-01 13:11:11 UTC - 0 added, 5 ignored, 2 skipped, 5 total - files: ['debian-import_f07ftgc8.json']
+2024-02-02 12:47:09 UTC - 5 added, 115 ignored, 3 skipped, 120 total - files: ['nvdcve-1.1-recent.json']
+2024-02-02 13:01:01 UTC - 0 added, 24 ignored, 5 skipped, 24 total - files: ['debian-import_5qno9y4n.json']
