@@ -135,30 +135,6 @@ esm-apps/jammy_n2n: needs-triage
 mantic_n2n: needs-triage
 devel_n2n: needs-triage
 
-Patches_network-manager:
-upstream_network-manager: needs-triage
-trusty_network-manager: ignored (end of standard support)
-xenial_network-manager: ignored (end of standard support)
-esm-infra/xenial_network-manager: needs-triage
-bionic_network-manager: ignored (end of standard support)
-esm-infra/bionic_network-manager: needs-triage
-focal_network-manager: needs-triage
-jammy_network-manager: needs-triage
-mantic_network-manager: needs-triage
-devel_network-manager: needs-triage
-
-Patches_network-manager-applet:
-upstream_network-manager-applet: needs-triage
-trusty_network-manager-applet: ignored (end of standard support)
-xenial_network-manager-applet: ignored (end of standard support)
-esm-infra/xenial_network-manager-applet: needs-triage
-bionic_network-manager-applet: ignored (end of standard support)
-esm-infra/bionic_network-manager-applet: needs-triage
-focal_network-manager-applet: needs-triage
-jammy_network-manager-applet: needs-triage
-mantic_network-manager-applet: needs-triage
-devel_network-manager-applet: needs-triage
-
 Patches_network-manager-fortisslvpn:
 upstream_network-manager-fortisslvpn: needs-triage
 trusty_network-manager-fortisslvpn: DNE
