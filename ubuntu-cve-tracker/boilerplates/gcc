@@ -474,7 +474,7 @@ bionic_gcc-xtensa-lx106: ignored (end of standard support)
 focal_gcc-xtensa-lx106: needs-triage
 jammy_gcc-xtensa-lx106: needs-triage
 mantic_gcc-xtensa-lx106: needs-triage
-devel_gcc-xtensa-lx106: needs-triage
+devel_gcc-xtensa-lx106: DNE
 
 Patches_gcc-snapshot:
 upstream_gcc-snapshot: needs-triage
