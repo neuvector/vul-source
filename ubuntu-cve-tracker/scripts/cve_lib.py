@@ -1820,6 +1820,8 @@ def add_cvss(cve, source, cvss):
         if not updated and in_cvss and not line.startswith(' '):
             output_cvss(output, source, cvss, score, severity)
             output.write('\n')
+            # write original line too so we don't lost it
+            output.write(line)
             updated = True
             in_cvss = False
         # we have found a CVSS vector
