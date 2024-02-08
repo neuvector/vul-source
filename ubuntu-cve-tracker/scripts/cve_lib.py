@@ -2568,14 +2568,6 @@ def load_boilerplates():
             aliases[orig_name].add(name)
             continue
         bpdata = parse_boilerplate(filepath)
-        # having a package reference itself as we have in the boilerplates
-        # is redundant - although this is not always the case as we may
-        # have a boilerplate filename like openjdk yet there is no openjdk
-        # package (just openjdk-8 etc) - so ignore any failures here
-        try:
-            del bpdata["pkgs"][name]
-        except KeyError:
-            pass
         data.setdefault(name, bpdata)
     for alias in aliases:
         data[alias]["aliases"] = sorted(list(aliases[alias]))

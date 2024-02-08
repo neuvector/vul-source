@@ -159,7 +159,7 @@ def add_pkg(p, fp, fixed, parent, embargoed):
     if parent is None and p in pkg_db:
         for pkg in pkg_db[p]["pkgs"]:
             # don't add the same package twice
-            if pkg != parent:
+            if pkg != p:
                 # we don't have fixed data for these subpackages
                 add_pkg(pkg, fp, fixed={}, parent=p, embargoed=embargoed)
 
