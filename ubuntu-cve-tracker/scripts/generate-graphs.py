@@ -232,7 +232,7 @@ def generate_cve_additions():
     for date in sorted(count.keys()):
         # sanity in active/CVE-* additions should start after 2007-09
         if date > 200709:
-            print(count[date], date, file=output)
+            print(date, count[date], file=output)
     output.close()
 
     output = open(cmdpath,'w')
