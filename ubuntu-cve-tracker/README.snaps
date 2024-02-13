@@ -10,14 +10,8 @@ snap_<snap-name>.
 
 -- Adding new supported snaps
 
-If the snap name is 'foo':
-1. update 'supported_snaps' in scripts/cve_lib.py to include 'foo' along
-   with its git tree and LP/Github project or to file bugs against. Eg:
-   supported_snaps = {...,
-                      'foo': ('http://git.url/...',
-                              'https://launchpad.net/project...'),
-                      }
+Simply update snap-supported.txt to add foo
 
 With the above:
  * check-syntax will verify supported snaps
- * html_export.py will export html relevant for a supported snap
+
