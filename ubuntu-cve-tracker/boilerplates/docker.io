@@ -9,6 +9,7 @@ Notes:
   docker.io-app source package, the docker.io source package contains only
   the library whilst the docker application itself is contained in the
   docker.io-app package.
+ sbeattie> docker packages contain an embedded copy of github:moby/buildkit
 Mitigation:
 Bugs:
 Priority: untriaged

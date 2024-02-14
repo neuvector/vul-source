@@ -30,3 +30,13 @@ focal_dotnet7: DNE
 jammy_dotnet7: needs-triage
 mantic_dotnet7: needs-triage
 devel_dotnet7: DNE
+
+Patches_dotnet8:
+upstream_dotnet8: needs-triage
+trusty_dotnet8: DNE
+xenial_dotnet8: DNE
+bionic_dotnet8: DNE
+focal_dotnet8: DNE
+jammy_dotnet8: needs-triage
+mantic_dotnet8: needs-triage
+devel_dotnet8: needs-triage

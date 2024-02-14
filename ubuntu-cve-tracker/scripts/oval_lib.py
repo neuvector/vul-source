@@ -479,14 +479,26 @@ class Package:
         return self.__str__()
 
 class USN:
-    def __init__(self, data):
-        for item in ['description', 'releases', 'title', 'timestamp', 'summary', 'action', 'cves', 'id', 'isummary']:
+    def __init__(self, data, cve_objs, pkgs_by_rel):
+        for item in ['description', 'releases', 'title', 'timestamp', 'summary', 'action', 'id', 'isummary']:
             if item in data:
                 setattr(self, item, data[item])
             else:
                 setattr(self, item, None)
-    
+        self.cves = cve_objs
+        self.pkgs = self._generate_pkg_fixed_ver_tuple_dict(pkgs_by_rel)
+
+    def _generate_pkg_fixed_ver_tuple_dict(self, pkgs_by_rel):
+        tup_dict = {}
+        for rel, pkgs in pkgs_by_rel.items():
+            tup_dict[rel] = {}
+            for src_name, pkg_object in pkgs.items():
+                fixed_ver = self.releases[rel]['sources'][src_name]['version']
+                tup_dict[rel][src_name] = (pkg_object, fixed_ver)
+        return tup_dict
+
     def __str__(self) -> str:
+        # return f'description: {self.description}\nid: {self.id}\ncves: {self.cves}\npkgs: {self.pkgs}\n' # TODO: remove this ugly debug print
         return self.id
 
     def __repr__(self) -> str:
@@ -1740,22 +1752,37 @@ class OvalGeneratorCVE(OvalGenerator):
             self._write_oval_xml(xml_tree, root_element)
 
 class OvalGeneratorUSNs(OvalGenerator):
-    def __init__(self, release, release_name, cve_paths, packages, progress, pkg_cache, usn_db_dir, fixed_only=True, cve_cache=None,  cve_prefix_dir=None, outdir='./', oval_format='dpkg') -> None:
-        super().__init__('usn', release, release_name, cve_paths, packages, progress, pkg_cache, fixed_only, cve_cache,  cve_prefix_dir, outdir, oval_format)
-        self._load_usns(usn_db_dir)
+    def __init__(self, releases, cve_paths, packages, progress, pkg_cache, usn_database, fixed_only=True, cve_cache=None, cve_prefix_dir=None, outdir='./', oval_format='dpkg') -> None:
+        super().__init__('usn', releases, cve_paths, packages, progress, pkg_cache, fixed_only, cve_cache, cve_prefix_dir, outdir, oval_format)
+        self.usns = self._load_usns(usn_database)
 
-    def _load_usns(self, usn_db_dir):
-        self.usns = {}
-        for filename in glob.glob(os.path.join(usn_db_dir, 'database*.json')):
-            with open(filename, 'r') as f:
-                data = json.load(f)
-                for item in data:
-                    usn = USN(item)
-                    self.usns[usn.id] = usn
-
-        for usn_id in sorted(self.usns.keys()):
-            if re.search(r'^[0-9]+-[0-9]$', usn_id):
-                self.usns[usn_id]['id'] = 'USN-' + usn_id
+    def _load_usns(self, usn_database):
+        usns = {}
+        # go thru every USN in the JSON
+        for usn_id, usn_data in usn_database.items():
+            # take existing CVE and Package objects
+            cve_objs = {}
+            pkg_objs_by_rels = {}
+            for rel, info in usn_data['releases'].items():
+                # CVE stays the same across releases
+                for cve in usn_data['cves']:
+                    if cve_objs.get(cve) is None:
+                        try:
+                            cve_objs[cve] = self.cves[rel][cve]
+                        except KeyError:
+                            pass
+                pkg_objs = {}
+                for pkg, _ in info['sources'].items():
+                    try:
+                        pkg_objs[pkg] = self.packages[rel][pkg]
+                    except KeyError:
+                        pass
+                if pkg_objs:
+                    pkg_objs_by_rels[rel] = pkg_objs
+            # create a USN object with fields in the USN and
+            # corresponding CVEs and Packages
+            usns[usn_id] = USN(usn_data, cve_objs, pkg_objs_by_rels)
+        return usns
 
     def _generate_advisory(self, usn: USN) -> etree.Element:
         severities = ['low', 'medium', 'high', 'critical']

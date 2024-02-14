@@ -781,6 +781,11 @@ kernel_glitches = {
             '5.13.0-1008.8': '5.13.0-1009.9',  # not sure what's up with this kernel
         },
     },
+    'linux-intel-iotg': {
+        'jammy': {
+            '5.15.0-1047.53': '5.15.0-1048.54',  # looks to have been a packaging resync
+        },
+    },
     'linux-intel-iotg-5.15': {
         'focal': {
             '~': '5.15.0-1027.32~20.04.1',  # up until this, we were considering this kernel as only edge binaries

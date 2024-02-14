@@ -8,6 +8,9 @@ Notes:
  mdeslaur> vulnerability has been fixed. This CVE entry does not
  mdeslaur> list packages that need rebuilding outside of the main
  mdeslaur> repository or the Ubuntu variants with PPA overlays.
+ mdeslaur>
+ mdeslaur> Warning: do not include nullboot in the list of no-change
+ mdeslaur> rebuilds after fixing an issue in golang.
 Mitigation: 
 Bugs: 
 Priority: untriaged
