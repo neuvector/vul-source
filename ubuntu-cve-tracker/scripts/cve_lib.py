@@ -115,11 +115,11 @@ subprojects = {
         "eol": False,
         "oval": True,
         "packages": ["trusty-esm-supported.txt"],
-        "name": "Ubuntu 14.04 ESM",
+        "name": "Ubuntu 14.04 LTS",
         "codename": "Trusty Tahr",
         "alias": "trusty/esm",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-infra-updates",  "pocket": "updates"}
                 ],
         "parent": "ubuntu/trusty",
@@ -131,10 +131,10 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted"],
         "packages": ["esm-infra-xenial-supported.txt"],
-        "name": "Ubuntu 16.04 ESM",
+        "name": "Ubuntu 16.04 LTS",
         "codename": "Xenial Xerus",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-infra-updates",  "pocket": "updates"}
                 ],
         "parent": "ubuntu/xenial",
@@ -146,10 +146,10 @@ subprojects = {
         "oval": True,
         "components": ["main", "restricted"],
         "packages": ["esm-infra-bionic-supported.txt"],
-        "name": "Ubuntu 18.04 ESM",
+        "name": "Ubuntu 18.04 LTS",
         "codename": "Bionic Beaver",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-infra-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-infra-updates",  "pocket": "updates"}
                 ],
         "parent": "ubuntu/bionic",
@@ -161,10 +161,10 @@ subprojects = {
         "oval": True,
         "components": ["universe", "multiverse"],
         "packages": ["esm-apps-xenial-supported.txt"],
-        "name": "Ubuntu 16.04 ESM",
+        "name": "Ubuntu 16.04 LTS",
         "codename": "Xenial Xerus",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-apps-updates",  "pocket": "updates"}
                 ],
         "parent": "esm-infra/xenial",
@@ -176,10 +176,10 @@ subprojects = {
         "oval": True,
         "components": ["universe", "multiverse"],
         "packages": ["esm-apps-bionic-supported.txt"],
-        "name": "Ubuntu 18.04 ESM",
+        "name": "Ubuntu 18.04 LTS",
         "codename": "Bionic Beaver",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-apps-updates",  "pocket": "updates"}
                 ],
         "parent": "esm-infra/bionic",
@@ -191,10 +191,10 @@ subprojects = {
         "oval": True,
         "components": ["universe", "multiverse"],
         "packages": ["esm-apps-focal-supported.txt"],
-        "name": "Ubuntu 20.04 ESM",
+        "name": "Ubuntu 20.04 LTS",
         "codename": "Focal Fossa",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-apps-updates",  "pocket": "updates"}
                 ],
         "parent": "ubuntu/focal",
@@ -206,10 +206,10 @@ subprojects = {
         "oval": True,
         "components": ["universe", "multiverse"],
         "packages": ["esm-apps-jammy-supported.txt"],
-        "name": "Ubuntu 22.04 ESM",
+        "name": "Ubuntu 22.04 LTS",
         "codename": "Jammy Jellyfish",
         "ppas": [
-                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"}, 
+                 {"ppa": "ubuntu-esm/esm-apps-security", "pocket": "security"},
                  {"ppa": "ubuntu-esm/esm-apps-updates",  "pocket": "updates"}
                 ],
         "parent": "ubuntu/jammy",
@@ -776,7 +776,7 @@ def get_subproject_details_by_ppa_url_and_series(url, series):
         prod, ser = product_series(rel)
         if ser == series:
             try:
-                for ppa_pocket in subprojects[rel]["ppas"]: 
+                for ppa_pocket in subprojects[rel]["ppas"]:
                     if ppa_pocket['ppa'] in url:
                         product = prod
                         canon = product + "/" + series
@@ -877,7 +877,7 @@ def release_version(rel):
             if details:
                 version = details["version"]
     return version
-    
+
 def release_ppas(rel):
     """Return the ppas for a given subproject."""
     ppas = None
@@ -913,7 +913,7 @@ def is_cve_triage_required(rel):
     """Check if CVE triage is required for a given release"""
     if rel not in external_releases:
         return True
-    
+
     try:
         _,_,_,details = get_subproject_details(rel)
         return details['support_metadata']['cve_triage']

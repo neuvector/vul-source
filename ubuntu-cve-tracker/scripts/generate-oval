@@ -103,6 +103,10 @@ def main():
                         'CVE OVAL')
     parser.add_argument('--fixed-only', action='store_true',
                         help='only generate pkg oval for fixed CVEs')
+    parser.add_argument('--expand', action='store_true',
+                        help='avoids combining all the oval data into one '
+                        'file and expands the output oval files into different '
+                        'releases, such as esm-apps, esm-infra, and ubuntu')
 
     args = parser.parse_args()
     pathnames = args.pathname or default_cves_to_process
@@ -150,6 +154,8 @@ def main():
             if release not in supported_releases:
                 error(f"unknown oval release {release}")
 
+    expand = args.expand
+
     cache = {}
     for release in supported_releases:
         cve_cache = {}
@@ -157,15 +163,15 @@ def main():
 
     if args.pkg_oval:
         if args.oci:
-            generate_oval_package(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, ocioutdir)
+            generate_oval_package(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, ocioutdir, expand)
         else:
-            generate_oval_package(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only)
+            generate_oval_package(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, expand)
         return
 
     if args.oci:
-        generate_oval_cve(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, ocioutdir)
+        generate_oval_cve(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, ocioutdir, expand)
     else:
-        generate_oval_cve(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only)
+        generate_oval_cve(releases, outdir, args.cve_prefix_dir, cache, cve_cache, args.oci, args.no_progress, args.packages, pathnames, args.fixed_only, expand)
     return
 
 
@@ -199,7 +205,7 @@ def ignore_source_package(source):
     return False
 
 
-def parse_cve_file(filepath, cache, pkg_filter=None):
+def parse_cve_file(filepath, cache, pkg_filter=None, expand=False):
     """ parse CVE data file into a dictionary using cve_lib """
 
     cve_header_data = {
@@ -220,7 +226,6 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
         'Unknown-Fields': [],
         'Source-note': filepath
     }
-
     data = load_cve(filepath)
     # first try a naive translation of fields
     for f in cve_header_data:
@@ -255,7 +260,7 @@ def parse_cve_file(filepath, cache, pkg_filter=None):
             if rel not in supported_releases:
                 continue
             state, details = data['pkgs'][pkg][rel]
-            packages[pkg]['Releases'][rel] = oval_lib.CVEPkgRelEntry.parse_package_status(rel, pkg, state, details, filepath, cache)
+            packages[pkg]['Releases'][rel] = oval_lib.CVEPkgRelEntry.parse_package_status(rel, pkg, state, details, filepath, cache, oval_lib.find_release_codename(rel), expand)
 
     # add supplemental packages; usually kernels only need this special case.
     for package in [name for name in packages if name in kernel_srcs]:
@@ -435,9 +440,21 @@ def generate_oval_usn(outdir, usn, usn_releases, cve_dir, usn_db_dir, no_progres
 
     return True
 
-def generate_oval_package(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, fixed_only, ocioutdir=None):
+def filter_releases_for_output(releases, ov):
+    output_releases = []
+    for release in releases:
+        ov._init_ids(release)
+        if ov._eligible_for_output(release):
+            if ov.expand == False and 'esm' in ov.release:
+                output_releases.append(ov.release_codename)
+            else:
+                output_releases.append(release)
+    return output_releases
+
+
+def generate_oval_package(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, fixed_only, ocioutdir=None, expand=False):
     if not no_progress:
-        print(f'[*] Generating OVAL PKG for packages in releases {", ".join(releases)}')
+        print('[*] Initiating OVAL Generation for PKG')
 
     ov = oval_lib.OvalGeneratorPkg(
         releases, 
@@ -449,8 +466,15 @@ def generate_oval_package(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache
         cve_cache=cve_cache, 
         oval_format='dpkg',
         outdir=outdir, 
-        cve_prefix_dir=cve_prefix_dir
+        cve_prefix_dir=cve_prefix_dir,
+        expand=expand
     )
+
+    output_releases = filter_releases_for_output(releases, ov)
+
+    if not no_progress:
+        print(f'[*] Generating OVAL PKG for packages in releases {", ".join(output_releases)}')
+
     ov.generate_oval()
 
     if oci:
@@ -459,11 +483,11 @@ def generate_oval_package(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache
         ov.generate_oval()
 
     if not no_progress:
-        print(f'[X] Done generating OVAL PKG for packages in releases {", ".join(releases)}')
+        print(f'[X] Done generating OVAL PKG for packages in releases {", ".join(output_releases)}')
 
-def generate_oval_cve(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, fixed_only, ocioutdir=None):
+def generate_oval_cve(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oci, no_progress, packages, pathnames, fixed_only, ocioutdir=None, expand=False):
     if not no_progress:
-        print(f'[*] Generating OVAL CVE for packages in releases {",".join(releases)}')
+        print('[*] Initiating OVAL Generation for CVE')
 
     ov = oval_lib.OvalGeneratorCVE(
         releases, 
@@ -475,8 +499,15 @@ def generate_oval_cve(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oc
         cve_cache=cve_cache, 
         oval_format='dpkg',
         outdir=outdir, 
-        cve_prefix_dir=cve_prefix_dir
+        cve_prefix_dir=cve_prefix_dir,
+        expand=expand
     )
+
+    output_releases = filter_releases_for_output(releases, ov)
+
+    if not no_progress:
+        print(f'[*] Generating OVAL CVE for packages in releases {", ".join(output_releases)}')
+
     ov.generate_oval()
 
     if oci:
@@ -485,7 +516,7 @@ def generate_oval_cve(releases, outdir, cve_prefix_dir, pkg_cache, cve_cache, oc
         ov.generate_oval()
 
     if not no_progress:
-        print(f'[X] Done generating OVAL CVE for packages in releases {", ".join(releases)}')
+        print(f'[X] Done generating OVAL CVE for packages in releases {", ".join(output_releases)}')
 
 if __name__ == '__main__':
     main()
