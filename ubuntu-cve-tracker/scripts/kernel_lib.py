@@ -1300,6 +1300,7 @@ kernel_glitches = {
     'linux-hwe-6.5': {
         'jammy': {
             '~': '6.5.0-14.14~22.04.1',  # initial publication
+            '6.5.0-17.17~22.04.1': '6.5.0-18.18~22.04.1', # respin for driver update
         },
     },
     'linux-xilinx-zynqmp': {
