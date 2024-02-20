@@ -17,6 +17,7 @@ Notes:
  mdeslaur> apr-util uses system expat
  mdeslaur> cmake uses system expat
  mdeslaur> ghostscript uses system expat
+ mdeslaur> firefox uses system expat
 Mitigation: 
 Bugs: 
 Priority: untriaged
@@ -261,10 +262,10 @@ upstream_firefox: needs-triage
 trusty_firefox: ignored (end of standard support)
 trusty/esm_firefox: DNE
 xenial_firefox: ignored (end of standard support)
-esm-infra/xenial_firefox: needs-triage
+esm-infra/xenial_firefox: not-affected (uses system expat)
 bionic_firefox: ignored (end of standard support)
-esm-infra/bionic_firefox: needs-triage
-focal_firefox: needs-triage
+esm-infra/bionic_firefox: not-affected (uses system expat)
+focal_firefox: not-affected (uses system expat)
 jammy_firefox: not-affected (code not present)
 mantic_firefox: not-affected (code not present)
 devel_firefox: not-affected (code not present)

@@ -222,7 +222,7 @@ meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-azure-4.15'], '-4.15.0',
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-dell300x'], '-4.15.0', ppa='ubuntu-esm/esm-infra-security')
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-gcp-4.15'], '-4.15.0', ppa='ubuntu-esm/esm-infra-security')
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-kvm'], '-4.15.0', signed=False ,ppa='ubuntu-esm/esm-infra-security')
-meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-oracle-4.15'], '-4.15.0', ppa='ubuntu-esm/esm-infra-security')
+meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-oracle'], '-4.15.0', ppa='ubuntu-esm/esm-infra-security')
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-raspi2'], '-4.15.0', signed=False, ppa='ubuntu-esm/esm-infra-security')
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-snapdragon'], '-4.15.0', signed=False, ppa='ubuntu-esm/esm-infra-security')
 meta_kernels.add_new_kernel('esm-infra/bionic', ['linux-hwe-5.4'], '-5.4.0', ppa='ubuntu-esm/esm-infra-security')

@@ -88,7 +88,7 @@ def guess_binary_links(binary, info, sources):
             version_match = sources[source_match].get("version")
         else:
             print(
-                "Warning: %s %s refers to source %s, but the source package is not found in the soures section."
+                "Warning: %s %s refers to source %s, but the source package is not found in the sources section."
                 % (binary, bin_version, source_match),
                 file=sys.stderr,
             )
