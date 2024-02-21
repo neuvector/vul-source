@@ -1687,6 +1687,15 @@ def drop_dup_release(cve, rel):
     output.close()
     os.rename(cve + '.new', cve)
 
+def drop_pkg_release(cve, pkg, rel):
+    output = codecs.open(cve + ".new", 'w', encoding="utf-8")
+    with codecs.open(cve, encoding="utf-8") as inF:
+        lines = inF.readlines()
+    for line in lines:
+        if not line.startswith('%s_%s:' % (rel, pkg)):
+            output.write(line)
+    output.close()
+    os.rename(cve + '.new', cve)
 
 def clone_release(cve, pkg, oldrel, newrel):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
@@ -1701,7 +1710,7 @@ def clone_release(cve, pkg, oldrel, newrel):
     os.rename(cve + '.new', cve)
 
 
-def update_state(cve, pkg, rel, state, details):
+def update_state(cve, pkg, rel, state, details=None):
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
     with codecs.open(cve, encoding="utf-8") as inF:
         lines = inF.readlines()
@@ -1716,18 +1725,79 @@ def update_state(cve, pkg, rel, state, details):
     os.rename(cve + '.new', cve)
 
 
-def add_state(cve, pkg, rel, state, details, after_rel):
+def add_state(cve, pkg, rel, state, details=None, after_rel=None):
+    new_line = '%s_%s: %s' % (rel, pkg, state)
+    if details:
+        new_line += ' (%s)' % (details)
+    new_line += '\n'
+
+    # This is a new file
+    if not os.path.exists(cve):
+        with open(cve, "w") as f:
+            f.write(new_line)
+        return
+
     output = codecs.open(cve + ".new", 'w', encoding="utf-8")
     with codecs.open(cve, encoding="utf-8") as inF:
         lines = inF.readlines()
-    for line in lines:
-        if line.startswith('%s_%s:' % (after_rel, pkg)):
+
+    if after_rel == None:
+        index = None
+        if rel != 'devel':
+            index = all_releases.index(rel)
+        done = False
+        found_pkg = False
+        for line in lines:
+            if done:
+                output.write(line)
+                continue
+            if not ('_%s:' % pkg) in line:
+                # If we're past the package section, and we wanted to add
+                # the devel release, stick it here
+                if rel == 'devel' and found_pkg == True:
+                    output.write(new_line)
+                    done = True
+                output.write(line)
+                continue
+
+            found_pkg = True
+            if rel != 'devel':
+                line_rel = line.split('_')[0]
+                # Whoa, we hit the devel release, stick it here
+                if line_rel == "devel":
+                    output.write(new_line)
+                    output.write(line)
+                    done = True
+                    continue
+
+                # Does this look like a release name?
+                if line_rel not in all_releases:
+                    output.write(line)
+                    continue
+
+                # See if the release is bigger than ours, if so, stick it here
+                if all_releases.index(line_rel) > index:
+                    output.write(new_line)
+                    output.write(line)
+                    done = True
+                    continue
+
+            # Nothing to see here, move along
             output.write(line)
-            line = '%s_%s: %s' % (rel, pkg, state)
-            if details:
-                line += ' (%s)' % (details)
-            line += '\n'
-        output.write(line)
+
+        # If we made it here, we didn't find a place to put it, just
+        # stick it at the end of the file
+        if done == False:
+            output.write(new_line)
+
+    else:
+        for line in lines:
+            if line.startswith('%s_%s:' % (after_rel, pkg)):
+                output.write(line)
+                output.write(new_line)
+            else:
+                output.write(line)
+
     output.close()
     os.rename(cve + '.new', cve)
 

@@ -63,6 +63,7 @@ parser.add_option("--mistriaged", help="Process the specified number of possible
 (opt, args) = parser.parse_args()
 
 experimental = os.getenv('CHECK_CVES_EXPERIMENTAL', False)
+breakfix = os.getenv('CHECK_CVES_BREAKFIX', False)
 
 # Pull in package details
 source = source_map.load()
@@ -1399,6 +1400,8 @@ class CVEHandler(xml.sax.handler.ContentHandler):
                '--public',
                # set date as now
                datetime.datetime.utcnow().strftime("%Y-%m-%d")]
+        if breakfix:
+            cmd.extend(['-k'])
         for url in ref_urls:
             cmd.extend(['--reference-url', url])
         for url in bug_urls:

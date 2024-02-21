@@ -242,6 +242,19 @@ parser.add_option(
     default=False,
 )
 parser.add_option(
+    "-a",
+    "--autofix",
+    help="Attempt to fix problems automatically",
+    action="store_true",
+    default=False,
+)
+parser.add_option(
+    "--dry-run",
+    help="Dry run for autofix parameter",
+    action="store_true",
+    default=False,
+)
+parser.add_option(
     "-j",
     "--jobs",
     type=int,
@@ -383,6 +396,103 @@ if len(cna_cves_set) > 0 and all_files:
 
 aliases_cache = {}
 
+def fixup_entry(filename, pkg, rel):
+    # If release is devel or EOL, we should add the proper status instead of removing
+    if rel == cve_lib.devel_release:
+        rel = "devel"
+        if opt.dry_run:
+            print("Dry-Run: updating %s, %s, devel to DNE" % (filename, pkg))
+            return
+        cve_lib.update_state(filename, pkg, "devel", "DNE")
+    elif not cve_lib.is_active_release(rel):
+        if cve_lib.is_active_esm_release(rel):
+            status = cve_lib.EOL_ESM_STATUS.format(state='unknown')
+        else:
+            status = cve_lib.EOL_STATUS.format(state='unknown')
+
+        if opt.dry_run:
+            print("Dry-Run: updating %s, %s, %s to %s" % (filename, pkg, rel, status))
+            return
+        cve_lib.update_state(filename, pkg, rel, status)
+
+    else:
+        if opt.dry_run:
+            print("Dry-Run: dropping %s, %s, %s" % (filename, pkg, rel))
+            return
+        cve_lib.drop_pkg_release(filename, pkg, rel)
+
+def fixup_entry_state(filename, pkg, rel, state):
+    if opt.dry_run:
+        print("Dry-Run: updating %s, %s, %s to %s" % (filename, pkg, rel, state))
+        return
+
+    cve_lib.update_state(filename, pkg, rel, state)
+
+def fixup_entry_get_status(filename, pkg, rel):
+    # get status from the parent release if there is one
+    status = "needs-triage"
+    try:
+        _, _, _, details = cve_lib.get_subproject_details(rel)
+        parent = details["parent"]
+        # this may be either an alias or a full name but cve_lib only
+        # uses aliases
+        parent = cve_lib.release_alias(parent)
+        data = cve_lib.load_cve(filename)
+        status = data["pkgs"][pkg][parent][0]
+        note = data["pkgs"][pkg][parent][1]
+        if len(note) > 0:
+            status = status + " (" + note + ")"
+        # if parent reached EOL then we are likely the new alive
+        # release so ignore their status in that case
+        if "end of life" in status or "end of standard support" in status:
+            status = 'needs-triage'
+    except (KeyError, ValueError, TypeError):
+        pass
+
+    return status
+
+def fixup_entry_missing(filename, pkg, rel):
+    status = fixup_entry_get_status(filename, pkg, rel)
+
+    if rel == cve_lib.devel_release:
+        rel = "devel"
+
+    if opt.dry_run:
+        print("Dry-Run: Adding %s, %s, %s to %s" % (filename, pkg, rel, status))
+        return
+
+    cve_lib.add_state(filename, pkg, rel, status)
+
+def fixup_entry_wrong(filename, pkg, rel):
+    status = fixup_entry_get_status(filename, pkg, rel)
+
+    if rel == cve_lib.devel_release:
+        rel = "devel"
+
+    if opt.dry_run:
+        print("Dry-Run: updating %s, %s, %s to %s" % (filename, pkg, rel, status))
+        return
+
+    cve_lib.update_state(filename, pkg, rel, status, None)
+
+def get_cve_path(cve, rel):
+
+    cve = os.path.basename(cve)
+    if rel in cve_lib.external_releases:
+        # FIXME: Should we also be using get_external_subproject_dir here?
+        cvepath = os.path.join(
+            cve_lib.get_external_subproject_cve_dir(rel), cve
+        )
+    else:
+        # Try and find where this CVE is located
+        for d in cve_lib.cve_dirs:
+            cvepath = os.path.join(d, cve)
+            if os.path.exists(cvepath):
+                return cvepath
+        # Fall back to the active directory if that didn't work?
+        cvepath = os.path.join(cve_lib.active_dir, cve)
+    return cvepath
+
 def check_cve(cve):
     if re.match(r"EMB-", cve):
         cvepath = os.path.join(cve_lib.embargoed_dir, cve)
@@ -447,9 +557,6 @@ def check_cve(cve):
         # Verify have required releases for each package
         listed_releases = set(sorted(data["pkgs"][pkg].keys()))
         all_required_releases = (set(cve_lib.all_releases + ["devel"]) - set([cve_lib.devel_release])) - set(cve_lib.eol_releases)
-        # get the name of a release which is listed in the CVE so we can
-        # place the generated error message on this release's line etc
-        nearby_rel = list(listed_releases)[0]
         aliases_releases = set()
 
         listed_series = set()
@@ -486,12 +593,10 @@ def check_cve(cve):
 
                         for pkg_alias in pkgs_from_aliases:
                             if pkg_alias not in data["pkgs"].keys():
-                                filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                                linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                                filename = get_cve_path(cve, rel)
                                 print(
-                                    "%s: %d: %s missing release '%s'"
-                                    # put the error on a line near where this entry should go
-                                    % (filename, linenum, pkg_alias, rel),
+                                    "%s: %s missing release '%s'"
+                                    % (filename, pkg_alias, rel),
                                     file=sys.stderr,
                                 )
                                 cve_okay = False
@@ -501,15 +606,13 @@ def check_cve(cve):
                     if aliases:
                         if rel in listed_releases and pkg \
                             not in pkgs_from_aliases:
-                            filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                            linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                            filename = get_cve_path(cve, rel)
                             print(
-                                "%s: %d: package '%s' not in '%s'"
-                                % (filename, linenum, pkg, rel),
+                                "%s: package '%s' not in '%s'"
+                                % (filename, pkg, rel),
                                 file=sys.stderr,
                             )
         missing_releases = all_required_releases - listed_releases
-        nearby_rel = list(listed_releases - missing_releases)[0]
         for rel in missing_releases:
             # only warn on active CVEs
             if is_active(cve) and \
@@ -519,14 +622,14 @@ def check_cve(cve):
                 # we shouldn't add any entries to the CVE
                 if not cve_lib.is_cve_triage_required(rel): continue
 
-                filename = srcmap["pkgs"][pkg][nearby_rel][0]
-                linenum = srcmap["pkgs"][pkg][nearby_rel][1]
+                filename = get_cve_path(cve, rel)
                 print(
-                    "%s: %d: %s missing release '%s'"
-                    # put the error on a line near where this entry should go
-                    % (filename, linenum, pkg, rel),
+                    "%s: %s missing release '%s'"
+                    % (filename, pkg, rel),
                     file=sys.stderr,
                 )
+                if opt.autofix:
+                    fixup_entry_missing(filename, pkg, rel)
                 cve_okay = False
         unknown_releases = listed_releases - set(cve_lib.all_releases + ["devel", "upstream"])
         for rel in unknown_releases:
@@ -537,6 +640,8 @@ def check_cve(cve):
                 % (filename, linenum, pkg, rel),
                 file=sys.stderr,
             )
+            if opt.autofix:
+                fixup_entry(filename, pkg, rel)
             cve_okay = False
         for release in sorted(data["pkgs"][pkg].keys()):
             rel = release
@@ -590,6 +695,8 @@ def check_cve(cve):
                             % (filename, linenum, pkg, state, rel, fixed_state),
                             file=sys.stderr,
                         )
+                        if opt.autofix:
+                            fixup_entry_state(filename, pkg, rel, fixed_state)
                         cve_okay = False
                     # REMOVED THIS CHECK TEMPORARILY WHILE WE WORK IN ANOTHER SOLUTION
                     # elif state == 'ignored':
@@ -601,6 +708,8 @@ def check_cve(cve):
                     #             % (filename, linenum, pkg, details[1], rel, fixed_state),
                     #             file=sys.stderr,
                     #         )
+                    #     if opt.autofix:
+                    #         fixup_entry_state(filename, pkg, rel, fixed_state)
                     #         cve_okay = False
                 continue
 
@@ -625,6 +734,8 @@ def check_cve(cve):
                         % (filename, linenum, pkg, rel),
                         file=sys.stderr,
                     )
+                    if opt.autofix:
+                        fixup_entry_wrong(filename, pkg, rel)
                     cve_okay = False
                 continue
 
@@ -667,6 +778,8 @@ def check_cve(cve):
                         % (filename, linenum, pkg, rel),
                         file=sys.stderr,
                     )
+                    if opt.autofix:
+                        fixup_entry(filename, pkg, rel)
                     cve_okay = False
             else:
                 if rel in source:
@@ -703,6 +816,8 @@ def check_cve(cve):
                                     % (filename, linenum, pkg, rel),
                                     file=sys.stderr,
                                 )
+                                if opt.autofix:
+                                    fixup_entry(filename, pkg, rel)
                                 cve_okay = False
                 elif opt.strict and not opt.newer:
                     # Validate the version is <= version in release

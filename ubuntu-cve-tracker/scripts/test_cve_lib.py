@@ -7,6 +7,8 @@ import pytest
 import random
 import sys
 import cve_lib
+import shutil
+import filecmp
 
 def pytest_generate_tests(metafunc):
     if "cvss" in metafunc.fixturenames:
@@ -28,23 +30,24 @@ def pytest_generate_tests(metafunc):
                 print("Failed to find %s to generate test cases..." % nvdjson, file=sys.stderr)
         metafunc.parametrize("cvss", [item for _, item in cvss.items()])
 
-def test_cvss_empty():
-    with pytest.raises(ValueError):
-        cve_lib.parse_cvss('')
+class TestCVSS:
+    def test_cvss_empty(self):
+        with pytest.raises(ValueError):
+            cve_lib.parse_cvss('')
 
-def test_cvss_none():
-    with pytest.raises(ValueError):
-        cve_lib.parse_cvss(None)
+    def test_cvss_none(self):
+        with pytest.raises(ValueError):
+            cve_lib.parse_cvss(None)
 
-def test_cvss(cvss):
-    # hack around the fact that some cvssV3 entries use the cvssV2
-    # ADJACENT_NETWORK attackVector which is wrong...
-    if cvss["baseMetricV3"]["cvssV3"]["attackVector"] == "ADJACENT_NETWORK":
-       cvss["baseMetricV3"]["cvssV3"]["attackVector"] = "ADJACENT"
-    js = cve_lib.parse_cvss(cvss["baseMetricV3"]["cvssV3"]["vectorString"])
-    # the existing impact may contain a baseMetricV2 or others so only
-    # compare CVSS3
-    assert(js["baseMetricV3"] == cvss["baseMetricV3"])
+    def test_cvss(self, cvss):
+        # hack around the fact that some cvssV3 entries use the cvssV2
+        # ADJACENT_NETWORK attackVector which is wrong...
+        if cvss["baseMetricV3"]["cvssV3"]["attackVector"] == "ADJACENT_NETWORK":
+           cvss["baseMetricV3"]["cvssV3"]["attackVector"] = "ADJACENT"
+        js = cve_lib.parse_cvss(cvss["baseMetricV3"]["cvssV3"]["vectorString"])
+        # the existing impact may contain a baseMetricV2 or others so only
+        # compare CVSS3
+        assert(js["baseMetricV3"] == cvss["baseMetricV3"])
 
 
 class TestPackageOverrideTests:
@@ -98,6 +101,74 @@ class TestReleaseSort:
         # Dapper (6.06) should be before Xenial (16.04)
         assert cve_lib.release_sort(
             ["xenial", "dapper"]) == ["dapper", "xenial"]
+
+class TestFileManipulation:
+
+    def _prepare_files(self, tmp_path, filename):
+        test_file = os.path.join(tmp_path, filename)
+        test_result = 'scripts/testfiles/' + filename + '.result'
+        shutil.copy('scripts/testfiles/' + filename + '.in', test_file)
+        return (test_file, test_result)
+
+    def test_add_state_middle(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_1')
+        # Insert a release in the middle of other releases
+        cve_lib.add_state(test_file, "openssl", "mantic", "needs-triage")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_add_state_devel(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_2')
+        # Insert a missing devel release
+        cve_lib.add_state(test_file, "openssl", "devel", "needs-triage")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_add_state_middle_last(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_3')
+        # Insert a release in the middle of other releases in the last group
+        cve_lib.add_state(test_file, "edk2", "jammy", "needs-triage")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_add_state_devel_end_of_file(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_4')
+        # Insert a missing devel release in the last group
+        cve_lib.add_state(test_file, "edk2", "devel", "needs-triage")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_add_state_with_details(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_5')
+        # Insert a release in the middle of other releases with details
+        cve_lib.add_state(test_file, "openssl", "mantic", "not-affected", "code not present")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_add_state_after_rel(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_6')
+        # Insert a release after a certain other release
+        cve_lib.add_state(test_file, "openssl", "mantic", "needs-triage", after_rel="jammy")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_update_state(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_7')
+        # Update the state of a release
+        cve_lib.update_state(test_file, "openssl", "mantic", "not-affected")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_update_state_with_details(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_8')
+        # Update the state of a release with some details
+        cve_lib.update_state(test_file, "openssl", "mantic", "not-affected", "code not present")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_clone_release(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_9')
+        # Clone a release into another (ordering is weird here, what uses this?)
+        cve_lib.clone_release(test_file, "openssl", "mantic", "jammy")
+        assert filecmp.cmp(test_file, test_result)
+
+    def test_drop_pkg_release(self, tmp_path):
+        test_file, test_result = self._prepare_files(tmp_path, 'cve_lib_test_10')
+        # Drop a release
+        cve_lib.drop_pkg_release(test_file, "openssl", "mantic")
+        assert filecmp.cmp(test_file, test_result)
 
 class TestReleaseDevel:
     def test_release_devel_direct(self):
