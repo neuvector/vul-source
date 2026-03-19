@@ -1,0 +1,1475 @@
+{
+  "bluefield/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "bluefield-jammy-supported.txt"
+    ],
+    "name": "Ubuntu Nvidia-BlueField 22.04 LTS",
+    "codename": "Jammy Jellyfish",
+    "ppas": [
+      {
+        "ppa": "canonical-kernel-bluefield/release",
+        "pocket": "release"
+      }
+    ],
+    "parent": "ubuntu/jammy",
+    "description": "Available for NVIDIA BlueField platforms"
+  },
+  "stable-phone-overlay/vivid": {
+    "eol": true,
+    "packages": [
+      "vivid-stable-phone-overlay-supported.txt"
+    ],
+    "name": "Ubuntu Touch 15.04",
+    "alias": "vivid/stable-phone-overlay"
+  },
+  "ubuntu-core/vivid": {
+    "eol": true,
+    "packages": [
+      "vivid-ubuntu-core-supported.txt"
+    ],
+    "name": "Ubuntu Core 15.04",
+    "alias": "vivid/ubuntu-core"
+  },
+  "esm/precise": {
+    "eol": true,
+    "packages": [
+      "precise-esm-supported.txt"
+    ],
+    "name": "Ubuntu 12.04 ESM",
+    "codename": "Precise Pangolin",
+    "alias": "precise/esm",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm",
+        "pocket": "security"
+      }
+    ],
+    "parent": "ubuntu/precise",
+    "description": "Available with UA Infra or UA Desktop: https://ubuntu.com/advantage",
+    "stamp": 1493521200
+  },
+  "esm/trusty": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "trusty-esm-supported.txt"
+    ],
+    "name": "Ubuntu 14.04 LTS",
+    "codename": "Trusty Tahr",
+    "alias": "trusty/esm",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-infra-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-infra-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/trusty",
+    "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+    "stamp": 1556593200
+  },
+  "esm-infra/xenial": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted"
+    ],
+    "packages": [
+      "esm-infra-xenial-supported.txt"
+    ],
+    "name": "Ubuntu 16.04 LTS",
+    "codename": "Xenial Xerus",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-infra-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-infra-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/xenial",
+    "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+    "stamp": 1618963200
+  },
+  "esm-infra/bionic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted"
+    ],
+    "packages": [
+      "esm-infra-bionic-supported.txt"
+    ],
+    "name": "Ubuntu 18.04 LTS",
+    "codename": "Bionic Beaver",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-infra-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-infra-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/bionic",
+    "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+    "stamp": 1685539024
+  },
+  "esm-infra/focal": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted"
+    ],
+    "packages": [
+      "esm-infra-focal-supported.txt"
+    ],
+    "name": "Ubuntu 20.04 LTS",
+    "codename": "Focal Fossa",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-infra-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-infra-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/focal",
+    "description": "Available with Ubuntu Pro (Infra-only): https://ubuntu.com/pro",
+    "stamp": 1748920791
+  },
+  "esm-infra-legacy/trusty": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "esm-infra-legacy-trusty-supported.txt"
+    ],
+    "name": "Ubuntu 14.04 LTS",
+    "codename": "Trusty Tahr",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-infra-legacy-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-infra-legacy-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm/trusty",
+    "description": "Available with Ubuntu Pro with Legacy support add-on: https://ubuntu.com/pro",
+    "stamp": 1732637340
+  },
+  "esm-apps/xenial": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "universe",
+      "multiverse"
+    ],
+    "packages": [
+      "esm-apps-xenial-supported.txt"
+    ],
+    "name": "Ubuntu 16.04 LTS",
+    "codename": "Xenial Xerus",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-apps-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-apps-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-infra/xenial",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+    "stamp": 1618963200
+  },
+  "esm-apps/bionic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "universe",
+      "multiverse"
+    ],
+    "packages": [
+      "esm-apps-bionic-supported.txt"
+    ],
+    "name": "Ubuntu 18.04 LTS",
+    "codename": "Bionic Beaver",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-apps-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-apps-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-infra/bionic",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+    "stamp": 1524870000
+  },
+  "esm-apps/focal": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "universe",
+      "multiverse"
+    ],
+    "packages": [
+      "esm-apps-focal-supported.txt"
+    ],
+    "name": "Ubuntu 20.04 LTS",
+    "codename": "Focal Fossa",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-apps-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-apps-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-infra/focal",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+    "stamp": 1587567600
+  },
+  "esm-apps/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "universe",
+      "multiverse"
+    ],
+    "packages": [
+      "esm-apps-jammy-supported.txt"
+    ],
+    "name": "Ubuntu 22.04 LTS",
+    "codename": "Jammy Jellyfish",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-apps-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-apps-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/jammy",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+    "stamp": 1650693600
+  },
+  "esm-apps/noble": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "universe",
+      "multiverse"
+    ],
+    "packages": [
+      "esm-apps-noble-supported.txt"
+    ],
+    "name": "Ubuntu 24.04 LTS",
+    "codename": "Noble Numbat",
+    "ppas": [
+      {
+        "ppa": "ubuntu-esm/esm-apps-security",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-esm/esm-apps-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "ubuntu/noble",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro",
+    "stamp": 1714060800
+  },
+  "fips/xenial": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-xenial-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS 16.04 LTS",
+    "codename": "Xenial Xerus",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips",
+        "pocket": "security"
+      }
+    ],
+    "parent": "esm-apps/xenial",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips/bionic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-bionic-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS 18.04 LTS",
+    "codename": "Bionic Beaver",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips",
+        "pocket": "security"
+      }
+    ],
+    "parent": "esm-apps/bionic",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips/focal": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-focal-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS 20.04 LTS",
+    "codename": "Focal Fossa",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips",
+        "pocket": "security"
+      }
+    ],
+    "parent": "esm-apps/focal",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-updates/xenial": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-updates-xenial-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS 16.04 LTS",
+    "codename": "Xenial Xerus",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips-updates",
+        "pocket": "updates"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-apps/xenial",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-updates/bionic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-updates-bionic-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS-updates 18.04 LTS",
+    "codename": "Bionic Beaver",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips-updates",
+        "pocket": "updates"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-apps/bionic",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-updates/focal": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-updates-focal-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS-updates 20.04 LTS",
+    "codename": "Focal Fossa",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips-updates",
+        "pocket": "updates"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-apps/focal",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-updates/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-updates-jammy-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS-updates 22.04 LTS",
+    "codename": "Jammy Jellyfish",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips-updates",
+        "pocket": "updates"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-apps/jammy",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-updates/noble": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-updates-noble-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS-updates 24.04 LTS",
+    "codename": "Noble Numbat",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/pro-fips-updates",
+        "pocket": "updates"
+      }
+    ],
+    "parent": "esm-apps/noble",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "fips-preview/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "fips-preview-jammy-supported.txt"
+    ],
+    "name": "Ubuntu Pro FIPS-preview 22.04 LTS",
+    "codename": "Jammy Jellyfish",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/fips-preview",
+        "pocket": "security"
+      },
+      {
+        "ppa": "ubuntu-advantage/pro-fips-preview",
+        "pocket": "security"
+      }
+    ],
+    "parent": "esm-apps/jammy",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "realtime/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "realtime-jammy-supported.txt"
+    ],
+    "name": "Ubuntu Pro Realtime 22.04 LTS",
+    "codename": "Jammy Jellyfish",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/realtime-updates",
+        "pocket": "release"
+      }
+    ],
+    "parent": "ubuntu/jammy",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "realtime/noble": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "packages": [
+      "realtime-noble-supported.txt"
+    ],
+    "name": "Ubuntu Pro Realtime 24.04 LTS",
+    "codename": "Noble Numbat",
+    "ppas": [
+      {
+        "ppa": "ubuntu-advantage/realtime-updates",
+        "pocket": "release"
+      }
+    ],
+    "parent": "ubuntu/noble",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "ros-esm/foxy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": false,
+      "osv": false,
+      "vex": false
+    },
+    "packages": [
+      "ros-esm-focal-foxy-supported.txt"
+    ],
+    "name": "Ubuntu Pro ROS-ESM 20.04 LTS",
+    "codename": "Focal Fossa",
+    "alias": "ros-esm/focal/foxy",
+    "ppas": [
+      {
+        "ppa": "ubuntu-robotics-packagers/ros-security",
+        "pocket": "security"
+      }
+    ],
+    "parent": "ubuntu/focal",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "ros-esm/kinetic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": false,
+      "osv": false,
+      "vex": false
+    },
+    "packages": [
+      "ros-esm-xenial-kinetic-supported.txt"
+    ],
+    "name": "Ubuntu Pro ROS-ESM 16.04 LTS",
+    "codename": "Xenial Xerus",
+    "alias": "ros-esm/xenial",
+    "ppas": [
+      {
+        "ppa": "ubuntu-robotics-packagers/ros-security",
+        "pocket": "security"
+      }
+    ],
+    "parent": "ubuntu/xenial",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "ros-esm/melodic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": false,
+      "osv": false,
+      "vex": false
+    },
+    "packages": [
+      "ros-esm-bionic-melodic-supported.txt"
+    ],
+    "name": "Ubuntu Pro ROS-ESM 18.04 LTS",
+    "codename": "Bionic Beaver",
+    "alias": "ros-esm/bionic",
+    "ppas": [
+      {
+        "ppa": "ubuntu-robotics-packagers/ros-security",
+        "pocket": "security"
+      }
+    ],
+    "parent": "ubuntu/bionic",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "ros-esm/noetic": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": false,
+      "osv": false,
+      "vex": false
+    },
+    "packages": [
+      "ros-esm-focal-noetic-supported.txt"
+    ],
+    "name": "Ubuntu Pro ROS-ESM 20.04 LTS",
+    "codename": "Focal Fossa",
+    "alias": "ros-esm/focal/noetic",
+    "ppas": [
+      {
+        "ppa": "ubuntu-robotics-packagers/ros-security",
+        "pocket": "security"
+      }
+    ],
+    "parent": "ubuntu/focal",
+    "description": "Available with Ubuntu Pro: https://ubuntu.com/pro"
+  },
+  "ubuntu/warty": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 4.10",
+    "version": 4.1,
+    "codename": "Warty Warthog",
+    "alias": "warty",
+    "description": "Interim Release",
+    "stamp": 1098748800
+  },
+  "ubuntu/hoary": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 5.04",
+    "version": 5.04,
+    "codename": "Hoary Hedgehog",
+    "alias": "hoary",
+    "description": "Interim Release",
+    "stamp": 1112918400
+  },
+  "ubuntu/breezy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 5.10",
+    "version": 5.1,
+    "codename": "Breezy Badger",
+    "alias": "breezy",
+    "description": "Interim Release",
+    "stamp": 1129075200
+  },
+  "ubuntu/dapper": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 6.06 LTS",
+    "version": 6.06,
+    "codename": "Dapper Drake",
+    "alias": "dapper",
+    "description": "Long Term Support",
+    "stamp": 1149120000
+  },
+  "ubuntu/edgy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 6.10",
+    "version": 6.1,
+    "codename": "Edgy Eft",
+    "alias": "edgy",
+    "description": "Interim Release",
+    "stamp": 1161864000
+  },
+  "ubuntu/feisty": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 7.04",
+    "version": 7.04,
+    "codename": "Feisty Fawn",
+    "alias": "feisty",
+    "description": "Interim Release",
+    "stamp": 1176984000
+  },
+  "ubuntu/gutsy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 7.10",
+    "version": 7.1,
+    "codename": "Gutsy Gibbon",
+    "alias": "gutsy",
+    "description": "Interim Release",
+    "stamp": 1192708800
+  },
+  "ubuntu/hardy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 8.04 LTS",
+    "version": 8.04,
+    "codename": "Hardy Heron",
+    "alias": "hardy",
+    "description": "Long Term Support",
+    "stamp": 1209038400
+  },
+  "ubuntu/intrepid": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 8.10",
+    "version": 8.1,
+    "codename": "Intrepid Ibex",
+    "alias": "intrepid",
+    "description": "Interim Release",
+    "stamp": 1225368000
+  },
+  "ubuntu/jaunty": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 9.04",
+    "version": 9.04,
+    "codename": "Jaunty Jackalope",
+    "alias": "jaunty",
+    "description": "Interim Release",
+    "stamp": 1240488000
+  },
+  "ubuntu/karmic": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 9.10",
+    "version": 9.1,
+    "codename": "Karmic Koala",
+    "alias": "karmic",
+    "description": "Interim Release",
+    "stamp": 1256817600
+  },
+  "ubuntu/lucid": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 10.04 LTS",
+    "version": 10.04,
+    "codename": "Lucid Lynx",
+    "alias": "lucid",
+    "description": "Long Term Support",
+    "stamp": 1272565800
+  },
+  "ubuntu/maverick": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 10.10",
+    "version": 10.1,
+    "codename": "Maverick Meerkat",
+    "alias": "maverick",
+    "description": "Interim Release",
+    "stamp": 1286706600
+  },
+  "ubuntu/natty": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 11.04",
+    "version": 11.04,
+    "codename": "Natty Narwhal",
+    "alias": "natty",
+    "description": "Interim Release",
+    "stamp": 1303822800
+  },
+  "ubuntu/oneiric": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 11.10",
+    "version": 11.1,
+    "codename": "Oneiric Ocelot",
+    "alias": "oneiric",
+    "description": "Interim Release",
+    "stamp": 1318446000
+  },
+  "ubuntu/precise": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 12.04 LTS",
+    "version": 12.04,
+    "codename": "Precise Pangolin",
+    "alias": "precise",
+    "description": "Long Term Support",
+    "stamp": 1335423600
+  },
+  "ubuntu/quantal": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 12.10",
+    "version": 12.1,
+    "codename": "Quantal Quetzal",
+    "alias": "quantal",
+    "description": "Interim Release",
+    "stamp": 1350547200
+  },
+  "ubuntu/raring": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 13.04",
+    "version": 13.04,
+    "codename": "Raring Ringtail",
+    "alias": "raring",
+    "description": "Interim Release",
+    "stamp": 1366891200
+  },
+  "ubuntu/saucy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 13.10",
+    "version": 13.1,
+    "codename": "Saucy Salamander",
+    "alias": "saucy",
+    "description": "Interim Release",
+    "stamp": 1381993200
+  },
+  "ubuntu/trusty": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 14.04 LTS",
+    "version": 14.04,
+    "codename": "Trusty Tahr",
+    "alias": "trusty",
+    "description": "Long Term Support",
+    "stamp": 1397826000
+  },
+  "ubuntu/utopic": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 14.10",
+    "version": 14.1,
+    "codename": "Utopic Unicorn",
+    "alias": "utopic",
+    "description": "Interim Release",
+    "stamp": 1414083600
+  },
+  "ubuntu/vivid": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 15.04",
+    "version": 15.04,
+    "codename": "Vivid Vervet",
+    "alias": "vivid",
+    "description": "Interim Release",
+    "stamp": 1429027200
+  },
+  "ubuntu/wily": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 15.10",
+    "version": 15.1,
+    "codename": "Wily Werewolf",
+    "alias": "wily",
+    "description": "Interim Release",
+    "stamp": 1445518800
+  },
+  "ubuntu/xenial": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 16.04 LTS",
+    "version": 16.04,
+    "codename": "Xenial Xerus",
+    "alias": "xenial",
+    "description": "Long Term Support",
+    "stamp": 1461279600
+  },
+  "ubuntu/yakkety": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 16.10",
+    "version": 16.1,
+    "codename": "Yakkety Yak",
+    "alias": "yakkety",
+    "description": "Interim Release",
+    "stamp": 1476518400
+  },
+  "ubuntu/zesty": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 17.04",
+    "version": 17.04,
+    "codename": "Zesty Zapus",
+    "alias": "zesty",
+    "description": "Interim Release",
+    "stamp": 1492153200
+  },
+  "ubuntu/artful": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 17.10",
+    "version": 17.1,
+    "codename": "Artful Aardvark",
+    "alias": "artful",
+    "description": "Interim Release",
+    "stamp": 1508418000
+  },
+  "ubuntu/bionic": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 18.04 LTS",
+    "version": 18.04,
+    "codename": "Bionic Beaver",
+    "alias": "bionic",
+    "description": "Long Term Support",
+    "stamp": 1524870000
+  },
+  "ubuntu/cosmic": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 18.10",
+    "version": 18.1,
+    "codename": "Cosmic Cuttlefish",
+    "alias": "cosmic",
+    "description": "Interim Release",
+    "stamp": 1540040400
+  },
+  "ubuntu/disco": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 19.04",
+    "version": 19.04,
+    "codename": "Disco Dingo",
+    "alias": "disco",
+    "description": "Interim Release",
+    "stamp": 1555581600
+  },
+  "ubuntu/eoan": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 19.10",
+    "version": 19.1,
+    "codename": "Eoan Ermine",
+    "alias": "eoan",
+    "description": "Interim Release",
+    "stamp": 1571234400
+  },
+  "ubuntu/focal": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 20.04 LTS",
+    "version": 20.04,
+    "codename": "Focal Fossa",
+    "alias": "focal",
+    "description": "Long Term Support",
+    "stamp": 1587567600
+  },
+  "ubuntu/groovy": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 20.10",
+    "version": 20.1,
+    "codename": "Groovy Gorilla",
+    "alias": "groovy",
+    "description": "Interim Release",
+    "stamp": 1603288800
+  },
+  "ubuntu/hirsute": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 21.04",
+    "version": 21.04,
+    "codename": "Hirsute Hippo",
+    "alias": "hirsute",
+    "description": "Interim Release",
+    "stamp": 1619049600
+  },
+  "ubuntu/impish": {
+    "eol": true,
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 21.10",
+    "version": 21.1,
+    "codename": "Impish Indri",
+    "alias": "impish",
+    "description": "Interim Release",
+    "stamp": 1634220000
+  },
+  "ubuntu/jammy": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 22.04 LTS",
+    "version": 22.04,
+    "codename": "Jammy Jellyfish",
+    "alias": "jammy",
+    "description": "Long Term Support",
+    "stamp": 1650693600
+  },
+  "ubuntu/kinetic": {
+    "eol": true,
+    "data_formats": {
+      "oval": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 22.10",
+    "version": 22.1,
+    "codename": "Kinetic Kudu",
+    "alias": "kinetic",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1666461600
+  },
+  "ubuntu/lunar": {
+    "eol": true,
+    "data_formats": {
+      "oval": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 23.04",
+    "version": 23.04,
+    "codename": "Lunar Lobster",
+    "alias": "lunar",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1682431200
+  },
+  "ubuntu/mantic": {
+    "eol": true,
+    "data_formats": {
+      "oval": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 23.10",
+    "version": 23.1,
+    "codename": "Mantic Minotaur",
+    "alias": "mantic",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1697493600
+  },
+  "ubuntu/noble": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 24.04 LTS",
+    "version": 24.04,
+    "codename": "Noble Numbat",
+    "alias": "noble",
+    "devel": false,
+    "description": "Long Term Release",
+    "stamp": 1714060800
+  },
+  "ubuntu/oracular": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 24.10",
+    "version": 24.1,
+    "codename": "Oracular Oriole",
+    "alias": "oracular",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1728961200
+  },
+  "ubuntu/plucky": {
+    "eol": true,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 25.04",
+    "version": 25.04,
+    "codename": "Plucky Puffin",
+    "alias": "plucky",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1744905600
+  },
+  "ubuntu/questing": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 25.10",
+    "version": 25.1,
+    "codename": "Questing Quokka",
+    "alias": "questing",
+    "devel": false,
+    "description": "Interim Release",
+    "stamp": 1760029200
+  },
+  "ubuntu/resolute": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": true,
+      "oval": true,
+      "osv": true,
+      "vex": true
+    },
+    "components": [
+      "main",
+      "restricted",
+      "universe",
+      "multiverse"
+    ],
+    "name": "Ubuntu 26.04",
+    "version": 26.04,
+    "codename": "Resolute Raccoon",
+    "alias": "resolute",
+    "devel": true,
+    "description": "Long Term Release"
+  },
+  "snap": {
+    "eol": false,
+    "data_formats": {
+      "pkg-json": false,
+      "oval": false,
+      "osv": false,
+      "vex": false
+    },
+    "packages": [
+      "snap-supported.txt"
+    ]
+  }
+}
